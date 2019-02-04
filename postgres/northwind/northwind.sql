@@ -1,3 +1,7 @@
+DROP SCHEMA northwind CASCADE;
+CREATE SCHEMA northwind;
+SET SCHEMA 'northwind';
+
 --
 -- PostgreSQL database dump
 --
