@@ -1,4 +1,4 @@
-DROP SCHEMA shakespeare CASCADE;
+DROP SCHEMA IF EXISTS shakespeare CASCADE;
 CREATE SCHEMA shakespeare;
 SET SCHEMA 'shakespeare';
 
