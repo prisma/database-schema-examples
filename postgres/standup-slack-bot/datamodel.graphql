@@ -1,0 +1,141 @@
+type Eventid @db(name: "eventids") {
+  event_id: ID! @id(strategy: NONE)
+  created_at: DateTime!
+}
+
+type Migrate @db(name: "migrate") {
+  version: Int! @id(strategy: NONE)
+}
+
+type Post @db(name: "posts") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "posts_id_seq", initialValue: 1, allocationSize: 1)
+  created_at: DateTime!
+  reports: [Report]
+  standup_id: Standup!
+  updated_at: DateTime!
+}
+
+type Question @db(name: "questions") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "questions_id_seq", initialValue: 1, allocationSize: 1)
+  created_at: DateTime!
+  order: Int!
+  question: String!
+  standup_id: Standup!
+  updated_at: DateTime!
+}
+
+type Report @db(name: "reports") @indexes(value: [
+  {name: "reports_user_id_post_id_key", fields: ["user_id", "post_id"], unique: true}
+]) {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "reports_id_seq", initialValue: 1, allocationSize: 1)
+  created_at: DateTime!
+  post_id: Post
+  questions: Json!
+  standup_id: Standup!
+  status: ReportStatus!
+  updated_at: DateTime!
+  user_id: User!
+}
+
+enum ReportStatus {
+  ASKED
+  COMPLETE
+  PENDING
+  SKIP
+}
+
+type Review @db(name: "reviews") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "reviews_id_seq", initialValue: 1, allocationSize: 1)
+  created_at: DateTime!
+  text: String!
+  type: ReviewType!
+  user_id: User!
+}
+
+enum ReviewType {
+  COMMENT
+  EXIT_FEEDBACK
+  REFERRED_BY
+}
+
+type Standup @db(name: "standups") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "standups_id_seq", initialValue: 1, allocationSize: 1)
+  channel_id: String!
+  created_at: DateTime!
+  is_threaded: Boolean! @default(value: false)
+  # Type citext is not supported
+  # name: citext!
+  posts: [Post]
+  questions: [Question]
+  reports: [Report]
+  standups_users: [StandupsUser]
+  team_id: Team!
+  # Type time is not supported
+  # time: time!
+  timezone: String!
+  updated_at: DateTime!
+}
+
+enum StandupUserStatus {
+  ACTIVE
+  INACTIVE
+  INVITED
+}
+
+type StandupsUser @db(name: "standups_users") @indexes(value: [
+  {name: "standups_users_standup_id_user_id_key", fields: ["standup_id", "user_id"], unique: true}
+]) {
+  created_at: DateTime!
+  is_standup_owner: Boolean! @default(value: false)
+  standup_id: Standup!
+  status: StandupUserStatus!
+  # Type time is not supported
+  # time: time!
+  updated_at: DateTime!
+  user_id: User!
+}
+
+type Team @db(name: "teams") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "teams_id_seq", initialValue: 1, allocationSize: 1)
+  bot_access_token: String! @unique
+  bot_slack_id: String!
+  cost_per_user: Int! @default(value: 100)
+  created_at: DateTime!
+  minimum_monthly_cost: Int! @default(value: 0)
+  scope: String! @default(value: "{}")
+  standups: [Standup]
+  status: TeamStatus!
+  stripe_id: String
+  team_access_token: String! @unique
+  team_name: String!
+  team_slack_id: String! @unique
+  trial_ends: DateTime!
+  updated_at: DateTime!
+  users: [User]
+}
+
+enum TeamStatus {
+  ACTIVE
+  DELINQUENT
+  INACTIVE
+}
+
+type User @db(name: "users") @indexes(value: [
+  {name: "users_slack_id_team_id_key", fields: ["team_id", "slack_id"], unique: true}
+]) {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "users_id_seq", initialValue: 1, allocationSize: 1)
+  avatar_url: String
+  created_at: DateTime!
+  email: String
+  first_name: String
+  is_team_owner: Boolean! @default(value: false)
+  last_name: String
+  reports: [Report]
+  reviews: [Review]
+  slack_id: String!
+  standups_users: [StandupsUser]
+  team_id: Team!
+  timezone: String!
+  updated_at: DateTime!
+  username: String!
+}
