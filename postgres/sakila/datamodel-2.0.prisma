@@ -1,0 +1,186 @@
+model Actor {
+  name = "actor"
+
+  actor_id     int          
+  film_actor   FilmActor[]  
+  first_name   string       
+  last_name    string       
+  last_update  datetime     
+}
+
+model Address {
+  name = "address"
+
+  address_id   int          
+  address      string       
+  address2     string?      
+  city         City         
+  customer     Customer[]   
+  district     string       
+  last_update  datetime     
+  phone        string       
+  postal_code  string?      
+  staff        Staff[]      
+  store        Store[]      
+}
+
+model Category {
+  name = "category"
+
+  category_id    int             
+  film_category  FilmCategory[]  
+  last_update    datetime        
+  name           string          
+}
+
+model City {
+  name = "city"
+
+  city_id        int             
+  address        Address[]       
+  city           string          
+  country        Country         
+  last_update    datetime        
+}
+
+model Country {
+  name = "country"
+
+  country_id     int             
+  city           City[]          
+  country        string          
+  last_update    datetime        
+}
+
+model Customer {
+  name = "customer"
+
+  customer_id    int             
+  active         int?            
+  activebool     boolean         
+  address        Address         
+  create_date    datetime        
+  email          string?         
+  first_name     string          
+  last_name      string          
+  last_update    datetime?       
+  payment        Payment[]       
+  rental         Rental[]        
+  store_id       int             
+}
+
+model Film {
+  name = "film"
+
+  film_id           int             
+  description       string?         
+  film_actor        FilmActor[]     
+  film_category     FilmCategory[]  
+  fulltext          tsvector        
+  inventory         Inventory[]     
+  language          Language        
+  last_update       datetime        
+  length            int?            
+  rating            MpaaRating?     
+  release_year      int?            
+  rental_duration   int             
+  rental_rate       float           
+  replacement_cost  float           
+  special_features  string?         
+  title             string          
+}
+
+model FilmActor {
+  name = "film_actor"
+
+  actor_id          Actor           
+  film_id           Film            
+  last_update       datetime        
+}
+
+model FilmCategory {
+  name = "film_category"
+
+  category_id       Category        
+  film_id           Film            
+  last_update       datetime        
+}
+
+model Inventory {
+  name = "inventory"
+
+  inventory_id      int             
+  film              Film            
+  last_update       datetime        
+  rental            Rental[]        
+  store_id          int             
+}
+
+model Language {
+  name = "language"
+
+  language_id       int             
+  film              Film[]          
+  last_update       datetime        
+  name              string          
+}
+
+enum MpaaRating {
+  G
+  NC-17
+  PG
+  PG-13
+  R
+}
+
+model Payment {
+  name = "payment"
+
+  payment_id        int             
+  amount            float           
+  customer          Customer        
+  payment_date      datetime        
+  rental            Rental          
+  staff             Staff           
+}
+
+model Rental {
+  name = "rental"
+
+  rental_id         int             
+  customer          Customer        
+  inventory         Inventory       
+  last_update       datetime        
+  payment           Payment[]       
+  rental_date       datetime        
+  return_date       datetime?       
+  staff             Staff           
+}
+
+model Staff {
+  name = "staff"
+
+  staff_id          int             
+  active            boolean         
+  address           Address         
+  email             string?         
+  first_name        string          
+  last_name         string          
+  last_update       datetime        
+  password          string?         
+  payment           Payment[]       
+  picture           bytea?          
+  rental            Rental[]        
+  store             Store           
+  store_id          int             
+  username          string          
+}
+
+model Store {
+  name = "store"
+
+  store_id          int             
+  address           Address         
+  last_update       datetime        
+  manager_staff     Staff           
+}

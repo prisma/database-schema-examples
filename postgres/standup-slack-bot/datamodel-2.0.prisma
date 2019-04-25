@@ -1,0 +1,152 @@
+model Eventid {
+  name = "eventids"
+
+  event_id    id        
+  created_at  datetime  
+}
+
+model Migrate {
+  name = "migrate"
+
+  version     int       
+}
+
+model Post {
+  name = "posts"
+
+  id          int        
+  created_at  datetime   
+  reports     Report[]?  
+  standup     Standup    
+  updated_at  datetime   
+}
+
+model Question {
+  name = "questions"
+
+  id          int        
+  created_at  datetime   
+  order       int        
+  question    string     
+  standup     Standup    
+  updated_at  datetime   
+}
+
+model Report {
+  name = "reports"
+
+  id          int           
+  created_at  datetime      
+  post        Post?         
+  questions   json          
+  standup     Standup       
+  status      ReportStatus  
+  updated_at  datetime      
+  user        User          
+}
+
+enum ReportStatus {
+  ASKED
+  COMPLETE
+  PENDING
+  SKIP
+}
+
+model Review {
+  name = "reviews"
+
+  id          int           
+  created_at  datetime      
+  text        string        
+  type        ReviewType    
+  user        User          
+}
+
+enum ReviewType {
+  COMMENT
+  EXIT_FEEDBACK
+  REFERRED_BY
+}
+
+model Standup {
+  name = "standups"
+
+  id              int             
+  channel_id      string          
+  created_at      datetime        
+  is_threaded     boolean         
+  name            citext          
+  posts           Post[]          
+  questions       Question[]      
+  reports         Report[]        
+  standups_users  StandupsUser[]  
+  team            Team            
+  time            time            
+  timezone        string          
+  updated_at      datetime        
+}
+
+enum StandupUserStatus {
+  ACTIVE
+  INACTIVE
+  INVITED
+}
+
+model StandupsUser {
+  name = "standups_users"
+
+  created_at        datetime           
+  is_standup_owner  boolean            
+  standup           Standup            
+  status            StandupUserStatus  
+  time              time               
+  updated_at        datetime           
+  user              User               
+}
+
+model Team {
+  name = "teams"
+
+  id                    int                
+  bot_access_token      string             
+  bot_slack_id          string             
+  cost_per_user         int                
+  created_at            datetime           
+  minimum_monthly_cost  int                
+  scope                 string             
+  standups              Standup[]          
+  status                TeamStatus         
+  stripe_id             string?            
+  team_access_token     string             
+  team_name             string             
+  team_slack_id         string             
+  trial_ends            datetime           
+  updated_at            datetime           
+  users                 User[]             
+}
+
+enum TeamStatus {
+  ACTIVE
+  DELINQUENT
+  INACTIVE
+}
+
+model User {
+  name = "users"
+
+  id                    int                
+  avatar_url            string?            
+  created_at            datetime           
+  email                 string?            
+  first_name            string?            
+  is_team_owner         boolean            
+  last_name             string?            
+  reports               Report[]           
+  reviews               Review[]           
+  slack_id              string             
+  standups_users        StandupsUser[]     
+  team                  Team               
+  timezone              string             
+  updated_at            datetime           
+  username              string             
+}
