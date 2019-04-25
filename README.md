@@ -16,7 +16,7 @@ Write to a file named `schema.sql`.
 
 ## Recompile the datamodels
 
-You'll need postgres installed locally with `psql` in your `$PATH` and [prisma-render](https://github.com/prisma/prisma-render).
+You'll need Postgres installed locally with `psql` in your `$PATH` and [prisma-render](https://github.com/prisma/prisma-render).
 
 Then run:
 
@@ -24,4 +24,10 @@ Then run:
 git clone https://github.com/prisma/database-schema-examples
 cd database-schema-examples
 make
+```
+
+If you don't have Postgres installed locally or you want to load these schemas into a remote Postgres instance, you can use the environment variable PG_URL=postgres://<remote-url>
+
+```sh
+PG_URL=postgres://... make
 ```
