@@ -1,0 +1,1931 @@
+model ApiKey {
+  name = "api_keys"
+
+  id             int       
+  allowed_ips    _inet?    
+  created_at     datetime  
+  created_by_id  int?      
+  hidden         boolean   
+  key            string    
+  updated_at     datetime  
+  user_id        int?      
+}
+
+model ApplicationRequest {
+  name = "application_requests"
+
+  id             int       
+  count          int       
+  date           datetime  
+  req_type       int       
+}
+
+model ArInternalMetadatum {
+  name = "ar_internal_metadata"
+
+  key            id        
+  created_at     datetime  
+  updated_at     datetime  
+  value          string?   
+}
+
+model Badge {
+  name = "badges"
+
+  id                 int       
+  allow_title        boolean   
+  auto_revoke        boolean   
+  badge_grouping_id  int       
+  badge_type_id      int       
+  created_at         datetime  
+  description        string?   
+  enabled            boolean   
+  grant_count        int       
+  icon               string?   
+  image              string?   
+  listable           boolean?  
+  long_description   string?   
+  multiple_grant     boolean   
+  name               string    
+  query              string?   
+  show_posts         boolean   
+  system             boolean   
+  target_posts       boolean?  
+  trigger            int?      
+  updated_at         datetime  
+}
+
+model BadgeGrouping {
+  name = "badge_groupings"
+
+  id                 int       
+  created_at         datetime  
+  description        string?   
+  name               string    
+  position           int       
+  updated_at         datetime  
+}
+
+model BadgeType {
+  name = "badge_types"
+
+  id                 int       
+  created_at         datetime  
+  name               string    
+  updated_at         datetime  
+}
+
+model CategoriesWebHook {
+  name = "categories_web_hooks"
+
+  category_id        int       
+  web_hook_id        int       
+}
+
+model Category {
+  name = "categories"
+
+  id                                 int       
+  allow_badges                       boolean   
+  all_topics_wiki                    boolean   
+  auto_close_based_on_last_post      boolean?  
+  auto_close_hours                   float?    
+  color                              string    
+  contains_messages                  boolean?  
+  created_at                         datetime  
+  default_top_period                 string?   
+  default_view                       string?   
+  description                        string?   
+  email_in                           string?   
+  email_in_allow_strangers           boolean?  
+  latest_post_id                     int?      
+  latest_topic_id                    int?      
+  mailinglist_mirror                 boolean   
+  minimum_required_tags              int?      
+  name                               string    
+  name_lower                         string    
+  navigate_to_first_post_after_read  boolean   
+  num_featured_topics                int?      
+  parent_category_id                 int?      
+  position                           int?      
+  post_count                         int       
+  posts_day                          int?      
+  posts_month                        int?      
+  posts_week                         int?      
+  posts_year                         int?      
+  read_restricted                    boolean   
+  show_subcategory_list              boolean?  
+  slug                               string    
+  sort_ascending                     boolean?  
+  sort_order                         string?   
+  subcategory_list_style             string?   
+  suppress_from_latest               boolean?  
+  text_color                         string    
+  topic_count                        int       
+  topic_featured_link_allowed        boolean?  
+  topic_id                           int?      
+  topics_day                         int?      
+  topics_month                       int?      
+  topics_week                        int?      
+  topics_year                        int?      
+  topic_template                     string?   
+  updated_at                         datetime  
+  uploaded_background_id             int?      
+  uploaded_logo_id                   int?      
+  user_id                            int       
+}
+
+model CategoryCustomField {
+  name = "category_custom_fields"
+
+  id                                 int       
+  category_id                        int       
+  created_at                         datetime  
+  name                               string    
+  updated_at                         datetime  
+  value                              string?   
+}
+
+model CategoryFeaturedTopic {
+  name = "category_featured_topics"
+
+  id                                 int       
+  category_id                        int       
+  created_at                         datetime  
+  rank                               int       
+  topic_id                           int       
+  updated_at                         datetime  
+}
+
+model CategoryGroup {
+  name = "category_groups"
+
+  id                                 int       
+  category_id                        int       
+  created_at                         datetime  
+  group_id                           int       
+  permission_type                    int?      
+  updated_at                         datetime  
+}
+
+model CategorySearchDatum {
+  name = "category_search_data"
+
+  category_id                        int        
+  locale                             string?    
+  raw_data                           string?    
+  search_data                        tsvector?  
+  version                            int?       
+}
+
+model CategoryTag {
+  name = "category_tags"
+
+  id                                 int        
+  category_id                        int        
+  created_at                         datetime?  
+  tag_id                             int        
+  updated_at                         datetime?  
+}
+
+model CategoryTagGroup {
+  name = "category_tag_groups"
+
+  id                                 int        
+  category_id                        int        
+  created_at                         datetime?  
+  tag_group_id                       int        
+  updated_at                         datetime?  
+}
+
+model CategoryTagStat {
+  name = "category_tag_stats"
+
+  id                                 int        
+  category_id                        int        
+  tag_id                             int        
+  topic_count                        int        
+}
+
+model CategoryUser {
+  name = "category_users"
+
+  id                                 int        
+  category_id                        int        
+  notification_level                 int        
+  user_id                            int        
+}
+
+model ChildTheme {
+  name = "child_themes"
+
+  id                                 int        
+  child_theme_id                     int?       
+  created_at                         datetime?  
+  parent_theme_id                    int?       
+  updated_at                         datetime?  
+}
+
+model ColorScheme {
+  name = "color_schemes"
+
+  id                                 int        
+  base_scheme_id                     string?    
+  created_at                         datetime   
+  name                               string     
+  theme_id                           int?       
+  updated_at                         datetime   
+  version                            int        
+  via_wizard                         boolean    
+}
+
+model ColorSchemeColor {
+  name = "color_scheme_colors"
+
+  id                                 int        
+  color_scheme_id                    int        
+  created_at                         datetime   
+  hex                                string     
+  name                               string     
+  updated_at                         datetime   
+}
+
+model CustomEmoji {
+  name = "custom_emojis"
+
+  id                                 int        
+  created_at                         datetime   
+  name                               string     
+  updated_at                         datetime   
+  upload_id                          int        
+}
+
+model Developer {
+  name = "developers"
+
+  id                                 int        
+  user_id                            int        
+}
+
+model DirectoryItem {
+  name = "directory_items"
+
+  id                                 int        
+  created_at                         datetime?  
+  days_visited                       int        
+  likes_given                        int        
+  likes_received                     int        
+  period_type                        int        
+  post_count                         int        
+  posts_read                         int        
+  topic_count                        int        
+  topics_entered                     int        
+  updated_at                         datetime?  
+  user_id                            int        
+}
+
+model Draft {
+  name = "drafts"
+
+  id                                 int        
+  created_at                         datetime   
+  data                               string     
+  draft_key                          string     
+  revisions                          int        
+  sequence                           int        
+  updated_at                         datetime   
+  user_id                            int        
+}
+
+model DraftSequence {
+  name = "draft_sequences"
+
+  id                                 int        
+  draft_key                          string     
+  sequence                           int        
+  user_id                            int        
+}
+
+model EmailChangeRequest {
+  name = "email_change_requests"
+
+  id                                 int        
+  change_state                       int        
+  created_at                         datetime   
+  new_email                          string     
+  new_email_token_id                 int?       
+  old_email                          string     
+  old_email_token_id                 int?       
+  updated_at                         datetime   
+  user_id                            int        
+}
+
+model EmailLog {
+  name = "email_logs"
+
+  id                                 int        
+  bounced                            boolean    
+  bounce_key                         uuid?      
+  created_at                         datetime   
+  email_type                         string     
+  message_id                         string?    
+  post_id                            int?       
+  to_address                         string     
+  updated_at                         datetime   
+  user_id                            int?       
+}
+
+model EmailToken {
+  name = "email_tokens"
+
+  id                                 int        
+  confirmed                          boolean    
+  created_at                         datetime   
+  email                              string     
+  expired                            boolean    
+  token                              string     
+  updated_at                         datetime   
+  user_id                            int        
+}
+
+model EmbeddableHost {
+  name = "embeddable_hosts"
+
+  id                                 int        
+  category_id                        int        
+  class_name                         string?    
+  created_at                         datetime?  
+  host                               string     
+  path_whitelist                     string?    
+  updated_at                         datetime?  
+}
+
+model FacebookUserInfo {
+  name = "facebook_user_infos"
+
+  id                                 int        
+  about_me                           string?    
+  avatar_url                         string?    
+  created_at                         datetime   
+  email                              string?    
+  facebook_user_id                   int        
+  first_name                         string?    
+  gender                             string?    
+  last_name                          string?    
+  link                               string?    
+  location                           string?    
+  name                               string?    
+  updated_at                         datetime   
+  user_id                            int        
+  username                           string?    
+  website                            string?    
+}
+
+model GithubUserInfo {
+  name = "github_user_infos"
+
+  id                                 int        
+  created_at                         datetime   
+  github_user_id                     int        
+  screen_name                        string     
+  updated_at                         datetime   
+  user_id                            int        
+}
+
+model GivenDailyLike {
+  name = "given_daily_likes"
+
+  given_date                         datetime   
+  likes_given                        int        
+  limit_reached                      boolean    
+  user_id                            int        
+}
+
+model GoogleUserInfo {
+  name = "google_user_infos"
+
+  id                                 int        
+  created_at                         datetime   
+  email                              string?    
+  first_name                         string?    
+  gender                             string?    
+  google_user_id                     string     
+  last_name                          string?    
+  link                               string?    
+  name                               string?    
+  picture                            string?    
+  profile_link                       string?    
+  updated_at                         datetime   
+  user_id                            int        
+}
+
+model Group {
+  name = "groups"
+
+  id                                  int        
+  allow_membership_requests           boolean    
+  automatic                           boolean    
+  automatic_membership_email_domains  string?    
+  automatic_membership_retroactive    boolean?   
+  bio_cooked                          string?    
+  bio_raw                             string?    
+  created_at                          datetime   
+  default_notification_level          int        
+  flair_bg_color                      string?    
+  flair_color                         string?    
+  flair_url                           string?    
+  full_name                           string?    
+  grant_trust_level                   int?       
+  has_messages                        boolean    
+  incoming_email                      string?    
+  membership_request_template         string?    
+  mentionable_level                   int?       
+  messageable_level                   int?       
+  name                                string     
+  primary_group                       boolean    
+  public_admission                    boolean    
+  public_exit                         boolean    
+  title                               string?    
+  updated_at                          datetime   
+  user_count                          int        
+  visibility_level                    int        
+}
+
+model GroupArchivedMessage {
+  name = "group_archived_messages"
+
+  id                                  int        
+  created_at                          datetime?  
+  group_id                            int        
+  topic_id                            int        
+  updated_at                          datetime?  
+}
+
+model GroupCustomField {
+  name = "group_custom_fields"
+
+  id                                  int        
+  created_at                          datetime   
+  group_id                            int        
+  name                                string     
+  updated_at                          datetime   
+  value                               string?    
+}
+
+model GroupHistory {
+  name = "group_histories"
+
+  id                                  int        
+  acting_user_id                      int        
+  action                              int        
+  created_at                          datetime   
+  group_id                            int        
+  new_value                           string?    
+  prev_value                          string?    
+  subject                             string?    
+  target_user_id                      int?       
+  updated_at                          datetime   
+}
+
+model GroupMention {
+  name = "group_mentions"
+
+  id                                  int        
+  created_at                          datetime?  
+  group_id                            int?       
+  post_id                             int?       
+  updated_at                          datetime?  
+}
+
+model GroupUser {
+  name = "group_users"
+
+  id                                  int        
+  created_at                          datetime   
+  group_id                            int        
+  notification_level                  int        
+  owner                               boolean    
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model GroupsWebHook {
+  name = "groups_web_hooks"
+
+  group_id                            int        
+  web_hook_id                         int        
+}
+
+model IncomingDomain {
+  name = "incoming_domains"
+
+  id                                  int        
+  https                               boolean    
+  name                                string     
+  port                                int        
+}
+
+model IncomingEmail {
+  name = "incoming_emails"
+
+  id                                  int        
+  cc_addresses                        string?    
+  created_at                          datetime   
+  error                               string?    
+  from_address                        string?    
+  is_auto_generated                   boolean?   
+  is_bounce                           boolean    
+  message_id                          string?    
+  post_id                             int?       
+  raw                                 string?    
+  rejection_message                   string?    
+  subject                             string?    
+  to_addresses                        string?    
+  topic_id                            int?       
+  updated_at                          datetime   
+  user_id                             int?       
+}
+
+model IncomingLink {
+  name = "incoming_links"
+
+  id                                  int        
+  created_at                          datetime   
+  current_user_id                     int?       
+  incoming_referer_id                 int?       
+  ip_address                          inet?      
+  post_id                             int        
+  user_id                             int?       
+}
+
+model IncomingReferer {
+  name = "incoming_referers"
+
+  id                                  int        
+  incoming_domain_id                  int        
+  path                                string     
+}
+
+model InstagramUserInfo {
+  name = "instagram_user_infos"
+
+  id                                  int        
+  created_at                          datetime   
+  instagram_user_id                   int?       
+  screen_name                         string?    
+  updated_at                          datetime   
+  user_id                             int?       
+}
+
+model Invite {
+  name = "invites"
+
+  id                                  int        
+  created_at                          datetime   
+  custom_message                      string?    
+  deleted_at                          datetime?  
+  deleted_by_id                       int?       
+  email                               string?    
+  invalidated_at                      datetime?  
+  invited_by_id                       int        
+  invite_key                          string     
+  moderator                           boolean    
+  redeemed_at                         datetime?  
+  updated_at                          datetime   
+  user_id                             int?       
+}
+
+model InvitedGroup {
+  name = "invited_groups"
+
+  id                                  int        
+  created_at                          datetime   
+  group_id                            int?       
+  invite_id                           int?       
+  updated_at                          datetime   
+}
+
+model JavascriptCach {
+  name = "javascript_caches"
+
+  id                                  int        
+  content                             string     
+  created_at                          datetime   
+  digest                              string?    
+  theme_field_id                      int        
+  updated_at                          datetime   
+}
+
+model MessageBus {
+  name = "message_bus"
+
+  id                                  int        
+  context                             string?    
+  created_at                          datetime   
+  data                                string?    
+  name                                string?    
+}
+
+model MutedUser {
+  name = "muted_users"
+
+  id                                  int        
+  created_at                          datetime?  
+  muted_user_id                       int        
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model Notification {
+  name = "notifications"
+
+  id                                  int        
+  created_at                          datetime   
+  data                                string     
+  notification_type                   int        
+  post_action_id                      int?       
+  post_number                         int?       
+  read                                boolean    
+  topic_id                            int?       
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model Oauth2UserInfo {
+  name = "oauth2_user_infos"
+
+  id                                  int        
+  created_at                          datetime   
+  email                               string?    
+  name                                string?    
+  provider                            string     
+  uid                                 string     
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model OnceoffLog {
+  name = "onceoff_logs"
+
+  id                                  int        
+  created_at                          datetime   
+  job_name                            string?    
+  updated_at                          datetime   
+}
+
+model OptimizedImage {
+  name = "optimized_images"
+
+  id                                  int        
+  extension                           string     
+  filesize                            int?       
+  height                              int        
+  sha1                                string     
+  upload_id                           int        
+  url                                 string     
+  width                               int        
+}
+
+model Permalink {
+  name = "permalinks"
+
+  id                                  int        
+  category_id                         int?       
+  created_at                          datetime?  
+  external_url                        string?    
+  post_id                             int?       
+  topic_id                            int?       
+  updated_at                          datetime?  
+  url                                 string     
+}
+
+model PluginStoreRow {
+  name = "plugin_store_rows"
+
+  id                                  int        
+  key                                 string     
+  plugin_name                         string     
+  type_name                           string     
+  value                               string?    
+}
+
+model Post {
+  name = "posts"
+
+  id                                  int        
+  action_code                         string?    
+  avg_time                            int?       
+  baked_at                            datetime?  
+  baked_version                       int?       
+  bookmark_count                      int        
+  cooked                              string     
+  cook_method                         int        
+  created_at                          datetime   
+  deleted_at                          datetime?  
+  deleted_by_id                       int?       
+  edit_reason                         string?    
+  hidden                              boolean    
+  hidden_at                           datetime?  
+  hidden_reason_id                    int?       
+  illegal_count                       int        
+  image_url                           string?    
+  inappropriate_count                 int        
+  incoming_link_count                 int        
+  last_editor_id                      int?       
+  last_version_at                     datetime   
+  like_count                          int        
+  like_score                          int        
+  locked_by_id                        int?       
+  notify_moderators_count             int        
+  notify_user_count                   int        
+  off_topic_count                     int        
+  percent_rank                        float?     
+  post_number                         int        
+  post_type                           int        
+  public_version                      int        
+  quote_count                         int        
+  raw                                 string     
+  raw_email                           string?    
+  reads                               int        
+  reply_count                         int        
+  reply_quoted                        boolean    
+  reply_to_post_number                int?       
+  reply_to_user_id                    int?       
+  score                               float?     
+  self_edits                          int        
+  sort_order                          int?       
+  spam_count                          int        
+  topic_id                            int        
+  updated_at                          datetime   
+  user_deleted                        boolean    
+  user_id                             int?       
+  version                             int        
+  via_email                           boolean    
+  wiki                                boolean    
+  word_count                          int?       
+}
+
+model PostAction {
+  name = "post_actions"
+
+  id                                  int        
+  agreed_at                           datetime?  
+  agreed_by_id                        int?       
+  created_at                          datetime   
+  deferred_at                         datetime?  
+  deferred_by_id                      int?       
+  deleted_at                          datetime?  
+  deleted_by_id                       int?       
+  disagreed_at                        datetime?  
+  disagreed_by_id                     int?       
+  post_action_type_id                 int        
+  post_id                             int        
+  related_post_id                     int?       
+  staff_took_action                   boolean    
+  targets_topic                       boolean    
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model PostActionType {
+  name = "post_action_types"
+
+  id                                  int        
+  created_at                          datetime   
+  icon                                string?    
+  is_flag                             boolean    
+  name_key                            string     
+  position                            int        
+  updated_at                          datetime   
+}
+
+model PostCustomField {
+  name = "post_custom_fields"
+
+  id                                  int        
+  created_at                          datetime   
+  name                                string     
+  post_id                             int        
+  updated_at                          datetime   
+  value                               string?    
+}
+
+model PostDetail {
+  name = "post_details"
+
+  id                                  int        
+  created_at                          datetime   
+  extra                               string?    
+  key                                 string?    
+  post_id                             int?       
+  updated_at                          datetime   
+  value                               string?    
+}
+
+model PostReply {
+  name = "post_replies"
+
+  created_at                          datetime   
+  post_id                             int?       
+  reply_id                            int?       
+  updated_at                          datetime   
+}
+
+model PostReplyKey {
+  name = "post_reply_keys"
+
+  id                                  int        
+  created_at                          datetime   
+  post_id                             int        
+  reply_key                           uuid       
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model PostRevision {
+  name = "post_revisions"
+
+  id                                  int        
+  created_at                          datetime   
+  hidden                              boolean    
+  modifications                       string?    
+  number                              int?       
+  post_id                             int?       
+  updated_at                          datetime   
+  user_id                             int?       
+}
+
+model PostSearchDatum {
+  name = "post_search_data"
+
+  post_id                             int        
+  locale                              string?    
+  raw_data                            string?    
+  search_data                         tsvector?  
+  version                             int?       
+}
+
+model PostStat {
+  name = "post_stats"
+
+  id                                  int        
+  composer_open_duration_msecs        int?       
+  created_at                          datetime?  
+  drafts_saved                        int?       
+  post_id                             int?       
+  typing_duration_msecs               int?       
+  updated_at                          datetime?  
+}
+
+model PostTiming {
+  name = "post_timings"
+
+  msecs                               int        
+  post_number                         int        
+  topic_id                            int        
+  user_id                             int        
+}
+
+model PostUpload {
+  name = "post_uploads"
+
+  id                                  int        
+  post_id                             int        
+  upload_id                           int        
+}
+
+model PushSubscription {
+  name = "push_subscriptions"
+
+  id                                  int        
+  created_at                          datetime   
+  data                                string     
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model QueuedPost {
+  name = "queued_posts"
+
+  id                                  int        
+  approved_at                         datetime?  
+  approved_by_id                      int?       
+  created_at                          datetime?  
+  post_options                        json       
+  queue                               string     
+  raw                                 string     
+  rejected_at                         datetime?  
+  rejected_by_id                      int?       
+  state                               int        
+  topic_id                            int?       
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model QuotedPost {
+  name = "quoted_posts"
+
+  id                                  int        
+  created_at                          datetime   
+  post_id                             int        
+  quoted_post_id                      int        
+  updated_at                          datetime   
+}
+
+model RemoteTheme {
+  name = "remote_themes"
+
+  id                                  int        
+  about_url                           string?    
+  branch                              string?    
+  commits_behind                      int?       
+  created_at                          datetime?  
+  last_error_text                     string?    
+  license_url                         string?    
+  local_version                       string?    
+  private_key                         string?    
+  remote_updated_at                   datetime?  
+  remote_url                          string     
+  remote_version                      string?    
+  updated_at                          datetime?  
+}
+
+model SchedulerStat {
+  name = "scheduler_stats"
+
+  id                                  int        
+  duration_ms                         int?       
+  error                               string?    
+  hostname                            string     
+  live_slots_finish                   int?       
+  live_slots_start                    int?       
+  name                                string     
+  pid                                 int        
+  started_at                          datetime   
+  success                             boolean?   
+}
+
+model SchemaMigration {
+  name = "schema_migrations"
+
+  version                             id         
+}
+
+model SchemaMigrationDetail {
+  name = "schema_migration_details"
+
+  id                                  int        
+  created_at                          datetime   
+  direction                           string?    
+  duration                            int?       
+  git_version                         string?    
+  hostname                            string?    
+  name                                string?    
+  rails_version                       string?    
+  version                             string     
+}
+
+model ScreenedEmail {
+  name = "screened_emails"
+
+  id                                  int        
+  action_type                         int        
+  created_at                          datetime   
+  email                               string     
+  ip_address                          inet?      
+  last_match_at                       datetime?  
+  match_count                         int        
+  updated_at                          datetime   
+}
+
+model ScreenedIpAddress {
+  name = "screened_ip_addresses"
+
+  id                                  int        
+  action_type                         int        
+  created_at                          datetime   
+  ip_address                          inet       
+  last_match_at                       datetime?  
+  match_count                         int        
+  updated_at                          datetime   
+}
+
+model ScreenedUrl {
+  name = "screened_urls"
+
+  id                                  int        
+  action_type                         int        
+  created_at                          datetime   
+  domain                              string     
+  ip_address                          inet?      
+  last_match_at                       datetime?  
+  match_count                         int        
+  updated_at                          datetime   
+  url                                 string     
+}
+
+model SearchLog {
+  name = "search_logs"
+
+  id                                  int        
+  created_at                          datetime   
+  ip_address                          inet?      
+  search_result_id                    int?       
+  search_result_type                  int?       
+  search_type                         int        
+  term                                string     
+  user_id                             int?       
+}
+
+model SharedDraft {
+  name = "shared_drafts"
+
+  id                                  int        
+  category_id                         int        
+  created_at                          datetime   
+  topic_id                            int        
+  updated_at                          datetime   
+}
+
+model SingleSignOnRecord {
+  name = "single_sign_on_records"
+
+  id                                  int        
+  created_at                          datetime   
+  external_avatar_url                 string?    
+  external_card_background_url        string?    
+  external_email                      string?    
+  external_id                         string     
+  external_name                       string?    
+  external_profile_background_url     string?    
+  external_username                   string?    
+  last_payload                        string     
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model SiteSetting {
+  name = "site_settings"
+
+  id                                  int        
+  created_at                          datetime   
+  data_type                           int        
+  name                                string     
+  updated_at                          datetime   
+  value                               string?    
+}
+
+model SkippedEmailLog {
+  name = "skipped_email_logs"
+
+  id                                  int        
+  created_at                          datetime   
+  custom_reason                       string?    
+  email_type                          string     
+  post_id                             int?       
+  reason_type                         int        
+  to_address                          string     
+  updated_at                          datetime   
+  user_id                             int?       
+}
+
+model StylesheetCache {
+  name = "stylesheet_cache"
+
+  id                                  int        
+  content                             string     
+  created_at                          datetime?  
+  digest                              string     
+  source_map                          string?    
+  target                              string     
+  theme_id                            int        
+  updated_at                          datetime?  
+}
+
+model Tag {
+  name = "tags"
+
+  id                                  int        
+  created_at                          datetime?  
+  name                                string     
+  pm_topic_count                      int        
+  topic_count                         int        
+  updated_at                          datetime?  
+}
+
+model TagGroup {
+  name = "tag_groups"
+
+  id                                  int        
+  created_at                          datetime?  
+  name                                string     
+  one_per_topic                       boolean?   
+  parent_tag_id                       int?       
+  updated_at                          datetime?  
+}
+
+model TagGroupMembership {
+  name = "tag_group_memberships"
+
+  id                                  int        
+  created_at                          datetime?  
+  tag_group_id                        int        
+  tag_id                              int        
+  updated_at                          datetime?  
+}
+
+model TagGroupPermission {
+  name = "tag_group_permissions"
+
+  id                                  int        
+  created_at                          datetime   
+  group_id                            int        
+  permission_type                     int        
+  tag_group_id                        int        
+  updated_at                          datetime   
+}
+
+model TagSearchDatum {
+  name = "tag_search_data"
+
+  tag_id                              int        
+  locale                              string?    
+  raw_data                            string?    
+  search_data                         tsvector?  
+  version                             int?       
+}
+
+model TagUser {
+  name = "tag_users"
+
+  id                                  int        
+  created_at                          datetime?  
+  notification_level                  int        
+  tag_id                              int        
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model Theme {
+  name = "themes"
+
+  id                                  int        
+  color_scheme_id                     int?       
+  compiler_version                    int        
+  component                           boolean    
+  created_at                          datetime   
+  hidden                              boolean    
+  name                                string     
+  remote_theme_id                     int?       
+  updated_at                          datetime   
+  user_id                             int        
+  user_selectable                     boolean    
+}
+
+model ThemeField {
+  name = "theme_fields"
+
+  id                                  int        
+  compiler_version                    int        
+  created_at                          datetime?  
+  error                               string?    
+  name                                string     
+  target_id                           int        
+  theme_id                            int        
+  type_id                             int        
+  updated_at                          datetime?  
+  upload_id                           int?       
+  value                               string     
+  value_baked                         string?    
+}
+
+model ThemeSetting {
+  name = "theme_settings"
+
+  id                                  int        
+  created_at                          datetime   
+  data_type                           int        
+  name                                string     
+  theme_id                            int        
+  updated_at                          datetime   
+  value                               string?    
+}
+
+model TopTopic {
+  name = "top_topics"
+
+  id                                  int        
+  all_score                           float?     
+  daily_likes_count                   int        
+  daily_op_likes_count                int        
+  daily_posts_count                   int        
+  daily_score                         float?     
+  daily_views_count                   int        
+  monthly_likes_count                 int        
+  monthly_op_likes_count              int        
+  monthly_posts_count                 int        
+  monthly_score                       float?     
+  monthly_views_count                 int        
+  quarterly_likes_count               int        
+  quarterly_op_likes_count            int        
+  quarterly_posts_count               int        
+  quarterly_score                     float?     
+  quarterly_views_count               int        
+  topic_id                            int?       
+  weekly_likes_count                  int        
+  weekly_op_likes_count               int        
+  weekly_posts_count                  int        
+  weekly_score                        float?     
+  weekly_views_count                  int        
+  yearly_likes_count                  int        
+  yearly_op_likes_count               int        
+  yearly_posts_count                  int        
+  yearly_score                        float?     
+  yearly_views_count                  int        
+}
+
+model Topic {
+  name = "topics"
+
+  id                                  int        
+  archetype                           string     
+  archived                            boolean    
+  avg_time                            int?       
+  bumped_at                           datetime   
+  category_id                         int?       
+  closed                              boolean    
+  created_at                          datetime   
+  deleted_at                          datetime?  
+  deleted_by_id                       int?       
+  excerpt                             string?    
+  fancy_title                         string?    
+  featured_link                       string?    
+  featured_user1_id                   int?       
+  featured_user2_id                   int?       
+  featured_user3_id                   int?       
+  featured_user4_id                   int?       
+  has_summary                         boolean    
+  highest_post_number                 int        
+  highest_staff_post_number           int        
+  image_url                           string?    
+  incoming_link_count                 int        
+  last_posted_at                      datetime?  
+  last_post_user_id                   int        
+  like_count                          int        
+  moderator_posts_count               int        
+  notify_moderators_count             int        
+  participant_count                   int?       
+  percent_rank                        float      
+  pinned_at                           datetime?  
+  pinned_globally                     boolean    
+  pinned_until                        datetime?  
+  posts_count                         int        
+  reply_count                         int        
+  score                               float?     
+  slug                                string?    
+  spam_count                          int        
+  subtype                             string?    
+  title                               string     
+  updated_at                          datetime   
+  user_id                             int?       
+  views                               int        
+  visible                             boolean    
+  word_count                          int?       
+}
+
+model TopicAllowedGroup {
+  name = "topic_allowed_groups"
+
+  id                                  int        
+  group_id                            int        
+  topic_id                            int        
+}
+
+model TopicAllowedUser {
+  name = "topic_allowed_users"
+
+  id                                  int        
+  created_at                          datetime   
+  topic_id                            int        
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model TopicCustomField {
+  name = "topic_custom_fields"
+
+  id                                  int        
+  created_at                          datetime   
+  name                                string     
+  topic_id                            int        
+  updated_at                          datetime   
+  value                               string?    
+}
+
+model TopicEmbed {
+  name = "topic_embeds"
+
+  id                                  int        
+  content_sha1                        string?    
+  created_at                          datetime   
+  deleted_at                          datetime?  
+  deleted_by_id                       int?       
+  embed_url                           string     
+  post_id                             int        
+  topic_id                            int        
+  updated_at                          datetime   
+}
+
+model TopicInvite {
+  name = "topic_invites"
+
+  id                                  int        
+  created_at                          datetime   
+  invite_id                           int        
+  topic_id                            int        
+  updated_at                          datetime   
+}
+
+model TopicLink {
+  name = "topic_links"
+
+  id                                  int        
+  clicks                              int        
+  crawled_at                          datetime?  
+  created_at                          datetime   
+  domain                              string     
+  extension                           string?    
+  internal                            boolean    
+  link_post_id                        int?       
+  link_topic_id                       int?       
+  post_id                             int?       
+  quote                               boolean    
+  reflection                          boolean?   
+  title                               string?    
+  topic_id                            int        
+  updated_at                          datetime   
+  url                                 string     
+  user_id                             int        
+}
+
+model TopicLinkClick {
+  name = "topic_link_clicks"
+
+  id                                  int        
+  created_at                          datetime   
+  ip_address                          inet?      
+  topic_link_id                       int        
+  updated_at                          datetime   
+  user_id                             int?       
+}
+
+model TopicSearchDatum {
+  name = "topic_search_data"
+
+  topic_id                            int        
+  locale                              string     
+  raw_data                            string?    
+  search_data                         tsvector?  
+  version                             int?       
+}
+
+model TopicTag {
+  name = "topic_tags"
+
+  id                                  int        
+  created_at                          datetime?  
+  tag_id                              int        
+  topic_id                            int        
+  updated_at                          datetime?  
+}
+
+model TopicTimer {
+  name = "topic_timers"
+
+  id                                  int        
+  based_on_last_post                  boolean    
+  category_id                         int?       
+  created_at                          datetime?  
+  deleted_at                          datetime?  
+  deleted_by_id                       int?       
+  execute_at                          datetime   
+  public_type                         boolean?   
+  status_type                         int        
+  topic_id                            int        
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model TopicUser {
+  name = "topic_users"
+
+  id                                  int        
+  bookmarked                          boolean?   
+  cleared_pinned_at                   datetime?  
+  first_visited_at                    datetime?  
+  highest_seen_post_number            int?       
+  last_emailed_post_number            int?       
+  last_read_post_number               int?       
+  last_visited_at                     datetime?  
+  liked                               boolean?   
+  notification_level                  int        
+  notifications_changed_at            datetime?  
+  notifications_reason_id             int?       
+  posted                              boolean    
+  topic_id                            int        
+  total_msecs_viewed                  int        
+  user_id                             int        
+}
+
+model TopicView {
+  name = "topic_views"
+
+  ip_address                          inet?      
+  topic_id                            int        
+  user_id                             int?       
+  viewed_at                           datetime   
+}
+
+model TranslationOverride {
+  name = "translation_overrides"
+
+  id                                  int        
+  compiled_js                         string?    
+  created_at                          datetime   
+  locale                              string     
+  translation_key                     string     
+  updated_at                          datetime   
+  value                               string     
+}
+
+model TwitterUserInfo {
+  name = "twitter_user_infos"
+
+  id                                  int        
+  created_at                          datetime   
+  email                               string?    
+  screen_name                         string     
+  twitter_user_id                     int        
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model UnsubscribeKey {
+  name = "unsubscribe_keys"
+
+  key                                 id         
+  created_at                          datetime?  
+  post_id                             int?       
+  topic_id                            int?       
+  unsubscribe_key_type                string?    
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model Upload {
+  name = "uploads"
+
+  id                                  int        
+  created_at                          datetime   
+  extension                           string?    
+  filesize                            int        
+  height                              int?       
+  origin                              string?    
+  original_filename                   string     
+  retain_hours                        int?       
+  sha1                                string?    
+  thumbnail_height                    int?       
+  thumbnail_width                     int?       
+  updated_at                          datetime   
+  url                                 string     
+  user_id                             int        
+  width                               int?       
+}
+
+model User {
+  name = "users"
+
+  id                                  int        
+  active                              boolean    
+  admin                               boolean    
+  approved                            boolean    
+  approved_at                         datetime?  
+  approved_by_id                      int?       
+  created_at                          datetime   
+  date_of_birth                       datetime?  
+  first_seen_at                       datetime?  
+  flag_level                          int        
+  group_locked_trust_level            int?       
+  ip_address                          inet?      
+  last_emailed_at                     datetime?  
+  last_posted_at                      datetime?  
+  last_seen_at                        datetime?  
+  locale                              string?    
+  manual_locked_trust_level           int?       
+  moderator                           boolean?   
+  name                                string?    
+  password_hash                       string?    
+  previous_visit_at                   datetime?  
+  primary_group_id                    int?       
+  registration_ip_address             inet?      
+  salt                                string?    
+  seen_notification_id                int        
+  silenced_till                       datetime?  
+  staged                              boolean    
+  suspended_at                        datetime?  
+  suspended_till                      datetime?  
+  title                               string?    
+  trust_level                         int        
+  updated_at                          datetime   
+  uploaded_avatar_id                  int?       
+  username                            string     
+  username_lower                      string     
+  views                               int        
+}
+
+model UserAction {
+  name = "user_actions"
+
+  id                                  int        
+  acting_user_id                      int?       
+  action_type                         int        
+  created_at                          datetime   
+  queued_post_id                      int?       
+  target_post_id                      int?       
+  target_topic_id                     int?       
+  target_user_id                      int?       
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model UserApiKey {
+  name = "user_api_keys"
+
+  id                                  int        
+  application_name                    string     
+  client_id                           string     
+  created_at                          datetime?  
+  key                                 string     
+  last_used_at                        datetime   
+  push_url                            string?    
+  revoked_at                          datetime?  
+  scopes                              string     
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model UserArchivedMessage {
+  name = "user_archived_messages"
+
+  id                                  int        
+  created_at                          datetime?  
+  topic_id                            int        
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model UserAuthToken {
+  name = "user_auth_tokens"
+
+  id                                  int        
+  auth_token                          string     
+  auth_token_seen                     boolean    
+  client_ip                           inet?      
+  created_at                          datetime?  
+  prev_auth_token                     string     
+  rotated_at                          datetime   
+  seen_at                             datetime?  
+  updated_at                          datetime?  
+  user_agent                          string?    
+  user_id                             int        
+}
+
+model UserAuthTokenLog {
+  name = "user_auth_token_logs"
+
+  id                                  int        
+  action                              string     
+  auth_token                          string?    
+  client_ip                           inet?      
+  created_at                          datetime?  
+  path                                string?    
+  user_agent                          string?    
+  user_auth_token_id                  int?       
+  user_id                             int?       
+}
+
+model UserAvatar {
+  name = "user_avatars"
+
+  id                                  int        
+  created_at                          datetime   
+  custom_upload_id                    int?       
+  gravatar_upload_id                  int?       
+  last_gravatar_download_attempt      datetime?  
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model UserBadge {
+  name = "user_badges"
+
+  id                                  int        
+  badge_id                            int        
+  granted_at                          datetime   
+  granted_by_id                       int        
+  notification_id                     int?       
+  post_id                             int?       
+  seq                                 int        
+  user_id                             int        
+}
+
+model UserCustomField {
+  name = "user_custom_fields"
+
+  id                                  int        
+  created_at                          datetime   
+  name                                string     
+  updated_at                          datetime   
+  user_id                             int        
+  value                               string?    
+}
+
+model UserEmail {
+  name = "user_emails"
+
+  id                                  int        
+  created_at                          datetime?  
+  email                               string     
+  primary                             boolean    
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model UserExport {
+  name = "user_exports"
+
+  id                                  int        
+  created_at                          datetime?  
+  file_name                           string     
+  updated_at                          datetime?  
+  upload_id                           int?       
+  user_id                             int        
+}
+
+model UserField {
+  name = "user_fields"
+
+  id                                  int        
+  created_at                          datetime?  
+  description                         string     
+  editable                            boolean    
+  external_name                       string?    
+  external_type                       string?    
+  field_type                          string     
+  name                                string     
+  position                            int?       
+  required                            boolean    
+  show_on_profile                     boolean    
+  show_on_user_card                   boolean    
+  updated_at                          datetime?  
+}
+
+model UserFieldOption {
+  name = "user_field_options"
+
+  id                                  int        
+  created_at                          datetime?  
+  updated_at                          datetime?  
+  user_field_id                       int        
+  value                               string     
+}
+
+model UserHistory {
+  name = "user_histories"
+
+  id                                  int        
+  acting_user_id                      int?       
+  action                              int        
+  admin_only                          boolean?   
+  category_id                         int?       
+  context                             string?    
+  created_at                          datetime   
+  custom_type                         string?    
+  details                             string?    
+  email                               string?    
+  ip_address                          string?    
+  new_value                           string?    
+  post_id                             int?       
+  previous_value                      string?    
+  subject                             string?    
+  target_user_id                      int?       
+  topic_id                            int?       
+  updated_at                          datetime   
+}
+
+model UserOpenId {
+  name = "user_open_ids"
+
+  id                                  int        
+  active                              boolean    
+  created_at                          datetime   
+  email                               string     
+  updated_at                          datetime   
+  url                                 string     
+  user_id                             int        
+}
+
+model UserOption {
+  name = "user_options"
+
+  user_id                             int        
+  allow_private_messages              boolean    
+  automatically_unpin_topics          boolean    
+  auto_track_topics_after_msecs       int?       
+  digest_after_minutes                int?       
+  disable_jump_reply                  boolean    
+  dynamic_favicon                     boolean    
+  email_always                        boolean    
+  email_digests                       boolean?   
+  email_direct                        boolean    
+  email_in_reply_to                   boolean    
+  email_previous_replies              int        
+  email_private_messages              boolean    
+  enable_quoting                      boolean    
+  external_links_in_new_tab           boolean    
+  hide_profile_and_presence           boolean    
+  homepage_id                         int?       
+  include_tl0_in_digests              boolean?   
+  last_redirected_to_top_at           datetime?  
+  like_notification_frequency         int        
+  mailing_list_mode                   boolean    
+  mailing_list_mode_frequency         int        
+  new_topic_duration_minutes          int?       
+  notification_level_when_replying    int?       
+  theme_ids                           int        
+  theme_key_seq                       int        
+}
+
+model UserProfile {
+  name = "user_profiles"
+
+  user_id                             int        
+  badge_granted_title                 boolean?   
+  bio_cooked                          string?    
+  bio_cooked_version                  int?       
+  bio_raw                             string?    
+  card_background                     string?    
+  dismissed_banner_key                int?       
+  location                            string?    
+  profile_background                  string?    
+  views                               int        
+  website                             string?    
+}
+
+model UserProfileView {
+  name = "user_profile_views"
+
+  id                                  int        
+  ip_address                          inet?      
+  user_id                             int?       
+  user_profile_id                     int        
+  viewed_at                           datetime   
+}
+
+model UserSearchDatum {
+  name = "user_search_data"
+
+  user_id                             int        
+  locale                              string?    
+  raw_data                            string?    
+  search_data                         tsvector?  
+  version                             int?       
+}
+
+model UserSecondFactor {
+  name = "user_second_factors"
+
+  id                                  int        
+  created_at                          datetime   
+  data                                string     
+  enabled                             boolean    
+  last_used                           datetime?  
+  method                              int        
+  updated_at                          datetime   
+  user_id                             int        
+}
+
+model UserStat {
+  name = "user_stats"
+
+  user_id                             int        
+  bounce_score                        float      
+  days_visited                        int        
+  first_post_created_at               datetime?  
+  likes_given                         int        
+  likes_received                      int        
+  new_since                           datetime   
+  post_count                          int        
+  posts_read_count                    int        
+  read_faq                            datetime?  
+  reset_bounce_score_after            datetime?  
+  time_read                           int        
+  topic_count                         int        
+  topic_reply_count                   int        
+  topics_entered                      int        
+}
+
+model UserUpload {
+  name = "user_uploads"
+
+  id                                  int        
+  created_at                          datetime   
+  upload_id                           int        
+  user_id                             int        
+}
+
+model UserVisit {
+  name = "user_visits"
+
+  id                                  int        
+  mobile                              boolean?   
+  posts_read                          int?       
+  time_read                           int        
+  user_id                             int        
+  visited_at                          datetime   
+}
+
+model UserWarning {
+  name = "user_warnings"
+
+  id                                  int        
+  created_at                          datetime?  
+  created_by_id                       int        
+  topic_id                            int        
+  updated_at                          datetime?  
+  user_id                             int        
+}
+
+model WatchedWord {
+  name = "watched_words"
+
+  id                                  int        
+  action                              int        
+  created_at                          datetime?  
+  updated_at                          datetime?  
+  word                                string     
+}
+
+model WebCrawlerRequest {
+  name = "web_crawler_requests"
+
+  id                                  int        
+  count                               int        
+  date                                datetime   
+  user_agent                          string     
+}
+
+model WebHook {
+  name = "web_hooks"
+
+  id                                  int        
+  active                              boolean    
+  content_type                        int        
+  created_at                          datetime?  
+  last_delivery_status                int        
+  payload_url                         string     
+  secret                              string?    
+  status                              int        
+  updated_at                          datetime?  
+  verify_certificate                  boolean    
+  wildcard_web_hook                   boolean    
+}
+
+model WebHookEvent {
+  name = "web_hook_events"
+
+  id                                  int        
+  created_at                          datetime?  
+  duration                            int?       
+  headers                             string?    
+  payload                             string?    
+  response_body                       string?    
+  response_headers                    string?    
+  status                              int?       
+  updated_at                          datetime?  
+  web_hook_id                         int        
+}
+
+model WebHookEventType {
+  name = "web_hook_event_types"
+
+  id                                  int        
+  name                                string     
+}
+
+model WebHookEventTypesHook {
+  name = "web_hook_event_types_hooks"
+
+  web_hook_event_type_id              int        
+  web_hook_id                         int        
+}
