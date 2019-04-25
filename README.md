@@ -16,7 +16,7 @@ Write to a file named `schema.sql`.
 
 ## Recompile the datamodels
 
-You'll need Postgres installed locally with `psql` in your `$PATH` and [prisma-render](https://github.com/prisma/prisma-render).
+You'll need Postgres installed locally with `psql` in your `$PATH` and the [prisma-render](https://github.com/prisma/prisma-render) CLI in your `$PATH`.
 
 Then run:
 
