@@ -1,128 +1,128 @@
 model Actor {
   name = "actor"
 
-  actor_id     int          
-  film_actor   FilmActor[]  
-  first_name   string       
-  last_name    string       
-  last_update  datetime     
+  actor_id     int                    @primary @sequence
+  film_actor   FilmActor(actor_id)[]  
+  first_name   string                 
+  last_name    string                 
+  last_update  datetime               
 }
 
 model Address {
   name = "address"
 
-  address_id   int          
-  address      string       
-  address2     string?      
-  city         City         
-  customer     Customer[]   
-  district     string       
-  last_update  datetime     
-  phone        string       
-  postal_code  string?      
-  staff        Staff[]      
-  store        Store[]      
+  address_id   int                     @primary @sequence
+  address      string                  
+  address2     string?                 
+  city         City(address_id)        
+  customer     Customer(address_id)[]  
+  district     string                  
+  last_update  datetime                
+  phone        string                  
+  postal_code  string?                 
+  staff        Staff(address_id)[]     
+  store        Store(address_id)[]     
 }
 
 model Category {
   name = "category"
 
-  category_id    int             
-  film_category  FilmCategory[]  
-  last_update    datetime        
-  name           string          
+  category_id    int                          @primary @sequence
+  film_category  FilmCategory(category_id)[]  
+  last_update    datetime                     
+  name           string                       
 }
 
 model City {
   name = "city"
 
-  city_id        int             
-  address        Address[]       
-  city           string          
-  country        Country         
-  last_update    datetime        
+  city_id      int                 @primary @sequence
+  address      Address(city_id)[]  
+  city         string              
+  country      Country(city_id)    
+  last_update  datetime            
 }
 
 model Country {
   name = "country"
 
-  country_id     int             
-  city           City[]          
-  country        string          
-  last_update    datetime        
+  country_id   int                 @primary @sequence
+  city         City(country_id)[]  
+  country      string              
+  last_update  datetime            
 }
 
 model Customer {
   name = "customer"
 
-  customer_id    int             
-  active         int?            
-  activebool     boolean         
-  address        Address         
-  create_date    datetime        
-  email          string?         
-  first_name     string          
-  last_name      string          
-  last_update    datetime?       
-  payment        Payment[]       
-  rental         Rental[]        
-  store_id       int             
+  customer_id  int                     @primary @sequence
+  active       int?                    
+  activebool   boolean                 @default(true)
+  address      Address(customer_id)    
+  create_date  datetime                
+  email        string?                 
+  first_name   string                  
+  last_name    string                  
+  last_update  datetime?               
+  payment      Payment(customer_id)[]  
+  rental       Rental(customer_id)[]   
+  store_id     int                     
 }
 
 model Film {
   name = "film"
 
-  film_id           int             
-  description       string?         
-  film_actor        FilmActor[]     
-  film_category     FilmCategory[]  
-  fulltext          tsvector        
-  inventory         Inventory[]     
-  language          Language        
-  last_update       datetime        
-  length            int?            
-  rating            MpaaRating?     
-  release_year      int?            
-  rental_duration   int             
-  rental_rate       float           
-  replacement_cost  float           
-  special_features  string?         
-  title             string          
+  film_id           int                      @primary @sequence
+  description       string?                  
+  film_actor        FilmActor(film_id)[]     
+  film_category     FilmCategory(film_id)[]  
+  fulltext          tsvector                 
+  inventory         Inventory(film_id)[]     
+  language          Language(film_id)        
+  last_update       datetime                 
+  length            int?                     
+  rating            MpaaRating?              
+  release_year      int?                     
+  rental_duration   int                      @default(3)
+  rental_rate       float                    @default(4.99)
+  replacement_cost  float                    @default(19.99)
+  special_features  string?                  
+  title             string                   
 }
 
 model FilmActor {
   name = "film_actor"
 
-  actor_id          Actor           
-  film_id           Film            
-  last_update       datetime        
+  actor_id     Actor(actor_id, film_id)  @primary
+  film_id      Film(actor_id, film_id)   @primary
+  last_update  datetime                  
 }
 
 model FilmCategory {
   name = "film_category"
 
-  category_id       Category        
-  film_id           Film            
-  last_update       datetime        
+  category_id  Category(category_id, film_id)  @primary
+  film_id      Film(category_id, film_id)      @primary
+  last_update  datetime                        
 }
 
 model Inventory {
   name = "inventory"
 
-  inventory_id      int             
-  film              Film            
-  last_update       datetime        
-  rental            Rental[]        
-  store_id          int             
+  inventory_id  int                     @primary @sequence
+  film          Film(inventory_id)      
+  last_update   datetime                
+  rental        Rental(inventory_id)[]  
+  store_id      int                     
 }
 
 model Language {
   name = "language"
 
-  language_id       int             
-  film              Film[]          
-  last_update       datetime        
-  name              string          
+  language_id  int                  @primary @sequence
+  film         Film(language_id)[]  
+  last_update  datetime             
+  name         string               
 }
 
 enum MpaaRating {
@@ -136,51 +136,51 @@ enum MpaaRating {
 model Payment {
   name = "payment"
 
-  payment_id        int             
-  amount            float           
-  customer          Customer        
-  payment_date      datetime        
-  rental            Rental          
-  staff             Staff           
+  payment_id    int                   @primary @sequence
+  amount        float                 
+  customer      Customer(payment_id)  
+  payment_date  datetime              
+  rental        Rental(payment_id)    
+  staff         Staff(payment_id)     
 }
 
 model Rental {
   name = "rental"
 
-  rental_id         int             
-  customer          Customer        
-  inventory         Inventory       
-  last_update       datetime        
-  payment           Payment[]       
-  rental_date       datetime        
-  return_date       datetime?       
-  staff             Staff           
+  rental_id    int                   @primary @sequence
+  customer     Customer(rental_id)   
+  inventory    Inventory(rental_id)  
+  last_update  datetime              
+  payment      Payment(rental_id)[]  
+  rental_date  datetime              
+  return_date  datetime?             
+  staff        Staff(rental_id)      
 }
 
 model Staff {
   name = "staff"
 
-  staff_id          int             
-  active            boolean         
-  address           Address         
-  email             string?         
-  first_name        string          
-  last_name         string          
-  last_update       datetime        
-  password          string?         
-  payment           Payment[]       
-  picture           bytea?          
-  rental            Rental[]        
-  store             Store           
-  store_id          int             
-  username          string          
+  staff_id     int                  @primary @sequence
+  active       boolean              @default(true)
+  address      Address(staff_id)    
+  email        string?              
+  first_name   string               
+  last_name    string               
+  last_update  datetime             
+  password     string?              
+  payment      Payment(staff_id)[]  
+  picture      bytea?               
+  rental       Rental(staff_id)[]   
+  store        Store(staff_id)      
+  store_id     int                  
+  username     string               
 }
 
 model Store {
   name = "store"
 
-  store_id          int             
-  address           Address         
-  last_update       datetime        
-  manager_staff     Staff           
+  store_id       int                @primary @sequence
+  address        Address(store_id)  
+  last_update    datetime           
+  manager_staff  Staff(store_id)    @unique
 }

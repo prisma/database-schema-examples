@@ -1,151 +1,129 @@
 model Album {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  album_id   int       
-  artist_id  Artist    
-  title      string    
-  track      Track[]?  
+  album_id   int                @primary
+  artist_id  Artist(AlbumId)    
+  title      string             
+  track      Track(AlbumId)[]?  
 }
 
 model Artist {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  artist_id  int       
-  album      Album[]   
-  name       string?   
+  artist_id  int                @primary
+  album      Album(ArtistId)[]  
+  name       string?            
 }
 
 model Customer {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  customer_id     int        
-  address         string?    
-  city            string?    
-  company         string?    
-  country         string?    
-  email           string     
-  fax             string?    
-  first_name      string     
-  invoice         Invoice[]  
-  last_name       string     
-  phone           string?    
-  postal_code     string?    
-  state           string?    
-  support_rep_id  Employee?  
+  customer_id     int                    @primary
+  address         string?                
+  city            string?                
+  company         string?                
+  country         string?                
+  email           string                 
+  fax             string?                
+  first_name      string                 
+  invoice         Invoice(CustomerId)[]  
+  last_name       string                 
+  phone           string?                
+  postal_code     string?                
+  state           string?                
+  support_rep_id  Employee(CustomerId)?  
 }
 
 model Employee {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  employee_id     int          
-  address         string?      
-  birth_date      datetime?    
-  city            string?      
-  country         string?      
-  customer        Customer[]?  
-  email           string?      
-  employee        Employee[]?  
-  fax             string?      
-  first_name      string       
-  hire_date       datetime?    
-  last_name       string       
-  phone           string?      
-  postal_code     string?      
-  reports_to      Employee?    
-  state           string?      
-  title           string?      
+  employee_id  int                      @primary
+  address      string?                  
+  birth_date   datetime?                
+  city         string?                  
+  country      string?                  
+  customer     Customer(EmployeeId)[]?  
+  email        string?                  
+  employee     Employee(EmployeeId)[]?  
+  fax          string?                  
+  first_name   string                   
+  hire_date    datetime?                
+  last_name    string                   
+  phone        string?                  
+  postal_code  string?                  
+  reports_to   Employee(EmployeeId)?    
+  state        string?                  
+  title        string?                  
 }
 
 model Genre {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  genre_id        int          
-  name            string?      
-  track           Track[]?     
+  genre_id  int                @primary
+  name      string?            
+  track     Track(GenreId)[]?  
 }
 
 model Invoice {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  invoice_id           int            
-  billing_address      string?        
-  billing_city         string?        
-  billing_country      string?        
-  billing_postal_code  string?        
-  billing_state        string?        
-  customer_id          Customer       
-  invoice_date         datetime       
-  invoice_line         InvoiceLine[]  
-  total                float          
+  invoice_id           int                       @primary
+  billing_address      string?                   
+  billing_city         string?                   
+  billing_country      string?                   
+  billing_postal_code  string?                   
+  billing_state        string?                   
+  customer_id          Customer(InvoiceId)       
+  invoice_date         datetime                  
+  invoice_line         InvoiceLine(InvoiceId)[]  
+  total                float                     
 }
 
 model InvoiceLine {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  invoice_line_id      int            
-  invoice_id           Invoice        
-  quantity             int            
-  track_id             Track          
-  unit_price           float          
+  invoice_line_id  int                     @primary
+  invoice_id       Invoice(InvoiceLineId)  
+  quantity         int                     
+  track_id         Track(InvoiceLineId)    
+  unit_price       float                   
 }
 
 model MediaType {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  media_type_id        int            
-  name                 string?        
-  track                Track[]        
+  media_type_id  int                   @primary
+  name           string?               
+  track          Track(MediaTypeId)[]  
 }
 
 model Playlist {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  playlist_id          int              
-  name                 string?          
-  playlist_track       PlaylistTrack[]  
+  playlist_id     int                          @primary
+  name            string?                      
+  playlist_track  PlaylistTrack(PlaylistId)[]  
 }
 
 model PlaylistTrack {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  playlist_id          Playlist         
-  track_id             Track            
+  playlist_id  Playlist()  
+  track_id     Track()     
 }
 
 model Track {
-  meta = {
-    name = "null"
-  }
+  name = "null"
 
-  track_id             int              
-  album_id             Album?           
-  bytes                int?             
-  composer             string?          
-  genre_id             Genre?           
-  invoice_line         InvoiceLine[]    
-  media_type_id        MediaType        
-  milliseconds         int              
-  name                 string           
-  playlist_track       PlaylistTrack[]  
-  unit_price           float            
+  track_id        int                       @primary
+  album_id        Album(TrackId)?           
+  bytes           int?                      
+  composer        string?                   
+  genre_id        Genre(TrackId)?           
+  invoice_line    InvoiceLine(TrackId)[]    
+  media_type_id   MediaType(TrackId)        
+  milliseconds    int                       
+  name            string                    
+  playlist_track  PlaylistTrack(TrackId)[]  
+  unit_price      float                     
 }

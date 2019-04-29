@@ -1,84 +1,72 @@
 model Chapter {
-  meta = {
-    name = "chapter"
-  }
+  name = "chapter"
 
-  chapterid    int     
-  chapter      int     
-  description  string  
-  section      int     
-  workid       Work    
+  chapterid    int              @primary
+  chapter      int              
+  description  string           
+  section      int              
+  workid       Work(chapterid)  
 }
 
 model Character {
-  meta = {
-    name = "character"
-  }
+  name = "character"
 
-  charid          id               
-  abbrev          string?          
-  character_work  CharacterWork[]  
-  charname        string           
-  description     string?          
-  paragraph       Paragraph[]      
-  speechcount     int              
+  charid          id                       @primary
+  abbrev          string?                  
+  character_work  CharacterWork(charid)[]  
+  charname        string                   
+  description     string?                  
+  paragraph       Paragraph(charid)[]      
+  speechcount     int                      
 }
 
 model CharacterWork {
-  meta = {
-    name = "character_work"
-  }
+  name = "character_work"
 
-  charid          Character        
-  workid          Work             
+  charid  Character()  
+  workid  Work()       
 }
 
 model Paragraph {
-  meta = {
-    name = "paragraph"
-  }
+  name = "paragraph"
 
-  paragraphid     int              
-  chapter         int              
-  charcount       int              
-  charid          Character        
-  paragraphnum    int              
-  paragraphtype   string           
-  phonetictext    string           
-  plaintext       string           
-  section         int              
-  stemtext        string           
-  wordcount       int              
-  workid          Work             
+  paragraphid    int                     @primary
+  chapter        int                     
+  charcount      int                     
+  charid         Character(paragraphid)  
+  paragraphnum   int                     
+  paragraphtype  string                  
+  phonetictext   string                  
+  plaintext      string                  
+  section        int                     
+  stemtext       string                  
+  wordcount      int                     
+  workid         Work(paragraphid)       
 }
 
 model Wordform {
-  meta = {
-    name = "wordform"
-  }
+  name = "wordform"
 
-  wordformid      int              
-  occurences      int              
-  phonetictext    string           
-  plaintext       string           
-  stemtext        string           
+  wordformid    int     @primary
+  occurences    int     
+  phonetictext  string  
+  plaintext     string  
+  stemtext      string  
 }
 
 model Work {
-  meta = {
-    name = "work"
-  }
+  name = "work"
 
-  workid           id               
-  chapter          Chapter[]        
-  character_work   CharacterWork[]  
-  genretype        string           
-  longtitle        string           
-  notes            string?          
-  paragraph        Paragraph[]      
-  source           string           
-  title            string           
-  totalparagraphs  int              
-  totalwords       int              
-  year             int              
+  workid           id                       @primary
+  chapter          Chapter(workid)[]        
+  character_work   CharacterWork(workid)[]  
+  genretype        string                   
+  longtitle        string                   
+  notes            string?                  
+  paragraph        Paragraph(workid)[]      
+  source           string                   
+  title            string                   
+  totalparagraphs  int                      
+  totalwords       int                      
+  year             int                      
 }

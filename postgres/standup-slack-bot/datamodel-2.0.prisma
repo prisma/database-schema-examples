@@ -1,20 +1,20 @@
 model Eventid {
   name = "eventids"
 
-  event_id    id        
+  event_id    id        @primary
   created_at  datetime  
 }
 
 model Migrate {
   name = "migrate"
 
-  version     int       
+  version  int  @primary
 }
 
 model Post {
   name = "posts"
 
-  id          int        
+  id          int        @primary @sequence
   created_at  datetime   
   reports     Report[]?  
   standup     Standup    
@@ -24,18 +24,18 @@ model Post {
 model Question {
   name = "questions"
 
-  id          int        
-  created_at  datetime   
-  order       int        
-  question    string     
-  standup     Standup    
-  updated_at  datetime   
+  id          int       @primary @sequence
+  created_at  datetime  
+  order       int       
+  question    string    
+  standup     Standup   
+  updated_at  datetime  
 }
 
 model Report {
   name = "reports"
 
-  id          int           
+  id          int           @primary @sequence
   created_at  datetime      
   post        Post?         
   questions   json          
@@ -55,11 +55,11 @@ enum ReportStatus {
 model Review {
   name = "reviews"
 
-  id          int           
-  created_at  datetime      
-  text        string        
-  type        ReviewType    
-  user        User          
+  id          int         @primary @sequence
+  created_at  datetime    
+  text        string      
+  type        ReviewType  
+  user        User        
 }
 
 enum ReviewType {
@@ -71,10 +71,10 @@ enum ReviewType {
 model Standup {
   name = "standups"
 
-  id              int             
+  id              int             @primary @sequence
   channel_id      string          
   created_at      datetime        
-  is_threaded     boolean         
+  is_threaded     boolean         @default(false)
   name            citext          
   posts           Post[]          
   questions       Question[]      
@@ -96,33 +96,33 @@ model StandupsUser {
   name = "standups_users"
 
   created_at        datetime           
-  is_standup_owner  boolean            
-  standup           Standup            
+  is_standup_owner  boolean            @default(false)
+  standup           Standup()          
   status            StandupUserStatus  
   time              time               
   updated_at        datetime           
-  user              User               
+  user              User()             
 }
 
 model Team {
   name = "teams"
 
-  id                    int                
-  bot_access_token      string             
-  bot_slack_id          string             
-  cost_per_user         int                
-  created_at            datetime           
-  minimum_monthly_cost  int                
-  scope                 string             
-  standups              Standup[]          
-  status                TeamStatus         
-  stripe_id             string?            
-  team_access_token     string             
-  team_name             string             
-  team_slack_id         string             
-  trial_ends            datetime           
-  updated_at            datetime           
-  users                 User[]             
+  id                    int         @primary @sequence
+  bot_access_token      string      @unique
+  bot_slack_id          string      
+  cost_per_user         int         @default(100)
+  created_at            datetime    
+  minimum_monthly_cost  int         @default(0)
+  scope                 string      @default({})
+  standups              Standup[]   
+  status                TeamStatus  
+  stripe_id             string?     
+  team_access_token     string      @unique
+  team_name             string      
+  team_slack_id         string      @unique
+  trial_ends            datetime    
+  updated_at            datetime    
+  users                 User[]      
 }
 
 enum TeamStatus {
@@ -134,19 +134,19 @@ enum TeamStatus {
 model User {
   name = "users"
 
-  id                    int                
-  avatar_url            string?            
-  created_at            datetime           
-  email                 string?            
-  first_name            string?            
-  is_team_owner         boolean            
-  last_name             string?            
-  reports               Report[]           
-  reviews               Review[]           
-  slack_id              string             
-  standups_users        StandupsUser[]     
-  team                  Team               
-  timezone              string             
-  updated_at            datetime           
-  username              string             
+  id              int             @primary @sequence
+  avatar_url      string?         
+  created_at      datetime        
+  email           string?         
+  first_name      string?         
+  is_team_owner   boolean         @default(false)
+  last_name       string?         
+  reports         Report[]        
+  reviews         Review[]        
+  slack_id        string          
+  standups_users  StandupsUser[]  
+  team            Team            
+  timezone        string          
+  updated_at      datetime        
+  username        string          
 }

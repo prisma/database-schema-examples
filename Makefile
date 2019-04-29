@@ -26,19 +26,25 @@ ifndef prisma-render
 endif
 
 postgres/%/datamodel-1.0.prisma: postgres/%/schema.sql
+	@ psql -c "drop database if exists tmp_prisma" $(PG_URL)
 	@psql -c "create database tmp_prisma" $(PG_URL)
 	@psql $(PG_URL)/tmp_prisma < $?
 	@prisma-render --datamodel 1.0 $(PG_URL)/tmp_prisma > $@
 	@psql -c "drop database tmp_prisma" $(PG_URL)
 
 postgres/%/datamodel-1.1.prisma: postgres/%/schema.sql
-	@psql -c "create database tmp_prisma" $(PG_URL)
-	@psql $(PG_URL)/tmp_prisma < $?
-	@prisma-render --datamodel 1.1 $(PG_URL)/tmp_prisma > $@
-	@psql -c "drop database tmp_prisma" $(PG_URL)
+	@ psql -c "drop database if exists tmp_prisma" $(PG_URL)
+	@ psql -c "create database tmp_prisma" $(PG_URL)
+	@ psql $(PG_URL)/tmp_prisma < $?
+	@ prisma-render --datamodel 1.1 $(PG_URL)/tmp_prisma > $@
+	@ psql -c "drop database tmp_prisma" $(PG_URL)
 
 postgres/%/datamodel-2.0.prisma: postgres/%/schema.sql
-	@psql -c "create database tmp_prisma" $(PG_URL)
-	@psql $(PG_URL)/tmp_prisma < $?
-	@prisma-render --datamodel 2.0 $(PG_URL)/tmp_prisma > $@
-	@psql -c "drop database tmp_prisma" $(PG_URL)
+	@ psql -c "drop database if exists tmp_prisma" $(PG_URL)
+	@ psql -c "create database tmp_prisma" $(PG_URL)
+	@ psql $(PG_URL)/tmp_prisma < $?
+	@ prisma-render --datamodel 2.0 $(PG_URL)/tmp_prisma > $@
+	@ psql -c "drop database if exists tmp_prisma" $(PG_URL)
+
+clear.2.0:
+	@ rm -rf ./postgres/*/datamodel-2.0.prisma
