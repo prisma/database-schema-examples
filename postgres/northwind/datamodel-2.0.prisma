@@ -1,1 +1,174 @@
+model Category {
+  name = "categories"
 
+  category_id    int                      @primary
+  category_name  string                   
+  description    string?                  
+  picture        bytea?                   
+  products       Product(category_id)[]?  
+}
+
+model Customer {
+  name = "customers"
+
+  customer_id             id                                   @primary
+  address                 string?                              
+  city                    string?                              
+  company_name            string                               
+  contact_name            string?                              
+  contact_title           string?                              
+  country                 string?                              
+  customer_customer_demo  CustomerCustomerDemo(customer_id)[]  
+  fax                     string?                              
+  orders                  Order(customer_id)[]?                
+  phone                   string?                              
+  postal_code             string?                              
+  region                  string?                              
+}
+
+model CustomerCustomerDemo {
+  name = "customer_customer_demo"
+
+  customer       Customer()             
+  customer_type  CustomerDemographic()  
+}
+
+model CustomerDemographic {
+  name = "customer_demographics"
+
+  customer_type_id        id                                        @primary
+  customer_customer_demo  CustomerCustomerDemo(customer_type_id)[]  
+  customer_desc           string?                                   
+}
+
+model Employee {
+  name = "employees"
+
+  employee_id           int                               @primary
+  address               string?                           
+  birth_date            datetime?                         
+  city                  string?                           
+  country               string?                           
+  employees             Employee(employee_id)[]?          
+  employee_territories  EmployeeTerritory(employee_id)[]  
+  extension             string?                           
+  first_name            string                            
+  hire_date             datetime?                         
+  home_phone            string?                           
+  last_name             string                            
+  notes                 string?                           
+  orders                Order(employee_id)[]?             
+  photo                 bytea?                            
+  photo_path            string?                           
+  postal_code           string?                           
+  region                string?                           
+  reports_to            Employee(employee_id)?            
+  title                 string?                           
+  title_of_courtesy     string?                           
+}
+
+model EmployeeTerritory {
+  name = "employee_territories"
+
+  employee   Employee()   
+  territory  Territory()  
+}
+
+model Order {
+  name = "orders"
+
+  order_id          int                      @primary
+  customer          Customer(order_id)?      
+  employee          Employee(order_id)?      
+  freight           float?                   
+  order_date        datetime?                
+  order_details     OrderDetail(order_id)[]  
+  required_date     datetime?                
+  ship_address      string?                  
+  ship_city         string?                  
+  ship_country      string?                  
+  ship_name         string?                  
+  shipped_date      datetime?                
+  ship_postal_code  string?                  
+  ship_region       string?                  
+  ship_via          Shipper(order_id)?       
+}
+
+model OrderDetail {
+  name = "order_details"
+
+  order_id    Order(order_id, product_id)    @primary
+  product_id  Product(order_id, product_id)  @primary
+  discount    float                          
+  quantity    int                            
+  unit_price  float                          
+}
+
+model Product {
+  name = "products"
+
+  product_id         int                        @primary
+  category           Category(product_id)?      
+  discontinued       int                        
+  order_details      OrderDetail(product_id)[]  
+  product_name       string                     
+  quantity_per_unit  string?                    
+  reorder_level      int?                       
+  supplier           Supplier(product_id)?      
+  unit_price         float?                     
+  units_in_stock     int?                       
+  units_on_order     int?                       
+}
+
+model Region {
+  name = "region"
+
+  region_id           int                     @primary
+  region_description  string                  
+  territories         Territory(region_id)[]  
+}
+
+model Shipper {
+  name = "shippers"
+
+  shipper_id    int                   @primary
+  company_name  string                
+  orders        Order(shipper_id)[]?  
+  phone         string?               
+}
+
+model Supplier {
+  name = "suppliers"
+
+  supplier_id    int                      @primary
+  address        string?                  
+  city           string?                  
+  company_name   string                   
+  contact_name   string?                  
+  contact_title  string?                  
+  country        string?                  
+  fax            string?                  
+  homepage       string?                  
+  phone          string?                  
+  postal_code    string?                  
+  products       Product(supplier_id)[]?  
+  region         string?                  
+}
+
+model Territory {
+  name = "territories"
+
+  territory_id           id                                 @primary
+  employee_territories   EmployeeTerritory(territory_id)[]  
+  region                 Region(territory_id)               
+  territory_description  string                             
+}
+
+model UsState {
+  name = "us_states"
+
+  state_id      int      @primary
+  state_abbr    string?  
+  state_name    string?  
+  state_region  string?  
+}
