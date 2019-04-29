@@ -9,7 +9,7 @@ model Address {
   floor          string?   
   language       string?   
   locality       string?   
-  location_id    Location  
+  location       Location  
   neighborhood   string?   
   postal_code    string?   
   region         string?   
@@ -32,7 +32,7 @@ model Affiliation {
   affiliations_media      AffiliationsMedia[]     
   affiliation_type        string?                 
   positions               Position[]              
-  publisher_id            Publisher               
+  publisher               Publisher               
   seasons                 Season[]                
   standings               Standing[]              
   standing_subgroups      StandingSubgroup[]      
@@ -42,48 +42,48 @@ model Affiliation {
 model AffiliationPhase {
   name = "affiliation_phases"
 
-  id                       int           @primary @sequence @unique
-  affiliation_id           Affiliation   
-  ancestor_affiliation_id  Affiliation?  
-  end_date_time            datetime?     
-  end_season_id            Season?       
-  start_date_time          datetime?     
-  start_season_id          Season?       
+  id                    int           @primary @sequence @unique
+  affiliation           Affiliation   
+  ancestor_affiliation  Affiliation?  
+  end_date_time         datetime?     
+  end_season            Season?       
+  start_date_time       datetime?     
+  start_season          Season?       
 }
 
 model AffiliationsDocument {
   name = "affiliations_documents"
 
-  affiliation_id  Affiliation()  
-  document_id     Document()     
+  affiliation  Affiliation()  
+  document     Document()     
 }
 
 model AffiliationsEvent {
   name = "affiliations_events"
 
-  affiliation_id  Affiliation()  
-  event_id        Event()        
+  affiliation  Affiliation()  
+  event        Event()        
 }
 
 model AffiliationsMedia {
   name = "affiliations_media"
 
-  affiliation_id  Affiliation()  
-  media_id        Media()        
+  affiliation  Affiliation()  
+  media        Media()        
 }
 
 model AmericanFootballActionParticipant {
   name = "american_football_action_participants"
 
-  id                                int                         @primary @sequence @unique
-  american_football_action_play_id  AmericanFootballActionPlay  
-  field_line                        int?                        
-  participant_role                  string                      
-  person_id                         Person                      
-  score_credit                      int?                        
-  score_type                        string?                     
-  yardage                           int?                        
-  yards_gained                      int?                        
+  id                             int                         @primary @sequence @unique
+  american_football_action_play  AmericanFootballActionPlay  
+  field_line                     int?                        
+  participant_role               string                      
+  person                         Person                      
+  score_credit                   int?                        
+  score_type                     string?                     
+  yardage                        int?                        
+  yards_gained                   int?                        
 }
 
 model AmericanFootballActionPlay {
@@ -91,7 +91,7 @@ model AmericanFootballActionPlay {
 
   id                                     int                                  @primary @sequence @unique
   american_football_action_participants  AmericanFootballActionParticipant[]  
-  american_football_event_state_id       AmericanFootballEventState           
+  american_football_event_state          AmericanFootballEventState           
   comment                                string?                              
   drive_result                           string?                              
   play_type                              string?                              
@@ -141,16 +141,16 @@ model AmericanFootballEventState {
   clock_state                     string?                       
   context                         string?                       
   current_state                   int?                          
-  distance_for_1st_down           int?                          
+  distance_for1st_down            int?                          
   down                            int?                          
-  event_id                        Event                         
+  event                           Event                         
   field_line                      int?                          
   field_side                      string?                       
   period_time_elapsed             string?                       
   period_time_remaining           string?                       
   period_value                    int?                          
   sequence_number                 int?                          
-  team_in_possession_id           Team?                         
+  team_in_possession              Team?                         
 }
 
 model AmericanFootballFumblesStat {
@@ -267,8 +267,8 @@ model AmericanFootballSpecialTeamsStat {
   fair_catches                         string?  
   punts_average                        string?  
   punts_blocked                        string?  
-  punts_inside_20                      string?  
-  punts_inside_20_percentage           string?  
+  punts_inside20                       string?  
+  punts_inside20_percentage            string?  
   punts_longest                        string?  
   punts_total                          string?  
   punts_yards_gross                    string?  
@@ -298,14 +298,14 @@ model AmericanFootballSpecialTeamsStat {
 model BaseballActionContactDetail {
   name = "baseball_action_contact_details"
 
-  id                        int                  @primary @sequence @unique
-  baseball_action_pitch_id  BaseballActionPitch  
-  comment                   string?              
-  location                  string?              
-  strength                  string?              
-  trajectory_coordinates    string?              
-  trajectory_formula        string?              
-  velocity                  int?                 
+  id                      int                  @primary @sequence @unique
+  baseball_action_pitch   BaseballActionPitch  
+  comment                 string?              
+  location                string?              
+  strength                string?              
+  trajectory_coordinates  string?              
+  trajectory_formula      string?              
+  velocity                int?                 
 }
 
 model BaseballActionPitch {
@@ -314,8 +314,8 @@ model BaseballActionPitch {
   id                               int                            @primary @sequence @unique
   ball_type                        string?                        
   baseball_action_contact_details  BaseballActionContactDetail[]  
-  baseball_action_play_id          BaseballActionPlay             
-  baseball_defensive_group_id      BaseballDefensiveGroup?        
+  baseball_action_play             BaseballActionPlay             
+  baseball_defensive_group         BaseballDefensiveGroup?        
   comment                          string?                        
   pitch_location                   string?                        
   pitch_type                       string?                        
@@ -333,7 +333,7 @@ model BaseballActionPlay {
   id                           int                    @primary @sequence @unique
   baseball_action_pitches      BaseballActionPitch[]  
   baseball_defensive_group_id  int?                   
-  baseball_event_state_id      BaseballEventState     
+  baseball_event_state         BaseballEventState     
   comment                      string?                
   earned_runs_scored           string?                
   notation                     string?                
@@ -351,14 +351,14 @@ model BaseballActionSubstitution {
   name = "baseball_action_substitutions"
 
   id                            int                 @primary @sequence @unique
-  baseball_event_state_id       BaseballEventState  
+  baseball_event_state          BaseballEventState  
   comment                       string?             
-  person_original_id            Person?             
+  person_original               Person?             
   person_original_lineup_slot   int?                
-  person_original_position_id   Position?           
-  person_replacing_id           Person?             
+  person_original_position      Position?           
+  person_replacing              Person?             
   person_replacing_lineup_slot  int?                
-  person_replacing_position_id  Position?           
+  person_replacing_position     Position?           
   person_type                   string?             
   sequence_number               int?                
   substitution_reason           string?             
@@ -375,10 +375,10 @@ model BaseballDefensiveGroup {
 model BaseballDefensivePlayer {
   name = "baseball_defensive_players"
 
-  id                           int                     @primary @sequence @unique
-  baseball_defensive_group_id  BaseballDefensiveGroup  
-  player_id                    Person                  
-  position_id                  Position                
+  id                        int                     @primary @sequence @unique
+  baseball_defensive_group  BaseballDefensiveGroup  
+  player                    Person                  
+  position                  Position                
 }
 
 model BaseballDefensiveStat {
@@ -404,15 +404,15 @@ model BaseballEventState {
   balls                          int?                          
   baseball_action_plays          BaseballActionPlay[]          
   baseball_action_substitutions  BaseballActionSubstitution[]  
-  batter_id                      Person?                       
+  batter                         Person?                       
   batter_side                    string?                       
   context                        string?                       
   current_state                  int?                          
-  event_id                       Event                         
+  event                          Event                         
   inning_half                    string?                       
   inning_value                   int?                          
   outs                           int?                          
-  pitcher_id                     Person?                       
+  pitcher                        Person?                       
   runner_on_first_id             Person?                       
   runner_on_second_id            Person?                       
   runner_on_third_id             Person?                       
@@ -514,7 +514,7 @@ model BasketballEventState {
   id                     int      @primary @sequence @unique
   context                string?  
   current_state          int?     
-  event_id               Event    
+  event                  Event    
   period_time_elapsed    string?  
   period_time_remaining  string?  
   period_value           string?  
@@ -582,8 +582,8 @@ model Bookmaker {
 
   id                              int                           @primary @sequence @unique
   bookmaker_key                   string?                       
-  location_id                     Location?                     
-  publisher_id                    Publisher                     
+  location                        Location?                     
+  publisher                       Publisher                     
   wagering_moneylines             WageringMoneyline[]           
   wagering_odds_lines             WageringOddsLine[]            
   wagering_runlines               WageringRunline[]             
@@ -597,7 +597,7 @@ model CorePersonStat {
   id                         int        @primary @sequence @unique
   events_played              int?       
   events_started             int?       
-  position_id                Position?  
+  position                   Position?  
   time_played_event          string?    
   time_played_event_average  string?    
   time_played_total          string?    
@@ -648,7 +648,7 @@ model Document {
   db_loading_date_time      datetime?                
   doc_id                    string                   
   document_contents         DocumentContent[]        
-  document_fixture_id       DocumentFixture          
+  document_fixture          DocumentFixture          
   document_fixtures_events  DocumentFixturesEvent[]  
   document_package_entry    DocumentPackageEntry[]   
   documents_media           DocumentsMedia[]         
@@ -657,9 +657,9 @@ model Document {
   latest_revisions          LatestRevision[]         
   persons_documents         PersonsDocument[]        
   priority                  string?                  
-  publisher_id              Publisher                
+  publisher                 Publisher                
   revision_id               string?                  
-  source_id                 Publisher?               
+  source                    Publisher?               
   stats_coverage            string?                  
   teams_documents           TeamsDocument[]          
   title                     string?                  
@@ -676,32 +676,32 @@ model DocumentClass {
 model DocumentContent {
   name = "document_contents"
 
-  id           int       @primary @sequence @unique
-  abstract     string?   
-  document_id  Document  
-  sportsml     string?   
+  id        int       @primary @sequence @unique
+  abstract  string?   
+  document  Document  
+  sportsml  string?   
 }
 
 model DocumentFixture {
   name = "document_fixtures"
 
   id                        int                      @primary @sequence @unique
-  document_class_id         DocumentClass            
+  document_class            DocumentClass            
   document_fixtures_events  DocumentFixturesEvent[]  
   documents                 Document[]               
   fixture_key               string?                  
   name                      string?                  
-  publisher_id              Publisher                
+  publisher                 Publisher                
 }
 
 model DocumentFixturesEvent {
   name = "document_fixtures_events"
 
-  id                   int              @primary @sequence @unique
-  document_fixture_id  DocumentFixture  
-  event_id             Event            
-  last_update          datetime?        
-  latest_document_id   Document         
+  id                int              @primary @sequence @unique
+  document_fixture  DocumentFixture  
+  event             Event            
+  last_update       datetime?        
+  latest_document   Document         
 }
 
 model DocumentPackage {
@@ -717,21 +717,21 @@ model DocumentPackage {
 model DocumentPackageEntry {
   name = "document_package_entry"
 
-  id                   int              @primary @sequence @unique
-  document_id          Document         
-  document_package_id  DocumentPackage  
-  headline             string?          
-  rank                 string?          
-  short_headline       string?          
+  id                int              @primary @sequence @unique
+  document          Document         
+  document_package  DocumentPackage  
+  headline          string?          
+  rank              string?          
+  short_headline    string?          
 }
 
 model DocumentsMedia {
   name = "documents_media"
 
-  id                int           @primary @sequence @unique
-  document_id       Document      
-  media_id          Media         
-  media_caption_id  MediaCaption  
+  id             int           @primary @sequence @unique
+  document       Document      
+  media          Media         
+  media_caption  MediaCaption  
 }
 
 model Event {
@@ -755,8 +755,8 @@ model Event {
   motor_racing_event_states       MotorRacingEventState[]       
   participants_events             ParticipantsEvent[]           
   person_event_metadata           PersonEventMetadatum[]        
-  publisher_id                    Publisher                     
-  site_id                         Site?                         
+  publisher                       Publisher                     
+  site                            Site?                         
   site_alignment                  string?                       
   soccer_event_states             SoccerEventState[]            
   start_date_time                 datetime?                     
@@ -772,22 +772,22 @@ model Event {
 model EventsDocument {
   name = "events_documents"
 
-  document_id  Document()  
-  event_id     Event()     
+  document  Document()  
+  event     Event()     
 }
 
 model EventsMedia {
   name = "events_media"
 
-  event_id  Event()  
-  media_id  Media()  
+  event  Event()  
+  media  Media()  
 }
 
 model EventsSubSeason {
   name = "events_sub_seasons"
 
-  event_id       Event()      
-  sub_season_id  SubSeason()  
+  event       Event()      
+  sub_season  SubSeason()  
 }
 
 model IceHockeyActionParticipant {
@@ -841,7 +841,7 @@ model IceHockeyEventState {
   id                     int      @primary @sequence @unique
   context                string?  
   current_state          int?     
-  event_id               Event    
+  event                  Event    
   period_time_elapsed    string?  
   period_time_remaining  string?  
   period_value           string?  
@@ -893,18 +893,18 @@ model InjuryPhase {
   injury_side      string?    
   injury_status    string?    
   injury_type      string?    
-  person_id        Person     
+  person           Person     
   phase_type       string?    
-  season_id        Season?    
+  season           Season?    
   start_date_time  datetime?  
 }
 
 model KeyAlias {
   name = "key_aliases"
 
-  id           int      @primary @sequence @unique
-  key_id       int      
-  key_root_id  KeyRoot  
+  id        int      @primary @sequence @unique
+  key_id    int      
+  key_root  KeyRoot  
 }
 
 model KeyRoot {
@@ -918,9 +918,9 @@ model KeyRoot {
 model LatestRevision {
   name = "latest_revisions"
 
-  id                  int       @primary @sequence @unique
-  latest_document_id  Document  
-  revision_id         string    
+  id               int       @primary @sequence @unique
+  latest_document  Document  
+  revision_id      string    
 }
 
 model Location {
@@ -946,8 +946,8 @@ model Media {
 
   id                    int                  @primary @sequence @unique
   affiliations_media    AffiliationsMedia[]  
-  creation_location_id  Location             
-  credit_id             Person               
+  creation_location     Location             
+  credit                Person               
   date_time             string?              
   db_loading_date_time  datetime?            
   documents_media       DocumentsMedia[]     
@@ -958,7 +958,7 @@ model Media {
   media_type            string?              
   object_id             int?                 
   persons_media         PersonsMedia[]       
-  publisher_id          Publisher            
+  publisher             Publisher            
   revision_id           int?                 
   source_id             int?                 
   teams_media           TeamsMedia[]         
@@ -967,14 +967,14 @@ model Media {
 model MediaCaption {
   name = "media_captions"
 
-  id                 int               @primary @sequence @unique
-  caption            string?           
-  caption_author_id  Person            
-  caption_size       string?           
-  caption_type       string?           
-  documents_media    DocumentsMedia[]  
-  language           string?           
-  media_id           Media             
+  id               int               @primary @sequence @unique
+  caption          string?           
+  caption_author   Person            
+  caption_size     string?           
+  caption_type     string?           
+  documents_media  DocumentsMedia[]  
+  language         string?           
+  media            Media             
 }
 
 model MediaContent {
@@ -985,7 +985,7 @@ model MediaContent {
   file_size   string?  
   format      string?  
   height      string?  
-  media_id    Media    
+  media       Media    
   mime_type   string?  
   object      string?  
   resolution  string?  
@@ -995,9 +995,9 @@ model MediaContent {
 model MediaKeyword {
   name = "media_keywords"
 
-  id        int      @primary @sequence @unique
-  keyword   string?  
-  media_id  Media    
+  id       int      @primary @sequence @unique
+  keyword  string?  
+  media    Media    
 }
 
 model MotorRacingEventState {
@@ -1006,7 +1006,7 @@ model MotorRacingEventState {
   id               int      @primary @sequence @unique
   context          string?  
   current_state    int?     
-  event_id         Event    
+  event            Event    
   flag_state       string?  
   lap              string?  
   laps_remaining   string?  
@@ -1036,8 +1036,8 @@ model MotorRacingRaceStat {
   distance_leading     string?  
   distance_units       string?  
   finishes             string?  
-  finishes_top_10      string?  
-  finishes_top_5       string?  
+  finishes_top10       string?  
+  finishes_top5        string?  
   laps_ahead_follower  string?  
   laps_behind_leader   string?  
   laps_completed       string?  
@@ -1071,7 +1071,7 @@ model OutcomeTotal {
   points_scored_for      string?           
   rank                   string?           
   standing_points        string?           
-  standing_subgroup_id   StandingSubgroup  
+  standing_subgroup      StandingSubgroup  
   streak_duration        string?           
   streak_end             datetime?         
   streak_start           datetime?         
@@ -1088,7 +1088,7 @@ model ParticipantsEvent {
 
   id                int       @primary @sequence @unique
   alignment         string?   
-  event_id          Event     
+  event             Event     
   event_outcome     string?   
   participant_id    int       
   participant_type  string    
@@ -1100,11 +1100,11 @@ model ParticipantsEvent {
 model Period {
   name = "periods"
 
-  id                    int                @primary @sequence @unique
-  participant_event_id  ParticipantsEvent  
-  period_value          string?            
-  score                 string?            
-  sub_periods           SubPeriod[]        
+  id                 int                @primary @sequence @unique
+  participant_event  ParticipantsEvent  
+  period_value       string?            
+  score              string?            
+  sub_periods        SubPeriod[]        
 }
 
 model Person {
@@ -1121,11 +1121,11 @@ model Person {
   baseball_event_states                  BaseballEventState[]?                
   baseball_event_states                  BaseballEventState[]?                
   birth_date                             string?                              
-  birth_location_id                      Location?                            
+  birth_location                         Location?                            
   death_date                             string?                              
-  death_location_id                      Location?                            
+  death_location                         Location?                            
   gender                                 string?                              
-  hometown_location_id                   Location?                            
+  hometown_location                      Location?                            
   injury_phases                          InjuryPhase[]                        
   media                                  Media[]                              
   media_captions                         MediaCaption[]                       
@@ -1134,23 +1134,23 @@ model Person {
   person_phases                          PersonPhase[]                        
   persons_documents                      PersonsDocument[]                    
   persons_media                          PersonsMedia[]                       
-  publisher_id                           Publisher                            
-  residence_location_id                  Location?                            
+  publisher                              Publisher                            
+  residence_location                     Location?                            
 }
 
 model PersonEventMetadatum {
   name = "person_event_metadata"
 
   id                    int        @primary @sequence @unique
-  event_id              Event      
+  event                 Event      
   health                string?    
   lineup_slot           int?       
   lineup_slot_sequence  int?       
-  person_id             Person     
-  position_id           Position?  
-  role_id               Role?      
+  person                Person     
+  position              Position?  
+  role                  Role?      
   status                string?    
-  team_id               Team?      
+  team                  Team?      
   weight                string?    
 }
 
@@ -1159,23 +1159,23 @@ model PersonPhase {
 
   id                      int        @primary @sequence @unique
   end_date_time           datetime?  
-  end_season_id           Season?    
+  end_season              Season?    
   entry_reason            string?    
   exit_reason             string?    
   height                  string?    
   membership_id           int        
   membership_type         string     
-  person_id               Person     
+  person                  Person     
   phase_status            string?    
-  regular_position_id     Position?  
+  regular_position        Position?  
   regular_position_depth  string?    
-  role_id                 Role?      
+  role                    Role?      
   role_status             string?    
   selection_level         int?       
   selection_overall       int?       
   selection_sublevel      int?       
   start_date_time         datetime?  
-  start_season_id         Season?    
+  start_season            Season?    
   uniform_number          string?    
   weight                  string?    
 }
@@ -1183,15 +1183,15 @@ model PersonPhase {
 model PersonsDocument {
   name = "persons_documents"
 
-  document_id  Document()  
-  person_id    Person()    
+  document  Document()  
+  person    Person()    
 }
 
 model PersonsMedia {
   name = "persons_media"
 
-  media_id   Media()   
-  person_id  Person()  
+  media   Media()   
+  person  Person()  
 }
 
 model Position {
@@ -1199,7 +1199,7 @@ model Position {
 
   id                             int                            @primary @sequence @unique
   abbreviation                   string                         
-  affiliation_id                 Affiliation                    
+  affiliation                    Affiliation                    
   baseball_action_substitutions  BaseballActionSubstitution[]?  
   baseball_action_substitutions  BaseballActionSubstitution[]?  
   baseball_defensive_players     BaseballDefensivePlayer[]      
@@ -1248,10 +1248,10 @@ model Season {
   affiliation_phases  AffiliationPhase[]?  
   end_date_time       datetime?            
   injury_phases       InjuryPhase[]?       
-  league_id           Affiliation          
+  league              Affiliation          
   person_phases       PersonPhase[]?       
   person_phases       PersonPhase[]?       
-  publisher_id        Publisher            
+  publisher           Publisher            
   season_key          int                  
   start_date_time     datetime?            
   sub_seasons         SubSeason[]          
@@ -1262,12 +1262,12 @@ model Season {
 model Site {
   name = "sites"
 
-  id            int        @primary @sequence @unique
-  events        Event[]?   
-  location_id   Location?  
-  publisher_id  Publisher  
-  site_key      int        
-  teams         Team[]?    
+  id         int        @primary @sequence @unique
+  events     Event[]?   
+  location   Location?  
+  publisher  Publisher  
+  site_key   int        
+  teams      Team[]?    
 }
 
 model SoccerDefensiveStat {
@@ -1294,7 +1294,7 @@ model SoccerEventState {
   id                     int      @primary @sequence @unique
   context                string?  
   current_state          int?     
-  event_id               Event    
+  event                  Event    
   minutes_elapsed        string?  
   period_minute_elapsed  string?  
   period_time_elapsed    string?  
@@ -1351,28 +1351,28 @@ model Standing {
   name = "standings"
 
   id                    int                 @primary @sequence @unique
-  affiliation_id        Affiliation         
+  affiliation           Affiliation         
   alignment_scope       string?             
   competition_scope     string?             
   competition_scope_id  string?             
   duration_scope        string?             
   last_updated          string?             
-  publisher_id          Publisher           
+  publisher             Publisher           
   scoping_label         string?             
   site_scope            string?             
   source                string?             
   standing_subgroups    StandingSubgroup[]  
   standing_type         string?             
-  sub_season_id         SubSeason           
+  sub_season            SubSeason           
 }
 
 model StandingSubgroup {
   name = "standing_subgroups"
 
   id              int             @primary @sequence @unique
-  affiliation_id  Affiliation     
+  affiliation     Affiliation     
   outcome_totals  OutcomeTotal[]  
-  standing_id     Standing        
+  standing        Standing        
 }
 
 model Stat {
@@ -1392,7 +1392,7 @@ model SubPeriod {
   name = "sub_periods"
 
   id                int      @primary @sequence @unique
-  period_id         Period   
+  period            Period   
   score             string?  
   sub_period_value  string?  
 }
@@ -1403,7 +1403,7 @@ model SubSeason {
   id                  int                @primary @sequence @unique
   end_date_time       datetime?          
   events_sub_seasons  EventsSubSeason[]  
-  season_id           Season             
+  season              Season             
   standings           Standing[]         
   start_date_time     datetime?          
   sub_season_key      string             
@@ -1415,9 +1415,9 @@ model Team {
 
   id                              int                            @primary @sequence @unique
   american_football_event_states  AmericanFootballEventState[]?  
-  home_site_id                    Site?                          
+  home_site                       Site?                          
   person_event_metadata           PersonEventMetadatum[]?        
-  publisher_id                    Publisher                      
+  publisher                       Publisher                      
   team_key                        string                         
   team_phases                     TeamPhase[]                    
   teams_documents                 TeamsDocument[]                
@@ -1444,28 +1444,28 @@ model TeamPhase {
   name = "team_phases"
 
   id               int          @primary @sequence @unique
-  affiliation_id   Affiliation  
+  affiliation      Affiliation  
   end_date_time    string?      
-  end_season_id    Season?      
+  end_season       Season?      
   phase_status     string?      
-  role_id          Role?        
+  role             Role?        
   start_date_time  string?      
-  start_season_id  Season?      
-  team_id          Team         
+  start_season     Season?      
+  team             Team         
 }
 
 model TeamsDocument {
   name = "teams_documents"
 
-  document_id  Document()  
-  team_id      Team()      
+  document  Document()  
+  team      Team()      
 }
 
 model TeamsMedia {
   name = "teams_media"
 
-  media_id  Media()  
-  team_id   Team()   
+  media  Media()  
+  team   Team()   
 }
 
 model TennisActionPoint {
@@ -1496,7 +1496,7 @@ model TennisEventState {
   id                  int      @primary @sequence @unique
   context             string?  
   current_state       int?     
-  event_id            Event    
+  event               Event    
   game                string?  
   receiver_person_id  int?     
   receiver_score      string?  
@@ -1550,16 +1550,16 @@ model WageringMoneyline {
   name = "wagering_moneylines"
 
   id            int        @primary @sequence @unique
-  bookmaker_id  Bookmaker  
+  bookmaker     Bookmaker  
   comment       string?    
   date_time     datetime?  
-  event_id      Event      
+  event         Event      
   line          string?    
   line_opening  string?    
   person_id     int?       
   prediction    string?    
   rotation_key  string?    
-  team_id       Team       
+  team          Team       
   vigorish      string?    
 }
 
@@ -1567,35 +1567,35 @@ model WageringOddsLine {
   name = "wagering_odds_lines"
 
   id                  int        @primary @sequence @unique
-  bookmaker_id        Bookmaker  
+  bookmaker           Bookmaker  
   comment             string?    
   date_time           datetime?  
   denominator         string?    
-  event_id            Event      
+  event               Event      
   numerator           string?    
   payout_amount       string?    
   payout_calculation  string?    
   person_id           int?       
   prediction          string?    
   rotation_key        string?    
-  team_id             Team       
+  team                Team       
 }
 
 model WageringRunline {
   name = "wagering_runlines"
 
   id            int        @primary @sequence @unique
-  bookmaker_id  Bookmaker  
+  bookmaker     Bookmaker  
   comment       string?    
   date_time     datetime?  
-  event_id      Event      
+  event         Event      
   line          string?    
   line_opening  string?    
   line_value    string?    
   person_id     int?       
   prediction    string?    
   rotation_key  string?    
-  team_id       Team       
+  team          Team       
   vigorish      string?    
 }
 
@@ -1603,16 +1603,16 @@ model WageringStraightSpreadLine {
   name = "wagering_straight_spread_lines"
 
   id                  int        @primary @sequence @unique
-  bookmaker_id        Bookmaker  
+  bookmaker           Bookmaker  
   comment             string?    
   date_time           datetime?  
-  event_id            Event      
+  event               Event      
   line_value          string?    
   line_value_opening  string?    
   person_id           int?       
   prediction          string?    
   rotation_key        string?    
-  team_id             Team       
+  team                Team       
   vigorish            string?    
 }
 
@@ -1620,16 +1620,16 @@ model WageringTotalScoreLine {
   name = "wagering_total_score_lines"
 
   id             int        @primary @sequence @unique
-  bookmaker_id   Bookmaker  
+  bookmaker      Bookmaker  
   comment        string?    
   date_time      datetime?  
-  event_id       Event      
+  event          Event      
   line_over      string?    
   line_under     string?    
   person_id      int?       
   prediction     string?    
   rotation_key   string?    
-  team_id        Team       
+  team           Team       
   total          string?    
   total_opening  string?    
   vigorish       string?    
@@ -1640,7 +1640,7 @@ model WeatherCondition {
 
   id                 int      @primary @sequence @unique
   clouds             string?  
-  event_id           Event    
+  event              Event    
   humidity           string?  
   temperature        string?  
   temperature_units  string?  

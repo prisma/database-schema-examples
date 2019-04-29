@@ -17,7 +17,7 @@ model Post {
   id          int        @primary @sequence
   created_at  datetime   
   reports     Report[]?  
-  standup_id  Standup    
+  standup     Standup    
   updated_at  datetime   
 }
 
@@ -28,7 +28,7 @@ model Question {
   created_at  datetime  
   order       int       
   question    string    
-  standup_id  Standup   
+  standup     Standup   
   updated_at  datetime  
 }
 
@@ -37,12 +37,12 @@ model Report {
 
   id          int           @primary @sequence
   created_at  datetime      
-  post_id     Post?         
+  post        Post?         
   questions   json          
-  standup_id  Standup       
+  standup     Standup       
   status      ReportStatus  
   updated_at  datetime      
-  user_id     User          
+  user        User          
 }
 
 enum ReportStatus {
@@ -59,7 +59,7 @@ model Review {
   created_at  datetime    
   text        string      
   type        ReviewType  
-  user_id     User        
+  user        User        
 }
 
 enum ReviewType {
@@ -80,7 +80,7 @@ model Standup {
   questions       Question[]      
   reports         Report[]        
   standups_users  StandupsUser[]  
-  team_id         Team            
+  team            Team            
   time            time            
   timezone        string          
   updated_at      datetime        
@@ -97,11 +97,11 @@ model StandupsUser {
 
   created_at        datetime           
   is_standup_owner  boolean            @default(false)
-  standup_id        Standup()          
+  standup           Standup()          
   status            StandupUserStatus  
   time              time               
   updated_at        datetime           
-  user_id           User()             
+  user              User()             
 }
 
 model Team {
@@ -145,7 +145,7 @@ model User {
   reviews         Review[]        
   slack_id        string          
   standups_users  StandupsUser[]  
-  team_id         Team            
+  team            Team            
   timezone        string          
   updated_at      datetime        
   username        string          
