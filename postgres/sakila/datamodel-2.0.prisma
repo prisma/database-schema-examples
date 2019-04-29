@@ -14,7 +14,7 @@ model Address {
   address_id   int                     @primary @sequence
   address      string                  
   address2     string?                 
-  city         City(address_id)        
+  city_id      City(address_id)        
   customer     Customer(address_id)[]  
   district     string                  
   last_update  datetime                
@@ -39,7 +39,7 @@ model City {
   city_id      int                 @primary @sequence
   address      Address(city_id)[]  
   city         string              
-  country      Country(city_id)    
+  country_id   Country(city_id)    
   last_update  datetime            
 }
 
@@ -57,8 +57,8 @@ model Customer {
 
   customer_id  int                     @primary @sequence
   active       int?                    
-  activebool   boolean                 @default(true)
-  address      Address(customer_id)    
+  activebool   boolean                 @default(false)
+  address_id   Address(customer_id)    
   create_date  datetime                
   email        string?                 
   first_name   string                  
@@ -78,7 +78,7 @@ model Film {
   film_category     FilmCategory(film_id)[]  
   fulltext          tsvector                 
   inventory         Inventory(film_id)[]     
-  language          Language(film_id)        
+  language_id       Language(film_id)        
   last_update       datetime                 
   length            int?                     
   rating            MpaaRating?              
@@ -110,7 +110,7 @@ model Inventory {
   name = "inventory"
 
   inventory_id  int                     @primary @sequence
-  film          Film(inventory_id)      
+  film_id       Film(inventory_id)      
   last_update   datetime                
   rental        Rental(inventory_id)[]  
   store_id      int                     
@@ -138,31 +138,31 @@ model Payment {
 
   payment_id    int                   @primary @sequence
   amount        float                 
-  customer      Customer(payment_id)  
+  customer_id   Customer(payment_id)  
   payment_date  datetime              
-  rental        Rental(payment_id)    
-  staff         Staff(payment_id)     
+  rental_id     Rental(payment_id)    
+  staff_id      Staff(payment_id)     
 }
 
 model Rental {
   name = "rental"
 
-  rental_id    int                   @primary @sequence
-  customer     Customer(rental_id)   
-  inventory    Inventory(rental_id)  
-  last_update  datetime              
-  payment      Payment(rental_id)[]  
-  rental_date  datetime              
-  return_date  datetime?             
-  staff        Staff(rental_id)      
+  rental_id     int                   @primary @sequence
+  customer_id   Customer(rental_id)   
+  inventory_id  Inventory(rental_id)  
+  last_update   datetime              
+  payment       Payment(rental_id)[]  
+  rental_date   datetime              
+  return_date   datetime?             
+  staff_id      Staff(rental_id)      
 }
 
 model Staff {
   name = "staff"
 
   staff_id     int                  @primary @sequence
-  active       boolean              @default(true)
-  address      Address(staff_id)    
+  active       boolean              @default(false)
+  address_id   Address(staff_id)    
   email        string?              
   first_name   string               
   last_name    string               
@@ -179,8 +179,8 @@ model Staff {
 model Store {
   name = "store"
 
-  store_id       int                @primary @sequence
-  address        Address(store_id)  
-  last_update    datetime           
-  manager_staff  Staff(store_id)    @unique
+  store_id          int                @primary @sequence
+  address_id        Address(store_id)  
+  last_update       datetime           
+  manager_staff_id  Staff(store_id)    @unique
 }

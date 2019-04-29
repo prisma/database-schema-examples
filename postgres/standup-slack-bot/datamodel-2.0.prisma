@@ -17,7 +17,7 @@ model Post {
   id          int        @primary @sequence
   created_at  datetime   
   reports     Report[]?  
-  standup     Standup    
+  standup_id  Standup    
   updated_at  datetime   
 }
 
@@ -28,7 +28,7 @@ model Question {
   created_at  datetime  
   order       int       
   question    string    
-  standup     Standup   
+  standup_id  Standup   
   updated_at  datetime  
 }
 
@@ -37,12 +37,12 @@ model Report {
 
   id          int           @primary @sequence
   created_at  datetime      
-  post        Post?         
+  post_id     Post?         
   questions   json          
-  standup     Standup       
+  standup_id  Standup       
   status      ReportStatus  
   updated_at  datetime      
-  user        User          
+  user_id     User          
 }
 
 enum ReportStatus {
@@ -59,7 +59,7 @@ model Review {
   created_at  datetime    
   text        string      
   type        ReviewType  
-  user        User        
+  user_id     User        
 }
 
 enum ReviewType {
@@ -80,7 +80,7 @@ model Standup {
   questions       Question[]      
   reports         Report[]        
   standups_users  StandupsUser[]  
-  team            Team            
+  team_id         Team            
   time            time            
   timezone        string          
   updated_at      datetime        
@@ -97,11 +97,11 @@ model StandupsUser {
 
   created_at        datetime           
   is_standup_owner  boolean            @default(false)
-  standup           Standup()          
+  standup_id        Standup()          
   status            StandupUserStatus  
   time              time               
   updated_at        datetime           
-  user              User()             
+  user_id           User()             
 }
 
 model Team {
@@ -113,7 +113,7 @@ model Team {
   cost_per_user         int         @default(100)
   created_at            datetime    
   minimum_monthly_cost  int         @default(0)
-  scope                 string      @default({})
+  scope                 string      @default([])
   standups              Standup[]   
   status                TeamStatus  
   stripe_id             string?     
@@ -145,7 +145,7 @@ model User {
   reviews         Review[]        
   slack_id        string          
   standups_users  StandupsUser[]  
-  team            Team            
+  team_id         Team            
   timezone        string          
   updated_at      datetime        
   username        string          

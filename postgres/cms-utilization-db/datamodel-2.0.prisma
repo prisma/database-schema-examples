@@ -7,8 +7,8 @@ model Provider {
   address_latitude                      float?                                    
   address_longitude                     float?                                    
   address_state                         string?                                   
-  address_street01                      string?                                   
-  address_street02                      string?                                   
+  address_street_01                     string?                                   
+  address_street_02                     string?                                   
   address_zip_code                      string?                                   
   entity_type                           string?                                   
   provider_performance                  ProviderPerformance(npi)[]                
@@ -182,7 +182,7 @@ model ServiceProviderPerformanceSummaryType {
 
   id                                    int                                  @primary @sequence(name: "service_provider_performance_summary_type_id_seq1")
   description                           string                               
-  group_membership                      boolean                              @default(true)
+  group_membership                      boolean                              @default(false)
   service_provider_performance_summary  ServiceProviderPerformanceSummary[]  
   slug                                  string?                              @unique
 }

@@ -32,18 +32,18 @@ model ArInternalMetadatum {
 model Badge {
   name = "badges"
 
-  id                 int       @primary @sequence(initial_value: "100" initial_value: "100")
+  id                 int       @primary @sequence(initial_value: 100)
   allow_title        boolean   @default(false)
-  auto_revoke        boolean   @default(true)
+  auto_revoke        boolean   @default(false)
   badge_grouping_id  int       @default(5)
   badge_type_id      int       
   created_at         datetime  
   description        string?   
-  enabled            boolean   @default(true)
+  enabled            boolean   @default(false)
   grant_count        int       @default(0)
-  icon               string?   @default(fa-certificate)
+  icon               string?   @default("fa-certificate")
   image              string?   
-  listable           boolean?  @default(true)
+  listable           boolean?  @default(false)
   long_description   string?   
   multiple_grant     boolean   @default(false)
   name               string    @unique
@@ -86,14 +86,14 @@ model Category {
   name = "categories"
 
   id                                 int       @primary @sequence
-  allow_badges                       boolean   @default(true)
+  allow_badges                       boolean   @default(false)
   all_topics_wiki                    boolean   @default(false)
   auto_close_based_on_last_post      boolean?  @default(false)
   auto_close_hours                   float?    
-  color                              string    @default(AB9364)
+  color                              string    @default("AB9364")
   contains_messages                  boolean?  
   created_at                         datetime  
-  default_top_period                 string?   @default(all)
+  default_top_period                 string?   @default("all")
   default_view                       string?   
   description                        string?   
   email_in                           string?   @unique
@@ -118,11 +118,11 @@ model Category {
   slug                               string    
   sort_ascending                     boolean?  
   sort_order                         string?   
-  subcategory_list_style             string?   @default(rows_with_featured_topics)
+  subcategory_list_style             string?   @default("rows_with_featured_topics")
   suppress_from_latest               boolean?  @default(false)
-  text_color                         string    @default(FFFFFF)
+  text_color                         string    @default("FFFFFF")
   topic_count                        int       @default(0)
-  topic_featured_link_allowed        boolean?  @default(true)
+  topic_featured_link_allowed        boolean?  @default(false)
   topic_id                           int?      
   topics_day                         int?      @default(0)
   topics_month                       int?      @default(0)
@@ -422,7 +422,7 @@ model GoogleUserInfo {
 model Group {
   name = "groups"
 
-  id                                  int       @primary @sequence(initial_value: "100" initial_value: "100")
+  id                                  int       @primary @sequence(initial_value: 100)
   allow_membership_requests           boolean   @default(false)
   automatic                           boolean   @default(false)
   automatic_membership_email_domains  string?   
@@ -739,7 +739,7 @@ model Post {
   notify_moderators_count  int        @default(0)
   notify_user_count        int        @default(0)
   off_topic_count          int        @default(0)
-  percent_rank             float?     @default(1.0)
+  percent_rank             float?     @default(1)
   post_number              int        
   post_type                int        @default(1)
   public_version           int        @default(1)
@@ -1215,32 +1215,32 @@ model TopTopic {
   name = "top_topics"
 
   id                        int     @primary @sequence
-  all_score                 float?  @default(0.0)
+  all_score                 float?  @default(0)
   daily_likes_count         int     @default(0)
   daily_op_likes_count      int     @default(0)
   daily_posts_count         int     @default(0)
-  daily_score               float?  @default(0.0)
+  daily_score               float?  @default(0)
   daily_views_count         int     @default(0)
   monthly_likes_count       int     @default(0)
   monthly_op_likes_count    int     @default(0)
   monthly_posts_count       int     @default(0)
-  monthly_score             float?  @default(0.0)
+  monthly_score             float?  @default(0)
   monthly_views_count       int     @default(0)
   quarterly_likes_count     int     @default(0)
   quarterly_op_likes_count  int     @default(0)
   quarterly_posts_count     int     @default(0)
-  quarterly_score           float?  @default(0.0)
+  quarterly_score           float?  @default(0)
   quarterly_views_count     int     @default(0)
   topic_id                  int?    @unique
   weekly_likes_count        int     @default(0)
   weekly_op_likes_count     int     @default(0)
   weekly_posts_count        int     @default(0)
-  weekly_score              float?  @default(0.0)
+  weekly_score              float?  @default(0)
   weekly_views_count        int     @default(0)
   yearly_likes_count        int     @default(0)
   yearly_op_likes_count     int     @default(0)
   yearly_posts_count        int     @default(0)
-  yearly_score              float?  @default(0.0)
+  yearly_score              float?  @default(0)
   yearly_views_count        int     @default(0)
 }
 
@@ -1248,7 +1248,7 @@ model Topic {
   name = "topics"
 
   id                         int        @primary @sequence
-  archetype                  string     @default(regular)
+  archetype                  string     @default("regular")
   archived                   boolean    @default(false)
   avg_time                   int?       
   bumped_at                  datetime   
@@ -1275,7 +1275,7 @@ model Topic {
   moderator_posts_count      int        @default(0)
   notify_moderators_count    int        @default(0)
   participant_count          int?       @default(1)
-  percent_rank               float      @default(1.0)
+  percent_rank               float      @default(1)
   pinned_at                  datetime?  
   pinned_globally            boolean    @default(false)
   pinned_until               datetime?  
@@ -1289,7 +1289,7 @@ model Topic {
   updated_at                 datetime   
   user_id                    int?       
   views                      int        @default(0)
-  visible                    boolean    @default(true)
+  visible                    boolean    @default(false)
   word_count                 int?       
 }
 
@@ -1409,7 +1409,7 @@ model TopicTimer {
   deleted_at          datetime?  
   deleted_by_id       int?       
   execute_at          datetime   
-  public_type         boolean?   @default(true)
+  public_type         boolean?   @default(false)
   status_type         int        
   topic_id            int        @unique
   updated_at          datetime?  
@@ -1569,7 +1569,7 @@ model UserApiKey {
   last_used_at      datetime   
   push_url          string?    
   revoked_at        datetime?  
-  scopes            string     @default({})
+  scopes            string     @default([])
   updated_at        datetime?  
   user_id           int        
 }
@@ -1684,7 +1684,7 @@ model UserField {
   field_type         string     
   name               string     
   position           int?       @default(0)
-  required           boolean    @default(true)
+  required           boolean    @default(false)
   show_on_profile    boolean    @default(false)
   show_on_user_card  boolean    @default(false)
   updated_at         datetime?  
@@ -1739,19 +1739,19 @@ model UserOption {
   name = "user_options"
 
   user_id                           int        @primary @unique
-  allow_private_messages            boolean    @default(true)
-  automatically_unpin_topics        boolean    @default(true)
+  allow_private_messages            boolean    @default(false)
+  automatically_unpin_topics        boolean    @default(false)
   auto_track_topics_after_msecs     int?       
   digest_after_minutes              int?       
   disable_jump_reply                boolean    @default(false)
   dynamic_favicon                   boolean    @default(false)
   email_always                      boolean    @default(false)
   email_digests                     boolean?   
-  email_direct                      boolean    @default(true)
-  email_in_reply_to                 boolean    @default(true)
+  email_direct                      boolean    @default(false)
+  email_in_reply_to                 boolean    @default(false)
   email_previous_replies            int        @default(2)
-  email_private_messages            boolean    @default(true)
-  enable_quoting                    boolean    @default(true)
+  email_private_messages            boolean    @default(false)
+  enable_quoting                    boolean    @default(false)
   external_links_in_new_tab         boolean    @default(false)
   hide_profile_and_presence         boolean    @default(false)
   homepage_id                       int?       
@@ -1894,10 +1894,10 @@ model WebHook {
   created_at            datetime?  
   last_delivery_status  int        @default(1)
   payload_url           string     
-  secret                string?    @default()
+  secret                string?    @default("")
   status                int        @default(1)
   updated_at            datetime?  
-  verify_certificate    boolean    @default(true)
+  verify_certificate    boolean    @default(false)
   wildcard_web_hook     boolean    @default(false)
 }
 
