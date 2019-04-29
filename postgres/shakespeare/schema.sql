@@ -1,7 +1,3 @@
-DROP SCHEMA IF EXISTS shakespeare CASCADE;
-CREATE SCHEMA shakespeare;
-SET SCHEMA 'shakespeare';
-
 DROP TABLE IF EXISTS work CASCADE;
 CREATE TABLE work
   ( workID    VARCHAR(32) PRIMARY KEY,
@@ -16,7 +12,7 @@ CREATE TABLE work
   );
 
 DROP TABLE IF EXISTS character CASCADE;
-CREATE TABLE character 
+CREATE TABLE character
   ( charID      VARCHAR(32) PRIMARY KEY,
     charName    VARCHAR(64) NOT NULL,
     abbrev      VARCHAR(32),
@@ -35,7 +31,7 @@ CREATE TABLE character_work
 ALTER TABLE character DROP COLUMN works;
 
 DROP TABLE IF EXISTS chapter;
-CREATE TABLE chapter 
+CREATE TABLE chapter
   ( workID         VARCHAR(32) NOT NULL REFERENCES work (workID),
     chapterID      INTEGER PRIMARY KEY,
     section        INTEGER NOT NULL,

@@ -1,1 +1,84 @@
+model Chapter {
+  meta = {
+    name = "chapter"
+  }
 
+  chapterid    int     
+  chapter      int     
+  description  string  
+  section      int     
+  workid       Work    
+}
+
+model Character {
+  meta = {
+    name = "character"
+  }
+
+  charid          id               
+  abbrev          string?          
+  character_work  CharacterWork[]  
+  charname        string           
+  description     string?          
+  paragraph       Paragraph[]      
+  speechcount     int              
+}
+
+model CharacterWork {
+  meta = {
+    name = "character_work"
+  }
+
+  charid          Character        
+  workid          Work             
+}
+
+model Paragraph {
+  meta = {
+    name = "paragraph"
+  }
+
+  paragraphid     int              
+  chapter         int              
+  charcount       int              
+  charid          Character        
+  paragraphnum    int              
+  paragraphtype   string           
+  phonetictext    string           
+  plaintext       string           
+  section         int              
+  stemtext        string           
+  wordcount       int              
+  workid          Work             
+}
+
+model Wordform {
+  meta = {
+    name = "wordform"
+  }
+
+  wordformid      int              
+  occurences      int              
+  phonetictext    string           
+  plaintext       string           
+  stemtext        string           
+}
+
+model Work {
+  meta = {
+    name = "work"
+  }
+
+  workid           id               
+  chapter          Chapter[]        
+  character_work   CharacterWork[]  
+  genretype        string           
+  longtitle        string           
+  notes            string?          
+  paragraph        Paragraph[]      
+  source           string           
+  title            string           
+  totalparagraphs  int              
+  totalwords       int              
+  year             int              
+}
