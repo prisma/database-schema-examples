@@ -141,24 +141,25 @@ model ServiceProviderPerformance {
 }
 
 model ServiceProviderPerformanceSummary {
-  prismaId: Int                                      @id @pg.serial("service_provider_performance_summary_prisma_id_seq1") @unique
-  entityType: String?                                
-  estTtlMcarePayAmt: Float?                          
-  estTtlMcarePayAmtByTtlHcpcsCode: Float?            
-  estTtlMcarePayAmtByTtlNOfSvcs: Float?              
-  estTtlSubmittedChargeAmt: Float?                   
-  npi: Provider                                      
-  rankEstTtlMcarePayAmt: Int?                        
-  rankEstTtlMcarePayAmtByTtlHcpcsCode: Int?          
-  rankEstTtlMcarePayAmtByTtlNOfServi: Int?           
-  rankEstTtlSubmittedChargeAmt: Int?                 
-  rankTtlHcpcsCode: Int?                             
-  rankTtlNOfSvcs: Int?                               
-  rankVarEstTtlMcareSubmittedChargePayAmoun: Int?    
-  summaryType: ServiceProviderPerformanceSummaryType 
-  ttlHcpcsCode: String?                              
-  ttlNOfSvcs: Int?                                   
-  varEstTtlMcareSubmittedChargePayAmt: Float?        
+  prismaId: Int                                              @id @pg.serial("service_provider_performance_summary_prisma_id_seq1") @unique
+  entityType: String?                                        
+  estTtlMcarePayAmt: Float?                                  
+  estTtlMcarePayAmtByTtlHcpcsCode: Float?                    
+  estTtlMcarePayAmtByTtlNOfSvcs: Float?                      
+  estTtlSubmittedChargeAmt: Float?                           
+  npi: Provider                                              
+  rankEstTtlMcarePayAmt: Int?                                
+  rankEstTtlMcarePayAmtByTtlHcpcsCode: Int?                  
+  rankEstTtlMcarePayAmtByTtlNOfServi: Int?                   
+  rankEstTtlSubmittedChargeAmt: Int?                         
+  rankTtlHcpcsCode: Int?                                     
+  rankTtlNOfSvcs: Int?                                       
+  rankVarEstTtlMcareSubmittedChargePayAmoun: Int?            
+  rankVarEstTtlMcareSubmittedChargePayAmountEvenLonger: Int? 
+  summaryType: ServiceProviderPerformanceSummaryType         
+  ttlHcpcsCode: String?                                      
+  ttlNOfSvcs: Int?                                           
+  varEstTtlMcareSubmittedChargePayAmt: Float?                
 }
 
 model ServiceProviderPerformanceSummaryType {

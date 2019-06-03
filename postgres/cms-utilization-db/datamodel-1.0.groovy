@@ -155,6 +155,7 @@ type ServiceProviderPerformanceSummary @pgTable(name: "service_provider_performa
   rankTtlHcpcsCode: Int @pgColumn(name: "rank_ttl_hcpcs_code")
   rankTtlNOfSvcs: Int @pgColumn(name: "rank_ttl_n_of_svcs")
   rankVarEstTtlMcareSubmittedChargePayAmoun: Int @pgColumn(name: "rank_var_est_ttl_mcare_submitted_charge_pay_amoun")
+  rankVarEstTtlMcareSubmittedChargePayAmountEvenLonger: Int @pgColumn(name: "rank_var_est_ttl_mcare_submitted_charge_pay_amount_even_longer_")
   summaryType: ServiceProviderPerformanceSummaryType! @pgColumn(name: "summary_type")
   ttlHcpcsCode: String @pgColumn(name: "ttl_hcpcs_code")
   ttlNOfSvcs: Int @pgColumn(name: "ttl_n_of_svcs")
