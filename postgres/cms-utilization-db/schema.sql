@@ -270,7 +270,7 @@ create table service_performance
 		var_avg_mcare_allowed_amt numeric,
 		min_avg_submitted_charge_amt numeric,
 		max_avg_submitted_charge_amt numeric,
-		var_avg_submitted_charge_amt numeric,
+		var_avg_submitted_charge_amt_var_avg_submitted_charge_amt_var_avg_submitted_charge_amt numeric,
 		min_avg_mcare_standardized_amt numeric,
 		max_avg_mcare_standardized_amt numeric,
 		var_avg_mcare_standardized_amt numeric,

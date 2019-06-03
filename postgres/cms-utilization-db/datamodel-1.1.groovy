@@ -108,7 +108,7 @@ type ServicePerformance @db(name: "service_performance") {
   varAvgMcarePayAmt: Float @db(name: "var_avg_mcare_pay_amt")
   varAvgMcareStandardizedAmt: Float @db(name: "var_avg_mcare_standardized_amt")
   varAvgMcareSubmittedChargePayAmt: Float @db(name: "var_avg_mcare_submitted_charge_pay_amt")
-  varAvgSubmittedChargeAmt: Float @db(name: "var_avg_submitted_charge_amt")
+  varAvgSubmittedChargeAmtVarAvgSubmittedChargeAmtVarA: Float @db(name: "var_avg_submitted_charge_amt_var_avg_submitted_charge_amt_var_a")
 }
 
 type ServiceProviderPerformance @db(name: "service_provider_performance") {

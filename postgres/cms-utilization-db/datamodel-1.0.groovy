@@ -108,7 +108,7 @@ type ServicePerformance @pgTable(name: "service_performance") {
   varAvgMcarePayAmt: Float @pgColumn(name: "var_avg_mcare_pay_amt")
   varAvgMcareStandardizedAmt: Float @pgColumn(name: "var_avg_mcare_standardized_amt")
   varAvgMcareSubmittedChargePayAmt: Float @pgColumn(name: "var_avg_mcare_submitted_charge_pay_amt")
-  varAvgSubmittedChargeAmt: Float @pgColumn(name: "var_avg_submitted_charge_amt")
+  varAvgSubmittedChargeAmtVarAvgSubmittedChargeAmtVarA: Float @pgColumn(name: "var_avg_submitted_charge_amt_var_avg_submitted_charge_amt_var_a")
 }
 
 type ServiceProviderPerformance @pgTable(name: "service_provider_performance") {

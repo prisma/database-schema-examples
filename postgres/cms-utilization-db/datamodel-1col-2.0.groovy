@@ -108,7 +108,7 @@ model ServicePerformance {
   varAvgMcarePayAmt: Float? 
   varAvgMcareStandardizedAmt: Float? 
   varAvgMcareSubmittedChargePayAmt: Float? 
-  varAvgSubmittedChargeAmt: Float? 
+  varAvgSubmittedChargeAmtVarAvgSubmittedChargeAmtVarA: Float? 
 }
 
 model ServiceProviderPerformance {
