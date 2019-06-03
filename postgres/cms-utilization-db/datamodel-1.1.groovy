@@ -155,6 +155,7 @@ type ServiceProviderPerformanceSummary @db(name: "service_provider_performance_s
   rankTtlHcpcsCode: Int @db(name: "rank_ttl_hcpcs_code")
   rankTtlNOfSvcs: Int @db(name: "rank_ttl_n_of_svcs")
   rankVarEstTtlMcareSubmittedChargePayAmoun: Int @db(name: "rank_var_est_ttl_mcare_submitted_charge_pay_amoun")
+  rankVarEstTtlMcareSubmittedChargePayAmountEvenLonger: Int @db(name: "rank_var_est_ttl_mcare_submitted_charge_pay_amount_even_longer_")
   summaryType: ServiceProviderPerformanceSummaryType! @db(name: "summary_type")
   ttlHcpcsCode: String @db(name: "ttl_hcpcs_code")
   ttlNOfSvcs: Int @db(name: "ttl_n_of_svcs")

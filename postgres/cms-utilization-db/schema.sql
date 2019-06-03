@@ -438,6 +438,7 @@ create table service_provider_performance_summary
 		rank_est_ttl_submitted_charge_amt bigint,
 		rank_est_ttl_mcare_pay_amt bigint,
 		rank_var_est_ttl_mcare_submitted_charge_pay_amoun bigint,
+		rank_var_est_ttl_mcare_submitted_charge_pay_amount_even_longer_than_before bigint,
 		rank_est_ttl_mcare_pay_amt_by_ttl_hcpcs_code bigint,
 		rank_est_ttl_mcare_pay_amt_by_ttl_n_of_servi bigint,
 		summary_type integer not null,
