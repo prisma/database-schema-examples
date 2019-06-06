@@ -455,22 +455,6 @@ CREATE TABLE `checkins` (
   KEY `index_checkins_on_user_id` (`user_id`) USING BTREE,
   KEY `index_checkins_on_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24709 DEFAULT CHARSET=utf8mb4;
--- D_ELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER after_insert_checkin AFTER INSERT
-ON checkins FOR EACH ROW
-BEGIN
-  IF EXISTS (SELECT id FROM user_club_activities WHERE club_id = NEW.club_id AND user_id = NEW.user_id) THEN
-    UPDATE user_club_activities
-    SET checked_in = true, played = 1, wishing = false
-    WHERE user_id = NEW.user_id AND club_id = NEW.club_id;
-  ELSE
-    INSERT INTO
-      user_club_activities (user_id, club_id, checked_in, played, wishing)
-    VALUES
-      (NEW.user_id, NEW.club_id, true, 1, false);
-  END IF;
-END */;;
--- D_ELIMITER ;
 --
 -- Table structure for table `checkins_users`
 --
