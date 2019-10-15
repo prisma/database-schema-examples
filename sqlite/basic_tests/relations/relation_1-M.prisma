@@ -1,0 +1,11 @@
+model supplier_groups {
+  group_id   Int?        @id
+  group_name String
+  suppliers  suppliers[] @relation("supplier_groups_suppliers_group_id", references: [group_id])
+}
+
+model suppliers {
+  group_id      supplier_groups? @relation("supplier_groups_suppliers_group_id")
+  supplier_id   Int?             @id
+  supplier_name String
+}
