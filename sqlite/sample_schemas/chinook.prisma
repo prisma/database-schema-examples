@@ -1,0 +1,115 @@
+model albums {
+  AlbumId  Int      @id
+  ArtistId artists  @relation("albums_ArtistId_artists")
+  Title    String
+  trackses tracks[] @relation("albums_tracks_AlbumId", references: [AlbumId])
+}
+
+model artists {
+  ArtistId Int      @id
+  Name     String?
+  albumses albums[] @relation("albums_ArtistId_artists")
+}
+
+model customers {
+  Address      String?
+  City         String?
+  Company      String?
+  Country      String?
+  CustomerId   Int        @id
+  Email        String
+  Fax          String?
+  FirstName    String
+  LastName     String
+  Phone        String?
+  PostalCode   String?
+  State        String?
+  SupportRepId employees? @relation("customers_SupportRepId_employees")
+  invoiceses   invoices[] @relation("customers_invoices_CustomerId", references: [CustomerId])
+}
+
+model employees {
+  Address     String?
+  BirthDate   DateTime?
+  City        String?
+  Country     String?
+  Email       String?
+  EmployeeId  Int         @id
+  Fax         String?
+  FirstName   String
+  HireDate    DateTime?
+  LastName    String
+  Phone       String?
+  PostalCode  String?
+  ReportsTo   employees?  @relation("employees_employees_ReportsTo")
+  State       String?
+  Title       String?
+  customerses customers[] @relation("customers_SupportRepId_employees")
+  employeeses employees[] @relation("employees_employees_ReportsTo")
+}
+
+model genres {
+  GenreId  Int      @id
+  Name     String?
+  trackses tracks[] @relation("genres_tracks_GenreId", references: [GenreId])
+}
+
+model invoices {
+  BillingAddress    String?
+  BillingCity       String?
+  BillingCountry    String?
+  BillingPostalCode String?
+  BillingState      String?
+  CustomerId        customers       @relation("customers_invoices_CustomerId")
+  InvoiceDate       DateTime
+  InvoiceId         Int             @id
+  Total             Float
+  invoice_itemses   invoice_items[] @relation("invoice_items_InvoiceId_invoices")
+}
+
+model invoice_items {
+  InvoiceId     invoices @relation("invoice_items_InvoiceId_invoices")
+  InvoiceLineId Int      @id
+  Quantity      Int
+  TrackId       tracks   @relation("invoice_items_TrackId_tracks")
+  UnitPrice     Float
+}
+
+model media_types {
+  MediaTypeId Int      @id
+  Name        String?
+  trackses    tracks[] @relation("media_types_tracks_MediaTypeId", references: [MediaTypeId])
+}
+
+model playlists {
+  Name            String?
+  PlaylistId      Int              @id
+  playlist_tracks playlist_track[] @relation("playlist_track_PlaylistId_playlists")
+}
+
+model playlist_track {
+  PlaylistId playlists @id(strategy: NONE) @relation("playlist_track_PlaylistId_playlists")
+  TrackId    tracks    @id(strategy: NONE) @relation("playlist_track_TrackId_tracks")
+
+  @@unique([PlaylistId, TrackId], name: "sqlite_autoindex_playlist_track_1")
+}
+
+model tracks {
+  AlbumId         albums?          @relation("albums_tracks_AlbumId")
+  Bytes           Int?
+  Composer        String?
+  GenreId         genres?          @relation("genres_tracks_GenreId")
+  MediaTypeId     media_types      @relation("media_types_tracks_MediaTypeId")
+  Milliseconds    Int
+  Name            String
+  TrackId         Int              @id
+  UnitPrice       Float
+  invoice_itemses invoice_items[]  @relation("invoice_items_TrackId_tracks")
+  playlist_tracks playlist_track[] @relation("playlist_track_TrackId_tracks")
+}
+
+model sqlite_stat1 {
+  idx  String?
+  stat String?
+  tbl  String?
+}

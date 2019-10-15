@@ -1,0 +1,127 @@
+model Employee {
+  Address         String?
+  BirthDate       String?
+  City            String?
+  Country         String?
+  Extension       String?
+  FirstName       String?
+  HireDate        String?
+  HomePhone       String?
+  Id              Int?    @id
+  LastName        String?
+  Notes           String?
+  Photo           String?
+  PhotoPath       String?
+  PostalCode      String?
+  Region          String?
+  ReportsTo       Int?
+  Title           String?
+  TitleOfCourtesy String?
+}
+
+model Category {
+  CategoryName String?
+  Description  String?
+  Id           Int?    @id
+}
+
+model Customer {
+  Address      String?
+  City         String?
+  CompanyName  String?
+  ContactName  String?
+  ContactTitle String?
+  Country      String?
+  Fax          String?
+  Id           String? @id(strategy: NONE)
+  Phone        String?
+  PostalCode   String?
+  Region       String?
+}
+
+model Shipper {
+  CompanyName String?
+  Id          Int?    @id
+  Phone       String?
+}
+
+model Supplier {
+  Address      String?
+  City         String?
+  CompanyName  String?
+  ContactName  String?
+  ContactTitle String?
+  Country      String?
+  Fax          String?
+  HomePage     String?
+  Id           Int?    @id
+  Phone        String?
+  PostalCode   String?
+  Region       String?
+}
+
+model Order {
+  CustomerId     String?
+  EmployeeId     Int
+  Freight        String
+  Id             Int?    @id
+  OrderDate      String?
+  RequiredDate   String?
+  ShipAddress    String?
+  ShipCity       String?
+  ShipCountry    String?
+  ShipName       String?
+  ShipPostalCode String?
+  ShipRegion     String?
+  ShipVia        Int?
+  ShippedDate    String?
+}
+
+model Product {
+  CategoryId      Int
+  Discontinued    Int
+  Id              Int?    @id
+  ProductName     String?
+  QuantityPerUnit String?
+  ReorderLevel    Int
+  SupplierId      Int
+  UnitPrice       String
+  UnitsInStock    Int
+  UnitsOnOrder    Int
+}
+
+model OrderDetail {
+  Discount  Float
+  Id        String? @id(strategy: NONE)
+  OrderId   Int
+  ProductId Int
+  Quantity  Int
+  UnitPrice String
+}
+
+model CustomerCustomerDemo {
+  CustomerTypeId String?
+  Id             String? @id(strategy: NONE)
+}
+
+model CustomerDemographic {
+  CustomerDesc String?
+  Id           String? @id(strategy: NONE)
+}
+
+model Region {
+  Id                Int?    @id
+  RegionDescription String?
+}
+
+model Territory {
+  Id                   String? @id(strategy: NONE)
+  RegionId             Int
+  TerritoryDescription String?
+}
+
+model EmployeeTerritory {
+  EmployeeId  Int
+  Id          String? @id(strategy: NONE)
+  TerritoryId String?
+}
