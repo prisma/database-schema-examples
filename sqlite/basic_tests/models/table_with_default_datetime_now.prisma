@@ -1,0 +1,4 @@
+model User {
+  date String?
+  id   Int     @id
+}

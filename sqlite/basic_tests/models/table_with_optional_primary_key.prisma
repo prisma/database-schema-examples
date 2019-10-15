@@ -1,0 +1,3 @@
+model User {
+  id_optional Int? @id
+}

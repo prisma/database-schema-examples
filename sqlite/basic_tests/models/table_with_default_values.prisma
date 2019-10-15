@@ -1,0 +1,6 @@
+model User {
+  age    Int    @default(10)
+  id     Int    @id
+  name   String @default(""Paul"")
+  weight Float  @default(80.5)
+}

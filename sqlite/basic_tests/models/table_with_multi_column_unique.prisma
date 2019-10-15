@@ -1,0 +1,7 @@
+model User {
+  firstname String?
+  id        Int     @id
+  lastname  String?
+
+  @@unique([firstname, lastname], name: "multi_column_unique_index_name")
+}

@@ -1,0 +1,7 @@
+model something {
+  column1 String? @id(strategy: NONE)
+  column2 String? @id(strategy: NONE)
+  value   String?
+
+  @@unique([column1, column2], name: "sqlite_autoindex_something_1")
+}

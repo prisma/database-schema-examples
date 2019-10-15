@@ -1,0 +1,5 @@
+model User {
+  Field3 Float?
+  age    Int?
+  id     String @id(strategy: NONE)
+}

@@ -1,0 +1,5 @@
+model User {
+  firstname String
+  id        Int?   @id
+  lastname  String
+}

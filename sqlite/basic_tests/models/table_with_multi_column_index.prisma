@@ -1,0 +1,6 @@
+model User {
+  city   String?
+  id     Int     @id
+  street String?
+  zip    Int?
+}

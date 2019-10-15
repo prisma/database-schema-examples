@@ -1,0 +1,4 @@
+model User {
+  Field1 Int  @id
+  Field2 Int? @unique
+}
