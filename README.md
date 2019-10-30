@@ -8,4 +8,4 @@ Useful whenever we need a real world example. Each example folder contains a `RE
 
 Here is a collection of instructions for different database systems:
 
-- [PostgreSQL](postgres)
+- [PostgreSQL](POSTGRES.md)
