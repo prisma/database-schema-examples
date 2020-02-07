@@ -11,5 +11,5 @@ https://github.com/lerocha/chinook-database/wiki/Chinook-Schema
 - Add `AUTO_INCREMENT` (via Chinook_MySql_AutoIncrementPKs.sql)
 - Add `ENGINE=InnoDB`
 - Remove `DATABASE` and `USE`
-
+- Split data into `data.sql`
 
