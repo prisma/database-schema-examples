@@ -111,9 +111,10 @@ CREATE TABLE `Playlist`
 
 CREATE TABLE `PlaylistTrack`
 (
+    `Id` int(11) NOT NULL AUTO_INCREMENT,
     `PlaylistId` INT NOT NULL,
     `TrackId` INT NOT NULL,
-    CONSTRAINT `PK_PlaylistTrack` PRIMARY KEY  (`PlaylistId`, `TrackId`)
+    CONSTRAINT `PK_PlaylistTrack` PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE `Track`
@@ -131,6 +132,13 @@ CREATE TABLE `Track`
 ) ENGINE=InnoDB;
 
 
+
+/*******************************************************************************
+   Create Unique Indexes
+********************************************************************************/
+
+ALTER TABLE `PlaylistTrack`
+    ADD UNIQUE KEY `Unique` (`PlaylistId`,`TrackId`);
 
 /*******************************************************************************
    Create Primary Key Unique Indexes
