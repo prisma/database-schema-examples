@@ -1,35 +1,29 @@
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.13  Distrib 5.7.27, for Win64 (x86_64)
 --
--- Host: dd35330
--- Generation Time: Oct 30, 2019 at 01:13 PM
--- Server version: 5.7.26-nmm1-log
--- PHP Version: 7.2.19-nmm1
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: all-prisma.de    Database: d02ff6e7
+-- ------------------------------------------------------
+-- Server version	5.7.28-nmm1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `d02ff6e7`
---
-
--- --------------------------------------------------------
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `lt5ae_lychee_albums`
 --
 
+DROP TABLE IF EXISTS `lt5ae_lychee_albums`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lt5ae_lychee_albums` (
-  `id` bigint(14) UNSIGNED NOT NULL,
+  `id` bigint(14) unsigned NOT NULL,
   `title` varchar(100) NOT NULL DEFAULT '',
   `description` varchar(1000) DEFAULT '',
   `sysstamp` int(11) NOT NULL,
@@ -39,32 +33,38 @@ CREATE TABLE `lt5ae_lychee_albums` (
   `password` varchar(100) DEFAULT NULL,
   `min_takestamp` int(11) NOT NULL,
   `max_takestamp` int(11) NOT NULL,
-  `license` varchar(20) DEFAULT 'none'
+  `license` varchar(20) DEFAULT 'none',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `lt5ae_lychee_log`
 --
 
+DROP TABLE IF EXISTS `lt5ae_lychee_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lt5ae_lychee_log` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` int(11) NOT NULL,
   `type` varchar(11) NOT NULL,
   `function` varchar(100) NOT NULL,
   `line` int(11) NOT NULL,
-  `text` text
+  `text` text,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `lt5ae_lychee_photos`
 --
 
+DROP TABLE IF EXISTS `lt5ae_lychee_photos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lt5ae_lychee_photos` (
-  `id` bigint(14) UNSIGNED NOT NULL,
+  `id` bigint(14) unsigned NOT NULL,
   `title` varchar(100) NOT NULL DEFAULT '',
   `description` varchar(1000) DEFAULT '',
   `url` varchar(100) NOT NULL,
@@ -84,65 +84,38 @@ CREATE TABLE `lt5ae_lychee_photos` (
   `takestamp` int(11) DEFAULT NULL,
   `star` tinyint(1) NOT NULL,
   `thumbUrl` char(37) NOT NULL,
-  `album` bigint(14) UNSIGNED NOT NULL,
+  `album` bigint(14) unsigned NOT NULL,
   `checksum` char(40) DEFAULT NULL,
   `medium` tinyint(1) NOT NULL DEFAULT '0',
   `small` tinyint(1) NOT NULL DEFAULT '0',
-  `license` varchar(20) NOT NULL DEFAULT 'none'
+  `license` varchar(20) NOT NULL DEFAULT 'none',
+  PRIMARY KEY (`id`),
+  KEY `Index_album` (`album`),
+  KEY `Index_star` (`star`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `lt5ae_lychee_settings`
 --
 
+DROP TABLE IF EXISTS `lt5ae_lychee_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lt5ae_lychee_settings` (
   `key` varchar(50) NOT NULL DEFAULT '',
-  `value` varchar(200) DEFAULT ''
+  `value` varchar(200) DEFAULT '',
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `lt5ae_lychee_albums`
---
-ALTER TABLE `lt5ae_lychee_albums`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `lt5ae_lychee_log`
---
-ALTER TABLE `lt5ae_lychee_log`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `lt5ae_lychee_photos`
---
-ALTER TABLE `lt5ae_lychee_photos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `Index_album` (`album`),
-  ADD KEY `Index_star` (`star`);
-
---
--- Indexes for table `lt5ae_lychee_settings`
---
-ALTER TABLE `lt5ae_lychee_settings`
-  ADD PRIMARY KEY (`key`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `lt5ae_lychee_log`
---
-ALTER TABLE `lt5ae_lychee_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-02-07 13:36:23
