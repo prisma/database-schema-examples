@@ -155,7 +155,7 @@ DROP TABLE IF EXISTS `currencies`;
 CREATE TABLE `currencies` (
   `currency` char(3) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rate` float DEFAULT '0',
-  UNIQUE KEY `currency` (`currency`)
+  PRIMARY KEY `currency` (`currency`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -192,7 +192,7 @@ DROP TABLE IF EXISTS `group_has_users`;
 CREATE TABLE `group_has_users` (
   `group_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  UNIQUE KEY `group_id` (`group_id`,`user_id`),
+  PRIMARY KEY `group_id` (`group_id`,`user_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `group_has_users_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE,
   CONSTRAINT `group_has_users_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
@@ -440,7 +440,7 @@ CREATE TABLE `project_has_groups` (
   `group_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  UNIQUE KEY `group_id` (`group_id`,`project_id`),
+  PRIMARY KEY `group_id` (`group_id`,`project_id`),
   KEY `project_id` (`project_id`),
   CONSTRAINT `project_has_groups_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE,
   CONSTRAINT `project_has_groups_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE
@@ -460,7 +460,7 @@ CREATE TABLE `project_has_metadata` (
   `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `changed_by` int(11) NOT NULL DEFAULT '0',
   `changed_on` int(11) NOT NULL DEFAULT '0',
-  UNIQUE KEY `project_id` (`project_id`,`name`),
+  PRIMARY KEY `project_id` (`project_id`,`name`),
   CONSTRAINT `project_has_metadata_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -510,7 +510,7 @@ CREATE TABLE `project_has_users` (
   `project_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  UNIQUE KEY `idx_project_user` (`project_id`,`user_id`),
+  PRIMARY KEY `idx_project_user` (`project_id`,`user_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `project_has_users_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE,
   CONSTRAINT `project_has_users_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
@@ -793,7 +793,7 @@ CREATE TABLE `task_has_metadata` (
   `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `changed_by` int(11) NOT NULL DEFAULT '0',
   `changed_on` int(11) NOT NULL DEFAULT '0',
-  UNIQUE KEY `task_id` (`task_id`,`name`),
+  PRIMARY KEY `task_id` (`task_id`,`name`),
   CONSTRAINT `task_has_metadata_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -808,7 +808,7 @@ DROP TABLE IF EXISTS `task_has_tags`;
 CREATE TABLE `task_has_tags` (
   `task_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL,
-  UNIQUE KEY `tag_id` (`tag_id`,`task_id`),
+  PRIMARY KEY `tag_id` (`tag_id`,`task_id`),
   KEY `task_id` (`task_id`),
   CONSTRAINT `task_has_tags_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
   CONSTRAINT `task_has_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE
@@ -910,7 +910,7 @@ CREATE TABLE `user_has_metadata` (
   `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `changed_by` int(11) NOT NULL DEFAULT '0',
   `changed_on` int(11) NOT NULL DEFAULT '0',
-  UNIQUE KEY `user_id` (`user_id`,`name`),
+  PRIMARY KEY `user_id` (`user_id`,`name`),
   CONSTRAINT `user_has_metadata_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -942,7 +942,7 @@ DROP TABLE IF EXISTS `user_has_notifications`;
 CREATE TABLE `user_has_notifications` (
   `user_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
-  UNIQUE KEY `user_has_notifications_unique_idx` (`user_id`,`project_id`),
+  PRIMARY KEY `user_has_notifications_unique_idx` (`user_id`,`project_id`),
   KEY `user_has_notifications_ibfk_2` (`project_id`),
   CONSTRAINT `user_has_notifications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `user_has_notifications_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE

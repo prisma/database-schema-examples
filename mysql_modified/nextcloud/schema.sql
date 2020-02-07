@@ -488,7 +488,7 @@ CREATE TABLE `jvMDv_collres_accesscache` (
   `resource_type` varchar(64) COLLATE utf8mb4_bin DEFAULT '',
   `resource_id` varchar(64) COLLATE utf8mb4_bin DEFAULT '',
   `access` tinyint(1) NOT NULL DEFAULT '0',
-  UNIQUE KEY `collres_unique_user` (`user_id`,`collection_id`,`resource_type`,`resource_id`),
+  PRIMARY KEY `collres_unique_user` (`user_id`,`collection_id`,`resource_type`,`resource_id`),
   KEY `collres_user_res` (`user_id`,`resource_type`,`resource_id`),
   KEY `collres_user_coll` (`user_id`,`collection_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
@@ -519,7 +519,7 @@ CREATE TABLE `jvMDv_collres_resources` (
   `collection_id` bigint(20) NOT NULL,
   `resource_type` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `resource_id` varchar(64) COLLATE utf8mb4_bin NOT NULL,
-  UNIQUE KEY `collres_unique_res` (`collection_id`,`resource_type`,`resource_id`)
+  PRIMARY KEY `collres_unique_res` (`collection_id`,`resource_type`,`resource_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -563,7 +563,7 @@ CREATE TABLE `jvMDv_comments_read_markers` (
   `marker_datetime` datetime DEFAULT NULL,
   `object_type` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `object_id` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  UNIQUE KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
+  PRIMARY KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
   KEY `comments_marker_object_index` (`object_type`,`object_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -651,7 +651,7 @@ DROP TABLE IF EXISTS `jvMDv_federated_reshares`;
 CREATE TABLE `jvMDv_federated_reshares` (
   `share_id` int(11) NOT NULL,
   `remote_id` int(11) NOT NULL COMMENT 'share ID at the remote server',
-  UNIQUE KEY `share_id_index` (`share_id`)
+  PRIMARY KEY `share_id_index` (`share_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -719,7 +719,7 @@ CREATE TABLE `jvMDv_filecache_extended` (
   `metadata_etag` varchar(40) COLLATE utf8mb4_bin DEFAULT NULL,
   `creation_time` bigint(20) NOT NULL DEFAULT '0',
   `upload_time` bigint(20) NOT NULL DEFAULT '0',
-  UNIQUE KEY `fce_fileid_idx` (`fileid`),
+  PRIMARY KEY `fce_fileid_idx` (`fileid`),
   KEY `fce_ctime_idx` (`creation_time`),
   KEY `fce_utime_idx` (`upload_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
@@ -968,7 +968,7 @@ CREATE TABLE `jvMDv_notifications_pushtokens` (
   `pushtokenhash` varchar(128) COLLATE utf8mb4_bin NOT NULL,
   `proxyserver` varchar(256) COLLATE utf8mb4_bin NOT NULL,
   `apptype` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT 'unknown',
-  UNIQUE KEY `oc_notifpushtoken` (`uid`,`token`)
+  PRIMARY KEY `oc_notifpushtoken` (`uid`,`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1204,7 +1204,7 @@ CREATE TABLE `jvMDv_systemtag_object_mapping` (
   `objectid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `objecttype` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `systemtagid` bigint(20) unsigned NOT NULL DEFAULT '0',
-  UNIQUE KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
+  PRIMARY KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

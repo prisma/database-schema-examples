@@ -461,7 +461,7 @@ CREATE TABLE `bhmj0_project_hierarchy_table` (
   `child_id` int(10) unsigned NOT NULL,
   `parent_id` int(10) unsigned NOT NULL,
   `inherit_parent` tinyint(4) NOT NULL DEFAULT '0',
-  UNIQUE KEY `idx_project_hierarchy` (`child_id`,`parent_id`),
+  PRIMARY KEY `idx_project_hierarchy` (`child_id`,`parent_id`),
   KEY `idx_project_hierarchy_child_id` (`child_id`),
   KEY `idx_project_hierarchy_parent_id` (`parent_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

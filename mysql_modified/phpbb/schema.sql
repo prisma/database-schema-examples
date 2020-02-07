@@ -313,7 +313,7 @@ CREATE TABLE `rzhil_ext` (
   `ext_name` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `ext_active` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `ext_state` text COLLATE utf8_bin NOT NULL,
-  UNIQUE KEY `ext_name` (`ext_name`)
+  PRIMARY KEY `ext_name` (`ext_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1126,7 +1126,7 @@ CREATE TABLE `rzhil_search_wordmatch` (
   `post_id` int(10) unsigned NOT NULL DEFAULT '0',
   `word_id` int(10) unsigned NOT NULL DEFAULT '0',
   `title_match` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  UNIQUE KEY `un_mtch` (`word_id`,`post_id`,`title_match`),
+  PRIMARY KEY `un_mtch` (`word_id`,`post_id`,`title_match`),
   KEY `word_id` (`word_id`),
   KEY `post_id` (`post_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -1390,7 +1390,7 @@ CREATE TABLE `rzhil_user_notifications` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `method` varchar(165) COLLATE utf8_bin NOT NULL DEFAULT '',
   `notify` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  UNIQUE KEY `itm_usr_mthd` (`item_type`,`item_id`,`user_id`,`method`),
+  PRIMARY KEY `itm_usr_mthd` (`item_type`,`item_id`,`user_id`,`method`),
   KEY `user_id` (`user_id`),
   KEY `uid_itm_id` (`user_id`,`item_id`),
   KEY `usr_itm_tpe` (`user_id`,`item_type`,`item_id`)

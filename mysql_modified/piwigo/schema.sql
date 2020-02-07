@@ -185,7 +185,7 @@ CREATE TABLE `q4hat_history_summary` (
   `nb_pages` int(11) DEFAULT NULL,
   `history_id_from` int(10) unsigned DEFAULT NULL,
   `history_id_to` int(10) unsigned DEFAULT NULL,
-  UNIQUE KEY `history_summary_ymdh` (`year`,`month`,`day`,`hour`)
+  PRIMARY KEY `history_summary_ymdh` (`year`,`month`,`day`,`hour`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

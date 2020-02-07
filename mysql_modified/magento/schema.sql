@@ -949,7 +949,7 @@ DROP TABLE IF EXISTS `catalog_product_entity_media_gallery_value_to_entity`;
 CREATE TABLE `catalog_product_entity_media_gallery_value_to_entity` (
   `value_id` int(10) unsigned NOT NULL COMMENT 'Value media Entry ID',
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Product Entity ID',
-  UNIQUE KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_VAL_ID_ENTT_ID` (`value_id`,`entity_id`),
+  PRIMARY KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_VAL_ID_ENTT_ID` (`value_id`,`entity_id`),
   KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` (`entity_id`),
   CONSTRAINT `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE,
   CONSTRAINT `FK_A6C6C8FAA386736921D3A7C4B50B1185` FOREIGN KEY (`value_id`) REFERENCES `catalog_product_entity_media_gallery` (`value_id`) ON DELETE CASCADE
@@ -971,7 +971,7 @@ CREATE TABLE `catalog_product_entity_media_gallery_value_video` (
   `title` varchar(255) DEFAULT NULL COMMENT 'Title',
   `description` text COMMENT 'Page Meta Description',
   `metadata` text COMMENT 'Video meta data',
-  UNIQUE KEY `CAT_PRD_ENTT_MDA_GLR_VAL_VIDEO_VAL_ID_STORE_ID` (`value_id`,`store_id`),
+  PRIMARY KEY `CAT_PRD_ENTT_MDA_GLR_VAL_VIDEO_VAL_ID_STORE_ID` (`value_id`,`store_id`),
   KEY `CAT_PRD_ENTT_MDA_GLR_VAL_VIDEO_STORE_ID_STORE_STORE_ID` (`store_id`),
   CONSTRAINT `CAT_PRD_ENTT_MDA_GLR_VAL_VIDEO_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `FK_6FDF205946906B0E653E60AA769899F8` FOREIGN KEY (`value_id`) REFERENCES `catalog_product_entity_media_gallery` (`value_id`) ON DELETE CASCADE
@@ -4907,7 +4907,7 @@ CREATE TABLE `oauth_nonce` (
   `nonce` varchar(32) NOT NULL COMMENT 'Nonce String',
   `timestamp` int(10) unsigned NOT NULL COMMENT 'Nonce Timestamp',
   `consumer_id` int(10) unsigned NOT NULL COMMENT 'Consumer ID',
-  UNIQUE KEY `OAUTH_NONCE_NONCE_CONSUMER_ID` (`nonce`,`consumer_id`),
+  PRIMARY KEY `OAUTH_NONCE_NONCE_CONSUMER_ID` (`nonce`,`consumer_id`),
   KEY `OAUTH_NONCE_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID` (`consumer_id`),
   KEY `OAUTH_NONCE_TIMESTAMP` (`timestamp`),
   CONSTRAINT `OAUTH_NONCE_CONSUMER_ID_OAUTH_CONSUMER_ENTITY_ID` FOREIGN KEY (`consumer_id`) REFERENCES `oauth_consumer` (`entity_id`) ON DELETE CASCADE
@@ -8792,7 +8792,7 @@ DROP TABLE IF EXISTS `vertex_sales_creditmemo_item_invoice_text_code`;
 CREATE TABLE `vertex_sales_creditmemo_item_invoice_text_code` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Creditmemo Item ID',
   `invoice_text_code` varchar(100) NOT NULL COMMENT 'Invoice text code from Vertex',
-  UNIQUE KEY `UNQ_4BC40DA748D7713ADA661D2DE1BCF161` (`item_id`,`invoice_text_code`)
+  PRIMARY KEY `UNQ_4BC40DA748D7713ADA661D2DE1BCF161` (`item_id`,`invoice_text_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vertex_sales_creditmemo_item_invoice_text_code';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -8806,7 +8806,7 @@ DROP TABLE IF EXISTS `vertex_sales_creditmemo_item_tax_code`;
 CREATE TABLE `vertex_sales_creditmemo_item_tax_code` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Creditmemo Item ID',
   `tax_code` varchar(100) NOT NULL COMMENT 'Invoice text code from Vertex',
-  UNIQUE KEY `VERTEX_SALES_CREDITMEMO_ITEM_TAX_CODE_ITEM_ID_TAX_CODE` (`item_id`,`tax_code`)
+  PRIMARY KEY `VERTEX_SALES_CREDITMEMO_ITEM_TAX_CODE_ITEM_ID_TAX_CODE` (`item_id`,`tax_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vertex_sales_creditmemo_item_tax_code';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -8820,7 +8820,7 @@ DROP TABLE IF EXISTS `vertex_sales_creditmemo_item_vertex_tax_code`;
 CREATE TABLE `vertex_sales_creditmemo_item_vertex_tax_code` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Creditmemo Item ID',
   `vertex_tax_code` varchar(100) NOT NULL COMMENT 'Text code from Vertex',
-  UNIQUE KEY `UNQ_31D7AADB3412BC7E7C1C98D5CC3A5D46` (`item_id`,`vertex_tax_code`)
+  PRIMARY KEY `UNQ_31D7AADB3412BC7E7C1C98D5CC3A5D46` (`item_id`,`vertex_tax_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vertex_sales_creditmemo_item_vertex_tax_code';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -8834,7 +8834,7 @@ DROP TABLE IF EXISTS `vertex_sales_order_item_invoice_text_code`;
 CREATE TABLE `vertex_sales_order_item_invoice_text_code` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Order Item ID',
   `invoice_text_code` varchar(100) NOT NULL COMMENT 'Invoice text code from Vertex',
-  UNIQUE KEY `UNQ_96F6BE3160A4185CEA4D866018EAF6DC` (`item_id`,`invoice_text_code`)
+  PRIMARY KEY `UNQ_96F6BE3160A4185CEA4D866018EAF6DC` (`item_id`,`invoice_text_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vertex_sales_order_item_invoice_text_code';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -8848,7 +8848,7 @@ DROP TABLE IF EXISTS `vertex_sales_order_item_tax_code`;
 CREATE TABLE `vertex_sales_order_item_tax_code` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Order Item ID',
   `tax_code` varchar(100) NOT NULL COMMENT 'Invoice text code from Vertex',
-  UNIQUE KEY `VERTEX_SALES_ORDER_ITEM_TAX_CODE_ITEM_ID_TAX_CODE` (`item_id`,`tax_code`)
+  PRIMARY KEY `VERTEX_SALES_ORDER_ITEM_TAX_CODE_ITEM_ID_TAX_CODE` (`item_id`,`tax_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vertex_sales_order_item_tax_code';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -8862,7 +8862,7 @@ DROP TABLE IF EXISTS `vertex_sales_order_item_vertex_tax_code`;
 CREATE TABLE `vertex_sales_order_item_vertex_tax_code` (
   `item_id` int(10) unsigned NOT NULL COMMENT 'Order Item ID',
   `vertex_tax_code` varchar(100) NOT NULL COMMENT 'Text code from Vertex',
-  UNIQUE KEY `VERTEX_SALES_ORDER_ITEM_VERTEX_TAX_CODE_ITEM_ID_VERTEX_TAX_CODE` (`item_id`,`vertex_tax_code`)
+  PRIMARY KEY `VERTEX_SALES_ORDER_ITEM_VERTEX_TAX_CODE_ITEM_ID_VERTEX_TAX_CODE` (`item_id`,`vertex_tax_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vertex_sales_order_item_vertex_tax_code';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -8991,7 +8991,7 @@ DROP TABLE IF EXISTS `widget_instance_page_layout`;
 CREATE TABLE `widget_instance_page_layout` (
   `page_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Page Id',
   `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id',
-  UNIQUE KEY `WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID_PAGE_ID` (`layout_update_id`,`page_id`),
+  PRIMARY KEY `WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID_PAGE_ID` (`layout_update_id`,`page_id`),
   KEY `WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID` (`page_id`),
   CONSTRAINT `WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID_WIDGET_INSTANCE_PAGE_PAGE_ID` FOREIGN KEY (`page_id`) REFERENCES `widget_instance_page` (`page_id`) ON DELETE CASCADE,
   CONSTRAINT `WIDGET_INSTANCE_PAGE_LYT_LYT_UPDATE_ID_LYT_UPDATE_LYT_UPDATE_ID` FOREIGN KEY (`layout_update_id`) REFERENCES `layout_update` (`layout_update_id`) ON DELETE CASCADE

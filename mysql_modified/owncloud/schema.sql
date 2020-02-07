@@ -308,7 +308,7 @@ CREATE TABLE `q6f2w_comments_read_markers` (
   `marker_datetime` datetime DEFAULT NULL,
   `object_type` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `object_id` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  UNIQUE KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
+  PRIMARY KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
   KEY `comments_marker_object_index` (`object_type`,`object_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -465,7 +465,7 @@ DROP TABLE IF EXISTS `q6f2w_federated_reshares`;
 CREATE TABLE `q6f2w_federated_reshares` (
   `share_id` bigint(20) NOT NULL,
   `remote_id` bigint(20) NOT NULL COMMENT 'share ID at the remote server',
-  UNIQUE KEY `share_id_index` (`share_id`)
+  PRIMARY KEY `share_id_index` (`share_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -902,7 +902,7 @@ CREATE TABLE `q6f2w_systemtag_object_mapping` (
   `objectid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `objecttype` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `systemtagid` int(10) unsigned NOT NULL DEFAULT '0',
-  UNIQUE KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
+  PRIMARY KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

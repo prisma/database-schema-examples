@@ -488,7 +488,7 @@ CREATE TABLE `awu3h_forumsread` (
   `fid` int(10) unsigned NOT NULL DEFAULT '0',
   `uid` int(10) unsigned NOT NULL DEFAULT '0',
   `dateline` int(10) unsigned NOT NULL DEFAULT '0',
-  UNIQUE KEY `fid` (`fid`,`uid`),
+  PRIMARY KEY `fid` (`fid`,`uid`),
   KEY `dateline` (`dateline`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1462,7 +1462,7 @@ CREATE TABLE `awu3h_threadsread` (
   `tid` int(10) unsigned NOT NULL DEFAULT '0',
   `uid` int(10) unsigned NOT NULL DEFAULT '0',
   `dateline` int(10) unsigned NOT NULL DEFAULT '0',
-  UNIQUE KEY `tid` (`tid`,`uid`),
+  PRIMARY KEY `tid` (`tid`,`uid`),
   KEY `dateline` (`dateline`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

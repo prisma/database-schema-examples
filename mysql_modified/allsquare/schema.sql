@@ -2786,7 +2786,7 @@ DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `schema_migrations` (
   `version` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  UNIQUE KEY `unique_schema_migrations` (`version`)
+  PRIMARY KEY `unique_schema_migrations` (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

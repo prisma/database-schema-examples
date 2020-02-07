@@ -88,7 +88,7 @@ CREATE TABLE `admin_menus` (
   `menu_key` varchar(32) NOT NULL DEFAULT '',
   `language_key` varchar(255) NOT NULL DEFAULT '',
   `sort_order` int(11) NOT NULL DEFAULT '0',
-  UNIQUE KEY `menu_key` (`menu_key`)
+  PRIMARY KEY `menu_key` (`menu_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `admin_pages` (
@@ -99,13 +99,13 @@ CREATE TABLE `admin_pages` (
   `menu_key` varchar(32) NOT NULL DEFAULT '',
   `display_on_menu` char(1) NOT NULL DEFAULT 'N',
   `sort_order` int(11) NOT NULL DEFAULT '0',
-  UNIQUE KEY `page_key` (`page_key`)
+  PRIMARY KEY `page_key` (`page_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `admin_pages_to_profiles` (
   `profile_id` int(11) NOT NULL DEFAULT '0',
   `page_key` varchar(32) NOT NULL DEFAULT '',
-  UNIQUE KEY `profile_page` (`profile_id`,`page_key`),
+  PRIMARY KEY `profile_page` (`profile_id`,`page_key`),
   UNIQUE KEY `page_profile` (`page_key`,`profile_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

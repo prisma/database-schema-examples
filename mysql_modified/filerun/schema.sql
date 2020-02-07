@@ -654,7 +654,7 @@ CREATE TABLE `df_relationships` (
   `related_to_id` mediumint(9) NOT NULL DEFAULT '0',
   `object_id` mediumint(9) NOT NULL DEFAULT '0',
   `relation_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  UNIQUE KEY `id` (`id`),
+  PRIMARY KEY `id` (`id`),
   KEY `object_id` (`object_id`,`relation_type`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

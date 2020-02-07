@@ -128,7 +128,7 @@ CREATE TABLE `GDN_AnalyticsLocal` (
   `TimeSlot` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Views` int(11) DEFAULT NULL,
   `EmbedViews` int(11) DEFAULT NULL,
-  UNIQUE KEY `UX_AnalyticsLocal` (`TimeSlot`)
+  PRIMARY KEY `UX_AnalyticsLocal` (`TimeSlot`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
