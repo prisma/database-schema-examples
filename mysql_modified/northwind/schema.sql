@@ -89,7 +89,9 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `northwind`.`employee_privileges` (
   `employee_id` INT(11) NOT NULL,
   `privilege_id` INT(11) NOT NULL,
-  PRIMARY KEY (`employee_id`, `privilege_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`employee_id`, `privilege_id`),
   INDEX `employee_id` (`employee_id` ASC),
   INDEX `privilege_id` (`privilege_id` ASC),
   INDEX `privilege_id_2` (`privilege_id` ASC),

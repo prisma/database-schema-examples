@@ -69,7 +69,9 @@ CREATE TABLE `lAfOL_block_content__body` (
   `body_value` longtext NOT NULL,
   `body_summary` longtext,
   `body_format` varchar(255) CHARACTER SET ascii DEFAULT NULL,
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `body_format` (`body_format`)
@@ -94,7 +96,9 @@ CREATE TABLE `lAfOL_block_content_field_data` (
   `reusable` tinyint(4) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`id`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`id`,`langcode`),
   KEY `block_content__id__default_langcode__langcode` (`id`,`default_langcode`,`langcode`),
   KEY `block_content__revision_id` (`revision_id`),
   KEY `block_content_field__type__target_id` (`type`),
@@ -118,7 +122,9 @@ CREATE TABLE `lAfOL_block_content_field_revision` (
   `changed` int(11) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`revision_id`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`revision_id`,`langcode`),
   KEY `block_content__id__default_langcode__langcode` (`id`,`default_langcode`,`langcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='The revision data table for block_content entities.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -161,7 +167,9 @@ CREATE TABLE `lAfOL_block_content_revision__body` (
   `body_value` longtext NOT NULL,
   `body_summary` longtext,
   `body_format` varchar(255) CHARACTER SET ascii DEFAULT NULL,
-  PRIMARY KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `body_format` (`body_format`)
@@ -447,7 +455,9 @@ CREATE TABLE `lAfOL_comment__comment_body` (
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `comment_body_value` longtext NOT NULL,
   `comment_body_format` varchar(255) CHARACTER SET ascii DEFAULT NULL,
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `comment_body_format` (`comment_body_format`)
@@ -470,7 +480,9 @@ CREATE TABLE `lAfOL_comment_entity_statistics` (
   `last_comment_name` varchar(60) DEFAULT NULL COMMENT 'The name of the latest author to post a comment on this node, from lAfOL_comment.name.',
   `last_comment_uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The user ID of the latest author to post a comment on this node, from lAfOL_comment.uid.',
   `comment_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The total number of comments on this entity.',
-  PRIMARY KEY (`entity_id`,`entity_type`,`field_name`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`entity_type`,`field_name`),
   KEY `last_comment_timestamp` (`last_comment_timestamp`),
   KEY `comment_count` (`comment_count`),
   KEY `last_comment_uid` (`last_comment_uid`)
@@ -503,7 +515,9 @@ CREATE TABLE `lAfOL_comment_field_data` (
   `entity_type` varchar(32) CHARACTER SET ascii NOT NULL,
   `field_name` varchar(32) CHARACTER SET ascii NOT NULL,
   `default_langcode` tinyint(4) NOT NULL,
-  PRIMARY KEY (`cid`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cid`,`langcode`),
   KEY `comment__id__default_langcode__langcode` (`cid`,`default_langcode`,`langcode`),
   KEY `comment_field__comment_type__target_id` (`comment_type`),
   KEY `comment_field__uid__target_id` (`uid`),
@@ -526,7 +540,9 @@ CREATE TABLE `lAfOL_config` (
   `collection` varchar(255) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'Primary Key: Config object collection.',
   `name` varchar(255) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'Primary Key: Config object name.',
   `data` longblob COMMENT 'A serialized configuration object data.',
-  PRIMARY KEY (`collection`,`name`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`collection`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='The base table for configuration data.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -571,7 +587,9 @@ CREATE TABLE `lAfOL_file_usage` (
   `type` varchar(64) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The name of the object type in which the file is used.',
   `id` varchar(64) CHARACTER SET ascii NOT NULL DEFAULT '0' COMMENT 'The primary key of the object using the file.',
   `count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The number of times this file is used by this object.',
-  PRIMARY KEY (`fid`,`type`,`id`,`module`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`fid`,`type`,`id`,`module`),
   KEY `type_id` (`type`,`id`),
   KEY `fid_count` (`fid`,`count`),
   KEY `fid_module` (`fid`,`module`)
@@ -589,7 +607,9 @@ CREATE TABLE `lAfOL_history` (
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT 'The lAfOL_users.uid that read the lAfOL_node nid.',
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The lAfOL_node.nid that was read.',
   `timestamp` int(11) NOT NULL DEFAULT '0' COMMENT 'The Unix timestamp at which the read occurred.',
-  PRIMARY KEY (`uid`,`nid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`uid`,`nid`),
   KEY `nid` (`nid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='A record of which lAfOL_users have read which…';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -605,7 +625,9 @@ CREATE TABLE `lAfOL_key_value` (
   `collection` varchar(128) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'A named collection of key and value pairs.',
   `name` varchar(128) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The key of the key-value pair. As KEY is a SQL reserved keyword, name was chosen instead.',
   `value` longblob NOT NULL COMMENT 'The value.',
-  PRIMARY KEY (`collection`,`name`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`collection`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Generic key-value storage table. See the state system for…';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -621,7 +643,9 @@ CREATE TABLE `lAfOL_key_value_expire` (
   `name` varchar(128) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The key of the key/value pair.',
   `value` longblob NOT NULL COMMENT 'The value of the key/value pair.',
   `expire` int(11) NOT NULL DEFAULT '2147483647' COMMENT 'The time since Unix epoch in seconds when this item expires. Defaults to the maximum possible time.',
-  PRIMARY KEY (`collection`,`name`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`collection`,`name`),
   KEY `all` (`name`,`collection`,`expire`),
   KEY `expire` (`expire`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Generic key/value storage table with an expiration.';
@@ -642,7 +666,9 @@ CREATE TABLE `lAfOL_locale_file` (
   `uri` varchar(255) NOT NULL DEFAULT '' COMMENT 'URI of the remote file, the resulting local file or the locally imported file.',
   `timestamp` int(11) DEFAULT '0' COMMENT 'Unix timestamp of the imported file.',
   `last_checked` int(11) DEFAULT '0' COMMENT 'Unix timestamp of the last time this translation was confirmed to be the most recent release available.',
-  PRIMARY KEY (`project`,`langcode`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`project`,`langcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='File import status information for interface translation…';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -694,7 +720,9 @@ CREATE TABLE `lAfOL_locales_target` (
   `translation` blob NOT NULL COMMENT 'Translation string value in this language.',
   `language` varchar(12) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'Language code. References lAfOL_language.langcode.',
   `customized` int(11) NOT NULL DEFAULT '0' COMMENT 'Boolean indicating whether the translation is custom to this site.',
-  PRIMARY KEY (`language`,`lid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`language`,`lid`),
   KEY `lid` (`lid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Stores translated versions of strings.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -745,7 +773,9 @@ CREATE TABLE `lAfOL_menu_link_content_data` (
   `changed` int(11) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`id`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`id`,`langcode`),
   KEY `menu_link_content__id__default_langcode__langcode` (`id`,`default_langcode`,`langcode`),
   KEY `menu_link_content__revision_id` (`revision_id`),
   KEY `menu_link_content_field__link__uri` (`link__uri`(30)),
@@ -774,7 +804,9 @@ CREATE TABLE `lAfOL_menu_link_content_field_revision` (
   `changed` int(11) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`revision_id`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`revision_id`,`langcode`),
   KEY `menu_link_content__id__default_langcode__langcode` (`id`,`default_langcode`,`langcode`),
   KEY `menu_link_content_field__link__uri` (`link__uri`(30))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='The revision data table for menu_link_content entities.';
@@ -884,7 +916,9 @@ CREATE TABLE `lAfOL_node__body` (
   `body_value` longtext NOT NULL,
   `body_summary` longtext,
   `body_format` varchar(255) CHARACTER SET ascii DEFAULT NULL,
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `body_format` (`body_format`)
@@ -906,7 +940,9 @@ CREATE TABLE `lAfOL_node__comment` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `comment_status` int(11) NOT NULL DEFAULT '0' COMMENT 'Whether comments are allowed on this entity: 0 = no, 1 = closed (read only), 2 = open (read/write).',
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Data storage for node field comment.';
@@ -931,7 +967,9 @@ CREATE TABLE `lAfOL_node__field_image` (
   `field_image_title` varchar(1024) DEFAULT NULL COMMENT 'Image title text, for the image''s ''title'' attribute.',
   `field_image_width` int(10) unsigned DEFAULT NULL COMMENT 'The width of the image in pixels.',
   `field_image_height` int(10) unsigned DEFAULT NULL COMMENT 'The height of the image in pixels.',
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `field_image_target_id` (`field_image_target_id`)
@@ -953,7 +991,9 @@ CREATE TABLE `lAfOL_node__field_tags` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `field_tags_target_id` int(10) unsigned NOT NULL COMMENT 'The ID of the target entity.',
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `field_tags_target_id` (`field_tags_target_id`)
@@ -976,7 +1016,9 @@ CREATE TABLE `lAfOL_node_access` (
   `grant_view` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean indicating whether a user with the realm/grant pair can view this node.',
   `grant_update` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean indicating whether a user with the realm/grant pair can edit this node.',
   `grant_delete` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean indicating whether a user with the realm/grant pair can delete this node.',
-  PRIMARY KEY (`nid`,`gid`,`realm`,`langcode`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`nid`,`gid`,`realm`,`langcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Identifies which realm/grant pairs a user must possess in…';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1001,7 +1043,9 @@ CREATE TABLE `lAfOL_node_field_data` (
   `sticky` tinyint(4) NOT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`nid`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`nid`,`langcode`),
   KEY `node__id__default_langcode__langcode` (`nid`,`default_langcode`,`langcode`),
   KEY `node__vid` (`vid`),
   KEY `node_field__type__target_id` (`type`),
@@ -1034,7 +1078,9 @@ CREATE TABLE `lAfOL_node_field_revision` (
   `sticky` tinyint(4) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`vid`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`vid`,`langcode`),
   KEY `node__id__default_langcode__langcode` (`nid`,`default_langcode`,`langcode`),
   KEY `node_field__uid__target_id` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='The revision data table for node entities.';
@@ -1079,7 +1125,9 @@ CREATE TABLE `lAfOL_node_revision__body` (
   `body_value` longtext NOT NULL,
   `body_summary` longtext,
   `body_format` varchar(255) CHARACTER SET ascii DEFAULT NULL,
-  PRIMARY KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `body_format` (`body_format`)
@@ -1101,7 +1149,9 @@ CREATE TABLE `lAfOL_node_revision__comment` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `comment_status` int(11) NOT NULL DEFAULT '0' COMMENT 'Whether comments are allowed on this entity: 0 = no, 1 = closed (read only), 2 = open (read/write).',
-  PRIMARY KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Revision archive storage for node field comment.';
@@ -1126,7 +1176,9 @@ CREATE TABLE `lAfOL_node_revision__field_image` (
   `field_image_title` varchar(1024) DEFAULT NULL COMMENT 'Image title text, for the image''s ''title'' attribute.',
   `field_image_width` int(10) unsigned DEFAULT NULL COMMENT 'The width of the image in pixels.',
   `field_image_height` int(10) unsigned DEFAULT NULL COMMENT 'The height of the image in pixels.',
-  PRIMARY KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `field_image_target_id` (`field_image_target_id`)
@@ -1148,7 +1200,9 @@ CREATE TABLE `lAfOL_node_revision__field_tags` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `field_tags_target_id` int(10) unsigned NOT NULL COMMENT 'The ID of the target entity.',
-  PRIMARY KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `field_tags_target_id` (`field_tags_target_id`)
@@ -1206,7 +1260,9 @@ CREATE TABLE `lAfOL_search_dataset` (
   `type` varchar(64) CHARACTER SET ascii NOT NULL COMMENT 'Type of item, e.g. node.',
   `data` longtext NOT NULL COMMENT 'List of space-separated words from the item.',
   `reindex` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Set to force node reindexing.',
-  PRIMARY KEY (`sid`,`langcode`,`type`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`sid`,`langcode`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Stores items that will be searched.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1223,7 +1279,9 @@ CREATE TABLE `lAfOL_search_index` (
   `langcode` varchar(12) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The lAfOL_languages.langcode of the item variant.',
   `type` varchar(64) CHARACTER SET ascii NOT NULL COMMENT 'The lAfOL_search_dataset.type of the searchable item to which the word belongs.',
   `score` float DEFAULT NULL COMMENT 'The numeric score of the word, higher being more important.',
-  PRIMARY KEY (`word`,`sid`,`langcode`,`type`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`word`,`sid`,`langcode`,`type`),
   KEY `sid_type` (`sid`,`langcode`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Stores the search index, associating words, items and…';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1326,7 +1384,9 @@ CREATE TABLE `lAfOL_shortcut_field_data` (
   `link__title` varchar(255) DEFAULT NULL COMMENT 'The link text.',
   `link__options` longblob COMMENT 'Serialized array of options for the link.',
   `default_langcode` tinyint(4) NOT NULL,
-  PRIMARY KEY (`id`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`id`,`langcode`),
   KEY `shortcut__id__default_langcode__langcode` (`id`,`default_langcode`,`langcode`),
   KEY `shortcut_field__shortcut_set__target_id` (`shortcut_set`),
   KEY `shortcut_field__link__uri` (`link__uri`(30))
@@ -1361,7 +1421,9 @@ CREATE TABLE `lAfOL_taxonomy_index` (
   `status` int(11) NOT NULL DEFAULT '1' COMMENT 'Boolean indicating whether the node is published (visible to non-administrators).',
   `sticky` tinyint(4) DEFAULT '0' COMMENT 'Boolean indicating whether the node is sticky.',
   `created` int(11) NOT NULL DEFAULT '0' COMMENT 'The Unix timestamp when the node was created.',
-  PRIMARY KEY (`nid`,`tid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`nid`,`tid`),
   KEY `term_node` (`tid`,`status`,`sticky`,`created`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Maintains denormalized information about node/term…';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1381,7 +1443,9 @@ CREATE TABLE `lAfOL_taxonomy_term__parent` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `parent_target_id` int(10) unsigned NOT NULL COMMENT 'The ID of the target entity.',
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `revision_id` (`revision_id`),
   KEY `parent_target_id` (`parent_target_id`),
   KEY `bundle_delta_target_id` (`bundle`,`delta`,`parent_target_id`)
@@ -1428,7 +1492,9 @@ CREATE TABLE `lAfOL_taxonomy_term_field_data` (
   `changed` int(11) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`tid`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`tid`,`langcode`),
   KEY `taxonomy_term__id__default_langcode__langcode` (`tid`,`default_langcode`,`langcode`),
   KEY `taxonomy_term__revision_id` (`revision_id`),
   KEY `taxonomy_term_field__name` (`name`(191)),
@@ -1456,7 +1522,9 @@ CREATE TABLE `lAfOL_taxonomy_term_field_revision` (
   `changed` int(11) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
   `revision_translation_affected` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`revision_id`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`revision_id`,`langcode`),
   KEY `taxonomy_term__id__default_langcode__langcode` (`tid`,`default_langcode`,`langcode`),
   KEY `taxonomy_term_field__description__format` (`description__format`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='The revision data table for taxonomy_term entities.';
@@ -1498,7 +1566,9 @@ CREATE TABLE `lAfOL_taxonomy_term_revision__parent` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `parent_target_id` int(10) unsigned NOT NULL COMMENT 'The ID of the target entity.',
-  PRIMARY KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`revision_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `parent_target_id` (`parent_target_id`)
@@ -1538,7 +1608,9 @@ CREATE TABLE `lAfOL_user__roles` (
   `langcode` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The language code for this data item.',
   `delta` int(10) unsigned NOT NULL COMMENT 'The sequence number for this data item, used for multi-value fields',
   `roles_target_id` varchar(255) CHARACTER SET ascii NOT NULL COMMENT 'The ID of the target entity.',
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `roles_target_id` (`roles_target_id`)
@@ -1564,7 +1636,9 @@ CREATE TABLE `lAfOL_user__user_picture` (
   `user_picture_title` varchar(1024) DEFAULT NULL COMMENT 'Image title text, for the image''s ''title'' attribute.',
   `user_picture_width` int(10) unsigned DEFAULT NULL COMMENT 'The width of the image in pixels.',
   `user_picture_height` int(10) unsigned DEFAULT NULL COMMENT 'The height of the image in pixels.',
-  PRIMARY KEY (`entity_id`,`deleted`,`delta`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`entity_id`,`deleted`,`delta`,`langcode`),
   KEY `bundle` (`bundle`),
   KEY `revision_id` (`revision_id`),
   KEY `user_picture_target_id` (`user_picture_target_id`)
@@ -1600,7 +1674,9 @@ CREATE TABLE `lAfOL_users_data` (
   `name` varchar(128) CHARACTER SET ascii NOT NULL DEFAULT '' COMMENT 'The identifier of the data.',
   `value` longblob COMMENT 'The value.',
   `serialized` tinyint(3) unsigned DEFAULT '0' COMMENT 'Whether value is serialized.',
-  PRIMARY KEY (`uid`,`module`,`name`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`uid`,`module`,`name`),
   KEY `module` (`module`),
   KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Stores module data as key/value pairs per user.';
@@ -1629,7 +1705,9 @@ CREATE TABLE `lAfOL_users_field_data` (
   `login` int(11) DEFAULT NULL,
   `init` varchar(254) DEFAULT NULL,
   `default_langcode` tinyint(4) NOT NULL,
-  PRIMARY KEY (`uid`,`langcode`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`uid`,`langcode`),
   UNIQUE KEY `user__name` (`name`,`langcode`),
   KEY `user__id__default_langcode__langcode` (`uid`,`default_langcode`,`langcode`),
   KEY `user_field__mail` (`mail`(191)),

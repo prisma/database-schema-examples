@@ -482,7 +482,9 @@ CREATE TABLE `KUeof_categories_closure` (
   `ancestor` int(10) unsigned NOT NULL DEFAULT '0',
   `descendant` int(10) unsigned NOT NULL DEFAULT '0',
   `depth` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ancestor`,`descendant`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`ancestor`,`descendant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -555,7 +557,9 @@ DROP TABLE IF EXISTS `KUeof_context_resource`;
 CREATE TABLE `KUeof_context_resource` (
   `context_key` varchar(191) COLLATE utf8_bin NOT NULL,
   `resource` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`context_key`,`resource`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`context_key`,`resource`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -574,7 +578,9 @@ CREATE TABLE `KUeof_context_setting` (
   `namespace` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT 'core',
   `area` varchar(191) COLLATE utf8_bin NOT NULL DEFAULT '',
   `editedon` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`context_key`,`key`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`context_key`,`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -631,7 +637,9 @@ CREATE TABLE `KUeof_dashboard_widget_placement` (
   `dashboard` int(10) unsigned NOT NULL DEFAULT '0',
   `widget` int(10) unsigned NOT NULL DEFAULT '0',
   `rank` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`dashboard`,`widget`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`dashboard`,`widget`),
   KEY `rank` (`rank`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -681,7 +689,9 @@ CREATE TABLE `KUeof_element_property_sets` (
   `element` int(10) unsigned NOT NULL DEFAULT '0',
   `element_class` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
   `property_set` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`element`,`element_class`,`property_set`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`element`,`element_class`,`property_set`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -738,7 +748,9 @@ DROP TABLE IF EXISTS `KUeof_fc_profiles_usergroups`;
 CREATE TABLE `KUeof_fc_profiles_usergroups` (
   `usergroup` int(11) NOT NULL DEFAULT '0',
   `profile` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`usergroup`,`profile`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`usergroup`,`profile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -841,7 +853,9 @@ DROP TABLE IF EXISTS `KUeof_media_sources_contexts`;
 CREATE TABLE `KUeof_media_sources_contexts` (
   `source` int(11) NOT NULL DEFAULT '0',
   `context_key` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT 'web',
-  PRIMARY KEY (`source`,`context_key`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`source`,`context_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -857,7 +871,9 @@ CREATE TABLE `KUeof_media_sources_elements` (
   `object_class` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT 'modTemplateVar',
   `object` int(11) unsigned NOT NULL DEFAULT '0',
   `context_key` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT 'web',
-  PRIMARY KEY (`source`,`object`,`object_class`,`context_key`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`source`,`object`,`object_class`,`context_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -978,7 +994,9 @@ CREATE TABLE `KUeof_register_messages` (
   `expires` int(20) NOT NULL DEFAULT '0',
   `payload` mediumtext COLLATE utf8_bin NOT NULL,
   `kill` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`topic`,`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`topic`,`id`),
   KEY `created` (`created`),
   KEY `valid` (`valid`),
   KEY `accessed` (`accessed`),
@@ -1155,7 +1173,9 @@ CREATE TABLE `KUeof_site_plugin_events` (
   `event` varchar(191) COLLATE utf8_bin NOT NULL DEFAULT '',
   `priority` int(10) NOT NULL DEFAULT '0',
   `propertyset` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`pluginid`,`event`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`pluginid`,`event`),
   KEY `priority` (`priority`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1299,7 +1319,9 @@ CREATE TABLE `KUeof_site_tmplvar_templates` (
   `tmplvarid` int(10) NOT NULL DEFAULT '0',
   `templateid` int(11) NOT NULL DEFAULT '0',
   `rank` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`tmplvarid`,`templateid`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`tmplvarid`,`templateid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1511,7 +1533,9 @@ CREATE TABLE `KUeof_user_group_settings` (
   `namespace` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT 'core',
   `area` varchar(191) COLLATE utf8_bin NOT NULL DEFAULT '',
   `editedon` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`group`,`key`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`group`,`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1551,7 +1575,9 @@ CREATE TABLE `KUeof_user_settings` (
   `namespace` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT 'core',
   `area` varchar(191) COLLATE utf8_bin NOT NULL DEFAULT '',
   `editedon` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user`,`key`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`user`,`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

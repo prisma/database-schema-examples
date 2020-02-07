@@ -126,7 +126,9 @@ CREATE TABLE `AreaPermissionAssignments` (
   `arHandle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`arHandle`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`arHandle`,`pkID`,`paID`),
   KEY `paID` (`paID`),
   KEY `pkID` (`pkID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -143,7 +145,9 @@ CREATE TABLE `AreaPermissionBlockTypeAccessList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -159,7 +163,9 @@ CREATE TABLE `AreaPermissionBlockTypeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `btID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`btID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`btID`),
   KEY `peID` (`peID`),
   KEY `btID` (`btID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -248,7 +254,9 @@ CREATE TABLE `AttributeSetKeys` (
   `asDisplayOrder` int(10) unsigned NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `asID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`akID`,`asID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`akID`,`asID`),
   KEY `IDX_222F72D8B6561A7E` (`akID`),
   KEY `IDX_222F72D8A463E8B6` (`asID`),
   CONSTRAINT `FK_222F72D8A463E8B6` FOREIGN KEY (`asID`) REFERENCES `AttributeSets` (`asID`),
@@ -290,7 +298,9 @@ DROP TABLE IF EXISTS `AttributeTypeCategories`;
 CREATE TABLE `AttributeTypeCategories` (
   `akCategoryID` int(10) unsigned NOT NULL,
   `atID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`akCategoryID`,`atID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`akCategoryID`,`atID`),
   KEY `IDX_49A9CABEB059B76B` (`akCategoryID`),
   KEY `IDX_49A9CABEA12CFE33` (`atID`),
   CONSTRAINT `FK_49A9CABEA12CFE33` FOREIGN KEY (`atID`) REFERENCES `AttributeTypes` (`atID`),
@@ -379,7 +389,9 @@ CREATE TABLE `BasicWorkflowPermissionAssignments` (
   `wfID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`wfID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`wfID`,`pkID`,`paID`),
   KEY `pkID` (`pkID`),
   KEY `paID` (`paID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -415,7 +427,9 @@ CREATE TABLE `BlockFeatureAssignments` (
   `cvID` int(10) unsigned NOT NULL DEFAULT '0',
   `bID` int(10) unsigned NOT NULL DEFAULT '0',
   `faID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`bID`,`faID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`bID`,`faID`),
   KEY `faID` (`faID`,`cID`,`cvID`),
   KEY `bID` (`bID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -434,7 +448,9 @@ CREATE TABLE `BlockPermissionAssignments` (
   `bID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`bID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`bID`,`pkID`,`paID`),
   KEY `bID` (`bID`),
   KEY `pkID` (`pkID`),
   KEY `paID` (`paID`)
@@ -452,7 +468,9 @@ CREATE TABLE `BlockTypePermissionBlockTypeAccessList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -468,7 +486,9 @@ CREATE TABLE `BlockTypePermissionBlockTypeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `btID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`btID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`btID`),
   KEY `peID` (`peID`),
   KEY `btID` (`btID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -485,7 +505,9 @@ CREATE TABLE `BlockTypeSetBlockTypes` (
   `btID` int(10) unsigned NOT NULL DEFAULT '0',
   `btsID` int(10) unsigned NOT NULL DEFAULT '0',
   `displayOrder` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`btID`,`btsID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`btID`,`btsID`),
   KEY `btsID` (`btsID`,`displayOrder`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -632,7 +654,9 @@ CREATE TABLE `CalendarEventVersionAttributeValues` (
   `eventVersionID` int(10) unsigned NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `avID` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`eventVersionID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`eventVersionID`,`akID`),
   KEY `IDX_8C835B05403F5D6` (`eventVersionID`),
   KEY `IDX_8C835B05B6561A7E` (`akID`),
   KEY `IDX_8C835B05A2A82A5D` (`avID`),
@@ -716,7 +740,9 @@ DROP TABLE IF EXISTS `CalendarEventWorkflowProgress`;
 CREATE TABLE `CalendarEventWorkflowProgress` (
   `wpID` int(10) unsigned NOT NULL DEFAULT '0',
   `eventID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`eventID`,`wpID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`eventID`,`wpID`),
   KEY `IDX_C5EAACF910409BA4` (`eventID`),
   KEY `wpID` (`wpID`),
   CONSTRAINT `FK_C5EAACF910409BA4` FOREIGN KEY (`eventID`) REFERENCES `CalendarEvents` (`eventID`)
@@ -750,7 +776,9 @@ CREATE TABLE `CalendarPermissionAssignments` (
   `pkID` int(10) unsigned NOT NULL,
   `paID` int(10) unsigned NOT NULL,
   `caID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`caID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`caID`,`pkID`,`paID`),
   KEY `IDX_5AD546AA11C85723` (`caID`),
   KEY `paID` (`paID`),
   KEY `pkID` (`pkID`),
@@ -825,7 +853,9 @@ CREATE TABLE `CollectionAttributeValues` (
   `cvID` int(10) unsigned NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `avID` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`cID`,`cvID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`akID`),
   KEY `IDX_BB9995FCB6561A7E` (`akID`),
   KEY `IDX_BB9995FCA2A82A5D` (`avID`),
   CONSTRAINT `FK_BB9995FCA2A82A5D` FOREIGN KEY (`avID`) REFERENCES `AttributeValues` (`avID`),
@@ -881,7 +911,9 @@ CREATE TABLE `CollectionVersionAreaStyles` (
   `cvID` int(10) unsigned NOT NULL DEFAULT '0',
   `arHandle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `issID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`arHandle`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`arHandle`),
   KEY `issID` (`issID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -899,7 +931,9 @@ CREATE TABLE `CollectionVersionBlockStyles` (
   `bID` int(10) unsigned NOT NULL DEFAULT '0',
   `arHandle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `issID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`bID`,`arHandle`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`bID`,`arHandle`),
   KEY `bID` (`bID`,`issID`),
   KEY `issID` (`issID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -925,7 +959,9 @@ CREATE TABLE `CollectionVersionBlocks` (
   `cbOverrideBlockTypeCacheSettings` tinyint(1) NOT NULL DEFAULT '0',
   `cbOverrideBlockTypeContainerSettings` tinyint(1) NOT NULL DEFAULT '0',
   `cbEnableBlockContainer` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`bID`,`arHandle`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`bID`,`arHandle`),
   KEY `bID` (`bID`,`cID`),
   KEY `cbRelationID` (`cbRelationID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -947,7 +983,9 @@ CREATE TABLE `CollectionVersionBlocksCacheSettings` (
   `btCacheBlockOutputOnPost` tinyint(1) NOT NULL DEFAULT '0',
   `btCacheBlockOutputForRegisteredUsers` tinyint(1) NOT NULL DEFAULT '0',
   `btCacheBlockOutputLifetime` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`bID`,`arHandle`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`bID`,`arHandle`),
   KEY `bID` (`bID`,`cID`,`cvID`,`arHandle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -966,7 +1004,9 @@ CREATE TABLE `CollectionVersionBlocksOutputCache` (
   `arHandle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `btCachedBlockOutput` longtext COLLATE utf8mb4_unicode_ci,
   `btCachedBlockOutputExpires` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`bID`,`arHandle`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`bID`,`arHandle`),
   KEY `bID` (`bID`,`cID`,`cvID`,`arHandle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -982,7 +1022,9 @@ CREATE TABLE `CollectionVersionFeatureAssignments` (
   `cID` int(10) unsigned NOT NULL DEFAULT '0',
   `cvID` int(10) unsigned NOT NULL DEFAULT '1',
   `faID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`faID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`faID`),
   KEY `faID` (`faID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -999,7 +1041,9 @@ CREATE TABLE `CollectionVersionRelatedEdits` (
   `cvID` int(10) unsigned NOT NULL DEFAULT '0',
   `cRelationID` int(10) unsigned NOT NULL DEFAULT '0',
   `cvRelationID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`cRelationID`,`cvRelationID`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`cRelationID`,`cvRelationID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1017,7 +1061,9 @@ CREATE TABLE `CollectionVersionThemeCustomStyles` (
   `scvlID` int(10) unsigned DEFAULT '0',
   `preset` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sccRecordID` int(10) unsigned DEFAULT '0',
-  PRIMARY KEY (`cID`,`cvID`,`pThemeID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`,`pThemeID`),
   KEY `pThemeID` (`pThemeID`),
   KEY `scvlID` (`scvlID`),
   KEY `sccRecordID` (`sccRecordID`)
@@ -1050,7 +1096,9 @@ CREATE TABLE `CollectionVersions` (
   `cvPublishDate` datetime DEFAULT NULL,
   `cvPublishEndDate` datetime DEFAULT NULL,
   `cvDateApproved` datetime DEFAULT NULL,
-  PRIMARY KEY (`cID`,`cvID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`cvID`),
   KEY `cvIsApproved` (`cvIsApproved`),
   KEY `cvAuthorUID` (`cvAuthorUID`),
   KEY `cvApproverUID` (`cvApproverUID`),
@@ -1090,7 +1138,9 @@ CREATE TABLE `Config` (
   `configGroup` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `configItem` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `configValue` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`configNamespace`,`configGroup`,`configItem`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`configNamespace`,`configGroup`,`configItem`),
   KEY `configGroup` (`configGroup`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1108,7 +1158,9 @@ CREATE TABLE `ConfigStore` (
   `cfValue` longtext COLLATE utf8mb4_unicode_ci,
   `uID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkgID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cfKey`,`uID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cfKey`,`uID`),
   KEY `uID` (`uID`,`cfKey`),
   KEY `pkgID` (`pkgID`,`cfKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1290,7 +1342,9 @@ CREATE TABLE `ConversationPermissionAddMessageAccessList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'A',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1306,7 +1360,9 @@ CREATE TABLE `ConversationPermissionAssignments` (
   `cnvID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cnvID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cnvID`,`pkID`,`paID`),
   KEY `paID` (`paID`),
   KEY `pkID` (`pkID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1342,7 +1398,9 @@ CREATE TABLE `ConversationSubscriptions` (
   `cnvID` int(10) unsigned NOT NULL DEFAULT '0',
   `uID` int(10) unsigned NOT NULL DEFAULT '0',
   `type` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT 'S',
-  PRIMARY KEY (`cnvID`,`uID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cnvID`,`uID`),
   KEY `cnvID` (`cnvID`),
   KEY `uID` (`uID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1550,7 +1608,9 @@ CREATE TABLE `ExpressEntityEntryAttributeValues` (
   `exEntryID` int(11) NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `avID` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`exEntryID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`exEntryID`,`akID`),
   KEY `IDX_6DB641546DCB6296` (`exEntryID`),
   KEY `IDX_6DB64154B6561A7E` (`akID`),
   KEY `IDX_6DB64154A2A82A5D` (`avID`),
@@ -1797,7 +1857,9 @@ CREATE TABLE `FileAttributeValues` (
   `fvID` int(10) unsigned NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `avID` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`fID`,`fvID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`fID`,`fvID`,`akID`),
   KEY `IDX_BBECEAA4B6561A7E` (`akID`),
   KEY `IDX_BBECEAA4A2A82A5D` (`avID`),
   CONSTRAINT `FK_BBECEAA4A2A82A5D` FOREIGN KEY (`avID`) REFERENCES `AttributeValues` (`avID`),
@@ -1822,7 +1884,9 @@ CREATE TABLE `FileImageThumbnailPaths` (
   `isBuilt` tinyint(1) NOT NULL,
   `lockID` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lockExpires` datetime DEFAULT NULL,
-  PRIMARY KEY (`fileID`,`fileVersionID`,`thumbnailTypeHandle`,`storageLocationID`,`thumbnailFormat`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`fileID`,`fileVersionID`,`thumbnailTypeHandle`,`storageLocationID`,`thumbnailFormat`),
   KEY `thumbnailPathIsBuilt` (`isBuilt`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1837,7 +1901,9 @@ DROP TABLE IF EXISTS `FileImageThumbnailTypeFileSets`;
 CREATE TABLE `FileImageThumbnailTypeFileSets` (
   `ftfsFileSetID` int(10) unsigned NOT NULL,
   `ftfsThumbnailType` int(11) NOT NULL,
-  PRIMARY KEY (`ftfsThumbnailType`,`ftfsFileSetID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`ftfsThumbnailType`,`ftfsFileSetID`),
   KEY `IDX_BD75F88D480660E5` (`ftfsThumbnailType`),
   CONSTRAINT `FK_BD75F88D480660E5` FOREIGN KEY (`ftfsThumbnailType`) REFERENCES `FileImageThumbnailTypes` (`ftTypeID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1876,7 +1942,9 @@ CREATE TABLE `FilePermissionAssignments` (
   `fID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`fID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`fID`,`pkID`,`paID`),
   KEY `pkID` (`pkID`),
   KEY `paID` (`paID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1893,7 +1961,9 @@ CREATE TABLE `FilePermissionFileTypeAccessList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1909,7 +1979,9 @@ CREATE TABLE `FilePermissionFileTypeAccessListCustom` (
   `extension` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`extension`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`extension`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1926,7 +1998,9 @@ CREATE TABLE `FilePermissionFileTypes` (
   `fsID` int(10) unsigned NOT NULL DEFAULT '0',
   `gID` int(10) unsigned NOT NULL DEFAULT '0',
   `uID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`fsID`,`gID`,`uID`,`extension`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`fsID`,`gID`,`uID`,`extension`),
   KEY `gID` (`gID`),
   KEY `uID` (`uID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2047,7 +2121,9 @@ CREATE TABLE `FileUsageRecord` (
   `block_id` int(11) NOT NULL,
   `collection_id` int(11) NOT NULL,
   `collection_version_id` int(11) NOT NULL,
-  PRIMARY KEY (`file_id`,`block_id`,`collection_id`,`collection_version_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`file_id`,`block_id`,`collection_id`,`collection_version_id`),
   KEY `block` (`block_id`),
   KEY `collection_version` (`collection_id`,`collection_version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2096,7 +2172,9 @@ CREATE TABLE `FileVersions` (
   `fvHasListingThumbnail` tinyint(1) NOT NULL,
   `fvHasDetailThumbnail` tinyint(1) NOT NULL,
   `fID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`fID`,`fvID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`fID`,`fvID`),
   KEY `IDX_D7B5A13AE3111F45` (`fID`),
   KEY `fvFilename` (`fvFilename`),
   KEY `fvExtension` (`fvExtension`),
@@ -2213,7 +2291,9 @@ CREATE TABLE `GatheringItemSelectedTemplates` (
   `gaiID` int(10) unsigned NOT NULL DEFAULT '0',
   `gatID` int(10) unsigned NOT NULL DEFAULT '0',
   `gatTypeID` int(10) unsigned DEFAULT '0',
-  PRIMARY KEY (`gaiID`,`gatID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gaiID`,`gatID`),
   UNIQUE KEY `gatUniqueKey` (`gaiID`,`gatTypeID`),
   KEY `gatTypeID` (`gatTypeID`),
   KEY `gatID` (`gatID`)
@@ -2316,7 +2396,9 @@ CREATE TABLE `GatheringPermissionAssignments` (
   `gaID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`gaID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gaID`,`pkID`,`paID`),
   KEY `pkID` (`pkID`),
   KEY `paID` (`paID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2370,7 +2452,9 @@ DROP TABLE IF EXISTS `GroupSetGroups`;
 CREATE TABLE `GroupSetGroups` (
   `gID` int(10) unsigned NOT NULL DEFAULT '0',
   `gsID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`gID`,`gsID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gID`,`gsID`),
   KEY `gsID` (`gsID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2437,7 +2521,9 @@ CREATE TABLE `JobSetJobs` (
   `jsID` int(10) unsigned NOT NULL DEFAULT '0',
   `jID` int(10) unsigned NOT NULL DEFAULT '0',
   `jRunOrder` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`jsID`,`jID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`jsID`,`jID`),
   KEY `jID` (`jID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2621,7 +2707,9 @@ CREATE TABLE `MultilingualPageRelations` (
   `mpLanguage` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mpRelationID` int(10) unsigned NOT NULL,
   `cID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`mpRelationID`,`cID`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`mpRelationID`,`cID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2679,7 +2767,9 @@ CREATE TABLE `NotificationPermissionSubscriptionList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2695,7 +2785,9 @@ CREATE TABLE `NotificationPermissionSubscriptionListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `nSubscriptionIdentifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`paID`,`peID`,`nSubscriptionIdentifier`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`nSubscriptionIdentifier`),
   KEY `peID` (`peID`),
   KEY `nSubscriptionIdentifier` (`nSubscriptionIdentifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2815,7 +2907,9 @@ CREATE TABLE `OauthUserMap` (
   `user_id` int(10) unsigned NOT NULL,
   `namespace` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `binding` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_id`,`namespace`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`user_id`,`namespace`),
   UNIQUE KEY `oauth_binding` (`binding`,`namespace`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2898,7 +2992,9 @@ CREATE TABLE `PagePermissionAssignments` (
   `cID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`pkID`,`paID`),
   KEY `paID` (`paID`,`pkID`),
   KEY `pkID` (`pkID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2916,7 +3012,9 @@ CREATE TABLE `PagePermissionPageTypeAccessList` (
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `externalLink` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2932,7 +3030,9 @@ CREATE TABLE `PagePermissionPageTypeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `ptID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`ptID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`ptID`),
   KEY `peID` (`peID`),
   KEY `ptID` (`ptID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2954,7 +3054,9 @@ CREATE TABLE `PagePermissionPropertyAccessList` (
   `description` tinyint(1) DEFAULT '0',
   `paths` tinyint(1) DEFAULT '0',
   `attributePermission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`),
   KEY `uID` (`uID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2971,7 +3073,9 @@ CREATE TABLE `PagePermissionPropertyAttributeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `akID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`akID`),
   KEY `peID` (`peID`),
   KEY `akID` (`akID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2988,7 +3092,9 @@ CREATE TABLE `PagePermissionThemeAccessList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3004,7 +3110,9 @@ CREATE TABLE `PagePermissionThemeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `pThemeID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`pThemeID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`pThemeID`),
   KEY `peID` (`peID`),
   KEY `pThemeID` (`pThemeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3204,7 +3312,9 @@ CREATE TABLE `PageTypePageTemplateDefaultPages` (
   `pTemplateID` int(10) unsigned NOT NULL DEFAULT '0',
   `ptID` int(10) unsigned NOT NULL DEFAULT '0',
   `cID` int(10) unsigned DEFAULT '0',
-  PRIMARY KEY (`pTemplateID`,`ptID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`pTemplateID`,`ptID`),
   KEY `ptID` (`ptID`),
   KEY `cID` (`cID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3220,7 +3330,9 @@ DROP TABLE IF EXISTS `PageTypePageTemplates`;
 CREATE TABLE `PageTypePageTemplates` (
   `ptID` int(10) unsigned NOT NULL DEFAULT '0',
   `pTemplateID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ptID`,`pTemplateID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`ptID`,`pTemplateID`),
   KEY `pTemplateID` (`pTemplateID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3236,7 +3348,9 @@ CREATE TABLE `PageTypePermissionAssignments` (
   `ptID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ptID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`ptID`,`pkID`,`paID`),
   KEY `pkID` (`pkID`),
   KEY `ptID` (`ptID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3298,7 +3412,9 @@ DROP TABLE IF EXISTS `PageWorkflowProgress`;
 CREATE TABLE `PageWorkflowProgress` (
   `cID` int(10) unsigned NOT NULL DEFAULT '0',
   `wpID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`wpID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`wpID`),
   KEY `wpID` (`wpID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3338,7 +3454,9 @@ CREATE TABLE `Pages` (
   `cCacheFullPageContentOverrideLifetime` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `cCacheFullPageContentLifetimeCustom` int(10) unsigned NOT NULL DEFAULT '0',
   `cIsSystemPage` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`ptID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`ptID`),
   KEY `cParentID` (`cParentID`),
   KEY `siteTreeID` (`siteTreeID`),
   KEY `cIsActive` (`cID`,`cIsActive`),
@@ -3391,7 +3509,9 @@ DROP TABLE IF EXISTS `PermissionAccessEntityGroupSets`;
 CREATE TABLE `PermissionAccessEntityGroupSets` (
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `gsID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`peID`,`gsID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`peID`,`gsID`),
   KEY `gsID` (`gsID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3423,7 +3543,9 @@ DROP TABLE IF EXISTS `PermissionAccessEntityTypeCategories`;
 CREATE TABLE `PermissionAccessEntityTypeCategories` (
   `petID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkCategoryID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`petID`,`pkCategoryID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`petID`,`pkCategoryID`),
   KEY `pkCategoryID` (`pkCategoryID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3456,7 +3578,9 @@ DROP TABLE IF EXISTS `PermissionAccessEntityUsers`;
 CREATE TABLE `PermissionAccessEntityUsers` (
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `uID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`peID`,`uID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`peID`,`uID`),
   KEY `uID` (`uID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3473,7 +3597,9 @@ CREATE TABLE `PermissionAccessList` (
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `pdID` int(10) unsigned NOT NULL DEFAULT '0',
   `accessType` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `accessType` (`accessType`),
   KEY `peID` (`peID`),
   KEY `peID_accessType` (`peID`,`accessType`),
@@ -3492,7 +3618,9 @@ DROP TABLE IF EXISTS `PermissionAccessWorkflows`;
 CREATE TABLE `PermissionAccessWorkflows` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `wfID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`wfID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`wfID`),
   KEY `wfID` (`wfID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3507,7 +3635,9 @@ DROP TABLE IF EXISTS `PermissionAssignments`;
 CREATE TABLE `PermissionAssignments` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`pkID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`pkID`),
   KEY `pkID` (`pkID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3655,7 +3785,9 @@ CREATE TABLE `QueuePageDuplicationRelations` (
   `queue_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cID` int(10) unsigned NOT NULL DEFAULT '0',
   `originalCID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cID`,`originalCID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`cID`,`originalCID`),
   KEY `originalCID` (`originalCID`,`queue_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3770,7 +3902,9 @@ DROP TABLE IF EXISTS `SiblingPageRelations`;
 CREATE TABLE `SiblingPageRelations` (
   `mpRelationID` int(10) unsigned NOT NULL,
   `cID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`mpRelationID`,`cID`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`mpRelationID`,`cID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3799,7 +3933,9 @@ CREATE TABLE `SiteAttributeValues` (
   `siteID` int(10) unsigned NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `avID` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`siteID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`siteID`,`akID`),
   KEY `IDX_67658AF7521D8435` (`siteID`),
   KEY `IDX_67658AF7B6561A7E` (`akID`),
   KEY `IDX_67658AF7A2A82A5D` (`avID`),
@@ -3952,7 +4088,9 @@ CREATE TABLE `StackUsageRecord` (
   `block_id` int(11) NOT NULL,
   `collection_id` int(11) NOT NULL,
   `collection_version_id` int(11) NOT NULL,
-  PRIMARY KEY (`stack_id`,`block_id`,`collection_id`,`collection_version_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`stack_id`,`block_id`,`collection_id`,`collection_version_id`),
   KEY `block` (`block_id`),
   KEY `collection_version` (`collection_id`,`collection_version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4219,7 +4357,9 @@ CREATE TABLE `TreeNodePermissionAssignments` (
   `treeNodeID` int(10) unsigned NOT NULL DEFAULT '0',
   `pkID` int(10) unsigned NOT NULL DEFAULT '0',
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`treeNodeID`,`pkID`,`paID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`treeNodeID`,`pkID`,`paID`),
   KEY `pkID` (`pkID`),
   KEY `paID` (`paID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4365,7 +4505,9 @@ CREATE TABLE `UserAttributeValues` (
   `uID` int(10) unsigned NOT NULL,
   `akID` int(10) unsigned NOT NULL,
   `avID` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`uID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`uID`,`akID`),
   KEY `IDX_4DB68CA6FD71026C` (`uID`),
   KEY `IDX_4DB68CA6B6561A7E` (`akID`),
   KEY `IDX_4DB68CA6A2A82A5D` (`avID`),
@@ -4402,7 +4544,9 @@ CREATE TABLE `UserGroups` (
   `uID` int(10) unsigned NOT NULL DEFAULT '0',
   `gID` int(10) unsigned NOT NULL DEFAULT '0',
   `ugEntered` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
-  PRIMARY KEY (`uID`,`gID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`uID`,`gID`),
   KEY `uID` (`uID`),
   KEY `gID` (`gID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4440,7 +4584,9 @@ CREATE TABLE `UserPermissionEditPropertyAccessList` (
   `uTimezone` tinyint(1) DEFAULT '0',
   `uDefaultLanguage` tinyint(1) DEFAULT '0',
   `attributePermission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -4455,7 +4601,9 @@ CREATE TABLE `UserPermissionEditPropertyAttributeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `akID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`akID`),
   KEY `peID` (`peID`),
   KEY `akID` (`akID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4472,7 +4620,9 @@ CREATE TABLE `UserPermissionViewAttributeAccessList` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`paID`,`peID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`),
   KEY `peID` (`peID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -4488,7 +4638,9 @@ CREATE TABLE `UserPermissionViewAttributeAccessListCustom` (
   `paID` int(10) unsigned NOT NULL DEFAULT '0',
   `peID` int(10) unsigned NOT NULL DEFAULT '0',
   `akID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`paID`,`peID`,`akID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`paID`,`peID`,`akID`),
   KEY `peID` (`peID`),
   KEY `akID` (`akID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4571,7 +4723,9 @@ CREATE TABLE `UserPrivateMessagesTo` (
   `msgIsNew` tinyint(1) NOT NULL DEFAULT '0',
   `msgIsUnread` tinyint(1) NOT NULL DEFAULT '0',
   `msgIsReplied` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`msgID`,`uID`,`uAuthorID`,`msgMailboxID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`msgID`,`uID`,`uAuthorID`,`msgMailboxID`),
   KEY `uID` (`uID`),
   KEY `uAuthorID` (`uAuthorID`),
   KEY `msgFolderID` (`msgMailboxID`),
@@ -4662,7 +4816,9 @@ DROP TABLE IF EXISTS `UserWorkflowProgress`;
 CREATE TABLE `UserWorkflowProgress` (
   `uID` int(10) unsigned NOT NULL DEFAULT '0',
   `wpID` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`uID`,`wpID`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`uID`,`wpID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -4979,7 +5135,9 @@ DROP TABLE IF EXISTS `atExpressSelectedEntries`;
 CREATE TABLE `atExpressSelectedEntries` (
   `avID` int(10) unsigned NOT NULL,
   `exEntryID` int(11) NOT NULL,
-  PRIMARY KEY (`avID`,`exEntryID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`avID`,`exEntryID`),
   KEY `IDX_C9D404BBA2A82A5D` (`avID`),
   KEY `IDX_C9D404BB6DCB6296` (`exEntryID`),
   CONSTRAINT `FK_C9D404BB6DCB6296` FOREIGN KEY (`exEntryID`) REFERENCES `ExpressEntityEntries` (`exEntryID`),
@@ -5108,7 +5266,9 @@ DROP TABLE IF EXISTS `atSelectOptionsSelected`;
 CREATE TABLE `atSelectOptionsSelected` (
   `avID` int(10) unsigned NOT NULL,
   `avSelectOptionID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`avID`,`avSelectOptionID`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`avID`,`avSelectOptionID`),
   KEY `IDX_40C97EC3A2A82A5D` (`avID`),
   KEY `IDX_40C97EC3E584C274` (`avSelectOptionID`),
   CONSTRAINT `FK_40C97EC3A2A82A5D` FOREIGN KEY (`avID`) REFERENCES `atSelect` (`avID`),

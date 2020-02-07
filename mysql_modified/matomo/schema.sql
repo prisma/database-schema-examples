@@ -68,7 +68,9 @@ CREATE TABLE `t2ark_goal` (
   `revenue` float NOT NULL,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `event_value_as_revenue` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`idsite`,`idgoal`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`idsite`,`idgoal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -139,7 +141,9 @@ CREATE TABLE `t2ark_log_conversion` (
   `custom_var_v4` varchar(200) DEFAULT NULL,
   `custom_var_k5` varchar(200) DEFAULT NULL,
   `custom_var_v5` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`idvisit`,`idgoal`,`buster`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`idvisit`,`idgoal`,`buster`),
   UNIQUE KEY `unique_idsite_idorder` (`idsite`,`idorder`),
   KEY `index_idsite_datetime` (`idsite`,`server_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -168,7 +172,9 @@ CREATE TABLE `t2ark_log_conversion_item` (
   `price` float NOT NULL,
   `quantity` int(10) unsigned NOT NULL,
   `deleted` tinyint(1) unsigned NOT NULL,
-  PRIMARY KEY (`idvisit`,`idorder`,`idaction_sku`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`idvisit`,`idorder`,`idaction_sku`),
   KEY `index_idsite_servertime` (`idsite`,`server_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -433,7 +439,9 @@ CREATE TABLE `t2ark_report_subscriptions` (
   `email` varchar(100) NOT NULL,
   `ts_subscribed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ts_unsubscribed` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`idreport`,`email`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`idreport`,`email`),
   UNIQUE KEY `unique_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -549,7 +557,9 @@ DROP TABLE IF EXISTS `t2ark_site_url`;
 CREATE TABLE `t2ark_site_url` (
   `idsite` int(10) unsigned NOT NULL,
   `url` varchar(255) NOT NULL,
-  PRIMARY KEY (`idsite`,`url`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`idsite`,`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -565,7 +575,9 @@ CREATE TABLE `t2ark_tracking_failure` (
   `idfailure` smallint(5) unsigned NOT NULL,
   `date_first_occurred` datetime NOT NULL,
   `request_url` mediumtext NOT NULL,
-  PRIMARY KEY (`idsite`,`idfailure`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`idsite`,`idfailure`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -618,7 +630,9 @@ CREATE TABLE `t2ark_user_dashboard` (
   `iddashboard` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `layout` text NOT NULL,
-  PRIMARY KEY (`login`,`iddashboard`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`login`,`iddashboard`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
