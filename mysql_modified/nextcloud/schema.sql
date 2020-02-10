@@ -133,7 +133,9 @@ CREATE TABLE `jvMDv_appconfig` (
   `appid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configkey` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configvalue` longtext COLLATE utf8mb4_bin,
-  PRIMARY KEY (`appid`,`configkey`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`appid`,`configkey`),
   KEY `appconfig_config_key_index` (`configkey`),
   KEY `appconfig_appid_key` (`appid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
@@ -488,7 +490,9 @@ CREATE TABLE `jvMDv_collres_accesscache` (
   `resource_type` varchar(64) COLLATE utf8mb4_bin DEFAULT '',
   `resource_id` varchar(64) COLLATE utf8mb4_bin DEFAULT '',
   `access` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY `collres_unique_user` (`user_id`,`collection_id`,`resource_type`,`resource_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `collres_unique_user` (`user_id`,`collection_id`,`resource_type`,`resource_id`),
   KEY `collres_user_res` (`user_id`,`resource_type`,`resource_id`),
   KEY `collres_user_coll` (`user_id`,`collection_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
@@ -519,7 +523,9 @@ CREATE TABLE `jvMDv_collres_resources` (
   `collection_id` bigint(20) NOT NULL,
   `resource_type` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `resource_id` varchar(64) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY `collres_unique_res` (`collection_id`,`resource_type`,`resource_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `collres_unique_res` (`collection_id`,`resource_type`,`resource_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -563,7 +569,9 @@ CREATE TABLE `jvMDv_comments_read_markers` (
   `marker_datetime` datetime DEFAULT NULL,
   `object_type` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `object_id` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
   KEY `comments_marker_object_index` (`object_type`,`object_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -579,7 +587,9 @@ CREATE TABLE `jvMDv_credentials` (
   `user` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `identifier` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `credentials` longtext COLLATE utf8mb4_bin,
-  PRIMARY KEY (`user`,`identifier`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`user`,`identifier`),
   KEY `credentials_user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -792,7 +802,9 @@ DROP TABLE IF EXISTS `jvMDv_group_admin`;
 CREATE TABLE `jvMDv_group_admin` (
   `gid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `uid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`gid`,`uid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gid`,`uid`),
   KEY `group_admin_uid` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -807,7 +819,9 @@ DROP TABLE IF EXISTS `jvMDv_group_user`;
 CREATE TABLE `jvMDv_group_user` (
   `gid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `uid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`gid`,`uid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gid`,`uid`),
   KEY `gu_uid_index` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -881,7 +895,9 @@ DROP TABLE IF EXISTS `jvMDv_migrations`;
 CREATE TABLE `jvMDv_migrations` (
   `app` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `version` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`app`,`version`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`app`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -968,7 +984,9 @@ CREATE TABLE `jvMDv_notifications_pushtokens` (
   `pushtokenhash` varchar(128) COLLATE utf8mb4_bin NOT NULL,
   `proxyserver` varchar(256) COLLATE utf8mb4_bin NOT NULL,
   `apptype` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT 'unknown',
-  PRIMARY KEY `oc_notifpushtoken` (`uid`,`token`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `oc_notifpushtoken` (`uid`,`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1021,7 +1039,9 @@ CREATE TABLE `jvMDv_preferences` (
   `appid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configkey` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configvalue` longtext COLLATE utf8mb4_bin,
-  PRIMARY KEY (`userid`,`appid`,`configkey`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`userid`,`appid`,`configkey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1189,7 +1209,9 @@ DROP TABLE IF EXISTS `jvMDv_systemtag_group`;
 CREATE TABLE `jvMDv_systemtag_group` (
   `systemtagid` bigint(20) unsigned NOT NULL DEFAULT '0',
   `gid` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`gid`,`systemtagid`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gid`,`systemtagid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1204,7 +1226,9 @@ CREATE TABLE `jvMDv_systemtag_object_mapping` (
   `objectid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `objecttype` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `systemtagid` bigint(20) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1313,7 +1337,9 @@ CREATE TABLE `jvMDv_twofactor_providers` (
   `provider_id` varchar(32) COLLATE utf8mb4_bin NOT NULL,
   `uid` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `enabled` smallint(6) NOT NULL,
-  PRIMARY KEY (`provider_id`,`uid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`provider_id`,`uid`),
   KEY `twofactor_providers_uid` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1365,7 +1391,9 @@ CREATE TABLE `jvMDv_vcategory_to_object` (
   `objid` bigint(20) unsigned NOT NULL DEFAULT '0',
   `categoryid` bigint(20) unsigned NOT NULL DEFAULT '0',
   `type` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`categoryid`,`objid`,`type`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`categoryid`,`objid`,`type`),
   KEY `vcategory_objectd_index` (`objid`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;

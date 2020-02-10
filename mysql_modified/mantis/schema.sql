@@ -93,7 +93,9 @@ DROP TABLE IF EXISTS `bhmj0_bug_monitor_table`;
 CREATE TABLE `bhmj0_bug_monitor_table` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `bug_id` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`user_id`,`bug_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`user_id`,`bug_id`),
   KEY `idx_bug_id` (`bug_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -194,7 +196,9 @@ CREATE TABLE `bhmj0_bug_tag_table` (
   `tag_id` int(10) unsigned NOT NULL DEFAULT '0',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `date_attached` int(10) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`bug_id`,`tag_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`bug_id`,`tag_id`),
   KEY `idx_bug_tag_tag_id` (`tag_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -285,7 +289,9 @@ CREATE TABLE `bhmj0_config_table` (
   `access_reqd` int(11) DEFAULT '0',
   `type` int(11) DEFAULT '90',
   `value` longtext NOT NULL,
-  PRIMARY KEY (`config_id`,`project_id`,`user_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`config_id`,`project_id`,`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -300,7 +306,9 @@ CREATE TABLE `bhmj0_custom_field_project_table` (
   `field_id` int(11) NOT NULL DEFAULT '0',
   `project_id` int(10) unsigned NOT NULL DEFAULT '0',
   `sequence` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`field_id`,`project_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`field_id`,`project_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -316,7 +324,9 @@ CREATE TABLE `bhmj0_custom_field_string_table` (
   `bug_id` int(11) NOT NULL DEFAULT '0',
   `value` varchar(255) NOT NULL DEFAULT '',
   `text` longtext,
-  PRIMARY KEY (`field_id`,`bug_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`field_id`,`bug_id`),
   KEY `idx_custom_field_bug` (`bug_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -461,7 +471,9 @@ CREATE TABLE `bhmj0_project_hierarchy_table` (
   `child_id` int(10) unsigned NOT NULL,
   `parent_id` int(10) unsigned NOT NULL,
   `inherit_parent` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY `idx_project_hierarchy` (`child_id`,`parent_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `idx_project_hierarchy` (`child_id`,`parent_id`),
   KEY `idx_project_hierarchy_child_id` (`child_id`),
   KEY `idx_project_hierarchy_parent_id` (`parent_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -502,7 +514,9 @@ CREATE TABLE `bhmj0_project_user_list_table` (
   `project_id` int(10) unsigned NOT NULL DEFAULT '0',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `access_level` smallint(6) NOT NULL DEFAULT '10',
-  PRIMARY KEY (`project_id`,`user_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`project_id`,`user_id`),
   KEY `idx_project_user` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -564,7 +578,9 @@ CREATE TABLE `bhmj0_tag_table` (
   `description` longtext NOT NULL,
   `date_created` int(10) unsigned NOT NULL DEFAULT '1',
   `date_updated` int(10) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`,`name`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`id`,`name`),
   KEY `idx_tag_name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

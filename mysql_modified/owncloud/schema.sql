@@ -106,7 +106,9 @@ CREATE TABLE `q6f2w_appconfig` (
   `appid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configkey` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configvalue` longtext COLLATE utf8mb4_bin,
-  PRIMARY KEY (`appid`,`configkey`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`appid`,`configkey`),
   KEY `appconfig_config_key_index` (`configkey`),
   KEY `appconfig_appid_key` (`appid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
@@ -308,7 +310,9 @@ CREATE TABLE `q6f2w_comments_read_markers` (
   `marker_datetime` datetime DEFAULT NULL,
   `object_type` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `object_id` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `comments_marker_index` (`user_id`,`object_type`,`object_id`),
   KEY `comments_marker_object_index` (`object_type`,`object_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -324,7 +328,9 @@ CREATE TABLE `q6f2w_credentials` (
   `user` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `identifier` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `credentials` longtext COLLATE utf8mb4_bin,
-  PRIMARY KEY (`user`,`identifier`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`user`,`identifier`),
   KEY `credentials_user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -552,7 +558,9 @@ DROP TABLE IF EXISTS `q6f2w_group_admin`;
 CREATE TABLE `q6f2w_group_admin` (
   `gid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `uid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`gid`,`uid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gid`,`uid`),
   KEY `group_admin_uid` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -567,7 +575,9 @@ DROP TABLE IF EXISTS `q6f2w_group_user`;
 CREATE TABLE `q6f2w_group_user` (
   `gid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `uid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`gid`,`uid`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gid`,`uid`),
   KEY `gu_uid_index` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -615,7 +625,9 @@ DROP TABLE IF EXISTS `q6f2w_migrations`;
 CREATE TABLE `q6f2w_migrations` (
   `app` varchar(177) COLLATE utf8_unicode_ci NOT NULL,
   `version` varchar(14) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`app`,`version`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`app`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -723,7 +735,9 @@ CREATE TABLE `q6f2w_preferences` (
   `appid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configkey` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `configvalue` longtext COLLATE utf8mb4_bin,
-  PRIMARY KEY (`userid`,`appid`,`configkey`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`userid`,`appid`,`configkey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -887,7 +901,9 @@ DROP TABLE IF EXISTS `q6f2w_systemtag_group`;
 CREATE TABLE `q6f2w_systemtag_group` (
   `systemtagid` int(10) unsigned NOT NULL DEFAULT '0',
   `gid` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`gid`,`systemtagid`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`gid`,`systemtagid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -902,7 +918,9 @@ CREATE TABLE `q6f2w_systemtag_object_mapping` (
   `objectid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `objecttype` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `systemtagid` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY `mapping` (`objecttype`,`objectid`,`systemtagid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -971,7 +989,9 @@ CREATE TABLE `q6f2w_vcategory_to_object` (
   `objid` bigint(20) unsigned NOT NULL DEFAULT '0',
   `categoryid` int(10) unsigned NOT NULL DEFAULT '0',
   `type` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`categoryid`,`objid`,`type`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`), 
+  UNIQUE KEY (`categoryid`,`objid`,`type`),
   KEY `vcategory_objectd_index` (`objid`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=COMPRESSED;
 /*!40101 SET character_set_client = @saved_cs_client */;
