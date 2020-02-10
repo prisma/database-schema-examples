@@ -1,16 +1,29 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+-- MySQL dump 10.13  Distrib 5.7.27, for Win64 (x86_64)
+--
+-- Host: all-prisma.de    Database: d02ff6da
+-- ------------------------------------------------------
+-- Server version	5.7.28-nmm1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Table structure for table `GDN_AccessToken`
+--
 
+DROP TABLE IF EXISTS `GDN_AccessToken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_AccessToken` (
-  `AccessTokenID` int(11) NOT NULL,
+  `AccessTokenID` int(11) NOT NULL AUTO_INCREMENT,
   `Token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `UserID` int(11) NOT NULL,
   `Type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -19,11 +32,23 @@ CREATE TABLE `GDN_AccessToken` (
   `InsertUserID` int(11) DEFAULT NULL,
   `InsertIPAddress` varbinary(16) NOT NULL,
   `DateExpires` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Attributes` text COLLATE utf8mb4_unicode_ci
+  `Attributes` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`AccessTokenID`),
+  UNIQUE KEY `UX_AccessToken` (`Token`),
+  KEY `IX_AccessToken_UserID` (`UserID`),
+  KEY `IX_AccessToken_Type` (`Type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Activity`
+--
+
+DROP TABLE IF EXISTS `GDN_Activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Activity` (
-  `ActivityID` int(11) NOT NULL,
+  `ActivityID` int(11) NOT NULL AUTO_INCREMENT,
   `ActivityTypeID` int(11) NOT NULL,
   `NotifyUserID` int(11) NOT NULL DEFAULT '0',
   `ActivityUserID` int(11) DEFAULT NULL,
@@ -41,21 +66,45 @@ CREATE TABLE `GDN_Activity` (
   `DateUpdated` datetime DEFAULT NULL,
   `Notified` tinyint(4) NOT NULL DEFAULT '0',
   `Emailed` tinyint(4) NOT NULL DEFAULT '0',
-  `Data` text COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `Data` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`ActivityID`),
+  KEY `IX_Activity_Notify` (`NotifyUserID`,`Notified`),
+  KEY `IX_Activity_Recent` (`NotifyUserID`,`DateUpdated`),
+  KEY `IX_Activity_Feed` (`NotifyUserID`,`ActivityUserID`,`DateUpdated`),
+  KEY `IX_Activity_DateUpdated` (`DateUpdated`),
+  KEY `FK_Activity_InsertUserID` (`InsertUserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_ActivityComment`
+--
+
+DROP TABLE IF EXISTS `GDN_ActivityComment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_ActivityComment` (
-  `ActivityCommentID` int(11) NOT NULL,
+  `ActivityCommentID` int(11) NOT NULL AUTO_INCREMENT,
   `ActivityID` int(11) NOT NULL,
   `Body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `Format` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `InsertUserID` int(11) NOT NULL,
   `DateInserted` datetime NOT NULL,
-  `InsertIPAddress` varbinary(16) DEFAULT NULL
+  `InsertIPAddress` varbinary(16) DEFAULT NULL,
+  PRIMARY KEY (`ActivityCommentID`),
+  KEY `FK_ActivityComment_ActivityID` (`ActivityID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_ActivityType`
+--
+
+DROP TABLE IF EXISTS `GDN_ActivityType`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_ActivityType` (
-  `ActivityTypeID` int(11) NOT NULL,
+  `ActivityTypeID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `AllowComments` tinyint(4) NOT NULL DEFAULT '0',
   `ShowIcon` tinyint(4) NOT NULL DEFAULT '0',
@@ -63,17 +112,35 @@ CREATE TABLE `GDN_ActivityType` (
   `FullHeadline` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `RouteCode` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Notify` tinyint(4) NOT NULL DEFAULT '0',
-  `Public` tinyint(4) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `Public` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`ActivityTypeID`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_AnalyticsLocal`
+--
+
+DROP TABLE IF EXISTS `GDN_AnalyticsLocal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_AnalyticsLocal` (
   `TimeSlot` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Views` int(11) DEFAULT NULL,
-  `EmbedViews` int(11) DEFAULT NULL
+  `EmbedViews` int(11) DEFAULT NULL,
+  UNIQUE KEY `UX_AnalyticsLocal` (`TimeSlot`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Attachment`
+--
+
+DROP TABLE IF EXISTS `GDN_Attachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Attachment` (
-  `AttachmentID` int(11) NOT NULL,
+  `AttachmentID` int(11) NOT NULL AUTO_INCREMENT,
   `Type` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ForeignID` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ForeignUserID` int(11) NOT NULL,
@@ -86,26 +153,48 @@ CREATE TABLE `GDN_Attachment` (
   `InsertIPAddress` varbinary(16) NOT NULL,
   `DateUpdated` datetime DEFAULT NULL,
   `UpdateUserID` int(11) DEFAULT NULL,
-  `UpdateIPAddress` varbinary(16) DEFAULT NULL
+  `UpdateIPAddress` varbinary(16) DEFAULT NULL,
+  PRIMARY KEY (`AttachmentID`),
+  KEY `IX_Attachment_ForeignID` (`ForeignID`),
+  KEY `FK_Attachment_ForeignUserID` (`ForeignUserID`),
+  KEY `FK_Attachment_InsertUserID` (`InsertUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Ban`
+--
+
+DROP TABLE IF EXISTS `GDN_Ban`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Ban` (
-  `BanID` int(11) NOT NULL,
+  `BanID` int(11) NOT NULL AUTO_INCREMENT,
   `BanType` enum('IPAddress','Name','Email') COLLATE utf8mb4_unicode_ci NOT NULL,
   `BanValue` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Notes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `CountUsers` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `CountBlockedRegistrations` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `CountUsers` int(10) unsigned NOT NULL DEFAULT '0',
+  `CountBlockedRegistrations` int(10) unsigned NOT NULL DEFAULT '0',
   `InsertUserID` int(11) NOT NULL,
   `DateInserted` datetime NOT NULL,
   `InsertIPAddress` varbinary(16) DEFAULT NULL,
   `UpdateUserID` int(11) DEFAULT NULL,
   `DateUpdated` datetime DEFAULT NULL,
-  `UpdateIPAddress` varbinary(16) DEFAULT NULL
+  `UpdateIPAddress` varbinary(16) DEFAULT NULL,
+  PRIMARY KEY (`BanID`),
+  UNIQUE KEY `UX_Ban` (`BanType`,`BanValue`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Category`
+--
+
+DROP TABLE IF EXISTS `GDN_Category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Category` (
-  `CategoryID` int(11) NOT NULL,
+  `CategoryID` int(11) NOT NULL AUTO_INCREMENT,
   `ParentCategoryID` int(11) DEFAULT NULL,
   `TreeLeft` int(11) DEFAULT NULL,
   `TreeRight` int(11) DEFAULT NULL,
@@ -138,11 +227,22 @@ CREATE TABLE `GDN_Category` (
   `LastDiscussionID` int(11) DEFAULT NULL,
   `LastDateInserted` datetime DEFAULT NULL,
   `AllowedDiscussionTypes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `DefaultDiscussionType` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `DefaultDiscussionType` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`CategoryID`),
+  KEY `FK_Category_ParentCategoryID` (`ParentCategoryID`),
+  KEY `FK_Category_InsertUserID` (`InsertUserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Comment`
+--
+
+DROP TABLE IF EXISTS `GDN_Comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Comment` (
-  `CommentID` int(11) NOT NULL,
+  `CommentID` int(11) NOT NULL AUTO_INCREMENT,
   `DiscussionID` int(11) NOT NULL,
   `InsertUserID` int(11) DEFAULT NULL,
   `UpdateUserID` int(11) DEFAULT NULL,
@@ -156,23 +256,25 @@ CREATE TABLE `GDN_Comment` (
   `UpdateIPAddress` varbinary(16) DEFAULT NULL,
   `Flag` tinyint(4) NOT NULL DEFAULT '0',
   `Score` float DEFAULT NULL,
-  `Attributes` text COLLATE utf8mb4_unicode_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `Attributes` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`CommentID`),
+  KEY `IX_Comment_1` (`DiscussionID`,`DateInserted`),
+  KEY `IX_Comment_DateInserted` (`DateInserted`),
+  KEY `IX_Comment_Score` (`Score`),
+  KEY `FK_Comment_InsertUserID` (`InsertUserID`),
+  FULLTEXT KEY `TX_Comment` (`Body`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE `GDN_contentDraft` (
-  `draftID` int(11) NOT NULL,
-  `recordType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `recordID` int(11) DEFAULT NULL,
-  `parentRecordID` int(11) DEFAULT NULL,
-  `attributes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `insertUserID` int(11) NOT NULL,
-  `dateInserted` datetime NOT NULL,
-  `updateUserID` int(11) NOT NULL,
-  `dateUpdated` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- Table structure for table `GDN_Conversation`
+--
 
+DROP TABLE IF EXISTS `GDN_Conversation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Conversation` (
-  `ConversationID` int(11) NOT NULL,
+  `ConversationID` int(11) NOT NULL AUTO_INCREMENT,
   `Type` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ForeignID` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -187,21 +289,47 @@ CREATE TABLE `GDN_Conversation` (
   `CountMessages` int(11) NOT NULL DEFAULT '0',
   `CountParticipants` int(11) NOT NULL DEFAULT '0',
   `LastMessageID` int(11) DEFAULT NULL,
-  `RegardingID` int(11) DEFAULT NULL
+  `RegardingID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ConversationID`),
+  KEY `IX_Conversation_Type` (`Type`),
+  KEY `IX_Conversation_RegardingID` (`RegardingID`),
+  KEY `FK_Conversation_FirstMessageID` (`FirstMessageID`),
+  KEY `FK_Conversation_InsertUserID` (`InsertUserID`),
+  KEY `FK_Conversation_DateInserted` (`DateInserted`),
+  KEY `FK_Conversation_UpdateUserID` (`UpdateUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_ConversationMessage`
+--
+
+DROP TABLE IF EXISTS `GDN_ConversationMessage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_ConversationMessage` (
-  `MessageID` int(11) NOT NULL,
+  `MessageID` int(11) NOT NULL AUTO_INCREMENT,
   `ConversationID` int(11) NOT NULL,
   `Body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `Format` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `InsertUserID` int(11) DEFAULT NULL,
   `DateInserted` datetime NOT NULL,
-  `InsertIPAddress` varbinary(16) DEFAULT NULL
+  `InsertIPAddress` varbinary(16) DEFAULT NULL,
+  PRIMARY KEY (`MessageID`),
+  KEY `FK_ConversationMessage_ConversationID` (`ConversationID`),
+  KEY `FK_ConversationMessage_InsertUserID` (`InsertUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Discussion`
+--
+
+DROP TABLE IF EXISTS `GDN_Discussion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Discussion` (
-  `DiscussionID` int(11) NOT NULL,
+  `DiscussionID` int(11) NOT NULL AUTO_INCREMENT,
   `Type` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ForeignID` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `CategoryID` int(11) NOT NULL,
@@ -227,11 +355,29 @@ CREATE TABLE `GDN_Discussion` (
   `LastCommentUserID` int(11) DEFAULT NULL,
   `Score` float DEFAULT NULL,
   `Attributes` text COLLATE utf8mb4_unicode_ci,
-  `RegardingID` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `RegardingID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`DiscussionID`),
+  KEY `IX_Discussion_Type` (`Type`),
+  KEY `IX_Discussion_ForeignID` (`ForeignID`),
+  KEY `IX_Discussion_DateInserted` (`DateInserted`),
+  KEY `IX_Discussion_DateLastComment` (`DateLastComment`),
+  KEY `IX_Discussion_RegardingID` (`RegardingID`),
+  KEY `IX_Discussion_CategoryPages` (`CategoryID`,`DateLastComment`),
+  KEY `IX_Discussion_CategoryInserted` (`CategoryID`,`DateInserted`),
+  KEY `FK_Discussion_InsertUserID` (`InsertUserID`),
+  FULLTEXT KEY `TX_Discussion` (`Name`,`Body`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Draft`
+--
+
+DROP TABLE IF EXISTS `GDN_Draft`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Draft` (
-  `DraftID` int(11) NOT NULL,
+  `DraftID` int(11) NOT NULL AUTO_INCREMENT,
   `DiscussionID` int(11) DEFAULT NULL,
   `CategoryID` int(11) DEFAULT NULL,
   `InsertUserID` int(11) NOT NULL,
@@ -244,11 +390,23 @@ CREATE TABLE `GDN_Draft` (
   `Body` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `Format` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `DateInserted` datetime NOT NULL,
-  `DateUpdated` datetime DEFAULT NULL
+  `DateUpdated` datetime DEFAULT NULL,
+  PRIMARY KEY (`DraftID`),
+  KEY `FK_Draft_DiscussionID` (`DiscussionID`),
+  KEY `FK_Draft_CategoryID` (`CategoryID`),
+  KEY `FK_Draft_InsertUserID` (`InsertUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Invitation`
+--
+
+DROP TABLE IF EXISTS `GDN_Invitation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Invitation` (
-  `InvitationID` int(11) NOT NULL,
+  `InvitationID` int(11) NOT NULL AUTO_INCREMENT,
   `Email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `RoleIDs` text COLLATE utf8mb4_unicode_ci,
@@ -257,11 +415,23 @@ CREATE TABLE `GDN_Invitation` (
   `DateInserted` datetime NOT NULL,
   `AcceptedUserID` int(11) DEFAULT NULL,
   `DateAccepted` datetime DEFAULT NULL,
-  `DateExpires` datetime DEFAULT NULL
+  `DateExpires` datetime DEFAULT NULL,
+  PRIMARY KEY (`InvitationID`),
+  UNIQUE KEY `UX_Invitation` (`Code`),
+  KEY `IX_Invitation_Email` (`Email`),
+  KEY `IX_Invitation_userdate` (`InsertUserID`,`DateInserted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Log`
+--
+
+DROP TABLE IF EXISTS `GDN_Log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Log` (
-  `LogID` int(11) NOT NULL,
+  `LogID` int(11) NOT NULL AUTO_INCREMENT,
   `Operation` enum('Delete','Edit','Spam','Moderate','Pending','Ban','Error') COLLATE utf8mb4_unicode_ci NOT NULL,
   `RecordType` enum('Discussion','Comment','User','Registration','Activity','ActivityComment','Configuration','Group','Event') COLLATE utf8mb4_unicode_ci NOT NULL,
   `TransactionLogID` int(11) DEFAULT NULL,
@@ -277,11 +447,28 @@ CREATE TABLE `GDN_Log` (
   `ParentRecordID` int(11) DEFAULT NULL,
   `CategoryID` int(11) DEFAULT NULL,
   `Data` mediumtext COLLATE utf8mb4_unicode_ci,
-  `CountGroup` int(11) DEFAULT NULL
+  `CountGroup` int(11) DEFAULT NULL,
+  PRIMARY KEY (`LogID`),
+  KEY `IX_Log_Operation` (`Operation`),
+  KEY `IX_Log_RecordType` (`RecordType`),
+  KEY `IX_Log_RecordID` (`RecordID`),
+  KEY `IX_Log_RecordUserID` (`RecordUserID`),
+  KEY `IX_Log_RecordIPAddress` (`RecordIPAddress`),
+  KEY `IX_Log_DateInserted` (`DateInserted`),
+  KEY `IX_Log_ParentRecordID` (`ParentRecordID`),
+  KEY `FK_Log_CategoryID` (`CategoryID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Media`
+--
+
+DROP TABLE IF EXISTS `GDN_Media`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Media` (
-  `MediaID` int(11) NOT NULL,
+  `MediaID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Type` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -291,15 +478,26 @@ CREATE TABLE `GDN_Media` (
   `DateInserted` datetime NOT NULL,
   `ForeignID` int(11) DEFAULT NULL,
   `ForeignTable` varchar(24) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ImageWidth` smallint(5) UNSIGNED DEFAULT NULL,
-  `ImageHeight` smallint(5) UNSIGNED DEFAULT NULL,
-  `ThumbWidth` smallint(5) UNSIGNED DEFAULT NULL,
-  `ThumbHeight` smallint(5) UNSIGNED DEFAULT NULL,
-  `ThumbPath` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ImageWidth` smallint(5) unsigned DEFAULT NULL,
+  `ImageHeight` smallint(5) unsigned DEFAULT NULL,
+  `ThumbWidth` smallint(5) unsigned DEFAULT NULL,
+  `ThumbHeight` smallint(5) unsigned DEFAULT NULL,
+  `ThumbPath` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`MediaID`),
+  KEY `IX_Media_InsertUserID` (`InsertUserID`),
+  KEY `IX_Media_Foreign` (`ForeignID`,`ForeignTable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Message`
+--
+
+DROP TABLE IF EXISTS `GDN_Message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Message` (
-  `MessageID` int(11) NOT NULL,
+  `MessageID` int(11) NOT NULL AUTO_INCREMENT,
   `Content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `Format` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `AllowDismiss` tinyint(4) NOT NULL DEFAULT '1',
@@ -311,11 +509,20 @@ CREATE TABLE `GDN_Message` (
   `IncludeSubcategories` tinyint(4) NOT NULL DEFAULT '0',
   `AssetTarget` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `CssClass` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Sort` int(11) DEFAULT NULL
+  `Sort` int(11) DEFAULT NULL,
+  PRIMARY KEY (`MessageID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Permission`
+--
+
+DROP TABLE IF EXISTS `GDN_Permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Permission` (
-  `PermissionID` int(11) NOT NULL,
+  `PermissionID` int(11) NOT NULL AUTO_INCREMENT,
   `RoleID` int(11) NOT NULL DEFAULT '0',
   `JunctionTable` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `JunctionColumn` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -353,29 +560,21 @@ CREATE TABLE `GDN_Permission` (
   `Vanilla.Discussions.Delete` tinyint(4) NOT NULL DEFAULT '0',
   `Vanilla.Comments.Add` tinyint(4) NOT NULL DEFAULT '0',
   `Vanilla.Comments.Edit` tinyint(4) NOT NULL DEFAULT '0',
-  `Vanilla.Comments.Delete` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `Vanilla.Comments.Delete` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`PermissionID`),
+  KEY `FK_Permission_RoleID` (`RoleID`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE `GDN_reaction` (
-  `reactionID` int(11) NOT NULL,
-  `reactionOwnerID` int(11) NOT NULL,
-  `recordID` int(11) NOT NULL,
-  `reactionValue` int(11) NOT NULL,
-  `insertUserID` int(11) NOT NULL,
-  `dateInserted` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- Table structure for table `GDN_Regarding`
+--
 
-CREATE TABLE `GDN_reactionOwner` (
-  `reactionOwnerID` int(11) NOT NULL,
-  `ownerType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reactionType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `recordType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `insertUserID` int(11) NOT NULL,
-  `dateInserted` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+DROP TABLE IF EXISTS `GDN_Regarding`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Regarding` (
-  `RegardingID` int(11) NOT NULL,
+  `RegardingID` int(11) NOT NULL AUTO_INCREMENT,
   `Type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `InsertUserID` int(11) NOT NULL,
   `DateInserted` datetime NOT NULL,
@@ -386,37 +585,75 @@ CREATE TABLE `GDN_Regarding` (
   `ParentID` int(11) DEFAULT NULL,
   `ForeignURL` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Reports` int(11) DEFAULT NULL
+  `Reports` int(11) DEFAULT NULL,
+  PRIMARY KEY (`RegardingID`),
+  KEY `FK_Regarding_Type` (`Type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Role`
+--
+
+DROP TABLE IF EXISTS `GDN_Role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Role` (
-  `RoleID` int(11) NOT NULL,
+  `RoleID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Description` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Type` enum('guest','unconfirmed','applicant','member','moderator','administrator') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Sort` int(11) DEFAULT NULL,
   `Deletable` tinyint(4) NOT NULL DEFAULT '1',
   `CanSession` tinyint(4) NOT NULL DEFAULT '1',
-  `PersonalInfo` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `PersonalInfo` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`RoleID`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Session`
+--
+
+DROP TABLE IF EXISTS `GDN_Session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Session` (
   `SessionID` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `UserID` int(11) NOT NULL DEFAULT '0',
   `DateInserted` datetime NOT NULL,
   `DateUpdated` datetime DEFAULT NULL,
   `DateExpires` datetime DEFAULT NULL,
-  `Attributes` text COLLATE utf8mb4_unicode_ci
+  `Attributes` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`SessionID`),
+  KEY `IX_Session_DateExpires` (`DateExpires`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Spammer`
+--
+
+DROP TABLE IF EXISTS `GDN_Spammer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Spammer` (
   `UserID` int(11) NOT NULL,
-  `CountSpam` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
-  `CountDeletedSpam` smallint(5) UNSIGNED NOT NULL DEFAULT '0'
+  `CountSpam` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `CountDeletedSpam` smallint(5) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_Tag`
+--
+
+DROP TABLE IF EXISTS `GDN_Tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_Tag` (
-  `TagID` int(11) NOT NULL,
+  `TagID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `FullName` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -424,18 +661,42 @@ CREATE TABLE `GDN_Tag` (
   `InsertUserID` int(11) DEFAULT NULL,
   `DateInserted` datetime NOT NULL,
   `CategoryID` int(11) NOT NULL DEFAULT '-1',
-  `CountDiscussions` int(11) NOT NULL DEFAULT '0'
+  `CountDiscussions` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`TagID`),
+  UNIQUE KEY `UX_Tag` (`Name`,`CategoryID`),
+  KEY `IX_Tag_FullName` (`FullName`),
+  KEY `IX_Tag_Type` (`Type`),
+  KEY `FK_Tag_ParentTagID` (`ParentTagID`),
+  KEY `FK_Tag_InsertUserID` (`InsertUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_TagDiscussion`
+--
+
+DROP TABLE IF EXISTS `GDN_TagDiscussion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_TagDiscussion` (
   `TagID` int(11) NOT NULL,
   `DiscussionID` int(11) NOT NULL,
   `CategoryID` int(11) NOT NULL,
-  `DateInserted` datetime DEFAULT NULL
+  `DateInserted` datetime DEFAULT NULL,
+  PRIMARY KEY (`TagID`,`DiscussionID`),
+  KEY `IX_TagDiscussion_CategoryID` (`CategoryID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_User`
+--
+
+DROP TABLE IF EXISTS `GDN_User`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_User` (
-  `UserID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Password` varbinary(100) NOT NULL,
   `HashMethod` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -476,21 +737,54 @@ CREATE TABLE `GDN_User` (
   `CountUnreadDiscussions` int(11) DEFAULT NULL,
   `CountComments` int(11) DEFAULT NULL,
   `CountDrafts` int(11) DEFAULT NULL,
-  `CountBookmarks` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `CountBookmarks` int(11) DEFAULT NULL,
+  PRIMARY KEY (`UserID`),
+  KEY `FK_User_Name` (`Name`),
+  KEY `IX_User_Email` (`Email`),
+  KEY `IX_User_DateLastActive` (`DateLastActive`),
+  KEY `IX_User_DateInserted` (`DateInserted`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserAuthentication`
+--
+
+DROP TABLE IF EXISTS `GDN_UserAuthentication`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserAuthentication` (
   `ForeignUserKey` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ProviderKey` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `UserID` int(11) NOT NULL
+  `UserID` int(11) NOT NULL,
+  PRIMARY KEY (`ForeignUserKey`,`ProviderKey`),
+  KEY `FK_UserAuthentication_UserID` (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserAuthenticationNonce`
+--
+
+DROP TABLE IF EXISTS `GDN_UserAuthenticationNonce`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserAuthenticationNonce` (
   `Nonce` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Token` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Nonce`),
+  KEY `IX_UserAuthenticationNonce_Timestamp` (`Timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserAuthenticationProvider`
+--
+
+DROP TABLE IF EXISTS `GDN_UserAuthenticationProvider`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserAuthenticationProvider` (
   `AuthenticationKey` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `AuthenticationSchemeAlias` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -506,9 +800,18 @@ CREATE TABLE `GDN_UserAuthenticationProvider` (
   `ProfileUrl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Attributes` text COLLATE utf8mb4_unicode_ci,
   `Active` tinyint(4) NOT NULL DEFAULT '1',
-  `IsDefault` tinyint(4) NOT NULL DEFAULT '0'
+  `IsDefault` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`AuthenticationKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserAuthenticationToken`
+--
+
+DROP TABLE IF EXISTS `GDN_UserAuthenticationToken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserAuthenticationToken` (
   `Token` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ProviderKey` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -517,24 +820,52 @@ CREATE TABLE `GDN_UserAuthenticationToken` (
   `TokenType` enum('request','access') COLLATE utf8mb4_unicode_ci NOT NULL,
   `Authorized` tinyint(4) NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Lifetime` int(11) NOT NULL
+  `Lifetime` int(11) NOT NULL,
+  PRIMARY KEY (`Token`,`ProviderKey`),
+  KEY `IX_UserAuthenticationToken_Timestamp` (`Timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserCategory`
+--
+
+DROP TABLE IF EXISTS `GDN_UserCategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserCategory` (
   `UserID` int(11) NOT NULL,
   `CategoryID` int(11) NOT NULL,
   `DateMarkedRead` datetime DEFAULT NULL,
   `Followed` tinyint(4) NOT NULL DEFAULT '0',
-  `Unfollow` tinyint(4) NOT NULL DEFAULT '0'
+  `Unfollow` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`UserID`,`CategoryID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserComment`
+--
+
+DROP TABLE IF EXISTS `GDN_UserComment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserComment` (
   `UserID` int(11) NOT NULL,
   `CommentID` int(11) NOT NULL,
   `Score` float DEFAULT NULL,
-  `DateLastViewed` datetime DEFAULT NULL
+  `DateLastViewed` datetime DEFAULT NULL,
+  PRIMARY KEY (`UserID`,`CommentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserConversation`
+--
+
+DROP TABLE IF EXISTS `GDN_UserConversation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserConversation` (
   `UserID` int(11) NOT NULL,
   `ConversationID` int(11) NOT NULL,
@@ -544,9 +875,20 @@ CREATE TABLE `GDN_UserConversation` (
   `DateCleared` datetime DEFAULT NULL,
   `Bookmarked` tinyint(4) NOT NULL DEFAULT '0',
   `Deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `DateConversationUpdated` datetime DEFAULT NULL
+  `DateConversationUpdated` datetime DEFAULT NULL,
+  PRIMARY KEY (`UserID`,`ConversationID`),
+  KEY `IX_UserConversation_Inbox` (`UserID`,`Deleted`,`DateConversationUpdated`),
+  KEY `FK_UserConversation_ConversationID` (`ConversationID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserDiscussion`
+--
+
+DROP TABLE IF EXISTS `GDN_UserDiscussion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserDiscussion` (
   `UserID` int(11) NOT NULL,
   `DiscussionID` int(11) NOT NULL,
@@ -555,348 +897,193 @@ CREATE TABLE `GDN_UserDiscussion` (
   `DateLastViewed` datetime DEFAULT NULL,
   `Dismissed` tinyint(4) NOT NULL DEFAULT '0',
   `Bookmarked` tinyint(4) NOT NULL DEFAULT '0',
-  `Participated` tinyint(4) NOT NULL DEFAULT '0'
+  `Participated` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`UserID`,`DiscussionID`),
+  KEY `FK_UserDiscussion_DiscussionID` (`DiscussionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserIP`
+--
+
+DROP TABLE IF EXISTS `GDN_UserIP`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserIP` (
   `UserID` int(11) NOT NULL,
   `IPAddress` varbinary(16) NOT NULL,
   `DateInserted` datetime NOT NULL,
-  `DateUpdated` datetime NOT NULL
+  `DateUpdated` datetime NOT NULL,
+  PRIMARY KEY (`UserID`,`IPAddress`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserMerge`
+--
+
+DROP TABLE IF EXISTS `GDN_UserMerge`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserMerge` (
-  `MergeID` int(11) NOT NULL,
+  `MergeID` int(11) NOT NULL AUTO_INCREMENT,
   `OldUserID` int(11) NOT NULL,
   `NewUserID` int(11) NOT NULL,
   `DateInserted` datetime NOT NULL,
   `InsertUserID` int(11) NOT NULL,
   `DateUpdated` datetime DEFAULT NULL,
   `UpdateUserID` int(11) DEFAULT NULL,
-  `Attributes` text COLLATE utf8mb4_unicode_ci
+  `Attributes` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`MergeID`),
+  KEY `FK_UserMerge_OldUserID` (`OldUserID`),
+  KEY `FK_UserMerge_NewUserID` (`NewUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserMergeItem`
+--
+
+DROP TABLE IF EXISTS `GDN_UserMergeItem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserMergeItem` (
   `MergeID` int(11) NOT NULL,
   `Table` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Column` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `RecordID` int(11) NOT NULL,
   `OldUserID` int(11) NOT NULL,
-  `NewUserID` int(11) NOT NULL
+  `NewUserID` int(11) NOT NULL,
+  KEY `FK_UserMergeItem_MergeID` (`MergeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserMeta`
+--
+
+DROP TABLE IF EXISTS `GDN_UserMeta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserMeta` (
   `UserID` int(11) NOT NULL,
   `Name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Value` text COLLATE utf8mb4_unicode_ci
+  `Value` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`UserID`,`Name`),
+  KEY `IX_UserMeta_Name` (`Name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserPoints`
+--
+
+DROP TABLE IF EXISTS `GDN_UserPoints`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserPoints` (
   `SlotType` enum('d','w','m','y','a') COLLATE utf8mb4_unicode_ci NOT NULL,
   `TimeSlot` datetime NOT NULL,
   `Source` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Total',
   `CategoryID` int(11) NOT NULL DEFAULT '0',
   `UserID` int(11) NOT NULL,
-  `Points` int(11) NOT NULL DEFAULT '0'
+  `Points` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`SlotType`,`TimeSlot`,`Source`,`CategoryID`,`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `GDN_UserRole`
+--
+
+DROP TABLE IF EXISTS `GDN_UserRole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GDN_UserRole` (
   `UserID` int(11) NOT NULL,
-  `RoleID` int(11) NOT NULL
+  `RoleID` int(11) NOT NULL,
+  PRIMARY KEY (`UserID`,`RoleID`),
+  KEY `IX_UserRole_RoleID` (`RoleID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-ALTER TABLE `GDN_AccessToken`
-  ADD PRIMARY KEY (`AccessTokenID`),
-  ADD UNIQUE KEY `UX_AccessToken` (`Token`),
-  ADD KEY `IX_AccessToken_UserID` (`UserID`),
-  ADD KEY `IX_AccessToken_Type` (`Type`);
-
-ALTER TABLE `GDN_Activity`
-  ADD PRIMARY KEY (`ActivityID`),
-  ADD KEY `IX_Activity_Notify` (`NotifyUserID`,`Notified`),
-  ADD KEY `IX_Activity_Recent` (`NotifyUserID`,`DateUpdated`),
-  ADD KEY `IX_Activity_Feed` (`NotifyUserID`,`ActivityUserID`,`DateUpdated`),
-  ADD KEY `IX_Activity_DateUpdated` (`DateUpdated`),
-  ADD KEY `FK_Activity_InsertUserID` (`InsertUserID`);
-
-ALTER TABLE `GDN_ActivityComment`
-  ADD PRIMARY KEY (`ActivityCommentID`),
-  ADD KEY `FK_ActivityComment_ActivityID` (`ActivityID`);
-
-ALTER TABLE `GDN_ActivityType`
-  ADD PRIMARY KEY (`ActivityTypeID`);
-
-ALTER TABLE `GDN_AnalyticsLocal`
-  ADD UNIQUE KEY `UX_AnalyticsLocal` (`TimeSlot`);
-
-ALTER TABLE `GDN_Attachment`
-  ADD PRIMARY KEY (`AttachmentID`),
-  ADD KEY `IX_Attachment_ForeignID` (`ForeignID`),
-  ADD KEY `FK_Attachment_ForeignUserID` (`ForeignUserID`),
-  ADD KEY `FK_Attachment_InsertUserID` (`InsertUserID`);
-
-ALTER TABLE `GDN_Ban`
-  ADD PRIMARY KEY (`BanID`),
-  ADD UNIQUE KEY `UX_Ban` (`BanType`,`BanValue`);
-
-ALTER TABLE `GDN_Category`
-  ADD PRIMARY KEY (`CategoryID`),
-  ADD KEY `FK_Category_ParentCategoryID` (`ParentCategoryID`),
-  ADD KEY `FK_Category_InsertUserID` (`InsertUserID`);
-
-ALTER TABLE `GDN_Comment`
-  ADD PRIMARY KEY (`CommentID`),
-  ADD KEY `IX_Comment_1` (`DiscussionID`,`DateInserted`),
-  ADD KEY `IX_Comment_DateInserted` (`DateInserted`),
-  ADD KEY `IX_Comment_Score` (`Score`),
-  ADD KEY `FK_Comment_InsertUserID` (`InsertUserID`);
-ALTER TABLE `GDN_Comment` ADD FULLTEXT KEY `TX_Comment` (`Body`);
-
-ALTER TABLE `GDN_contentDraft`
-  ADD PRIMARY KEY (`draftID`),
-  ADD KEY `IX_contentDraft_recordType` (`recordType`),
-  ADD KEY `IX_contentDraft_insertUserID` (`insertUserID`),
-  ADD KEY `IX_contentDraft_record` (`recordType`,`recordID`),
-  ADD KEY `IX_contentDraft_parentRecord` (`recordType`,`parentRecordID`);
-
-ALTER TABLE `GDN_Conversation`
-  ADD PRIMARY KEY (`ConversationID`),
-  ADD KEY `IX_Conversation_Type` (`Type`),
-  ADD KEY `IX_Conversation_RegardingID` (`RegardingID`),
-  ADD KEY `FK_Conversation_FirstMessageID` (`FirstMessageID`),
-  ADD KEY `FK_Conversation_InsertUserID` (`InsertUserID`),
-  ADD KEY `FK_Conversation_DateInserted` (`DateInserted`),
-  ADD KEY `FK_Conversation_UpdateUserID` (`UpdateUserID`);
-
-ALTER TABLE `GDN_ConversationMessage`
-  ADD PRIMARY KEY (`MessageID`),
-  ADD KEY `FK_ConversationMessage_ConversationID` (`ConversationID`),
-  ADD KEY `FK_ConversationMessage_InsertUserID` (`InsertUserID`);
-
-ALTER TABLE `GDN_Discussion`
-  ADD PRIMARY KEY (`DiscussionID`),
-  ADD KEY `IX_Discussion_Type` (`Type`),
-  ADD KEY `IX_Discussion_ForeignID` (`ForeignID`),
-  ADD KEY `IX_Discussion_DateInserted` (`DateInserted`),
-  ADD KEY `IX_Discussion_DateLastComment` (`DateLastComment`),
-  ADD KEY `IX_Discussion_RegardingID` (`RegardingID`),
-  ADD KEY `IX_Discussion_CategoryPages` (`CategoryID`,`DateLastComment`),
-  ADD KEY `IX_Discussion_CategoryInserted` (`CategoryID`,`DateInserted`),
-  ADD KEY `FK_Discussion_InsertUserID` (`InsertUserID`);
-ALTER TABLE `GDN_Discussion` ADD FULLTEXT KEY `TX_Discussion` (`Name`,`Body`);
-
-ALTER TABLE `GDN_Draft`
-  ADD PRIMARY KEY (`DraftID`),
-  ADD KEY `FK_Draft_DiscussionID` (`DiscussionID`),
-  ADD KEY `FK_Draft_CategoryID` (`CategoryID`),
-  ADD KEY `FK_Draft_InsertUserID` (`InsertUserID`);
-
-ALTER TABLE `GDN_Invitation`
-  ADD PRIMARY KEY (`InvitationID`),
-  ADD UNIQUE KEY `UX_Invitation` (`Code`),
-  ADD KEY `IX_Invitation_Email` (`Email`),
-  ADD KEY `IX_Invitation_userdate` (`InsertUserID`,`DateInserted`);
-
-ALTER TABLE `GDN_Log`
-  ADD PRIMARY KEY (`LogID`),
-  ADD KEY `IX_Log_Operation` (`Operation`),
-  ADD KEY `IX_Log_RecordType` (`RecordType`),
-  ADD KEY `IX_Log_RecordID` (`RecordID`),
-  ADD KEY `IX_Log_RecordUserID` (`RecordUserID`),
-  ADD KEY `IX_Log_RecordIPAddress` (`RecordIPAddress`),
-  ADD KEY `IX_Log_DateInserted` (`DateInserted`),
-  ADD KEY `IX_Log_ParentRecordID` (`ParentRecordID`),
-  ADD KEY `FK_Log_CategoryID` (`CategoryID`);
-
-ALTER TABLE `GDN_Media`
-  ADD PRIMARY KEY (`MediaID`),
-  ADD KEY `IX_Media_InsertUserID` (`InsertUserID`),
-  ADD KEY `IX_Media_Foreign` (`ForeignID`,`ForeignTable`);
-
-ALTER TABLE `GDN_Message`
-  ADD PRIMARY KEY (`MessageID`);
-
-ALTER TABLE `GDN_Permission`
-  ADD PRIMARY KEY (`PermissionID`),
-  ADD KEY `FK_Permission_RoleID` (`RoleID`);
-
-ALTER TABLE `GDN_reaction`
-  ADD PRIMARY KEY (`reactionID`),
-  ADD KEY `IX_reaction_reactionOwnerID` (`reactionOwnerID`),
-  ADD KEY `IX_reaction_insertUserID` (`insertUserID`),
-  ADD KEY `IX_reaction_record` (`reactionOwnerID`,`recordID`);
-
-ALTER TABLE `GDN_reactionOwner`
-  ADD PRIMARY KEY (`reactionOwnerID`),
-  ADD UNIQUE KEY `UX_reactionOwner` (`ownerType`,`reactionType`,`recordType`),
-  ADD KEY `IX_reactionOwner_ownerType` (`ownerType`),
-  ADD KEY `IX_reactionOwner_reactionType` (`reactionType`),
-  ADD KEY `IX_reactionOwner_recordType` (`recordType`),
-  ADD KEY `IX_reactionOwner_insertUserID` (`insertUserID`);
-
-ALTER TABLE `GDN_Regarding`
-  ADD PRIMARY KEY (`RegardingID`),
-  ADD KEY `FK_Regarding_Type` (`Type`);
-
-ALTER TABLE `GDN_Role`
-  ADD PRIMARY KEY (`RoleID`);
-
-ALTER TABLE `GDN_Session`
-  ADD PRIMARY KEY (`SessionID`),
-  ADD KEY `IX_Session_DateExpires` (`DateExpires`);
-
-ALTER TABLE `GDN_Spammer`
-  ADD PRIMARY KEY (`UserID`);
-
-ALTER TABLE `GDN_Tag`
-  ADD PRIMARY KEY (`TagID`),
-  ADD UNIQUE KEY `UX_Tag` (`Name`,`CategoryID`),
-  ADD KEY `IX_Tag_FullName` (`FullName`),
-  ADD KEY `IX_Tag_Type` (`Type`),
-  ADD KEY `FK_Tag_ParentTagID` (`ParentTagID`),
-  ADD KEY `FK_Tag_InsertUserID` (`InsertUserID`);
-
-ALTER TABLE `GDN_TagDiscussion`
-  ADD PRIMARY KEY (`TagID`,`DiscussionID`),
-  ADD KEY `IX_TagDiscussion_CategoryID` (`CategoryID`);
-
-ALTER TABLE `GDN_User`
-  ADD PRIMARY KEY (`UserID`),
-  ADD KEY `FK_User_Name` (`Name`),
-  ADD KEY `IX_User_Email` (`Email`),
-  ADD KEY `IX_User_DateLastActive` (`DateLastActive`),
-  ADD KEY `IX_User_DateInserted` (`DateInserted`);
-
-ALTER TABLE `GDN_UserAuthentication`
-  ADD PRIMARY KEY (`ForeignUserKey`,`ProviderKey`),
-  ADD KEY `FK_UserAuthentication_UserID` (`UserID`);
-
-ALTER TABLE `GDN_UserAuthenticationNonce`
-  ADD PRIMARY KEY (`Nonce`),
-  ADD KEY `IX_UserAuthenticationNonce_Timestamp` (`Timestamp`);
-
-ALTER TABLE `GDN_UserAuthenticationProvider`
-  ADD PRIMARY KEY (`AuthenticationKey`);
-
-ALTER TABLE `GDN_UserAuthenticationToken`
-  ADD PRIMARY KEY (`Token`,`ProviderKey`),
-  ADD KEY `IX_UserAuthenticationToken_Timestamp` (`Timestamp`);
-
-ALTER TABLE `GDN_UserCategory`
-  ADD PRIMARY KEY (`UserID`,`CategoryID`);
-
-ALTER TABLE `GDN_UserComment`
-  ADD PRIMARY KEY (`UserID`,`CommentID`);
-
-ALTER TABLE `GDN_UserConversation`
-  ADD PRIMARY KEY (`UserID`,`ConversationID`),
-  ADD KEY `IX_UserConversation_Inbox` (`UserID`,`Deleted`,`DateConversationUpdated`),
-  ADD KEY `FK_UserConversation_ConversationID` (`ConversationID`);
-
-ALTER TABLE `GDN_UserDiscussion`
-  ADD PRIMARY KEY (`UserID`,`DiscussionID`),
-  ADD KEY `FK_UserDiscussion_DiscussionID` (`DiscussionID`);
-
-ALTER TABLE `GDN_UserIP`
-  ADD PRIMARY KEY (`UserID`,`IPAddress`);
-
-ALTER TABLE `GDN_UserMerge`
-  ADD PRIMARY KEY (`MergeID`),
-  ADD KEY `FK_UserMerge_OldUserID` (`OldUserID`),
-  ADD KEY `FK_UserMerge_NewUserID` (`NewUserID`);
-
-ALTER TABLE `GDN_UserMergeItem`
-  ADD KEY `FK_UserMergeItem_MergeID` (`MergeID`);
-
-ALTER TABLE `GDN_UserMeta`
-  ADD PRIMARY KEY (`UserID`,`Name`),
-  ADD KEY `IX_UserMeta_Name` (`Name`);
-
-ALTER TABLE `GDN_UserPoints`
-  ADD PRIMARY KEY (`SlotType`,`TimeSlot`,`Source`,`CategoryID`,`UserID`);
-
-ALTER TABLE `GDN_UserRole`
-  ADD PRIMARY KEY (`UserID`,`RoleID`),
-  ADD KEY `IX_UserRole_RoleID` (`RoleID`);
-
-
-ALTER TABLE `GDN_AccessToken`
-  MODIFY `AccessTokenID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Activity`
-  MODIFY `ActivityID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_ActivityComment`
-  MODIFY `ActivityCommentID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_ActivityType`
-  MODIFY `ActivityTypeID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Attachment`
-  MODIFY `AttachmentID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Ban`
-  MODIFY `BanID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Category`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Comment`
-  MODIFY `CommentID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_contentDraft`
-  MODIFY `draftID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Conversation`
-  MODIFY `ConversationID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_ConversationMessage`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Discussion`
-  MODIFY `DiscussionID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Draft`
-  MODIFY `DraftID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Invitation`
-  MODIFY `InvitationID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Log`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Media`
-  MODIFY `MediaID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Message`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Permission`
-  MODIFY `PermissionID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_reaction`
-  MODIFY `reactionID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_reactionOwner`
-  MODIFY `reactionOwnerID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Regarding`
-  MODIFY `RegardingID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Role`
-  MODIFY `RoleID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_Tag`
-  MODIFY `TagID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_User`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `GDN_UserMerge`
-  MODIFY `MergeID` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `GDN_contentDraft`
+--
+
+DROP TABLE IF EXISTS `GDN_contentDraft`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GDN_contentDraft` (
+  `draftID` int(11) NOT NULL AUTO_INCREMENT,
+  `recordType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `recordID` int(11) DEFAULT NULL,
+  `parentRecordID` int(11) DEFAULT NULL,
+  `attributes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `insertUserID` int(11) NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  `updateUserID` int(11) NOT NULL,
+  `dateUpdated` datetime NOT NULL,
+  PRIMARY KEY (`draftID`),
+  KEY `IX_contentDraft_recordType` (`recordType`),
+  KEY `IX_contentDraft_insertUserID` (`insertUserID`),
+  KEY `IX_contentDraft_record` (`recordType`,`recordID`),
+  KEY `IX_contentDraft_parentRecord` (`recordType`,`parentRecordID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `GDN_reaction`
+--
+
+DROP TABLE IF EXISTS `GDN_reaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GDN_reaction` (
+  `reactionID` int(11) NOT NULL AUTO_INCREMENT,
+  `reactionOwnerID` int(11) NOT NULL,
+  `recordID` int(11) NOT NULL,
+  `reactionValue` int(11) NOT NULL,
+  `insertUserID` int(11) NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  PRIMARY KEY (`reactionID`),
+  KEY `IX_reaction_reactionOwnerID` (`reactionOwnerID`),
+  KEY `IX_reaction_insertUserID` (`insertUserID`),
+  KEY `IX_reaction_record` (`reactionOwnerID`,`recordID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `GDN_reactionOwner`
+--
+
+DROP TABLE IF EXISTS `GDN_reactionOwner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GDN_reactionOwner` (
+  `reactionOwnerID` int(11) NOT NULL AUTO_INCREMENT,
+  `ownerType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reactionType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `recordType` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `insertUserID` int(11) NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  PRIMARY KEY (`reactionOwnerID`),
+  UNIQUE KEY `UX_reactionOwner` (`ownerType`,`reactionType`,`recordType`),
+  KEY `IX_reactionOwner_ownerType` (`ownerType`),
+  KEY `IX_reactionOwner_reactionType` (`reactionType`),
+  KEY `IX_reactionOwner_recordType` (`recordType`),
+  KEY `IX_reactionOwner_insertUserID` (`insertUserID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-02-07 13:40:34
