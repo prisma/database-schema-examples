@@ -307,7 +307,7 @@ CREATE TABLE `xe_sites` (
 	`site_srl`	bigint(11)	NOT NULL,
 	`index_module_srl`	bigint(11)	NULL	DEFAULT '0',
 	`domain`	varchar(255)	NOT NULL,
-	`default_language`	varchar(255)	NULL	DEFAULT language`,
+	`default_language`	varchar(255)	NULL	DEFAULT 'language',
 	`regdate`	varchar(14)	NULL
 );
 
@@ -614,7 +614,7 @@ CREATE TABLE `xe_member_join_form` (
 	`column_name`	varchar(60)	NOT NULL,
 	`column_title`	varchar(60)	NOT NULL,
 	`required`	char(1)	NOT NULL	DEFAULT 'N',
-	`default_value`	text	NULL	DEFAULT value`,
+	`default_value`	text	NULL,
 	`is_active`	char(1)	NULL	DEFAULT 'Y',
 	`description`	text	NULL,
 	`list_order`	bigint(11)	NOT NULL	DEFAULT '1',

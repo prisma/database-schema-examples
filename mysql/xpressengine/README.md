@@ -1,6 +1,6 @@
-# PMS
+# XpressEngine
 
 Schema only dump exported via erdcloud.com
 
-Website: ?
-Source: https://www.erdcloud.com/d/rnsRQPZSrqxhxa5x6
+Website: https://www.xpressengine.com/ + https://github.com/xpressengine/xpressengine
+Source: https://www.erdcloud.com/d/fqvPonSme7tBDq9Dj
