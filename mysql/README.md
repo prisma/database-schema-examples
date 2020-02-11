@@ -99,7 +99,7 @@
 
 ## ERDCloud.com exported
 
-- [ciboard3](ciboard3)
+- [CI-Board 3 Pro](ciboard3pro)
 - [Gnuboard5](gnuboard5)
 - [OKKY](okky)
 - [Rido](rido)
