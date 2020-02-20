@@ -7,3 +7,7 @@ Schema only dump exported via `pg_dump`
 - Source: http://wiki.noalyss.eu/doku.php?id=installation:installation_sous_linux
 
 Note: This is the account database which Noalyss created
+
+## Modifications made to source
+
+- Changed owner to `prisma`

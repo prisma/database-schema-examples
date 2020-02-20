@@ -31,7 +31,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: limit_user(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: limit_user(); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.limit_user() RETURNS trigger
@@ -44,10 +44,10 @@ return NEW;
 end; $$;
 
 
-ALTER FUNCTION public.limit_user() OWNER TO postgres;
+ALTER FUNCTION public.limit_user() OWNER TO prisma;
 
 --
--- Name: upgrade_repo(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: upgrade_repo(integer); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.upgrade_repo(p_version integer) RETURNS void
@@ -66,14 +66,14 @@ end;
 $$;
 
 
-ALTER FUNCTION public.upgrade_repo(p_version integer) OWNER TO postgres;
+ALTER FUNCTION public.upgrade_repo(p_version integer) OWNER TO prisma;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: ac_dossier; Type: TABLE; Schema: public; Owner: postgres
+-- Name: ac_dossier; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.ac_dossier (
@@ -84,17 +84,17 @@ CREATE TABLE public.ac_dossier (
 );
 
 
-ALTER TABLE public.ac_dossier OWNER TO postgres;
+ALTER TABLE public.ac_dossier OWNER TO prisma;
 
 --
--- Name: COLUMN ac_dossier.dos_email; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN ac_dossier.dos_email; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.ac_dossier.dos_email IS 'Max emails per day : 0 none , -1 unlimited or  max value';
 
 
 --
--- Name: ac_users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: ac_users; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.ac_users (
@@ -110,17 +110,17 @@ CREATE TABLE public.ac_users (
 );
 
 
-ALTER TABLE public.ac_users OWNER TO postgres;
+ALTER TABLE public.ac_users OWNER TO prisma;
 
 --
--- Name: COLUMN ac_users.use_email; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN ac_users.use_email; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.ac_users.use_email IS 'Email of the user';
 
 
 --
--- Name: audit_connect; Type: TABLE; Schema: public; Owner: postgres
+-- Name: audit_connect; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.audit_connect (
@@ -135,10 +135,10 @@ CREATE TABLE public.audit_connect (
 );
 
 
-ALTER TABLE public.audit_connect OWNER TO postgres;
+ALTER TABLE public.audit_connect OWNER TO prisma;
 
 --
--- Name: audit_connect_ac_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: audit_connect_ac_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.audit_connect_ac_id_seq
@@ -149,17 +149,17 @@ CREATE SEQUENCE public.audit_connect_ac_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.audit_connect_ac_id_seq OWNER TO postgres;
+ALTER TABLE public.audit_connect_ac_id_seq OWNER TO prisma;
 
 --
--- Name: audit_connect_ac_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: audit_connect_ac_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.audit_connect_ac_id_seq OWNED BY public.audit_connect.ac_id;
 
 
 --
--- Name: dossier_id; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: dossier_id; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.dossier_id
@@ -170,10 +170,10 @@ CREATE SEQUENCE public.dossier_id
     CACHE 1;
 
 
-ALTER TABLE public.dossier_id OWNER TO postgres;
+ALTER TABLE public.dossier_id OWNER TO prisma;
 
 --
--- Name: dossier_sent_email; Type: TABLE; Schema: public; Owner: postgres
+-- Name: dossier_sent_email; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.dossier_sent_email (
@@ -184,45 +184,45 @@ CREATE TABLE public.dossier_sent_email (
 );
 
 
-ALTER TABLE public.dossier_sent_email OWNER TO postgres;
+ALTER TABLE public.dossier_sent_email OWNER TO prisma;
 
 --
--- Name: TABLE dossier_sent_email; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE dossier_sent_email; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.dossier_sent_email IS 'Count the sent email by folder';
 
 
 --
--- Name: COLUMN dossier_sent_email.id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN dossier_sent_email.id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.dossier_sent_email.id IS 'primary key';
 
 
 --
--- Name: COLUMN dossier_sent_email.de_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN dossier_sent_email.de_date; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.dossier_sent_email.de_date IS 'Date YYYYMMDD';
 
 
 --
--- Name: COLUMN dossier_sent_email.de_sent_email; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN dossier_sent_email.de_sent_email; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.dossier_sent_email.de_sent_email IS 'Number of sent emails';
 
 
 --
--- Name: COLUMN dossier_sent_email.dos_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN dossier_sent_email.dos_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.dossier_sent_email.dos_id IS 'Link to ac_dossier';
 
 
 --
--- Name: dossier_sent_email_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: dossier_sent_email_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.dossier_sent_email_id_seq
@@ -233,17 +233,17 @@ CREATE SEQUENCE public.dossier_sent_email_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.dossier_sent_email_id_seq OWNER TO postgres;
+ALTER TABLE public.dossier_sent_email_id_seq OWNER TO prisma;
 
 --
--- Name: dossier_sent_email_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: dossier_sent_email_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.dossier_sent_email_id_seq OWNED BY public.dossier_sent_email.id;
 
 
 --
--- Name: jnt_use_dos; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jnt_use_dos; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jnt_use_dos (
@@ -253,10 +253,10 @@ CREATE TABLE public.jnt_use_dos (
 );
 
 
-ALTER TABLE public.jnt_use_dos OWNER TO postgres;
+ALTER TABLE public.jnt_use_dos OWNER TO prisma;
 
 --
--- Name: modeledef; Type: TABLE; Schema: public; Owner: postgres
+-- Name: modeledef; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.modeledef (
@@ -266,10 +266,10 @@ CREATE TABLE public.modeledef (
 );
 
 
-ALTER TABLE public.modeledef OWNER TO postgres;
+ALTER TABLE public.modeledef OWNER TO prisma;
 
 --
--- Name: progress; Type: TABLE; Schema: public; Owner: postgres
+-- Name: progress; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.progress (
@@ -279,10 +279,10 @@ CREATE TABLE public.progress (
 );
 
 
-ALTER TABLE public.progress OWNER TO postgres;
+ALTER TABLE public.progress OWNER TO prisma;
 
 --
--- Name: recover_pass; Type: TABLE; Schema: public; Owner: postgres
+-- Name: recover_pass; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.recover_pass (
@@ -296,10 +296,10 @@ CREATE TABLE public.recover_pass (
 );
 
 
-ALTER TABLE public.recover_pass OWNER TO postgres;
+ALTER TABLE public.recover_pass OWNER TO prisma;
 
 --
--- Name: s_modid; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_modid; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_modid
@@ -310,10 +310,10 @@ CREATE SEQUENCE public.s_modid
     CACHE 1;
 
 
-ALTER TABLE public.s_modid OWNER TO postgres;
+ALTER TABLE public.s_modid OWNER TO prisma;
 
 --
--- Name: seq_jnt_use_dos; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_jnt_use_dos; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_jnt_use_dos
@@ -324,10 +324,10 @@ CREATE SEQUENCE public.seq_jnt_use_dos
     CACHE 1;
 
 
-ALTER TABLE public.seq_jnt_use_dos OWNER TO postgres;
+ALTER TABLE public.seq_jnt_use_dos OWNER TO prisma;
 
 --
--- Name: seq_priv_user; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_priv_user; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_priv_user
@@ -338,10 +338,10 @@ CREATE SEQUENCE public.seq_priv_user
     CACHE 1;
 
 
-ALTER TABLE public.seq_priv_user OWNER TO postgres;
+ALTER TABLE public.seq_priv_user OWNER TO prisma;
 
 --
--- Name: theme; Type: TABLE; Schema: public; Owner: postgres
+-- Name: theme; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.theme (
@@ -351,10 +351,10 @@ CREATE TABLE public.theme (
 );
 
 
-ALTER TABLE public.theme OWNER TO postgres;
+ALTER TABLE public.theme OWNER TO prisma;
 
 --
--- Name: user_global_pref; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_global_pref; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_global_pref (
@@ -364,38 +364,38 @@ CREATE TABLE public.user_global_pref (
 );
 
 
-ALTER TABLE public.user_global_pref OWNER TO postgres;
+ALTER TABLE public.user_global_pref OWNER TO prisma;
 
 --
--- Name: TABLE user_global_pref; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE user_global_pref; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.user_global_pref IS 'The user''s global parameter ';
 
 
 --
--- Name: COLUMN user_global_pref.user_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_global_pref.user_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_global_pref.user_id IS 'user''s login ';
 
 
 --
--- Name: COLUMN user_global_pref.parameter_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_global_pref.parameter_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_global_pref.parameter_type IS 'the type of parameter ';
 
 
 --
--- Name: COLUMN user_global_pref.parameter_value; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_global_pref.parameter_value; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_global_pref.parameter_value IS 'the value of parameter ';
 
 
 --
--- Name: users_id; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: users_id; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.users_id
@@ -406,10 +406,10 @@ CREATE SEQUENCE public.users_id
     CACHE 1;
 
 
-ALTER TABLE public.users_id OWNER TO postgres;
+ALTER TABLE public.users_id OWNER TO prisma;
 
 --
--- Name: version; Type: TABLE; Schema: public; Owner: postgres
+-- Name: version; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.version (
@@ -417,24 +417,24 @@ CREATE TABLE public.version (
 );
 
 
-ALTER TABLE public.version OWNER TO postgres;
+ALTER TABLE public.version OWNER TO prisma;
 
 --
--- Name: audit_connect ac_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: audit_connect ac_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.audit_connect ALTER COLUMN ac_id SET DEFAULT nextval('public.audit_connect_ac_id_seq'::regclass);
 
 
 --
--- Name: dossier_sent_email id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: dossier_sent_email id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.dossier_sent_email ALTER COLUMN id SET DEFAULT nextval('public.dossier_sent_email_id_seq'::regclass);
 
 
 --
--- Name: ac_dossier ac_dossier_dos_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ac_dossier ac_dossier_dos_name_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.ac_dossier
@@ -442,7 +442,7 @@ ALTER TABLE ONLY public.ac_dossier
 
 
 --
--- Name: ac_dossier ac_dossier_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ac_dossier ac_dossier_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.ac_dossier
@@ -450,7 +450,7 @@ ALTER TABLE ONLY public.ac_dossier
 
 
 --
--- Name: ac_users ac_users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ac_users ac_users_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.ac_users
@@ -458,7 +458,7 @@ ALTER TABLE ONLY public.ac_users
 
 
 --
--- Name: ac_users ac_users_use_login_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ac_users ac_users_use_login_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.ac_users
@@ -466,7 +466,7 @@ ALTER TABLE ONLY public.ac_users
 
 
 --
--- Name: audit_connect audit_connect_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: audit_connect audit_connect_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.audit_connect
@@ -474,7 +474,7 @@ ALTER TABLE ONLY public.audit_connect
 
 
 --
--- Name: dossier_sent_email de_date_dos_id_ux; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dossier_sent_email de_date_dos_id_ux; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.dossier_sent_email
@@ -482,7 +482,7 @@ ALTER TABLE ONLY public.dossier_sent_email
 
 
 --
--- Name: dossier_sent_email dossier_sent_email_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dossier_sent_email dossier_sent_email_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.dossier_sent_email
@@ -490,7 +490,7 @@ ALTER TABLE ONLY public.dossier_sent_email
 
 
 --
--- Name: jnt_use_dos jnt_use_dos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_use_dos jnt_use_dos_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_use_dos
@@ -498,7 +498,7 @@ ALTER TABLE ONLY public.jnt_use_dos
 
 
 --
--- Name: modeledef modeledef_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: modeledef modeledef_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.modeledef
@@ -506,7 +506,7 @@ ALTER TABLE ONLY public.modeledef
 
 
 --
--- Name: user_global_pref pk_user_global_pref; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_global_pref pk_user_global_pref; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_global_pref
@@ -514,7 +514,7 @@ ALTER TABLE ONLY public.user_global_pref
 
 
 --
--- Name: progress progress_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: progress progress_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.progress
@@ -522,7 +522,7 @@ ALTER TABLE ONLY public.progress
 
 
 --
--- Name: recover_pass recover_pass_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: recover_pass recover_pass_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.recover_pass
@@ -530,7 +530,7 @@ ALTER TABLE ONLY public.recover_pass
 
 
 --
--- Name: jnt_use_dos use_id_dos_id_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_use_dos use_id_dos_id_uniq; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_use_dos
@@ -538,7 +538,7 @@ ALTER TABLE ONLY public.jnt_use_dos
 
 
 --
--- Name: version version_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: version version_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.version
@@ -546,42 +546,42 @@ ALTER TABLE ONLY public.version
 
 
 --
--- Name: audit_connect_ac_user; Type: INDEX; Schema: public; Owner: postgres
+-- Name: audit_connect_ac_user; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX audit_connect_ac_user ON public.audit_connect USING btree (ac_user);
 
 
 --
--- Name: fk_jnt_dos_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_jnt_dos_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_jnt_dos_id ON public.jnt_use_dos USING btree (dos_id);
 
 
 --
--- Name: fk_jnt_use_dos; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_jnt_use_dos; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_jnt_use_dos ON public.jnt_use_dos USING btree (use_id);
 
 
 --
--- Name: fki_ac_users_recover_pass_fk; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_ac_users_recover_pass_fk; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_ac_users_recover_pass_fk ON public.recover_pass USING btree (use_id);
 
 
 --
--- Name: audit_connect limit_user_trg; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: audit_connect limit_user_trg; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER limit_user_trg BEFORE INSERT OR UPDATE ON public.audit_connect FOR EACH ROW EXECUTE PROCEDURE public.limit_user();
 
 
 --
--- Name: recover_pass ac_users_recover_pass_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: recover_pass ac_users_recover_pass_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.recover_pass
@@ -589,7 +589,7 @@ ALTER TABLE ONLY public.recover_pass
 
 
 --
--- Name: dossier_sent_email de_ac_dossier_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dossier_sent_email de_ac_dossier_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.dossier_sent_email
@@ -597,7 +597,7 @@ ALTER TABLE ONLY public.dossier_sent_email
 
 
 --
--- Name: user_global_pref fk_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_global_pref fk_user_id; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_global_pref
@@ -605,7 +605,7 @@ ALTER TABLE ONLY public.user_global_pref
 
 
 --
--- Name: jnt_use_dos jnt_use_dos_dos_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_use_dos jnt_use_dos_dos_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_use_dos
@@ -613,7 +613,7 @@ ALTER TABLE ONLY public.jnt_use_dos
 
 
 --
--- Name: jnt_use_dos jnt_use_dos_use_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_use_dos jnt_use_dos_use_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_use_dos

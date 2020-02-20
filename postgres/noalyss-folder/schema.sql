@@ -17,13 +17,13 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: comptaproc; Type: SCHEMA; Schema: -; Owner: postgres
+-- Name: comptaproc; Type: SCHEMA; Schema: -; Owner: prisma
 --
 
 CREATE SCHEMA comptaproc;
 
 
-ALTER SCHEMA comptaproc OWNER TO postgres;
+ALTER SCHEMA comptaproc OWNER TO prisma;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
@@ -40,16 +40,16 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: account_type; Type: DOMAIN; Schema: public; Owner: postgres
+-- Name: account_type; Type: DOMAIN; Schema: public; Owner: prisma
 --
 
 CREATE DOMAIN public.account_type AS character varying(40);
 
 
-ALTER DOMAIN public.account_type OWNER TO postgres;
+ALTER DOMAIN public.account_type OWNER TO prisma;
 
 --
--- Name: anc_table_account_type; Type: TYPE; Schema: public; Owner: postgres
+-- Name: anc_table_account_type; Type: TYPE; Schema: public; Owner: prisma
 --
 
 CREATE TYPE public.anc_table_account_type AS (
@@ -63,10 +63,10 @@ CREATE TYPE public.anc_table_account_type AS (
 );
 
 
-ALTER TYPE public.anc_table_account_type OWNER TO postgres;
+ALTER TYPE public.anc_table_account_type OWNER TO prisma;
 
 --
--- Name: anc_table_card_type; Type: TYPE; Schema: public; Owner: postgres
+-- Name: anc_table_card_type; Type: TYPE; Schema: public; Owner: prisma
 --
 
 CREATE TYPE public.anc_table_card_type AS (
@@ -81,10 +81,10 @@ CREATE TYPE public.anc_table_card_type AS (
 );
 
 
-ALTER TYPE public.anc_table_card_type OWNER TO postgres;
+ALTER TYPE public.anc_table_card_type OWNER TO prisma;
 
 --
--- Name: menu_tree; Type: TYPE; Schema: public; Owner: postgres
+-- Name: menu_tree; Type: TYPE; Schema: public; Owner: prisma
 --
 
 CREATE TYPE public.menu_tree AS (
@@ -93,10 +93,10 @@ CREATE TYPE public.menu_tree AS (
 );
 
 
-ALTER TYPE public.menu_tree OWNER TO postgres;
+ALTER TYPE public.menu_tree OWNER TO prisma;
 
 --
--- Name: account_add(public.account_type, character varying); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_add(public.account_type, character varying); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_add(p_id public.account_type, p_name character varying) RETURNS text
@@ -119,10 +119,10 @@ end ;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_add(p_id public.account_type, p_name character varying) OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_add(p_id public.account_type, p_name character varying) OWNER TO prisma;
 
 --
--- Name: account_alphanum(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_alphanum(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_alphanum() RETURNS boolean
@@ -141,10 +141,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_alphanum() OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_alphanum() OWNER TO prisma;
 
 --
--- Name: account_auto(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_auto(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_auto(p_fd_id integer) RETURNS boolean
@@ -163,10 +163,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_auto(p_fd_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_auto(p_fd_id integer) OWNER TO prisma;
 
 --
--- Name: account_compute(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_compute(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_compute(p_f_id integer) RETURNS public.account_type
@@ -218,10 +218,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_compute(p_f_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_compute(p_f_id integer) OWNER TO prisma;
 
 --
--- Name: account_insert(integer, text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_insert(integer, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_insert(p_f_id integer, p_account text) RETURNS text
@@ -311,10 +311,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_insert(p_f_id integer, p_account text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_insert(p_f_id integer, p_account text) OWNER TO prisma;
 
 --
--- Name: account_parent(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_parent(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_parent(p_account public.account_type) RETURNS public.account_type
@@ -350,10 +350,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_parent(p_account public.account_type) OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_parent(p_account public.account_type) OWNER TO prisma;
 
 --
--- Name: account_update(integer, public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: account_update(integer, public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.account_update(p_f_id integer, p_account public.account_type) RETURNS integer
@@ -406,10 +406,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.account_update(p_f_id integer, p_account public.account_type) OWNER TO postgres;
+ALTER FUNCTION comptaproc.account_update(p_f_id integer, p_account public.account_type) OWNER TO prisma;
 
 --
--- Name: action_gestion_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: action_gestion_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.action_gestion_ins_upd() RETURNS trigger
@@ -424,10 +424,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.action_gestion_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.action_gestion_ins_upd() OWNER TO prisma;
 
 --
--- Name: action_gestion_related_ins_up(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: action_gestion_related_ins_up(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.action_gestion_related_ins_up() RETURNS trigger
@@ -453,10 +453,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.action_gestion_related_ins_up() OWNER TO postgres;
+ALTER FUNCTION comptaproc.action_gestion_related_ins_up() OWNER TO prisma;
 
 --
--- Name: anc_correct_tvand(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: anc_correct_tvand(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.anc_correct_tvand() RETURNS void
@@ -489,10 +489,10 @@ end;
  $$;
 
 
-ALTER FUNCTION comptaproc.anc_correct_tvand() OWNER TO postgres;
+ALTER FUNCTION comptaproc.anc_correct_tvand() OWNER TO prisma;
 
 --
--- Name: attribut_insert(integer, integer, character varying); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: attribut_insert(integer, integer, character varying); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.attribut_insert(p_f_id integer, p_ad_id integer, p_value character varying) RETURNS void
@@ -506,10 +506,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.attribut_insert(p_f_id integer, p_ad_id integer, p_value character varying) OWNER TO postgres;
+ALTER FUNCTION comptaproc.attribut_insert(p_f_id integer, p_ad_id integer, p_value character varying) OWNER TO prisma;
 
 --
--- Name: attribute_correct_order(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: attribute_correct_order(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.attribute_correct_order() RETURNS void
@@ -534,10 +534,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.attribute_correct_order() OWNER TO postgres;
+ALTER FUNCTION comptaproc.attribute_correct_order() OWNER TO prisma;
 
 --
--- Name: card_after_delete(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: card_after_delete(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.card_after_delete() RETURNS trigger
@@ -553,10 +553,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.card_after_delete() OWNER TO postgres;
+ALTER FUNCTION comptaproc.card_after_delete() OWNER TO prisma;
 
 --
--- Name: card_class_base(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: card_class_base(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.card_class_base(p_f_id integer) RETURNS text
@@ -577,10 +577,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.card_class_base(p_f_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.card_class_base(p_f_id integer) OWNER TO prisma;
 
 --
--- Name: category_card_before_delete(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: category_card_before_delete(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.category_card_before_delete() RETURNS trigger
@@ -597,10 +597,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.category_card_before_delete() OWNER TO postgres;
+ALTER FUNCTION comptaproc.category_card_before_delete() OWNER TO prisma;
 
 --
--- Name: check_balance(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: check_balance(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.check_balance(p_grpt integer) RETURNS numeric
@@ -641,10 +641,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.check_balance(p_grpt integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.check_balance(p_grpt integer) OWNER TO prisma;
 
 --
--- Name: check_periode(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: check_periode(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.check_periode() RETURNS trigger
@@ -669,10 +669,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.check_periode() OWNER TO postgres;
+ALTER FUNCTION comptaproc.check_periode() OWNER TO prisma;
 
 --
--- Name: correct_sequence(text, text, text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: correct_sequence(text, text, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.correct_sequence(p_sequence text, p_col text, p_table text) RETURNS integer
@@ -708,17 +708,17 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.correct_sequence(p_sequence text, p_col text, p_table text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.correct_sequence(p_sequence text, p_col text, p_table text) OWNER TO prisma;
 
 --
--- Name: FUNCTION correct_sequence(p_sequence text, p_col text, p_table text); Type: COMMENT; Schema: comptaproc; Owner: postgres
+-- Name: FUNCTION correct_sequence(p_sequence text, p_col text, p_table text); Type: COMMENT; Schema: comptaproc; Owner: prisma
 --
 
 COMMENT ON FUNCTION comptaproc.correct_sequence(p_sequence text, p_col text, p_table text) IS ' Often the primary key is a sequence number and sometimes the value of the sequence is not synchronized with the primary key ( p_sequence : sequence name, p_col : col of the pk,p_table : concerned table';
 
 
 --
--- Name: create_missing_sequence(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: create_missing_sequence(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.create_missing_sequence() RETURNS integer
@@ -746,10 +746,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.create_missing_sequence() OWNER TO postgres;
+ALTER FUNCTION comptaproc.create_missing_sequence() OWNER TO prisma;
 
 --
--- Name: drop_index(character varying); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: drop_index(character varying); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.drop_index(p_constraint character varying) RETURNS void
@@ -766,10 +766,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.drop_index(p_constraint character varying) OWNER TO postgres;
+ALTER FUNCTION comptaproc.drop_index(p_constraint character varying) OWNER TO prisma;
 
 --
--- Name: drop_it(character varying); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: drop_it(character varying); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.drop_it(p_constraint character varying) RETURNS void
@@ -786,10 +786,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.drop_it(p_constraint character varying) OWNER TO postgres;
+ALTER FUNCTION comptaproc.drop_it(p_constraint character varying) OWNER TO prisma;
 
 --
--- Name: extension_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: extension_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.extension_ins_upd() RETURNS trigger
@@ -821,10 +821,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.extension_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.extension_ins_upd() OWNER TO prisma;
 
 --
--- Name: fiche_account_parent(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: fiche_account_parent(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.fiche_account_parent(p_f_id integer) RETURNS public.account_type
@@ -842,10 +842,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.fiche_account_parent(p_f_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.fiche_account_parent(p_f_id integer) OWNER TO prisma;
 
 --
--- Name: fiche_attribut_synchro(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: fiche_attribut_synchro(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.fiche_attribut_synchro(p_fd_id integer) RETURNS void
@@ -872,10 +872,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.fiche_attribut_synchro(p_fd_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.fiche_attribut_synchro(p_fd_id integer) OWNER TO prisma;
 
 --
--- Name: fiche_def_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: fiche_def_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.fiche_def_ins_upd() RETURNS trigger
@@ -891,10 +891,10 @@ return NEW;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.fiche_def_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.fiche_def_ins_upd() OWNER TO prisma;
 
 --
--- Name: fiche_detail_qcode_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: fiche_detail_qcode_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.fiche_detail_qcode_upd() RETURNS trigger
@@ -923,10 +923,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.fiche_detail_qcode_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.fiche_detail_qcode_upd() OWNER TO prisma;
 
 --
--- Name: fill_quant_fin(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: fill_quant_fin(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.fill_quant_fin() RETURNS void
@@ -1085,10 +1085,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.fill_quant_fin() OWNER TO postgres;
+ALTER FUNCTION comptaproc.fill_quant_fin() OWNER TO prisma;
 
 --
--- Name: find_pcm_type(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: find_pcm_type(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.find_pcm_type(pp_value public.account_type) RETURNS text
@@ -1114,10 +1114,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.find_pcm_type(pp_value public.account_type) OWNER TO postgres;
+ALTER FUNCTION comptaproc.find_pcm_type(pp_value public.account_type) OWNER TO prisma;
 
 --
--- Name: find_periode(text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: find_periode(text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.find_periode(p_date text) RETURNS integer
@@ -1143,10 +1143,10 @@ return n_p_id;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.find_periode(p_date text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.find_periode(p_date text) OWNER TO prisma;
 
 --
--- Name: format_account(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: format_account(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.format_account(p_account public.account_type) RETURNS public.account_type
@@ -1169,10 +1169,10 @@ end;
 $_$;
 
 
-ALTER FUNCTION comptaproc.format_account(p_account public.account_type) OWNER TO postgres;
+ALTER FUNCTION comptaproc.format_account(p_account public.account_type) OWNER TO prisma;
 
 --
--- Name: FUNCTION format_account(p_account public.account_type); Type: COMMENT; Schema: comptaproc; Owner: postgres
+-- Name: FUNCTION format_account(p_account public.account_type); Type: COMMENT; Schema: comptaproc; Owner: prisma
 --
 
 COMMENT ON FUNCTION comptaproc.format_account(p_account public.account_type) IS 'format the accounting :
@@ -1182,7 +1182,7 @@ COMMENT ON FUNCTION comptaproc.format_account(p_account public.account_type) IS 
 
 
 --
--- Name: get_letter_jnt(bigint); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: get_letter_jnt(bigint); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.get_letter_jnt(a bigint) RETURNS bigint
@@ -1203,10 +1203,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.get_letter_jnt(a bigint) OWNER TO postgres;
+ALTER FUNCTION comptaproc.get_letter_jnt(a bigint) OWNER TO prisma;
 
 --
--- Name: get_menu_dependency(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: get_menu_dependency(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.get_menu_dependency(profile_menu_id integer) RETURNS SETOF integer
@@ -1235,10 +1235,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.get_menu_dependency(profile_menu_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.get_menu_dependency(profile_menu_id integer) OWNER TO prisma;
 
 --
--- Name: get_menu_tree(text, integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: get_menu_tree(text, integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.get_menu_tree(p_code text, p_profile integer) RETURNS SETOF public.menu_tree
@@ -1274,10 +1274,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.get_menu_tree(p_code text, p_profile integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.get_menu_tree(p_code text, p_profile integer) OWNER TO prisma;
 
 --
--- Name: get_pcm_tree(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: get_pcm_tree(public.account_type); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.get_pcm_tree(source public.account_type) RETURNS SETOF public.account_type
@@ -1301,10 +1301,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.get_pcm_tree(source public.account_type) OWNER TO postgres;
+ALTER FUNCTION comptaproc.get_pcm_tree(source public.account_type) OWNER TO prisma;
 
 --
--- Name: get_profile_menu(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: get_profile_menu(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.get_profile_menu(p_profile integer) RETURNS SETOF public.menu_tree
@@ -1330,10 +1330,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.get_profile_menu(p_profile integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.get_profile_menu(p_profile integer) OWNER TO prisma;
 
 --
--- Name: group_analytic_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: group_analytic_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.group_analytic_ins_upd() RETURNS trigger
@@ -1350,10 +1350,10 @@ return NEW;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.group_analytic_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.group_analytic_ins_upd() OWNER TO prisma;
 
 --
--- Name: group_analytique_del(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: group_analytique_del(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.group_analytique_del() RETURNS trigger
@@ -1366,10 +1366,10 @@ return OLD;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.group_analytique_del() OWNER TO postgres;
+ALTER FUNCTION comptaproc.group_analytique_del() OWNER TO prisma;
 
 --
--- Name: html_quote(text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: html_quote(text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.html_quote(p_string text) RETURNS text
@@ -1386,17 +1386,17 @@ begin
 end;$$;
 
 
-ALTER FUNCTION comptaproc.html_quote(p_string text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.html_quote(p_string text) OWNER TO prisma;
 
 --
--- Name: FUNCTION html_quote(p_string text); Type: COMMENT; Schema: comptaproc; Owner: postgres
+-- Name: FUNCTION html_quote(p_string text); Type: COMMENT; Schema: comptaproc; Owner: prisma
 --
 
 COMMENT ON FUNCTION comptaproc.html_quote(p_string text) IS 'remove harmfull HTML char';
 
 
 --
--- Name: info_def_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: info_def_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.info_def_ins_upd() RETURNS trigger
@@ -1420,10 +1420,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.info_def_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.info_def_ins_upd() OWNER TO prisma;
 
 --
--- Name: insert_jrnx(character varying, numeric, public.account_type, integer, integer, boolean, text, integer, text, text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: insert_jrnx(character varying, numeric, public.account_type, integer, integer, boolean, text, integer, text, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.insert_jrnx(p_date character varying, p_montant numeric, p_poste public.account_type, p_grpt integer, p_jrn_def integer, p_debit boolean, p_tech_user text, p_tech_per integer, p_qcode text, p_comment text) RETURNS void
@@ -1461,10 +1461,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.insert_jrnx(p_date character varying, p_montant numeric, p_poste public.account_type, p_grpt integer, p_jrn_def integer, p_debit boolean, p_tech_user text, p_tech_per integer, p_qcode text, p_comment text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.insert_jrnx(p_date character varying, p_montant numeric, p_poste public.account_type, p_grpt integer, p_jrn_def integer, p_debit boolean, p_tech_user text, p_tech_per integer, p_qcode text, p_comment text) OWNER TO prisma;
 
 --
--- Name: insert_quant_purchase(text, numeric, character varying, numeric, numeric, numeric, integer, numeric, numeric, numeric, numeric, character varying, numeric, numeric); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: insert_quant_purchase(text, numeric, character varying, numeric, numeric, numeric, integer, numeric, numeric, numeric, numeric, character varying, numeric, numeric); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.insert_quant_purchase(p_internal text, p_j_id numeric, p_fiche character varying, p_quant numeric, p_price numeric, p_vat numeric, p_vat_code integer, p_nd_amount numeric, p_nd_tva numeric, p_nd_tva_recup numeric, p_dep_priv numeric, p_client character varying, p_tva_sided numeric, p_price_unit numeric) RETURNS void
@@ -1523,10 +1523,10 @@ end;
  $$;
 
 
-ALTER FUNCTION comptaproc.insert_quant_purchase(p_internal text, p_j_id numeric, p_fiche character varying, p_quant numeric, p_price numeric, p_vat numeric, p_vat_code integer, p_nd_amount numeric, p_nd_tva numeric, p_nd_tva_recup numeric, p_dep_priv numeric, p_client character varying, p_tva_sided numeric, p_price_unit numeric) OWNER TO postgres;
+ALTER FUNCTION comptaproc.insert_quant_purchase(p_internal text, p_j_id numeric, p_fiche character varying, p_quant numeric, p_price numeric, p_vat numeric, p_vat_code integer, p_nd_amount numeric, p_nd_tva numeric, p_nd_tva_recup numeric, p_dep_priv numeric, p_client character varying, p_tva_sided numeric, p_price_unit numeric) OWNER TO prisma;
 
 --
--- Name: insert_quant_sold(text, numeric, character varying, numeric, numeric, numeric, integer, character varying, numeric, numeric); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: insert_quant_sold(text, numeric, character varying, numeric, numeric, numeric, integer, character varying, numeric, numeric); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.insert_quant_sold(p_internal text, p_jid numeric, p_fiche character varying, p_quant numeric, p_price numeric, p_vat numeric, p_vat_code integer, p_client character varying, p_tva_sided numeric, p_price_unit numeric) RETURNS void
@@ -1550,10 +1550,10 @@ end;
  $$;
 
 
-ALTER FUNCTION comptaproc.insert_quant_sold(p_internal text, p_jid numeric, p_fiche character varying, p_quant numeric, p_price numeric, p_vat numeric, p_vat_code integer, p_client character varying, p_tva_sided numeric, p_price_unit numeric) OWNER TO postgres;
+ALTER FUNCTION comptaproc.insert_quant_sold(p_internal text, p_jid numeric, p_fiche character varying, p_quant numeric, p_price numeric, p_vat numeric, p_vat_code integer, p_client character varying, p_tva_sided numeric, p_price_unit numeric) OWNER TO prisma;
 
 --
--- Name: insert_quick_code(integer, text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: insert_quick_code(integer, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.insert_quick_code(nf_id integer, tav_text text) RETURNS integer
@@ -1621,10 +1621,10 @@ CREATE FUNCTION comptaproc.insert_quick_code(nf_id integer, tav_text text) RETUR
 $_$;
 
 
-ALTER FUNCTION comptaproc.insert_quick_code(nf_id integer, tav_text text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.insert_quick_code(nf_id integer, tav_text text) OWNER TO prisma;
 
 --
--- Name: is_closed(integer, integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: is_closed(integer, integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.is_closed(p_periode integer, p_jrn_def_id integer) RETURNS boolean
@@ -1652,10 +1652,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.is_closed(p_periode integer, p_jrn_def_id integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.is_closed(p_periode integer, p_jrn_def_id integer) OWNER TO prisma;
 
 --
--- Name: jnt_fic_attr_ins(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jnt_fic_attr_ins(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jnt_fic_attr_ins() RETURNS trigger
@@ -1675,10 +1675,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.jnt_fic_attr_ins() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jnt_fic_attr_ins() OWNER TO prisma;
 
 --
--- Name: jrn_add_note(bigint, text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrn_add_note(bigint, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrn_add_note(p_jrid bigint, p_note text) RETURNS void
@@ -1706,10 +1706,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.jrn_add_note(p_jrid bigint, p_note text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrn_add_note(p_jrid bigint, p_note text) OWNER TO prisma;
 
 --
--- Name: jrn_check_periode(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrn_check_periode(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrn_check_periode() RETURNS trigger
@@ -1756,10 +1756,10 @@ return lreturn;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.jrn_check_periode() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrn_check_periode() OWNER TO prisma;
 
 --
--- Name: jrn_def_add(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrn_def_add(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrn_def_add() RETURNS trigger
@@ -1776,10 +1776,10 @@ return NEW;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.jrn_def_add() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrn_def_add() OWNER TO prisma;
 
 --
--- Name: jrn_def_delete(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrn_def_delete(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrn_def_delete() RETURNS trigger
@@ -1797,10 +1797,10 @@ return OLD;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.jrn_def_delete() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrn_def_delete() OWNER TO prisma;
 
 --
--- Name: jrn_del(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrn_del(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrn_del() RETURNS trigger
@@ -1855,10 +1855,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.jrn_del() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrn_del() OWNER TO prisma;
 
 --
--- Name: jrnx_del(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrnx_del(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrnx_del() RETURNS trigger
@@ -1881,10 +1881,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.jrnx_del() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrnx_del() OWNER TO prisma;
 
 --
--- Name: jrnx_ins(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrnx_ins(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrnx_ins() RETURNS trigger
@@ -1937,10 +1937,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.jrnx_ins() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrnx_ins() OWNER TO prisma;
 
 --
--- Name: jrnx_letter_del(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: jrnx_letter_del(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.jrnx_letter_del() RETURNS trigger
@@ -1958,10 +1958,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.jrnx_letter_del() OWNER TO postgres;
+ALTER FUNCTION comptaproc.jrnx_letter_del() OWNER TO prisma;
 
 --
--- Name: menu_complete_dependency(numeric); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: menu_complete_dependency(numeric); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.menu_complete_dependency(n_profile numeric) RETURNS void
@@ -2013,10 +2013,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.menu_complete_dependency(n_profile numeric) OWNER TO postgres;
+ALTER FUNCTION comptaproc.menu_complete_dependency(n_profile numeric) OWNER TO prisma;
 
 --
--- Name: opd_limit_description(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: opd_limit_description(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.opd_limit_description() RETURNS trigger
@@ -2032,10 +2032,10 @@ CREATE FUNCTION comptaproc.opd_limit_description() RETURNS trigger
 $$;
 
 
-ALTER FUNCTION comptaproc.opd_limit_description() OWNER TO postgres;
+ALTER FUNCTION comptaproc.opd_limit_description() OWNER TO prisma;
 
 --
--- Name: periode_exist(text, bigint); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: periode_exist(text, bigint); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.periode_exist(p_date text, p_periode_id bigint) RETURNS integer
@@ -2063,10 +2063,10 @@ return n_p_id;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.periode_exist(p_date text, p_periode_id bigint) OWNER TO postgres;
+ALTER FUNCTION comptaproc.periode_exist(p_date text, p_periode_id bigint) OWNER TO prisma;
 
 --
--- Name: plan_analytic_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: plan_analytic_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.plan_analytic_ins_upd() RETURNS trigger
@@ -2084,10 +2084,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.plan_analytic_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.plan_analytic_ins_upd() OWNER TO prisma;
 
 --
--- Name: poste_analytique_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: poste_analytique_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.poste_analytique_ins_upd() RETURNS trigger
@@ -2118,10 +2118,10 @@ return NEW;
 end;$$;
 
 
-ALTER FUNCTION comptaproc.poste_analytique_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.poste_analytique_ins_upd() OWNER TO prisma;
 
 --
--- Name: proc_check_balance(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: proc_check_balance(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.proc_check_balance() RETURNS trigger
@@ -2143,10 +2143,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.proc_check_balance() OWNER TO postgres;
+ALTER FUNCTION comptaproc.proc_check_balance() OWNER TO prisma;
 
 --
--- Name: quant_purchase_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: quant_purchase_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.quant_purchase_ins_upd() RETURNS trigger
@@ -2162,10 +2162,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.quant_purchase_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.quant_purchase_ins_upd() OWNER TO prisma;
 
 --
--- Name: quant_sold_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: quant_sold_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.quant_sold_ins_upd() RETURNS trigger
@@ -2181,10 +2181,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.quant_sold_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.quant_sold_ins_upd() OWNER TO prisma;
 
 --
--- Name: t_document_modele_validate(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: t_document_modele_validate(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.t_document_modele_validate() RETURNS trigger
@@ -2202,10 +2202,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.t_document_modele_validate() OWNER TO postgres;
+ALTER FUNCTION comptaproc.t_document_modele_validate() OWNER TO prisma;
 
 --
--- Name: t_document_type_insert(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: t_document_type_insert(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.t_document_type_insert() RETURNS trigger
@@ -2223,10 +2223,10 @@ end if;
 $$;
 
 
-ALTER FUNCTION comptaproc.t_document_type_insert() OWNER TO postgres;
+ALTER FUNCTION comptaproc.t_document_type_insert() OWNER TO prisma;
 
 --
--- Name: t_document_validate(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: t_document_validate(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.t_document_validate() RETURNS trigger
@@ -2243,10 +2243,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.t_document_validate() OWNER TO postgres;
+ALTER FUNCTION comptaproc.t_document_validate() OWNER TO prisma;
 
 --
--- Name: t_jrn_def_description(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: t_jrn_def_description(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.t_jrn_def_description() RETURNS trigger
@@ -2263,10 +2263,10 @@ CREATE FUNCTION comptaproc.t_jrn_def_description() RETURNS trigger
 $$;
 
 
-ALTER FUNCTION comptaproc.t_jrn_def_description() OWNER TO postgres;
+ALTER FUNCTION comptaproc.t_jrn_def_description() OWNER TO prisma;
 
 --
--- Name: t_jrn_def_sequence(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: t_jrn_def_sequence(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.t_jrn_def_sequence() RETURNS trigger
@@ -2288,10 +2288,10 @@ nCounter integer;
 $$;
 
 
-ALTER FUNCTION comptaproc.t_jrn_def_sequence() OWNER TO postgres;
+ALTER FUNCTION comptaproc.t_jrn_def_sequence() OWNER TO prisma;
 
 --
--- Name: tmp_pcmn_alphanum_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: tmp_pcmn_alphanum_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.tmp_pcmn_alphanum_ins_upd() RETURNS trigger
@@ -2308,10 +2308,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.tmp_pcmn_alphanum_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.tmp_pcmn_alphanum_ins_upd() OWNER TO prisma;
 
 --
--- Name: tmp_pcmn_ins(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: tmp_pcmn_ins(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.tmp_pcmn_ins() RETURNS trigger
@@ -2330,10 +2330,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.tmp_pcmn_ins() OWNER TO postgres;
+ALTER FUNCTION comptaproc.tmp_pcmn_ins() OWNER TO prisma;
 
 --
--- Name: trg_profile_user_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trg_profile_user_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trg_profile_user_ins_upd() RETURNS trigger
@@ -2349,10 +2349,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trg_profile_user_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trg_profile_user_ins_upd() OWNER TO prisma;
 
 --
--- Name: trg_todo_list_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trg_todo_list_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trg_todo_list_ins_upd() RETURNS trigger
@@ -2368,10 +2368,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trg_todo_list_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trg_todo_list_ins_upd() OWNER TO prisma;
 
 --
--- Name: trg_todo_list_shared_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trg_todo_list_shared_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trg_todo_list_shared_ins_upd() RETURNS trigger
@@ -2387,10 +2387,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trg_todo_list_shared_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trg_todo_list_shared_ins_upd() OWNER TO prisma;
 
 --
--- Name: trg_user_sec_act_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trg_user_sec_act_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trg_user_sec_act_ins_upd() RETURNS trigger
@@ -2406,10 +2406,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trg_user_sec_act_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trg_user_sec_act_ins_upd() OWNER TO prisma;
 
 --
--- Name: trg_user_sec_jrn_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trg_user_sec_jrn_ins_upd(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trg_user_sec_jrn_ins_upd() RETURNS trigger
@@ -2425,10 +2425,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trg_user_sec_jrn_ins_upd() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trg_user_sec_jrn_ins_upd() OWNER TO prisma;
 
 --
--- Name: trim_cvs_quote(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trim_cvs_quote(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trim_cvs_quote() RETURNS trigger
@@ -2448,10 +2448,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trim_cvs_quote() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trim_cvs_quote() OWNER TO prisma;
 
 --
--- Name: trim_space_format_csv_banque(); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: trim_space_format_csv_banque(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.trim_space_format_csv_banque() RETURNS trigger
@@ -2474,10 +2474,10 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.trim_space_format_csv_banque() OWNER TO postgres;
+ALTER FUNCTION comptaproc.trim_space_format_csv_banque() OWNER TO prisma;
 
 --
--- Name: tva_delete(integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: tva_delete(integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.tva_delete(integer) RETURNS void
@@ -2505,10 +2505,10 @@ end;
 $_$;
 
 
-ALTER FUNCTION comptaproc.tva_delete(integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.tva_delete(integer) OWNER TO prisma;
 
 --
--- Name: tva_insert(text, numeric, text, text, integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: tva_insert(text, numeric, text, text, integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.tva_insert(text, numeric, text, text, integer) RETURNS integer
@@ -2547,10 +2547,10 @@ end;
 $_$;
 
 
-ALTER FUNCTION comptaproc.tva_insert(text, numeric, text, text, integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.tva_insert(text, numeric, text, text, integer) OWNER TO prisma;
 
 --
--- Name: tva_modify(integer, text, numeric, text, text, integer); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: tva_modify(integer, text, numeric, text, text, integer); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.tva_modify(integer, text, numeric, text, text, integer) RETURNS integer
@@ -2588,10 +2588,10 @@ end;
 $_$;
 
 
-ALTER FUNCTION comptaproc.tva_modify(integer, text, numeric, text, text, integer) OWNER TO postgres;
+ALTER FUNCTION comptaproc.tva_modify(integer, text, numeric, text, text, integer) OWNER TO prisma;
 
 --
--- Name: update_quick_code(integer, text); Type: FUNCTION; Schema: comptaproc; Owner: postgres
+-- Name: update_quick_code(integer, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
 --
 
 CREATE FUNCTION comptaproc.update_quick_code(njft_id integer, tav_text text) RETURNS integer
@@ -2659,10 +2659,10 @@ CREATE FUNCTION comptaproc.update_quick_code(njft_id integer, tav_text text) RET
 $_$;
 
 
-ALTER FUNCTION comptaproc.update_quick_code(njft_id integer, tav_text text) OWNER TO postgres;
+ALTER FUNCTION comptaproc.update_quick_code(njft_id integer, tav_text text) OWNER TO prisma;
 
 --
--- Name: bud_card_ins_upd(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: bud_card_ins_upd(); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.bud_card_ins_upd() RETURNS trigger
@@ -2679,10 +2679,10 @@ return NEW;
 end;$$;
 
 
-ALTER FUNCTION public.bud_card_ins_upd() OWNER TO postgres;
+ALTER FUNCTION public.bud_card_ins_upd() OWNER TO prisma;
 
 --
--- Name: bud_detail_ins_upd(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: bud_detail_ins_upd(); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.bud_detail_ins_upd() RETURNS trigger
@@ -2698,10 +2698,10 @@ return mline;
 end;$$;
 
 
-ALTER FUNCTION public.bud_detail_ins_upd() OWNER TO postgres;
+ALTER FUNCTION public.bud_detail_ins_upd() OWNER TO prisma;
 
 --
--- Name: correct_quant_purchase(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: correct_quant_purchase(); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.correct_quant_purchase() RETURNS void
@@ -2755,10 +2755,10 @@ end;
 $$;
 
 
-ALTER FUNCTION public.correct_quant_purchase() OWNER TO postgres;
+ALTER FUNCTION public.correct_quant_purchase() OWNER TO prisma;
 
 --
--- Name: correct_quant_sale(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: correct_quant_sale(); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.correct_quant_sale() RETURNS void
@@ -2812,10 +2812,10 @@ end;
 $$;
 
 
-ALTER FUNCTION public.correct_quant_sale() OWNER TO postgres;
+ALTER FUNCTION public.correct_quant_sale() OWNER TO prisma;
 
 --
--- Name: modify_menu_system(numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: modify_menu_system(numeric); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.modify_menu_system(n_profile numeric) RETURNS void
@@ -2887,10 +2887,10 @@ end;
 $$;
 
 
-ALTER FUNCTION public.modify_menu_system(n_profile numeric) OWNER TO postgres;
+ALTER FUNCTION public.modify_menu_system(n_profile numeric) OWNER TO prisma;
 
 --
--- Name: upgrade_repo(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: upgrade_repo(integer); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
 CREATE FUNCTION public.upgrade_repo(p_version integer) RETURNS void
@@ -2909,14 +2909,14 @@ end;
 $$;
 
 
-ALTER FUNCTION public.upgrade_repo(p_version integer) OWNER TO postgres;
+ALTER FUNCTION public.upgrade_repo(p_version integer) OWNER TO prisma;
 
 SET default_tablespace = '';
 
 SET default_with_oids = true;
 
 --
--- Name: action; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action (
@@ -2927,17 +2927,17 @@ CREATE TABLE public.action (
 );
 
 
-ALTER TABLE public.action OWNER TO postgres;
+ALTER TABLE public.action OWNER TO prisma;
 
 --
--- Name: TABLE action; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE action; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.action IS 'The different privileges';
 
 
 --
--- Name: COLUMN action.ac_code; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action.ac_code; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action.ac_code IS 'this code will be used in the code with the function User::check_action ';
@@ -2946,7 +2946,7 @@ COMMENT ON COLUMN public.action.ac_code IS 'this code will be used in the code w
 SET default_with_oids = false;
 
 --
--- Name: action_detail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_detail; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_detail (
@@ -2962,66 +2962,66 @@ CREATE TABLE public.action_detail (
 );
 
 
-ALTER TABLE public.action_detail OWNER TO postgres;
+ALTER TABLE public.action_detail OWNER TO prisma;
 
 --
--- Name: TABLE action_detail; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE action_detail; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.action_detail IS 'Detail of action_gestion, see class Action_Detail';
 
 
 --
--- Name: COLUMN action_detail.f_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.f_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.f_id IS 'the concerned	card';
 
 
 --
--- Name: COLUMN action_detail.ad_text; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.ad_text; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.ad_text IS ' Description ';
 
 
 --
--- Name: COLUMN action_detail.ad_pu; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.ad_pu; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.ad_pu IS ' price per unit ';
 
 
 --
--- Name: COLUMN action_detail.ad_quant; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.ad_quant; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.ad_quant IS 'quantity ';
 
 
 --
--- Name: COLUMN action_detail.ad_tva_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.ad_tva_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.ad_tva_id IS ' tva_id ';
 
 
 --
--- Name: COLUMN action_detail.ad_tva_amount; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.ad_tva_amount; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.ad_tva_amount IS ' tva_amount ';
 
 
 --
--- Name: COLUMN action_detail.ad_total_amount; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_detail.ad_total_amount; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_detail.ad_total_amount IS ' total amount';
 
 
 --
--- Name: action_detail_ad_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_detail_ad_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_detail_ad_id_seq
@@ -3032,17 +3032,17 @@ CREATE SEQUENCE public.action_detail_ad_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_detail_ad_id_seq OWNER TO postgres;
+ALTER TABLE public.action_detail_ad_id_seq OWNER TO prisma;
 
 --
--- Name: action_detail_ad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: action_detail_ad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.action_detail_ad_id_seq OWNED BY public.action_detail.ad_id;
 
 
 --
--- Name: action_gestion_ag_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_gestion_ag_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_gestion_ag_id_seq
@@ -3053,12 +3053,12 @@ CREATE SEQUENCE public.action_gestion_ag_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_gestion_ag_id_seq OWNER TO postgres;
+ALTER TABLE public.action_gestion_ag_id_seq OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: action_gestion; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_gestion; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_gestion (
@@ -3078,80 +3078,80 @@ CREATE TABLE public.action_gestion (
 );
 
 
-ALTER TABLE public.action_gestion OWNER TO postgres;
+ALTER TABLE public.action_gestion OWNER TO prisma;
 
 --
--- Name: TABLE action_gestion; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE action_gestion; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.action_gestion IS 'Contains the details for the follow-up of customer, supplier, administration';
 
 
 --
--- Name: COLUMN action_gestion.ag_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_type IS ' type of action: see document_type ';
 
 
 --
--- Name: COLUMN action_gestion.f_id_dest; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.f_id_dest; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.f_id_dest IS ' third party ';
 
 
 --
--- Name: COLUMN action_gestion.ag_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_title; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_title IS ' title ';
 
 
 --
--- Name: COLUMN action_gestion.ag_timestamp; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_timestamp; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_timestamp IS ' ';
 
 
 --
--- Name: COLUMN action_gestion.ag_ref; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_ref; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_ref IS 'its reference ';
 
 
 --
--- Name: COLUMN action_gestion.ag_priority; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_priority; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_priority IS 'Low, medium, important ';
 
 
 --
--- Name: COLUMN action_gestion.ag_dest; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_dest; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_dest IS ' is the profile which has to take care of this action ';
 
 
 --
--- Name: COLUMN action_gestion.ag_owner; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_owner; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_owner IS ' is the owner of this action ';
 
 
 --
--- Name: COLUMN action_gestion.ag_contact; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_contact; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_contact IS ' contact of the third part ';
 
 
 --
--- Name: COLUMN action_gestion.ag_state; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion.ag_state; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion.ag_state IS 'state of the action same as document_state ';
@@ -3160,7 +3160,7 @@ COMMENT ON COLUMN public.action_gestion.ag_state IS 'state of the action same as
 SET default_with_oids = false;
 
 --
--- Name: action_gestion_comment; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_gestion_comment; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_gestion_comment (
@@ -3172,38 +3172,38 @@ CREATE TABLE public.action_gestion_comment (
 );
 
 
-ALTER TABLE public.action_gestion_comment OWNER TO postgres;
+ALTER TABLE public.action_gestion_comment OWNER TO prisma;
 
 --
--- Name: COLUMN action_gestion_comment.agc_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_comment.agc_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_comment.agc_id IS 'PK';
 
 
 --
--- Name: COLUMN action_gestion_comment.ag_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_comment.ag_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_comment.ag_id IS 'FK to action_gestion';
 
 
 --
--- Name: COLUMN action_gestion_comment.agc_comment; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_comment.agc_comment; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_comment.agc_comment IS 'comment';
 
 
 --
--- Name: COLUMN action_gestion_comment.tech_user; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_comment.tech_user; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_comment.tech_user IS 'user_login';
 
 
 --
--- Name: action_gestion_comment_agc_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_gestion_comment_agc_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_gestion_comment_agc_id_seq
@@ -3214,17 +3214,17 @@ CREATE SEQUENCE public.action_gestion_comment_agc_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_gestion_comment_agc_id_seq OWNER TO postgres;
+ALTER TABLE public.action_gestion_comment_agc_id_seq OWNER TO prisma;
 
 --
--- Name: action_gestion_comment_agc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: action_gestion_comment_agc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.action_gestion_comment_agc_id_seq OWNED BY public.action_gestion_comment.agc_id;
 
 
 --
--- Name: action_gestion_operation; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_gestion_operation; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_gestion_operation (
@@ -3234,31 +3234,31 @@ CREATE TABLE public.action_gestion_operation (
 );
 
 
-ALTER TABLE public.action_gestion_operation OWNER TO postgres;
+ALTER TABLE public.action_gestion_operation OWNER TO prisma;
 
 --
--- Name: COLUMN action_gestion_operation.ago_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_operation.ago_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_operation.ago_id IS 'pk';
 
 
 --
--- Name: COLUMN action_gestion_operation.ag_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_operation.ag_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_operation.ag_id IS 'fk to action_gestion';
 
 
 --
--- Name: COLUMN action_gestion_operation.jr_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_operation.jr_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_operation.jr_id IS 'fk to jrn';
 
 
 --
--- Name: action_gestion_operation_ago_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_gestion_operation_ago_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_gestion_operation_ago_id_seq
@@ -3269,17 +3269,17 @@ CREATE SEQUENCE public.action_gestion_operation_ago_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_gestion_operation_ago_id_seq OWNER TO postgres;
+ALTER TABLE public.action_gestion_operation_ago_id_seq OWNER TO prisma;
 
 --
--- Name: action_gestion_operation_ago_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: action_gestion_operation_ago_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.action_gestion_operation_ago_id_seq OWNED BY public.action_gestion_operation.ago_id;
 
 
 --
--- Name: action_gestion_related; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_gestion_related; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_gestion_related (
@@ -3290,38 +3290,38 @@ CREATE TABLE public.action_gestion_related (
 );
 
 
-ALTER TABLE public.action_gestion_related OWNER TO postgres;
+ALTER TABLE public.action_gestion_related OWNER TO prisma;
 
 --
--- Name: COLUMN action_gestion_related.aga_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_related.aga_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_related.aga_id IS 'pk';
 
 
 --
--- Name: COLUMN action_gestion_related.aga_least; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_related.aga_least; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_related.aga_least IS 'fk to action_gestion, smallest ag_id';
 
 
 --
--- Name: COLUMN action_gestion_related.aga_greatest; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_related.aga_greatest; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_related.aga_greatest IS 'fk to action_gestion greatest ag_id';
 
 
 --
--- Name: COLUMN action_gestion_related.aga_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_gestion_related.aga_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_gestion_related.aga_type IS 'Type de liens';
 
 
 --
--- Name: action_gestion_related_aga_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_gestion_related_aga_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_gestion_related_aga_id_seq
@@ -3332,17 +3332,17 @@ CREATE SEQUENCE public.action_gestion_related_aga_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_gestion_related_aga_id_seq OWNER TO postgres;
+ALTER TABLE public.action_gestion_related_aga_id_seq OWNER TO prisma;
 
 --
--- Name: action_gestion_related_aga_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: action_gestion_related_aga_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.action_gestion_related_aga_id_seq OWNED BY public.action_gestion_related.aga_id;
 
 
 --
--- Name: action_person; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_person; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_person (
@@ -3352,31 +3352,31 @@ CREATE TABLE public.action_person (
 );
 
 
-ALTER TABLE public.action_person OWNER TO postgres;
+ALTER TABLE public.action_person OWNER TO prisma;
 
 --
--- Name: TABLE action_person; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE action_person; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.action_person IS 'Person involved in the action';
 
 
 --
--- Name: COLUMN action_person.ap_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_person.ap_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_person.ap_id IS 'pk';
 
 
 --
--- Name: COLUMN action_person.ag_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN action_person.ag_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.action_person.ag_id IS 'fk to fiche';
 
 
 --
--- Name: action_person_ap_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_person_ap_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_person_ap_id_seq
@@ -3387,17 +3387,17 @@ CREATE SEQUENCE public.action_person_ap_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_person_ap_id_seq OWNER TO postgres;
+ALTER TABLE public.action_person_ap_id_seq OWNER TO prisma;
 
 --
--- Name: action_person_ap_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: action_person_ap_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.action_person_ap_id_seq OWNED BY public.action_person.ap_id;
 
 
 --
--- Name: action_tags; Type: TABLE; Schema: public; Owner: postgres
+-- Name: action_tags; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.action_tags (
@@ -3407,10 +3407,10 @@ CREATE TABLE public.action_tags (
 );
 
 
-ALTER TABLE public.action_tags OWNER TO postgres;
+ALTER TABLE public.action_tags OWNER TO prisma;
 
 --
--- Name: action_tags_at_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: action_tags_at_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.action_tags_at_id_seq
@@ -3421,10 +3421,10 @@ CREATE SEQUENCE public.action_tags_at_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.action_tags_at_id_seq OWNER TO postgres;
+ALTER TABLE public.action_tags_at_id_seq OWNER TO prisma;
 
 --
--- Name: action_tags_at_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: action_tags_at_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.action_tags_at_id_seq OWNED BY public.action_tags.at_id;
@@ -3433,7 +3433,7 @@ ALTER SEQUENCE public.action_tags_at_id_seq OWNED BY public.action_tags.at_id;
 SET default_with_oids = true;
 
 --
--- Name: attr_def; Type: TABLE; Schema: public; Owner: postgres
+-- Name: attr_def; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.attr_def (
@@ -3445,17 +3445,17 @@ CREATE TABLE public.attr_def (
 );
 
 
-ALTER TABLE public.attr_def OWNER TO postgres;
+ALTER TABLE public.attr_def OWNER TO prisma;
 
 --
--- Name: TABLE attr_def; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE attr_def; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.attr_def IS 'The available attributs for the cards';
 
 
 --
--- Name: attr_min; Type: TABLE; Schema: public; Owner: postgres
+-- Name: attr_min; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.attr_min (
@@ -3464,17 +3464,17 @@ CREATE TABLE public.attr_min (
 );
 
 
-ALTER TABLE public.attr_min OWNER TO postgres;
+ALTER TABLE public.attr_min OWNER TO prisma;
 
 --
--- Name: TABLE attr_min; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE attr_min; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.attr_min IS 'The value of  attributs for the cards';
 
 
 --
--- Name: bilan_b_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: bilan_b_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.bilan_b_id_seq
@@ -3485,12 +3485,12 @@ CREATE SEQUENCE public.bilan_b_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bilan_b_id_seq OWNER TO postgres;
+ALTER TABLE public.bilan_b_id_seq OWNER TO prisma;
 
 SET default_with_oids = false;
 
 --
--- Name: bilan; Type: TABLE; Schema: public; Owner: postgres
+-- Name: bilan; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.bilan (
@@ -3502,52 +3502,52 @@ CREATE TABLE public.bilan (
 );
 
 
-ALTER TABLE public.bilan OWNER TO postgres;
+ALTER TABLE public.bilan OWNER TO prisma;
 
 --
--- Name: TABLE bilan; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE bilan; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.bilan IS 'contains the template and the data for generating different documents  ';
 
 
 --
--- Name: COLUMN bilan.b_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN bilan.b_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.bilan.b_id IS 'primary key';
 
 
 --
--- Name: COLUMN bilan.b_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN bilan.b_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.bilan.b_name IS 'Name of the document';
 
 
 --
--- Name: COLUMN bilan.b_file_template; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN bilan.b_file_template; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.bilan.b_file_template IS 'path of the template (document/...)';
 
 
 --
--- Name: COLUMN bilan.b_file_form; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN bilan.b_file_form; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.bilan.b_file_form IS 'path of the file with forms';
 
 
 --
--- Name: COLUMN bilan.b_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN bilan.b_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.bilan.b_type IS 'type = ODS, RTF...';
 
 
 --
--- Name: bookmark; Type: TABLE; Schema: public; Owner: postgres
+-- Name: bookmark; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.bookmark (
@@ -3558,17 +3558,17 @@ CREATE TABLE public.bookmark (
 );
 
 
-ALTER TABLE public.bookmark OWNER TO postgres;
+ALTER TABLE public.bookmark OWNER TO prisma;
 
 --
--- Name: TABLE bookmark; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE bookmark; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.bookmark IS 'Bookmark of the connected user';
 
 
 --
--- Name: bookmark_b_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: bookmark_b_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.bookmark_b_id_seq
@@ -3579,17 +3579,17 @@ CREATE SEQUENCE public.bookmark_b_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bookmark_b_id_seq OWNER TO postgres;
+ALTER TABLE public.bookmark_b_id_seq OWNER TO prisma;
 
 --
--- Name: bookmark_b_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: bookmark_b_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.bookmark_b_id_seq OWNED BY public.bookmark.b_id;
 
 
 --
--- Name: bud_card_bc_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: bud_card_bc_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.bud_card_bc_id_seq
@@ -3600,10 +3600,10 @@ CREATE SEQUENCE public.bud_card_bc_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bud_card_bc_id_seq OWNER TO postgres;
+ALTER TABLE public.bud_card_bc_id_seq OWNER TO prisma;
 
 --
--- Name: bud_detail_bd_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: bud_detail_bd_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.bud_detail_bd_id_seq
@@ -3614,10 +3614,10 @@ CREATE SEQUENCE public.bud_detail_bd_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bud_detail_bd_id_seq OWNER TO postgres;
+ALTER TABLE public.bud_detail_bd_id_seq OWNER TO prisma;
 
 --
--- Name: bud_detail_periode_bdp_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: bud_detail_periode_bdp_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.bud_detail_periode_bdp_id_seq
@@ -3628,12 +3628,12 @@ CREATE SEQUENCE public.bud_detail_periode_bdp_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bud_detail_periode_bdp_id_seq OWNER TO postgres;
+ALTER TABLE public.bud_detail_periode_bdp_id_seq OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: centralized; Type: TABLE; Schema: public; Owner: postgres
+-- Name: centralized; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.centralized (
@@ -3654,10 +3654,10 @@ CREATE TABLE public.centralized (
 );
 
 
-ALTER TABLE public.centralized OWNER TO postgres;
+ALTER TABLE public.centralized OWNER TO prisma;
 
 --
--- Name: TABLE centralized; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE centralized; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.centralized IS 'The centralized journal';
@@ -3666,7 +3666,7 @@ COMMENT ON TABLE public.centralized IS 'The centralized journal';
 SET default_with_oids = false;
 
 --
--- Name: del_action; Type: TABLE; Schema: public; Owner: postgres
+-- Name: del_action; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.del_action (
@@ -3676,10 +3676,10 @@ CREATE TABLE public.del_action (
 );
 
 
-ALTER TABLE public.del_action OWNER TO postgres;
+ALTER TABLE public.del_action OWNER TO prisma;
 
 --
--- Name: del_action_del_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: del_action_del_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.del_action_del_id_seq
@@ -3690,17 +3690,17 @@ CREATE SEQUENCE public.del_action_del_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.del_action_del_id_seq OWNER TO postgres;
+ALTER TABLE public.del_action_del_id_seq OWNER TO prisma;
 
 --
--- Name: del_action_del_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: del_action_del_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.del_action_del_id_seq OWNED BY public.del_action.del_id;
 
 
 --
--- Name: del_jrn; Type: TABLE; Schema: public; Owner: postgres
+-- Name: del_jrn; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.del_jrn (
@@ -3728,10 +3728,10 @@ CREATE TABLE public.del_jrn (
 );
 
 
-ALTER TABLE public.del_jrn OWNER TO postgres;
+ALTER TABLE public.del_jrn OWNER TO prisma;
 
 --
--- Name: del_jrn_dj_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: del_jrn_dj_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.del_jrn_dj_id_seq
@@ -3742,17 +3742,17 @@ CREATE SEQUENCE public.del_jrn_dj_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.del_jrn_dj_id_seq OWNER TO postgres;
+ALTER TABLE public.del_jrn_dj_id_seq OWNER TO prisma;
 
 --
--- Name: del_jrn_dj_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: del_jrn_dj_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.del_jrn_dj_id_seq OWNED BY public.del_jrn.dj_id;
 
 
 --
--- Name: del_jrnx; Type: TABLE; Schema: public; Owner: postgres
+-- Name: del_jrnx; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.del_jrnx (
@@ -3776,10 +3776,10 @@ CREATE TABLE public.del_jrnx (
 );
 
 
-ALTER TABLE public.del_jrnx OWNER TO postgres;
+ALTER TABLE public.del_jrnx OWNER TO prisma;
 
 --
--- Name: del_jrnx_djx_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: del_jrnx_djx_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.del_jrnx_djx_id_seq
@@ -3790,17 +3790,17 @@ CREATE SEQUENCE public.del_jrnx_djx_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.del_jrnx_djx_id_seq OWNER TO postgres;
+ALTER TABLE public.del_jrnx_djx_id_seq OWNER TO prisma;
 
 --
--- Name: del_jrnx_djx_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: del_jrnx_djx_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.del_jrnx_djx_id_seq OWNED BY public.del_jrnx.djx_id;
 
 
 --
--- Name: document_d_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: document_d_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.document_d_id_seq
@@ -3811,12 +3811,12 @@ CREATE SEQUENCE public.document_d_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.document_d_id_seq OWNER TO postgres;
+ALTER TABLE public.document_d_id_seq OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: document; Type: TABLE; Schema: public; Owner: postgres
+-- Name: document; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.document (
@@ -3830,17 +3830,17 @@ CREATE TABLE public.document (
 );
 
 
-ALTER TABLE public.document OWNER TO postgres;
+ALTER TABLE public.document OWNER TO prisma;
 
 --
--- Name: TABLE document; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE document; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.document IS 'This table contains all the documents : summary and lob files';
 
 
 --
--- Name: document_modele_md_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: document_modele_md_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.document_modele_md_id_seq
@@ -3851,10 +3851,10 @@ CREATE SEQUENCE public.document_modele_md_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.document_modele_md_id_seq OWNER TO postgres;
+ALTER TABLE public.document_modele_md_id_seq OWNER TO prisma;
 
 --
--- Name: document_modele; Type: TABLE; Schema: public; Owner: postgres
+-- Name: document_modele; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.document_modele (
@@ -3868,17 +3868,17 @@ CREATE TABLE public.document_modele (
 );
 
 
-ALTER TABLE public.document_modele OWNER TO postgres;
+ALTER TABLE public.document_modele OWNER TO prisma;
 
 --
--- Name: TABLE document_modele; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE document_modele; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.document_modele IS ' contains all the template for the  documents';
 
 
 --
--- Name: document_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: document_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.document_seq
@@ -3889,17 +3889,17 @@ CREATE SEQUENCE public.document_seq
     CACHE 1;
 
 
-ALTER TABLE public.document_seq OWNER TO postgres;
+ALTER TABLE public.document_seq OWNER TO prisma;
 
 --
--- Name: SEQUENCE document_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: SEQUENCE document_seq; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON SEQUENCE public.document_seq IS 'Sequence for the sequence bound to the document modele';
 
 
 --
--- Name: document_state_s_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: document_state_s_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.document_state_s_id_seq
@@ -3910,10 +3910,10 @@ CREATE SEQUENCE public.document_state_s_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.document_state_s_id_seq OWNER TO postgres;
+ALTER TABLE public.document_state_s_id_seq OWNER TO prisma;
 
 --
--- Name: document_state; Type: TABLE; Schema: public; Owner: postgres
+-- Name: document_state; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.document_state (
@@ -3923,17 +3923,17 @@ CREATE TABLE public.document_state (
 );
 
 
-ALTER TABLE public.document_state OWNER TO postgres;
+ALTER TABLE public.document_state OWNER TO prisma;
 
 --
--- Name: TABLE document_state; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE document_state; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.document_state IS 'State of the document';
 
 
 --
--- Name: document_type_dt_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: document_type_dt_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.document_type_dt_id_seq
@@ -3944,10 +3944,10 @@ CREATE SEQUENCE public.document_type_dt_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.document_type_dt_id_seq OWNER TO postgres;
+ALTER TABLE public.document_type_dt_id_seq OWNER TO prisma;
 
 --
--- Name: document_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: document_type; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.document_type (
@@ -3957,17 +3957,17 @@ CREATE TABLE public.document_type (
 );
 
 
-ALTER TABLE public.document_type OWNER TO postgres;
+ALTER TABLE public.document_type OWNER TO prisma;
 
 --
--- Name: TABLE document_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE document_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.document_type IS 'Type of document : meeting, invoice,...';
 
 
 --
--- Name: COLUMN document_type.dt_prefix; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN document_type.dt_prefix; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.document_type.dt_prefix IS 'Prefix for ag_ref';
@@ -3976,7 +3976,7 @@ COMMENT ON COLUMN public.document_type.dt_prefix IS 'Prefix for ag_ref';
 SET default_with_oids = false;
 
 --
--- Name: extension; Type: TABLE; Schema: public; Owner: postgres
+-- Name: extension; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.extension (
@@ -3989,59 +3989,59 @@ CREATE TABLE public.extension (
 );
 
 
-ALTER TABLE public.extension OWNER TO postgres;
+ALTER TABLE public.extension OWNER TO prisma;
 
 --
--- Name: TABLE extension; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE extension; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.extension IS 'Content the needed information for the extension';
 
 
 --
--- Name: COLUMN extension.ex_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN extension.ex_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.extension.ex_id IS 'Primary key';
 
 
 --
--- Name: COLUMN extension.ex_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN extension.ex_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.extension.ex_name IS 'code of the extension ';
 
 
 --
--- Name: COLUMN extension.ex_code; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN extension.ex_code; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.extension.ex_code IS 'code of the extension ';
 
 
 --
--- Name: COLUMN extension.ex_desc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN extension.ex_desc; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.extension.ex_desc IS 'Description of the extension ';
 
 
 --
--- Name: COLUMN extension.ex_file; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN extension.ex_file; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.extension.ex_file IS 'path to the extension to include';
 
 
 --
--- Name: COLUMN extension.ex_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN extension.ex_enable; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.extension.ex_enable IS 'Y : enabled N : disabled ';
 
 
 --
--- Name: extension_ex_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: extension_ex_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.extension_ex_id_seq
@@ -4052,10 +4052,10 @@ CREATE SEQUENCE public.extension_ex_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.extension_ex_id_seq OWNER TO postgres;
+ALTER TABLE public.extension_ex_id_seq OWNER TO prisma;
 
 --
--- Name: extension_ex_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: extension_ex_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.extension_ex_id_seq OWNED BY public.extension.ex_id;
@@ -4064,7 +4064,7 @@ ALTER SEQUENCE public.extension_ex_id_seq OWNED BY public.extension.ex_id;
 SET default_with_oids = true;
 
 --
--- Name: fiche; Type: TABLE; Schema: public; Owner: postgres
+-- Name: fiche; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.fiche (
@@ -4073,17 +4073,17 @@ CREATE TABLE public.fiche (
 );
 
 
-ALTER TABLE public.fiche OWNER TO postgres;
+ALTER TABLE public.fiche OWNER TO prisma;
 
 --
--- Name: TABLE fiche; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE fiche; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.fiche IS 'Cards';
 
 
 --
--- Name: fiche_def; Type: TABLE; Schema: public; Owner: postgres
+-- Name: fiche_def; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.fiche_def (
@@ -4096,17 +4096,17 @@ CREATE TABLE public.fiche_def (
 );
 
 
-ALTER TABLE public.fiche_def OWNER TO postgres;
+ALTER TABLE public.fiche_def OWNER TO prisma;
 
 --
--- Name: TABLE fiche_def; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE fiche_def; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.fiche_def IS 'Cards definition';
 
 
 --
--- Name: fiche_def_ref; Type: TABLE; Schema: public; Owner: postgres
+-- Name: fiche_def_ref; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.fiche_def_ref (
@@ -4116,17 +4116,17 @@ CREATE TABLE public.fiche_def_ref (
 );
 
 
-ALTER TABLE public.fiche_def_ref OWNER TO postgres;
+ALTER TABLE public.fiche_def_ref OWNER TO prisma;
 
 --
--- Name: TABLE fiche_def_ref; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE fiche_def_ref; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.fiche_def_ref IS 'Family Cards definition';
 
 
 --
--- Name: fiche_detail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: fiche_detail; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.fiche_detail (
@@ -4137,10 +4137,10 @@ CREATE TABLE public.fiche_detail (
 );
 
 
-ALTER TABLE public.fiche_detail OWNER TO postgres;
+ALTER TABLE public.fiche_detail OWNER TO prisma;
 
 --
--- Name: TABLE fiche_detail; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE fiche_detail; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.fiche_detail IS 'join between the card and the attribut definition';
@@ -4149,7 +4149,7 @@ COMMENT ON TABLE public.fiche_detail IS 'join between the card and the attribut 
 SET default_with_oids = false;
 
 --
--- Name: forecast; Type: TABLE; Schema: public; Owner: postgres
+-- Name: forecast; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.forecast (
@@ -4160,17 +4160,17 @@ CREATE TABLE public.forecast (
 );
 
 
-ALTER TABLE public.forecast OWNER TO postgres;
+ALTER TABLE public.forecast OWNER TO prisma;
 
 --
--- Name: TABLE forecast; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE forecast; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.forecast IS 'contains the name of the forecast';
 
 
 --
--- Name: forecast_cat; Type: TABLE; Schema: public; Owner: postgres
+-- Name: forecast_cat; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.forecast_cat (
@@ -4181,38 +4181,38 @@ CREATE TABLE public.forecast_cat (
 );
 
 
-ALTER TABLE public.forecast_cat OWNER TO postgres;
+ALTER TABLE public.forecast_cat OWNER TO prisma;
 
 --
--- Name: COLUMN forecast_cat.fc_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_cat.fc_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_cat.fc_id IS 'primary key';
 
 
 --
--- Name: COLUMN forecast_cat.fc_desc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_cat.fc_desc; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_cat.fc_desc IS 'text of the category';
 
 
 --
--- Name: COLUMN forecast_cat.f_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_cat.f_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_cat.f_id IS 'Foreign key, it is the parent from the table forecast';
 
 
 --
--- Name: COLUMN forecast_cat.fc_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_cat.fc_order; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_cat.fc_order IS 'Order of the category, used when displaid';
 
 
 --
--- Name: forecast_cat_fc_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: forecast_cat_fc_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.forecast_cat_fc_id_seq
@@ -4223,17 +4223,17 @@ CREATE SEQUENCE public.forecast_cat_fc_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.forecast_cat_fc_id_seq OWNER TO postgres;
+ALTER TABLE public.forecast_cat_fc_id_seq OWNER TO prisma;
 
 --
--- Name: forecast_cat_fc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: forecast_cat_fc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.forecast_cat_fc_id_seq OWNED BY public.forecast_cat.fc_id;
 
 
 --
--- Name: forecast_f_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: forecast_f_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.forecast_f_id_seq
@@ -4244,17 +4244,17 @@ CREATE SEQUENCE public.forecast_f_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.forecast_f_id_seq OWNER TO postgres;
+ALTER TABLE public.forecast_f_id_seq OWNER TO prisma;
 
 --
--- Name: forecast_f_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: forecast_f_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.forecast_f_id_seq OWNED BY public.forecast.f_id;
 
 
 --
--- Name: forecast_item; Type: TABLE; Schema: public; Owner: postgres
+-- Name: forecast_item; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.forecast_item (
@@ -4270,66 +4270,66 @@ CREATE TABLE public.forecast_item (
 );
 
 
-ALTER TABLE public.forecast_item OWNER TO postgres;
+ALTER TABLE public.forecast_item OWNER TO prisma;
 
 --
--- Name: COLUMN forecast_item.fi_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_id IS 'Primary key';
 
 
 --
--- Name: COLUMN forecast_item.fi_text; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_text; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_text IS 'Label of the i	tem';
 
 
 --
--- Name: COLUMN forecast_item.fi_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_account; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_account IS 'Accountancy entry';
 
 
 --
--- Name: COLUMN forecast_item.fi_card; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_card; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_card IS 'Card (fiche.f_id)';
 
 
 --
--- Name: COLUMN forecast_item.fi_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_order; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_order IS 'Order of showing (not used)';
 
 
 --
--- Name: COLUMN forecast_item.fi_amount; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_amount; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_amount IS 'Amount';
 
 
 --
--- Name: COLUMN forecast_item.fi_debit; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_debit; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_debit IS 'possible values are D or C';
 
 
 --
--- Name: COLUMN forecast_item.fi_pid; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN forecast_item.fi_pid; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.forecast_item.fi_pid IS '0 for every month, or the value parm_periode.p_id ';
 
 
 --
--- Name: forecast_item_fi_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: forecast_item_fi_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.forecast_item_fi_id_seq
@@ -4340,10 +4340,10 @@ CREATE SEQUENCE public.forecast_item_fi_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.forecast_item_fi_id_seq OWNER TO postgres;
+ALTER TABLE public.forecast_item_fi_id_seq OWNER TO prisma;
 
 --
--- Name: forecast_item_fi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: forecast_item_fi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.forecast_item_fi_id_seq OWNED BY public.forecast_item.fi_id;
@@ -4352,7 +4352,7 @@ ALTER SEQUENCE public.forecast_item_fi_id_seq OWNED BY public.forecast_item.fi_i
 SET default_with_oids = true;
 
 --
--- Name: form; Type: TABLE; Schema: public; Owner: postgres
+-- Name: form; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.form (
@@ -4364,17 +4364,17 @@ CREATE TABLE public.form (
 );
 
 
-ALTER TABLE public.form OWNER TO postgres;
+ALTER TABLE public.form OWNER TO prisma;
 
 --
--- Name: TABLE form; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE form; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.form IS 'Forms content';
 
 
 --
--- Name: formdef; Type: TABLE; Schema: public; Owner: postgres
+-- Name: formdef; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.formdef (
@@ -4383,12 +4383,12 @@ CREATE TABLE public.formdef (
 );
 
 
-ALTER TABLE public.formdef OWNER TO postgres;
+ALTER TABLE public.formdef OWNER TO prisma;
 
 SET default_with_oids = false;
 
 --
--- Name: groupe_analytique; Type: TABLE; Schema: public; Owner: postgres
+-- Name: groupe_analytique; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.groupe_analytique (
@@ -4398,10 +4398,10 @@ CREATE TABLE public.groupe_analytique (
 );
 
 
-ALTER TABLE public.groupe_analytique OWNER TO postgres;
+ALTER TABLE public.groupe_analytique OWNER TO prisma;
 
 --
--- Name: historique_analytique_ha_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: historique_analytique_ha_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.historique_analytique_ha_id_seq
@@ -4412,10 +4412,10 @@ CREATE SEQUENCE public.historique_analytique_ha_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.historique_analytique_ha_id_seq OWNER TO postgres;
+ALTER TABLE public.historique_analytique_ha_id_seq OWNER TO prisma;
 
 --
--- Name: info_def; Type: TABLE; Schema: public; Owner: postgres
+-- Name: info_def; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.info_def (
@@ -4424,17 +4424,17 @@ CREATE TABLE public.info_def (
 );
 
 
-ALTER TABLE public.info_def OWNER TO postgres;
+ALTER TABLE public.info_def OWNER TO prisma;
 
 --
--- Name: TABLE info_def; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE info_def; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.info_def IS 'Contains the types of additionnal info we can add to a operation';
 
 
 --
--- Name: s_jnt_id; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jnt_id; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jnt_id
@@ -4445,12 +4445,12 @@ CREATE SEQUENCE public.s_jnt_id
     CACHE 1;
 
 
-ALTER TABLE public.s_jnt_id OWNER TO postgres;
+ALTER TABLE public.s_jnt_id OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: jnt_fic_attr; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jnt_fic_attr; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jnt_fic_attr (
@@ -4461,10 +4461,10 @@ CREATE TABLE public.jnt_fic_attr (
 );
 
 
-ALTER TABLE public.jnt_fic_attr OWNER TO postgres;
+ALTER TABLE public.jnt_fic_attr OWNER TO prisma;
 
 --
--- Name: TABLE jnt_fic_attr; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jnt_fic_attr; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jnt_fic_attr IS 'join between the family card and the attribut definition';
@@ -4473,7 +4473,7 @@ COMMENT ON TABLE public.jnt_fic_attr IS 'join between the family card and the at
 SET default_with_oids = false;
 
 --
--- Name: jnt_letter; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jnt_letter; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jnt_letter (
@@ -4481,10 +4481,10 @@ CREATE TABLE public.jnt_letter (
 );
 
 
-ALTER TABLE public.jnt_letter OWNER TO postgres;
+ALTER TABLE public.jnt_letter OWNER TO prisma;
 
 --
--- Name: jnt_letter_jl_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: jnt_letter_jl_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.jnt_letter_jl_id_seq
@@ -4495,10 +4495,10 @@ CREATE SEQUENCE public.jnt_letter_jl_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.jnt_letter_jl_id_seq OWNER TO postgres;
+ALTER TABLE public.jnt_letter_jl_id_seq OWNER TO prisma;
 
 --
--- Name: jnt_letter_jl_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: jnt_letter_jl_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.jnt_letter_jl_id_seq OWNED BY public.jnt_letter.jl_id;
@@ -4507,7 +4507,7 @@ ALTER SEQUENCE public.jnt_letter_jl_id_seq OWNED BY public.jnt_letter.jl_id;
 SET default_with_oids = true;
 
 --
--- Name: jrn; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn (
@@ -4536,24 +4536,24 @@ CREATE TABLE public.jrn (
 );
 
 
-ALTER TABLE public.jrn OWNER TO postgres;
+ALTER TABLE public.jrn OWNER TO prisma;
 
 --
--- Name: TABLE jrn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jrn; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jrn IS 'Journal: content one line for a group of accountancy writing';
 
 
 --
--- Name: COLUMN jrn.jr_optype; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN jrn.jr_optype; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.jrn.jr_optype IS 'Type of operation , NOR = NORMAL , OPE opening , EXT extourne, CLO closing';
 
 
 --
--- Name: jrn_def; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn_def; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn_def (
@@ -4577,17 +4577,17 @@ CREATE TABLE public.jrn_def (
 );
 
 
-ALTER TABLE public.jrn_def OWNER TO postgres;
+ALTER TABLE public.jrn_def OWNER TO prisma;
 
 --
--- Name: TABLE jrn_def; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jrn_def; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jrn_def IS 'Definition of a journal, his properties';
 
 
 --
--- Name: COLUMN jrn_def.jrn_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN jrn_def.jrn_enable; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.jrn_def.jrn_enable IS 'Set to 1 if the ledger is enable ';
@@ -4596,7 +4596,7 @@ COMMENT ON COLUMN public.jrn_def.jrn_enable IS 'Set to 1 if the ledger is enable
 SET default_with_oids = false;
 
 --
--- Name: jrn_info; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn_info; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn_info (
@@ -4607,10 +4607,10 @@ CREATE TABLE public.jrn_info (
 );
 
 
-ALTER TABLE public.jrn_info OWNER TO postgres;
+ALTER TABLE public.jrn_info OWNER TO prisma;
 
 --
--- Name: jrn_info_ji_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: jrn_info_ji_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.jrn_info_ji_id_seq
@@ -4621,17 +4621,17 @@ CREATE SEQUENCE public.jrn_info_ji_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.jrn_info_ji_id_seq OWNER TO postgres;
+ALTER TABLE public.jrn_info_ji_id_seq OWNER TO prisma;
 
 --
--- Name: jrn_info_ji_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: jrn_info_ji_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.jrn_info_ji_id_seq OWNED BY public.jrn_info.ji_id;
 
 
 --
--- Name: jrn_note; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn_note; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn_note (
@@ -4641,17 +4641,17 @@ CREATE TABLE public.jrn_note (
 );
 
 
-ALTER TABLE public.jrn_note OWNER TO postgres;
+ALTER TABLE public.jrn_note OWNER TO prisma;
 
 --
--- Name: TABLE jrn_note; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jrn_note; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jrn_note IS 'Note about operation';
 
 
 --
--- Name: jrn_note_n_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: jrn_note_n_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.jrn_note_n_id_seq
@@ -4662,17 +4662,17 @@ CREATE SEQUENCE public.jrn_note_n_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.jrn_note_n_id_seq OWNER TO postgres;
+ALTER TABLE public.jrn_note_n_id_seq OWNER TO prisma;
 
 --
--- Name: jrn_note_n_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: jrn_note_n_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.jrn_note_n_id_seq OWNED BY public.jrn_note.n_id;
 
 
 --
--- Name: jrn_periode_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: jrn_periode_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.jrn_periode_id_seq
@@ -4683,10 +4683,10 @@ CREATE SEQUENCE public.jrn_periode_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.jrn_periode_id_seq OWNER TO postgres;
+ALTER TABLE public.jrn_periode_id_seq OWNER TO prisma;
 
 --
--- Name: jrn_periode; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn_periode; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn_periode (
@@ -4697,12 +4697,12 @@ CREATE TABLE public.jrn_periode (
 );
 
 
-ALTER TABLE public.jrn_periode OWNER TO postgres;
+ALTER TABLE public.jrn_periode OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: jrn_rapt; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn_rapt; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn_rapt (
@@ -4712,17 +4712,17 @@ CREATE TABLE public.jrn_rapt (
 );
 
 
-ALTER TABLE public.jrn_rapt OWNER TO postgres;
+ALTER TABLE public.jrn_rapt OWNER TO prisma;
 
 --
--- Name: TABLE jrn_rapt; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jrn_rapt; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jrn_rapt IS 'Rapprochement between operation';
 
 
 --
--- Name: jrn_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrn_type; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrn_type (
@@ -4731,17 +4731,17 @@ CREATE TABLE public.jrn_type (
 );
 
 
-ALTER TABLE public.jrn_type OWNER TO postgres;
+ALTER TABLE public.jrn_type OWNER TO prisma;
 
 --
--- Name: TABLE jrn_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jrn_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jrn_type IS 'Type of journal (Sell, Buy, Financial...)';
 
 
 --
--- Name: jrnx; Type: TABLE; Schema: public; Owner: postgres
+-- Name: jrnx; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.jrnx (
@@ -4764,10 +4764,10 @@ CREATE TABLE public.jrnx (
 );
 
 
-ALTER TABLE public.jrnx OWNER TO postgres;
+ALTER TABLE public.jrnx OWNER TO prisma;
 
 --
--- Name: TABLE jrnx; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE jrnx; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.jrnx IS 'Journal: content one line for each accountancy writing';
@@ -4776,7 +4776,7 @@ COMMENT ON TABLE public.jrnx IS 'Journal: content one line for each accountancy 
 SET default_with_oids = false;
 
 --
--- Name: key_distribution; Type: TABLE; Schema: public; Owner: postgres
+-- Name: key_distribution; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.key_distribution (
@@ -4786,38 +4786,38 @@ CREATE TABLE public.key_distribution (
 );
 
 
-ALTER TABLE public.key_distribution OWNER TO postgres;
+ALTER TABLE public.key_distribution OWNER TO prisma;
 
 --
--- Name: TABLE key_distribution; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE key_distribution; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.key_distribution IS 'Distribution key for analytic';
 
 
 --
--- Name: COLUMN key_distribution.kd_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution.kd_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution.kd_id IS 'PK';
 
 
 --
--- Name: COLUMN key_distribution.kd_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution.kd_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution.kd_name IS 'Name of the key';
 
 
 --
--- Name: COLUMN key_distribution.kd_description; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution.kd_description; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution.kd_description IS 'Description of the key';
 
 
 --
--- Name: key_distribution_activity; Type: TABLE; Schema: public; Owner: postgres
+-- Name: key_distribution_activity; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.key_distribution_activity (
@@ -4828,45 +4828,45 @@ CREATE TABLE public.key_distribution_activity (
 );
 
 
-ALTER TABLE public.key_distribution_activity OWNER TO postgres;
+ALTER TABLE public.key_distribution_activity OWNER TO prisma;
 
 --
--- Name: TABLE key_distribution_activity; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE key_distribution_activity; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.key_distribution_activity IS 'Contains the analytic account';
 
 
 --
--- Name: COLUMN key_distribution_activity.ka_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_activity.ka_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_activity.ka_id IS 'pk';
 
 
 --
--- Name: COLUMN key_distribution_activity.ke_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_activity.ke_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_activity.ke_id IS 'fk to key_distribution_detail';
 
 
 --
--- Name: COLUMN key_distribution_activity.po_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_activity.po_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_activity.po_id IS 'fk to poste_analytique';
 
 
 --
--- Name: COLUMN key_distribution_activity.pa_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_activity.pa_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_activity.pa_id IS 'fk to plan_analytique';
 
 
 --
--- Name: key_distribution_activity_ka_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: key_distribution_activity_ka_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.key_distribution_activity_ka_id_seq
@@ -4877,17 +4877,17 @@ CREATE SEQUENCE public.key_distribution_activity_ka_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.key_distribution_activity_ka_id_seq OWNER TO postgres;
+ALTER TABLE public.key_distribution_activity_ka_id_seq OWNER TO prisma;
 
 --
--- Name: key_distribution_activity_ka_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: key_distribution_activity_ka_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.key_distribution_activity_ka_id_seq OWNED BY public.key_distribution_activity.ka_id;
 
 
 --
--- Name: key_distribution_detail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: key_distribution_detail; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.key_distribution_detail (
@@ -4898,38 +4898,38 @@ CREATE TABLE public.key_distribution_detail (
 );
 
 
-ALTER TABLE public.key_distribution_detail OWNER TO postgres;
+ALTER TABLE public.key_distribution_detail OWNER TO prisma;
 
 --
--- Name: TABLE key_distribution_detail; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE key_distribution_detail; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.key_distribution_detail IS 'Row of activity and percent';
 
 
 --
--- Name: COLUMN key_distribution_detail.ke_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_detail.ke_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_detail.ke_id IS 'pk';
 
 
 --
--- Name: COLUMN key_distribution_detail.kd_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_detail.kd_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_detail.kd_id IS 'fk to key_distribution';
 
 
 --
--- Name: COLUMN key_distribution_detail.ke_row; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_detail.ke_row; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_detail.ke_row IS 'group order';
 
 
 --
--- Name: key_distribution_detail_ke_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: key_distribution_detail_ke_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.key_distribution_detail_ke_id_seq
@@ -4940,17 +4940,17 @@ CREATE SEQUENCE public.key_distribution_detail_ke_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.key_distribution_detail_ke_id_seq OWNER TO postgres;
+ALTER TABLE public.key_distribution_detail_ke_id_seq OWNER TO prisma;
 
 --
--- Name: key_distribution_detail_ke_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: key_distribution_detail_ke_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.key_distribution_detail_ke_id_seq OWNED BY public.key_distribution_detail.ke_id;
 
 
 --
--- Name: key_distribution_kd_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: key_distribution_kd_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.key_distribution_kd_id_seq
@@ -4961,17 +4961,17 @@ CREATE SEQUENCE public.key_distribution_kd_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.key_distribution_kd_id_seq OWNER TO postgres;
+ALTER TABLE public.key_distribution_kd_id_seq OWNER TO prisma;
 
 --
--- Name: key_distribution_kd_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: key_distribution_kd_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.key_distribution_kd_id_seq OWNED BY public.key_distribution.kd_id;
 
 
 --
--- Name: key_distribution_ledger; Type: TABLE; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.key_distribution_ledger (
@@ -4981,38 +4981,38 @@ CREATE TABLE public.key_distribution_ledger (
 );
 
 
-ALTER TABLE public.key_distribution_ledger OWNER TO postgres;
+ALTER TABLE public.key_distribution_ledger OWNER TO prisma;
 
 --
--- Name: TABLE key_distribution_ledger; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE key_distribution_ledger; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.key_distribution_ledger IS 'Legder where the distribution key can be used';
 
 
 --
--- Name: COLUMN key_distribution_ledger.kl_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_ledger.kl_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_ledger.kl_id IS 'pk';
 
 
 --
--- Name: COLUMN key_distribution_ledger.kd_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_ledger.kd_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_ledger.kd_id IS 'fk to key_distribution';
 
 
 --
--- Name: COLUMN key_distribution_ledger.jrn_def_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN key_distribution_ledger.jrn_def_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.key_distribution_ledger.jrn_def_id IS 'fk to jrnd_def, ledger where this key is available';
 
 
 --
--- Name: key_distribution_ledger_kl_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger_kl_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.key_distribution_ledger_kl_id_seq
@@ -5023,17 +5023,17 @@ CREATE SEQUENCE public.key_distribution_ledger_kl_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.key_distribution_ledger_kl_id_seq OWNER TO postgres;
+ALTER TABLE public.key_distribution_ledger_kl_id_seq OWNER TO prisma;
 
 --
--- Name: key_distribution_ledger_kl_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger_kl_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.key_distribution_ledger_kl_id_seq OWNED BY public.key_distribution_ledger.kl_id;
 
 
 --
--- Name: letter_cred; Type: TABLE; Schema: public; Owner: postgres
+-- Name: letter_cred; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.letter_cred (
@@ -5043,10 +5043,10 @@ CREATE TABLE public.letter_cred (
 );
 
 
-ALTER TABLE public.letter_cred OWNER TO postgres;
+ALTER TABLE public.letter_cred OWNER TO prisma;
 
 --
--- Name: letter_cred_lc_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: letter_cred_lc_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.letter_cred_lc_id_seq
@@ -5057,17 +5057,17 @@ CREATE SEQUENCE public.letter_cred_lc_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.letter_cred_lc_id_seq OWNER TO postgres;
+ALTER TABLE public.letter_cred_lc_id_seq OWNER TO prisma;
 
 --
--- Name: letter_cred_lc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: letter_cred_lc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.letter_cred_lc_id_seq OWNED BY public.letter_cred.lc_id;
 
 
 --
--- Name: letter_deb; Type: TABLE; Schema: public; Owner: postgres
+-- Name: letter_deb; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.letter_deb (
@@ -5077,10 +5077,10 @@ CREATE TABLE public.letter_deb (
 );
 
 
-ALTER TABLE public.letter_deb OWNER TO postgres;
+ALTER TABLE public.letter_deb OWNER TO prisma;
 
 --
--- Name: letter_deb_ld_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: letter_deb_ld_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.letter_deb_ld_id_seq
@@ -5091,17 +5091,17 @@ CREATE SEQUENCE public.letter_deb_ld_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.letter_deb_ld_id_seq OWNER TO postgres;
+ALTER TABLE public.letter_deb_ld_id_seq OWNER TO prisma;
 
 --
--- Name: letter_deb_ld_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: letter_deb_ld_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.letter_deb_ld_id_seq OWNED BY public.letter_deb.ld_id;
 
 
 --
--- Name: link_action_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: link_action_type; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.link_action_type (
@@ -5110,10 +5110,10 @@ CREATE TABLE public.link_action_type (
 );
 
 
-ALTER TABLE public.link_action_type OWNER TO postgres;
+ALTER TABLE public.link_action_type OWNER TO prisma;
 
 --
--- Name: link_action_type_l_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: link_action_type_l_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.link_action_type_l_id_seq
@@ -5124,17 +5124,17 @@ CREATE SEQUENCE public.link_action_type_l_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.link_action_type_l_id_seq OWNER TO postgres;
+ALTER TABLE public.link_action_type_l_id_seq OWNER TO prisma;
 
 --
--- Name: link_action_type_l_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: link_action_type_l_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.link_action_type_l_id_seq OWNED BY public.link_action_type.l_id;
 
 
 --
--- Name: menu_default; Type: TABLE; Schema: public; Owner: postgres
+-- Name: menu_default; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.menu_default (
@@ -5144,10 +5144,10 @@ CREATE TABLE public.menu_default (
 );
 
 
-ALTER TABLE public.menu_default OWNER TO postgres;
+ALTER TABLE public.menu_default OWNER TO prisma;
 
 --
--- Name: menu_default_md_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: menu_default_md_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.menu_default_md_id_seq
@@ -5158,17 +5158,17 @@ CREATE SEQUENCE public.menu_default_md_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.menu_default_md_id_seq OWNER TO postgres;
+ALTER TABLE public.menu_default_md_id_seq OWNER TO prisma;
 
 --
--- Name: menu_default_md_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: menu_default_md_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.menu_default_md_id_seq OWNED BY public.menu_default.md_id;
 
 
 --
--- Name: menu_ref; Type: TABLE; Schema: public; Owner: postgres
+-- Name: menu_ref; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.menu_ref (
@@ -5184,38 +5184,38 @@ CREATE TABLE public.menu_ref (
 );
 
 
-ALTER TABLE public.menu_ref OWNER TO postgres;
+ALTER TABLE public.menu_ref OWNER TO prisma;
 
 --
--- Name: COLUMN menu_ref.me_code; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN menu_ref.me_code; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.menu_ref.me_code IS 'Menu Code ';
 
 
 --
--- Name: COLUMN menu_ref.me_menu; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN menu_ref.me_menu; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.menu_ref.me_menu IS 'Label to display';
 
 
 --
--- Name: COLUMN menu_ref.me_file; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN menu_ref.me_file; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.menu_ref.me_file IS 'if not empty file to include';
 
 
 --
--- Name: COLUMN menu_ref.me_url; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN menu_ref.me_url; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.menu_ref.me_url IS 'url ';
 
 
 --
--- Name: COLUMN menu_ref.me_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN menu_ref.me_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.menu_ref.me_type IS 'ME for menu
@@ -5225,7 +5225,7 @@ PL for plugin';
 
 
 --
--- Name: mod_payment; Type: TABLE; Schema: public; Owner: postgres
+-- Name: mod_payment; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.mod_payment (
@@ -5238,24 +5238,24 @@ CREATE TABLE public.mod_payment (
 );
 
 
-ALTER TABLE public.mod_payment OWNER TO postgres;
+ALTER TABLE public.mod_payment OWNER TO prisma;
 
 --
--- Name: TABLE mod_payment; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE mod_payment; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.mod_payment IS 'Contains the different media of payment and the corresponding ledger';
 
 
 --
--- Name: COLUMN mod_payment.jrn_def_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN mod_payment.jrn_def_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.mod_payment.jrn_def_id IS 'Ledger using this payment method';
 
 
 --
--- Name: mod_payment_mp_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: mod_payment_mp_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.mod_payment_mp_id_seq
@@ -5266,17 +5266,17 @@ CREATE SEQUENCE public.mod_payment_mp_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.mod_payment_mp_id_seq OWNER TO postgres;
+ALTER TABLE public.mod_payment_mp_id_seq OWNER TO prisma;
 
 --
--- Name: mod_payment_mp_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: mod_payment_mp_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.mod_payment_mp_id_seq OWNED BY public.mod_payment.mp_id;
 
 
 --
--- Name: op_def_op_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: op_def_op_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.op_def_op_seq
@@ -5287,10 +5287,10 @@ CREATE SEQUENCE public.op_def_op_seq
     CACHE 1;
 
 
-ALTER TABLE public.op_def_op_seq OWNER TO postgres;
+ALTER TABLE public.op_def_op_seq OWNER TO prisma;
 
 --
--- Name: op_predef; Type: TABLE; Schema: public; Owner: postgres
+-- Name: op_predef; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.op_predef (
@@ -5304,31 +5304,31 @@ CREATE TABLE public.op_predef (
 );
 
 
-ALTER TABLE public.op_predef OWNER TO postgres;
+ALTER TABLE public.op_predef OWNER TO prisma;
 
 --
--- Name: TABLE op_predef; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE op_predef; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.op_predef IS 'predefined operation';
 
 
 --
--- Name: COLUMN op_predef.jrn_def_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN op_predef.jrn_def_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.op_predef.jrn_def_id IS 'jrn_id';
 
 
 --
--- Name: COLUMN op_predef.od_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN op_predef.od_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.op_predef.od_name IS 'name of the operation';
 
 
 --
--- Name: op_predef_detail_opd_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: op_predef_detail_opd_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.op_predef_detail_opd_id_seq
@@ -5339,10 +5339,10 @@ CREATE SEQUENCE public.op_predef_detail_opd_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.op_predef_detail_opd_id_seq OWNER TO postgres;
+ALTER TABLE public.op_predef_detail_opd_id_seq OWNER TO prisma;
 
 --
--- Name: op_predef_detail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: op_predef_detail; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.op_predef_detail (
@@ -5359,17 +5359,17 @@ CREATE TABLE public.op_predef_detail (
 );
 
 
-ALTER TABLE public.op_predef_detail OWNER TO postgres;
+ALTER TABLE public.op_predef_detail OWNER TO prisma;
 
 --
--- Name: TABLE op_predef_detail; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE op_predef_detail; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.op_predef_detail IS 'contains the detail of predefined operations';
 
 
 --
--- Name: s_oa_group; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_oa_group; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_oa_group
@@ -5380,10 +5380,10 @@ CREATE SEQUENCE public.s_oa_group
     CACHE 1;
 
 
-ALTER TABLE public.s_oa_group OWNER TO postgres;
+ALTER TABLE public.s_oa_group OWNER TO prisma;
 
 --
--- Name: operation_analytique; Type: TABLE; Schema: public; Owner: postgres
+-- Name: operation_analytique; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.operation_analytique (
@@ -5403,31 +5403,31 @@ CREATE TABLE public.operation_analytique (
 );
 
 
-ALTER TABLE public.operation_analytique OWNER TO postgres;
+ALTER TABLE public.operation_analytique OWNER TO prisma;
 
 --
--- Name: TABLE operation_analytique; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE operation_analytique; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.operation_analytique IS 'History of the analytic account';
 
 
 --
--- Name: COLUMN operation_analytique.oa_jrnx_id_source; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN operation_analytique.oa_jrnx_id_source; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.operation_analytique.oa_jrnx_id_source IS 'jrnx.j_id source of this amount, this amount is computed from an amount giving a ND VAT.Normally NULL  is there is no ND VAT.';
 
 
 --
--- Name: COLUMN operation_analytique.oa_positive; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN operation_analytique.oa_positive; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.operation_analytique.oa_positive IS 'Sign of the amount';
 
 
 --
--- Name: COLUMN operation_analytique.f_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN operation_analytique.f_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.operation_analytique.f_id IS 'FK to fiche.f_id , used only with ODS';
@@ -5436,7 +5436,7 @@ COMMENT ON COLUMN public.operation_analytique.f_id IS 'FK to fiche.f_id , used o
 SET default_with_oids = true;
 
 --
--- Name: parameter; Type: TABLE; Schema: public; Owner: postgres
+-- Name: parameter; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.parameter (
@@ -5445,17 +5445,17 @@ CREATE TABLE public.parameter (
 );
 
 
-ALTER TABLE public.parameter OWNER TO postgres;
+ALTER TABLE public.parameter OWNER TO prisma;
 
 --
--- Name: TABLE parameter; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE parameter; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.parameter IS 'parameter of the company';
 
 
 --
--- Name: parm_code; Type: TABLE; Schema: public; Owner: postgres
+-- Name: parm_code; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.parm_code (
@@ -5465,10 +5465,10 @@ CREATE TABLE public.parm_code (
 );
 
 
-ALTER TABLE public.parm_code OWNER TO postgres;
+ALTER TABLE public.parm_code OWNER TO prisma;
 
 --
--- Name: parm_money; Type: TABLE; Schema: public; Owner: postgres
+-- Name: parm_money; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.parm_money (
@@ -5478,17 +5478,17 @@ CREATE TABLE public.parm_money (
 );
 
 
-ALTER TABLE public.parm_money OWNER TO postgres;
+ALTER TABLE public.parm_money OWNER TO prisma;
 
 --
--- Name: TABLE parm_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE parm_money; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.parm_money IS 'Currency conversion';
 
 
 --
--- Name: parm_periode; Type: TABLE; Schema: public; Owner: postgres
+-- Name: parm_periode; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.parm_periode (
@@ -5502,10 +5502,10 @@ CREATE TABLE public.parm_periode (
 );
 
 
-ALTER TABLE public.parm_periode OWNER TO postgres;
+ALTER TABLE public.parm_periode OWNER TO prisma;
 
 --
--- Name: TABLE parm_periode; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE parm_periode; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.parm_periode IS 'Periode definition';
@@ -5514,7 +5514,7 @@ COMMENT ON TABLE public.parm_periode IS 'Periode definition';
 SET default_with_oids = false;
 
 --
--- Name: parm_poste; Type: TABLE; Schema: public; Owner: postgres
+-- Name: parm_poste; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.parm_poste (
@@ -5523,17 +5523,17 @@ CREATE TABLE public.parm_poste (
 );
 
 
-ALTER TABLE public.parm_poste OWNER TO postgres;
+ALTER TABLE public.parm_poste OWNER TO prisma;
 
 --
--- Name: TABLE parm_poste; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE parm_poste; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.parm_poste IS 'Contains data for finding is the type of the account (asset)';
 
 
 --
--- Name: plan_analytique_pa_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: plan_analytique_pa_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.plan_analytique_pa_id_seq
@@ -5544,10 +5544,10 @@ CREATE SEQUENCE public.plan_analytique_pa_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.plan_analytique_pa_id_seq OWNER TO postgres;
+ALTER TABLE public.plan_analytique_pa_id_seq OWNER TO prisma;
 
 --
--- Name: plan_analytique; Type: TABLE; Schema: public; Owner: postgres
+-- Name: plan_analytique; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.plan_analytique (
@@ -5557,17 +5557,17 @@ CREATE TABLE public.plan_analytique (
 );
 
 
-ALTER TABLE public.plan_analytique OWNER TO postgres;
+ALTER TABLE public.plan_analytique OWNER TO prisma;
 
 --
--- Name: TABLE plan_analytique; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE plan_analytique; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.plan_analytique IS 'Plan Analytique (max 5)';
 
 
 --
--- Name: poste_analytique_po_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: poste_analytique_po_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.poste_analytique_po_id_seq
@@ -5578,10 +5578,10 @@ CREATE SEQUENCE public.poste_analytique_po_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.poste_analytique_po_id_seq OWNER TO postgres;
+ALTER TABLE public.poste_analytique_po_id_seq OWNER TO prisma;
 
 --
--- Name: poste_analytique; Type: TABLE; Schema: public; Owner: postgres
+-- Name: poste_analytique; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.poste_analytique (
@@ -5594,17 +5594,17 @@ CREATE TABLE public.poste_analytique (
 );
 
 
-ALTER TABLE public.poste_analytique OWNER TO postgres;
+ALTER TABLE public.poste_analytique OWNER TO prisma;
 
 --
--- Name: TABLE poste_analytique; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE poste_analytique; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.poste_analytique IS 'Poste Analytique';
 
 
 --
--- Name: profile; Type: TABLE; Schema: public; Owner: postgres
+-- Name: profile; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.profile (
@@ -5616,45 +5616,45 @@ CREATE TABLE public.profile (
 );
 
 
-ALTER TABLE public.profile OWNER TO postgres;
+ALTER TABLE public.profile OWNER TO prisma;
 
 --
--- Name: TABLE profile; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE profile; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.profile IS 'Available profile ';
 
 
 --
--- Name: COLUMN profile.p_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile.p_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile.p_name IS 'Name of the profile';
 
 
 --
--- Name: COLUMN profile.p_desc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile.p_desc; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile.p_desc IS 'description of the profile';
 
 
 --
--- Name: COLUMN profile.with_calc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile.with_calc; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile.with_calc IS 'show the calculator';
 
 
 --
--- Name: COLUMN profile.with_direct_form; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile.with_direct_form; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile.with_direct_form IS 'show the direct form';
 
 
 --
--- Name: profile_menu; Type: TABLE; Schema: public; Owner: postgres
+-- Name: profile_menu; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.profile_menu (
@@ -5669,38 +5669,38 @@ CREATE TABLE public.profile_menu (
 );
 
 
-ALTER TABLE public.profile_menu OWNER TO postgres;
+ALTER TABLE public.profile_menu OWNER TO prisma;
 
 --
--- Name: TABLE profile_menu; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE profile_menu; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.profile_menu IS 'Join  between the profile and the menu ';
 
 
 --
--- Name: COLUMN profile_menu.me_code_dep; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_menu.me_code_dep; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_menu.me_code_dep IS 'menu code dependency';
 
 
 --
--- Name: COLUMN profile_menu.p_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_menu.p_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_menu.p_id IS 'link to profile';
 
 
 --
--- Name: COLUMN profile_menu.p_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_menu.p_order; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_menu.p_order IS 'order of displaying menu';
 
 
 --
--- Name: COLUMN profile_menu.p_type_display; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_menu.p_type_display; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_menu.p_type_display IS 'M is a module
@@ -5709,21 +5709,21 @@ S is a select (for plugin)';
 
 
 --
--- Name: COLUMN profile_menu.pm_default; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_menu.pm_default; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_menu.pm_default IS 'default menu';
 
 
 --
--- Name: COLUMN profile_menu.pm_id_dep; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_menu.pm_id_dep; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_menu.pm_id_dep IS 'parent of this menu item';
 
 
 --
--- Name: profile_menu_pm_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: profile_menu_pm_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.profile_menu_pm_id_seq
@@ -5734,17 +5734,17 @@ CREATE SEQUENCE public.profile_menu_pm_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profile_menu_pm_id_seq OWNER TO postgres;
+ALTER TABLE public.profile_menu_pm_id_seq OWNER TO prisma;
 
 --
--- Name: profile_menu_pm_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: profile_menu_pm_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.profile_menu_pm_id_seq OWNED BY public.profile_menu.pm_id;
 
 
 --
--- Name: profile_menu_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: profile_menu_type; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.profile_menu_type (
@@ -5753,10 +5753,10 @@ CREATE TABLE public.profile_menu_type (
 );
 
 
-ALTER TABLE public.profile_menu_type OWNER TO postgres;
+ALTER TABLE public.profile_menu_type OWNER TO prisma;
 
 --
--- Name: profile_p_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: profile_p_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.profile_p_id_seq
@@ -5767,17 +5767,17 @@ CREATE SEQUENCE public.profile_p_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profile_p_id_seq OWNER TO postgres;
+ALTER TABLE public.profile_p_id_seq OWNER TO prisma;
 
 --
--- Name: profile_p_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: profile_p_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.profile_p_id_seq OWNED BY public.profile.p_id;
 
 
 --
--- Name: profile_sec_repository; Type: TABLE; Schema: public; Owner: postgres
+-- Name: profile_sec_repository; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.profile_sec_repository (
@@ -5789,45 +5789,45 @@ CREATE TABLE public.profile_sec_repository (
 );
 
 
-ALTER TABLE public.profile_sec_repository OWNER TO postgres;
+ALTER TABLE public.profile_sec_repository OWNER TO prisma;
 
 --
--- Name: TABLE profile_sec_repository; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE profile_sec_repository; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.profile_sec_repository IS 'Available profile for user';
 
 
 --
--- Name: COLUMN profile_sec_repository.ur_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_sec_repository.ur_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_sec_repository.ur_id IS 'pk';
 
 
 --
--- Name: COLUMN profile_sec_repository.p_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_sec_repository.p_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_sec_repository.p_id IS 'fk to profile';
 
 
 --
--- Name: COLUMN profile_sec_repository.r_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_sec_repository.r_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_sec_repository.r_id IS 'fk to stock_repository';
 
 
 --
--- Name: COLUMN profile_sec_repository.ur_right; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_sec_repository.ur_right; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_sec_repository.ur_right IS 'Type of right : R for readonly W for write';
 
 
 --
--- Name: profile_sec_repository_ur_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: profile_sec_repository_ur_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.profile_sec_repository_ur_id_seq
@@ -5838,17 +5838,17 @@ CREATE SEQUENCE public.profile_sec_repository_ur_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profile_sec_repository_ur_id_seq OWNER TO postgres;
+ALTER TABLE public.profile_sec_repository_ur_id_seq OWNER TO prisma;
 
 --
--- Name: profile_sec_repository_ur_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: profile_sec_repository_ur_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.profile_sec_repository_ur_id_seq OWNED BY public.profile_sec_repository.ur_id;
 
 
 --
--- Name: profile_user; Type: TABLE; Schema: public; Owner: postgres
+-- Name: profile_user; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.profile_user (
@@ -5858,31 +5858,31 @@ CREATE TABLE public.profile_user (
 );
 
 
-ALTER TABLE public.profile_user OWNER TO postgres;
+ALTER TABLE public.profile_user OWNER TO prisma;
 
 --
--- Name: TABLE profile_user; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE profile_user; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.profile_user IS 'Contains the available profile for users';
 
 
 --
--- Name: COLUMN profile_user.user_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_user.user_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_user.user_name IS 'fk to available_user : login';
 
 
 --
--- Name: COLUMN profile_user.p_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN profile_user.p_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.profile_user.p_id IS 'fk to profile';
 
 
 --
--- Name: profile_user_pu_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: profile_user_pu_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.profile_user_pu_id_seq
@@ -5893,17 +5893,17 @@ CREATE SEQUENCE public.profile_user_pu_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profile_user_pu_id_seq OWNER TO postgres;
+ALTER TABLE public.profile_user_pu_id_seq OWNER TO prisma;
 
 --
--- Name: profile_user_pu_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: profile_user_pu_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.profile_user_pu_id_seq OWNED BY public.profile_user.pu_id;
 
 
 --
--- Name: quant_fin; Type: TABLE; Schema: public; Owner: postgres
+-- Name: quant_fin; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.quant_fin (
@@ -5915,17 +5915,17 @@ CREATE TABLE public.quant_fin (
 );
 
 
-ALTER TABLE public.quant_fin OWNER TO postgres;
+ALTER TABLE public.quant_fin OWNER TO prisma;
 
 --
--- Name: TABLE quant_fin; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE quant_fin; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.quant_fin IS 'Simple operation for financial';
 
 
 --
--- Name: quant_fin_qf_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: quant_fin_qf_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.quant_fin_qf_id_seq
@@ -5936,17 +5936,17 @@ CREATE SEQUENCE public.quant_fin_qf_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quant_fin_qf_id_seq OWNER TO postgres;
+ALTER TABLE public.quant_fin_qf_id_seq OWNER TO prisma;
 
 --
--- Name: quant_fin_qf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: quant_fin_qf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.quant_fin_qf_id_seq OWNED BY public.quant_fin.qf_id;
 
 
 --
--- Name: quant_purchase; Type: TABLE; Schema: public; Owner: postgres
+-- Name: quant_purchase; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.quant_purchase (
@@ -5969,10 +5969,10 @@ CREATE TABLE public.quant_purchase (
 );
 
 
-ALTER TABLE public.quant_purchase OWNER TO postgres;
+ALTER TABLE public.quant_purchase OWNER TO prisma;
 
 --
--- Name: COLUMN quant_purchase.qp_vat_sided; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN quant_purchase.qp_vat_sided; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.quant_purchase.qp_vat_sided IS 'amount of the VAT which avoid VAT, case of the VAT which add the same amount at the deb and cred';
@@ -5981,7 +5981,7 @@ COMMENT ON COLUMN public.quant_purchase.qp_vat_sided IS 'amount of the VAT which
 SET default_with_oids = true;
 
 --
--- Name: quant_sold; Type: TABLE; Schema: public; Owner: postgres
+-- Name: quant_sold; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.quant_sold (
@@ -6000,17 +6000,17 @@ CREATE TABLE public.quant_sold (
 );
 
 
-ALTER TABLE public.quant_sold OWNER TO postgres;
+ALTER TABLE public.quant_sold OWNER TO prisma;
 
 --
--- Name: TABLE quant_sold; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE quant_sold; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.quant_sold IS 'Contains about invoice for customer';
 
 
 --
--- Name: s_attr_def; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_attr_def; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_attr_def
@@ -6021,10 +6021,10 @@ CREATE SEQUENCE public.s_attr_def
     CACHE 1;
 
 
-ALTER TABLE public.s_attr_def OWNER TO postgres;
+ALTER TABLE public.s_attr_def OWNER TO prisma;
 
 --
--- Name: s_cbc; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_cbc; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_cbc
@@ -6035,10 +6035,10 @@ CREATE SEQUENCE public.s_cbc
     CACHE 1;
 
 
-ALTER TABLE public.s_cbc OWNER TO postgres;
+ALTER TABLE public.s_cbc OWNER TO prisma;
 
 --
--- Name: s_central; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_central; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_central
@@ -6049,10 +6049,10 @@ CREATE SEQUENCE public.s_central
     CACHE 1;
 
 
-ALTER TABLE public.s_central OWNER TO postgres;
+ALTER TABLE public.s_central OWNER TO prisma;
 
 --
--- Name: s_central_order; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_central_order; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_central_order
@@ -6063,10 +6063,10 @@ CREATE SEQUENCE public.s_central_order
     CACHE 1;
 
 
-ALTER TABLE public.s_central_order OWNER TO postgres;
+ALTER TABLE public.s_central_order OWNER TO prisma;
 
 --
--- Name: s_centralized; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_centralized; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_centralized
@@ -6077,10 +6077,10 @@ CREATE SEQUENCE public.s_centralized
     CACHE 1;
 
 
-ALTER TABLE public.s_centralized OWNER TO postgres;
+ALTER TABLE public.s_centralized OWNER TO prisma;
 
 --
--- Name: s_currency; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_currency; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_currency
@@ -6091,10 +6091,10 @@ CREATE SEQUENCE public.s_currency
     CACHE 1;
 
 
-ALTER TABLE public.s_currency OWNER TO postgres;
+ALTER TABLE public.s_currency OWNER TO prisma;
 
 --
--- Name: s_fdef; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_fdef; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_fdef
@@ -6105,10 +6105,10 @@ CREATE SEQUENCE public.s_fdef
     CACHE 1;
 
 
-ALTER TABLE public.s_fdef OWNER TO postgres;
+ALTER TABLE public.s_fdef OWNER TO prisma;
 
 --
--- Name: s_fiche; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_fiche; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_fiche
@@ -6119,10 +6119,10 @@ CREATE SEQUENCE public.s_fiche
     CACHE 1;
 
 
-ALTER TABLE public.s_fiche OWNER TO postgres;
+ALTER TABLE public.s_fiche OWNER TO prisma;
 
 --
--- Name: s_fiche_def_ref; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_fiche_def_ref; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_fiche_def_ref
@@ -6133,10 +6133,10 @@ CREATE SEQUENCE public.s_fiche_def_ref
     CACHE 1;
 
 
-ALTER TABLE public.s_fiche_def_ref OWNER TO postgres;
+ALTER TABLE public.s_fiche_def_ref OWNER TO prisma;
 
 --
--- Name: s_form; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_form; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_form
@@ -6147,10 +6147,10 @@ CREATE SEQUENCE public.s_form
     CACHE 1;
 
 
-ALTER TABLE public.s_form OWNER TO postgres;
+ALTER TABLE public.s_form OWNER TO prisma;
 
 --
--- Name: s_formdef; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_formdef; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_formdef
@@ -6161,10 +6161,10 @@ CREATE SEQUENCE public.s_formdef
     CACHE 1;
 
 
-ALTER TABLE public.s_formdef OWNER TO postgres;
+ALTER TABLE public.s_formdef OWNER TO prisma;
 
 --
--- Name: s_grpt; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_grpt; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_grpt
@@ -6175,10 +6175,10 @@ CREATE SEQUENCE public.s_grpt
     CACHE 1;
 
 
-ALTER TABLE public.s_grpt OWNER TO postgres;
+ALTER TABLE public.s_grpt OWNER TO prisma;
 
 --
--- Name: s_idef; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_idef; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_idef
@@ -6189,10 +6189,10 @@ CREATE SEQUENCE public.s_idef
     CACHE 1;
 
 
-ALTER TABLE public.s_idef OWNER TO postgres;
+ALTER TABLE public.s_idef OWNER TO prisma;
 
 --
--- Name: s_internal; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_internal; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_internal
@@ -6203,10 +6203,10 @@ CREATE SEQUENCE public.s_internal
     CACHE 1;
 
 
-ALTER TABLE public.s_internal OWNER TO postgres;
+ALTER TABLE public.s_internal OWNER TO prisma;
 
 --
--- Name: s_invoice; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_invoice; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_invoice
@@ -6217,10 +6217,10 @@ CREATE SEQUENCE public.s_invoice
     CACHE 1;
 
 
-ALTER TABLE public.s_invoice OWNER TO postgres;
+ALTER TABLE public.s_invoice OWNER TO prisma;
 
 --
--- Name: s_isup; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_isup; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_isup
@@ -6231,10 +6231,10 @@ CREATE SEQUENCE public.s_isup
     CACHE 1;
 
 
-ALTER TABLE public.s_isup OWNER TO postgres;
+ALTER TABLE public.s_isup OWNER TO prisma;
 
 --
--- Name: s_jnt_fic_att_value; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jnt_fic_att_value; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jnt_fic_att_value
@@ -6245,10 +6245,10 @@ CREATE SEQUENCE public.s_jnt_fic_att_value
     CACHE 1;
 
 
-ALTER TABLE public.s_jnt_fic_att_value OWNER TO postgres;
+ALTER TABLE public.s_jnt_fic_att_value OWNER TO prisma;
 
 --
--- Name: s_jrn; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn
@@ -6259,10 +6259,10 @@ CREATE SEQUENCE public.s_jrn
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn OWNER TO postgres;
+ALTER TABLE public.s_jrn OWNER TO prisma;
 
 --
--- Name: s_jrn_1; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_1; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_1
@@ -6273,10 +6273,10 @@ CREATE SEQUENCE public.s_jrn_1
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_1 OWNER TO postgres;
+ALTER TABLE public.s_jrn_1 OWNER TO prisma;
 
 --
--- Name: s_jrn_2; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_2; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_2
@@ -6287,10 +6287,10 @@ CREATE SEQUENCE public.s_jrn_2
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_2 OWNER TO postgres;
+ALTER TABLE public.s_jrn_2 OWNER TO prisma;
 
 --
--- Name: s_jrn_3; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_3; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_3
@@ -6301,10 +6301,10 @@ CREATE SEQUENCE public.s_jrn_3
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_3 OWNER TO postgres;
+ALTER TABLE public.s_jrn_3 OWNER TO prisma;
 
 --
--- Name: s_jrn_4; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_4; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_4
@@ -6315,10 +6315,10 @@ CREATE SEQUENCE public.s_jrn_4
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_4 OWNER TO postgres;
+ALTER TABLE public.s_jrn_4 OWNER TO prisma;
 
 --
--- Name: s_jrn_def; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_def; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_def
@@ -6329,10 +6329,10 @@ CREATE SEQUENCE public.s_jrn_def
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_def OWNER TO postgres;
+ALTER TABLE public.s_jrn_def OWNER TO prisma;
 
 --
--- Name: s_jrn_op; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_op; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_op
@@ -6343,10 +6343,10 @@ CREATE SEQUENCE public.s_jrn_op
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_op OWNER TO postgres;
+ALTER TABLE public.s_jrn_op OWNER TO prisma;
 
 --
--- Name: s_jrn_pj1; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_pj1; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_pj1
@@ -6357,10 +6357,10 @@ CREATE SEQUENCE public.s_jrn_pj1
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_pj1 OWNER TO postgres;
+ALTER TABLE public.s_jrn_pj1 OWNER TO prisma;
 
 --
--- Name: s_jrn_pj2; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_pj2; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_pj2
@@ -6371,10 +6371,10 @@ CREATE SEQUENCE public.s_jrn_pj2
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_pj2 OWNER TO postgres;
+ALTER TABLE public.s_jrn_pj2 OWNER TO prisma;
 
 --
--- Name: s_jrn_pj3; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_pj3; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_pj3
@@ -6385,10 +6385,10 @@ CREATE SEQUENCE public.s_jrn_pj3
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_pj3 OWNER TO postgres;
+ALTER TABLE public.s_jrn_pj3 OWNER TO prisma;
 
 --
--- Name: s_jrn_pj4; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_pj4; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_pj4
@@ -6399,10 +6399,10 @@ CREATE SEQUENCE public.s_jrn_pj4
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_pj4 OWNER TO postgres;
+ALTER TABLE public.s_jrn_pj4 OWNER TO prisma;
 
 --
--- Name: s_jrn_rapt; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrn_rapt; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrn_rapt
@@ -6413,10 +6413,10 @@ CREATE SEQUENCE public.s_jrn_rapt
     CACHE 1;
 
 
-ALTER TABLE public.s_jrn_rapt OWNER TO postgres;
+ALTER TABLE public.s_jrn_rapt OWNER TO prisma;
 
 --
--- Name: s_jrnaction; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrnaction; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrnaction
@@ -6427,10 +6427,10 @@ CREATE SEQUENCE public.s_jrnaction
     CACHE 1;
 
 
-ALTER TABLE public.s_jrnaction OWNER TO postgres;
+ALTER TABLE public.s_jrnaction OWNER TO prisma;
 
 --
--- Name: s_jrnx; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_jrnx; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_jrnx
@@ -6441,10 +6441,10 @@ CREATE SEQUENCE public.s_jrnx
     CACHE 1;
 
 
-ALTER TABLE public.s_jrnx OWNER TO postgres;
+ALTER TABLE public.s_jrnx OWNER TO prisma;
 
 --
--- Name: s_periode; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_periode; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_periode
@@ -6455,10 +6455,10 @@ CREATE SEQUENCE public.s_periode
     CACHE 1;
 
 
-ALTER TABLE public.s_periode OWNER TO postgres;
+ALTER TABLE public.s_periode OWNER TO prisma;
 
 --
--- Name: s_quantity; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_quantity; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_quantity
@@ -6469,10 +6469,10 @@ CREATE SEQUENCE public.s_quantity
     CACHE 1;
 
 
-ALTER TABLE public.s_quantity OWNER TO postgres;
+ALTER TABLE public.s_quantity OWNER TO prisma;
 
 --
--- Name: s_stock_goods; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_stock_goods; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_stock_goods
@@ -6483,10 +6483,10 @@ CREATE SEQUENCE public.s_stock_goods
     CACHE 1;
 
 
-ALTER TABLE public.s_stock_goods OWNER TO postgres;
+ALTER TABLE public.s_stock_goods OWNER TO prisma;
 
 --
--- Name: s_tva; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_tva; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_tva
@@ -6497,10 +6497,10 @@ CREATE SEQUENCE public.s_tva
     CACHE 1;
 
 
-ALTER TABLE public.s_tva OWNER TO postgres;
+ALTER TABLE public.s_tva OWNER TO prisma;
 
 --
--- Name: s_user_act; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_user_act; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_user_act
@@ -6511,10 +6511,10 @@ CREATE SEQUENCE public.s_user_act
     CACHE 1;
 
 
-ALTER TABLE public.s_user_act OWNER TO postgres;
+ALTER TABLE public.s_user_act OWNER TO prisma;
 
 --
--- Name: s_user_jrn; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: s_user_jrn; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.s_user_jrn
@@ -6525,10 +6525,10 @@ CREATE SEQUENCE public.s_user_jrn
     CACHE 1;
 
 
-ALTER TABLE public.s_user_jrn OWNER TO postgres;
+ALTER TABLE public.s_user_jrn OWNER TO prisma;
 
 --
--- Name: seq_bud_hypothese_bh_id; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_bud_hypothese_bh_id; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_bud_hypothese_bh_id
@@ -6539,10 +6539,10 @@ CREATE SEQUENCE public.seq_bud_hypothese_bh_id
     CACHE 1;
 
 
-ALTER TABLE public.seq_bud_hypothese_bh_id OWNER TO postgres;
+ALTER TABLE public.seq_bud_hypothese_bh_id OWNER TO prisma;
 
 --
--- Name: seq_doc_type_1; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_1; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_1
@@ -6553,10 +6553,10 @@ CREATE SEQUENCE public.seq_doc_type_1
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_1 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_1 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_10; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_10; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_10
@@ -6567,10 +6567,10 @@ CREATE SEQUENCE public.seq_doc_type_10
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_10 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_10 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_2; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_2; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_2
@@ -6581,10 +6581,10 @@ CREATE SEQUENCE public.seq_doc_type_2
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_2 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_2 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_20; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_20; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_20
@@ -6595,10 +6595,10 @@ CREATE SEQUENCE public.seq_doc_type_20
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_20 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_20 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_21; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_21; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_21
@@ -6609,10 +6609,10 @@ CREATE SEQUENCE public.seq_doc_type_21
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_21 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_21 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_22; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_22; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_22
@@ -6623,10 +6623,10 @@ CREATE SEQUENCE public.seq_doc_type_22
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_22 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_22 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_3; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_3; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_3
@@ -6637,10 +6637,10 @@ CREATE SEQUENCE public.seq_doc_type_3
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_3 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_3 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_4; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_4; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_4
@@ -6651,10 +6651,10 @@ CREATE SEQUENCE public.seq_doc_type_4
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_4 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_4 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_5; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_5; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_5
@@ -6665,10 +6665,10 @@ CREATE SEQUENCE public.seq_doc_type_5
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_5 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_5 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_6; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_6; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_6
@@ -6679,10 +6679,10 @@ CREATE SEQUENCE public.seq_doc_type_6
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_6 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_6 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_7; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_7; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_7
@@ -6693,10 +6693,10 @@ CREATE SEQUENCE public.seq_doc_type_7
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_7 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_7 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_8; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_8; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_8
@@ -6707,10 +6707,10 @@ CREATE SEQUENCE public.seq_doc_type_8
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_8 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_8 OWNER TO prisma;
 
 --
--- Name: seq_doc_type_9; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seq_doc_type_9; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.seq_doc_type_9
@@ -6721,12 +6721,12 @@ CREATE SEQUENCE public.seq_doc_type_9
     CACHE 1;
 
 
-ALTER TABLE public.seq_doc_type_9 OWNER TO postgres;
+ALTER TABLE public.seq_doc_type_9 OWNER TO prisma;
 
 SET default_with_oids = false;
 
 --
--- Name: stock_change; Type: TABLE; Schema: public; Owner: postgres
+-- Name: stock_change; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.stock_change (
@@ -6739,10 +6739,10 @@ CREATE TABLE public.stock_change (
 );
 
 
-ALTER TABLE public.stock_change OWNER TO postgres;
+ALTER TABLE public.stock_change OWNER TO prisma;
 
 --
--- Name: stock_change_c_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: stock_change_c_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.stock_change_c_id_seq
@@ -6753,10 +6753,10 @@ CREATE SEQUENCE public.stock_change_c_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stock_change_c_id_seq OWNER TO postgres;
+ALTER TABLE public.stock_change_c_id_seq OWNER TO prisma;
 
 --
--- Name: stock_change_c_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: stock_change_c_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.stock_change_c_id_seq OWNED BY public.stock_change.c_id;
@@ -6765,7 +6765,7 @@ ALTER SEQUENCE public.stock_change_c_id_seq OWNED BY public.stock_change.c_id;
 SET default_with_oids = true;
 
 --
--- Name: stock_goods; Type: TABLE; Schema: public; Owner: postgres
+-- Name: stock_goods; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.stock_goods (
@@ -6786,10 +6786,10 @@ CREATE TABLE public.stock_goods (
 );
 
 
-ALTER TABLE public.stock_goods OWNER TO postgres;
+ALTER TABLE public.stock_goods OWNER TO prisma;
 
 --
--- Name: TABLE stock_goods; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE stock_goods; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.stock_goods IS 'About the goods';
@@ -6798,7 +6798,7 @@ COMMENT ON TABLE public.stock_goods IS 'About the goods';
 SET default_with_oids = false;
 
 --
--- Name: stock_repository; Type: TABLE; Schema: public; Owner: postgres
+-- Name: stock_repository; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.stock_repository (
@@ -6811,59 +6811,59 @@ CREATE TABLE public.stock_repository (
 );
 
 
-ALTER TABLE public.stock_repository OWNER TO postgres;
+ALTER TABLE public.stock_repository OWNER TO prisma;
 
 --
--- Name: TABLE stock_repository; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE stock_repository; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.stock_repository IS 'stock repository';
 
 
 --
--- Name: COLUMN stock_repository.r_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN stock_repository.r_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.stock_repository.r_id IS 'pk';
 
 
 --
--- Name: COLUMN stock_repository.r_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN stock_repository.r_name; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.stock_repository.r_name IS 'name of the stock';
 
 
 --
--- Name: COLUMN stock_repository.r_adress; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN stock_repository.r_adress; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.stock_repository.r_adress IS 'adress of the stock';
 
 
 --
--- Name: COLUMN stock_repository.r_country; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN stock_repository.r_country; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.stock_repository.r_country IS 'country of the stock';
 
 
 --
--- Name: COLUMN stock_repository.r_city; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN stock_repository.r_city; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.stock_repository.r_city IS 'City of the stock';
 
 
 --
--- Name: COLUMN stock_repository.r_phone; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN stock_repository.r_phone; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.stock_repository.r_phone IS 'Phone number';
 
 
 --
--- Name: stock_repository_r_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: stock_repository_r_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.stock_repository_r_id_seq
@@ -6874,17 +6874,17 @@ CREATE SEQUENCE public.stock_repository_r_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stock_repository_r_id_seq OWNER TO postgres;
+ALTER TABLE public.stock_repository_r_id_seq OWNER TO prisma;
 
 --
--- Name: stock_repository_r_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: stock_repository_r_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.stock_repository_r_id_seq OWNED BY public.stock_repository.r_id;
 
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: postgres
+-- Name: tags; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.tags (
@@ -6896,17 +6896,17 @@ CREATE TABLE public.tags (
 );
 
 
-ALTER TABLE public.tags OWNER TO postgres;
+ALTER TABLE public.tags OWNER TO prisma;
 
 --
--- Name: COLUMN tags.t_actif; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN tags.t_actif; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.tags.t_actif IS 'Y if the tag is activate and can be used ';
 
 
 --
--- Name: tags_t_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: tags_t_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.tags_t_id_seq
@@ -6917,17 +6917,17 @@ CREATE SEQUENCE public.tags_t_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tags_t_id_seq OWNER TO postgres;
+ALTER TABLE public.tags_t_id_seq OWNER TO prisma;
 
 --
--- Name: tags_t_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: tags_t_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.tags_t_id_seq OWNED BY public.tags.t_id;
 
 
 --
--- Name: tmp_pcmn_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: tmp_pcmn_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.tmp_pcmn_id_seq
@@ -6938,12 +6938,12 @@ CREATE SEQUENCE public.tmp_pcmn_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tmp_pcmn_id_seq OWNER TO postgres;
+ALTER TABLE public.tmp_pcmn_id_seq OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: tmp_pcmn; Type: TABLE; Schema: public; Owner: postgres
+-- Name: tmp_pcmn; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.tmp_pcmn (
@@ -6957,24 +6957,24 @@ CREATE TABLE public.tmp_pcmn (
 );
 
 
-ALTER TABLE public.tmp_pcmn OWNER TO postgres;
+ALTER TABLE public.tmp_pcmn OWNER TO prisma;
 
 --
--- Name: TABLE tmp_pcmn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE tmp_pcmn; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.tmp_pcmn IS 'Plan comptable minimum normalisé';
 
 
 --
--- Name: COLUMN tmp_pcmn.id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN tmp_pcmn.id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.tmp_pcmn.id IS 'allow to identify the row, it is unique and not null (pseudo pk)';
 
 
 --
--- Name: COLUMN tmp_pcmn.pcm_direct_use; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN tmp_pcmn.pcm_direct_use; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.tmp_pcmn.pcm_direct_use IS 'Value are N or Y , N cannot be used directly , not even through a card';
@@ -6983,7 +6983,7 @@ COMMENT ON COLUMN public.tmp_pcmn.pcm_direct_use IS 'Value are N or Y , N cannot
 SET default_with_oids = false;
 
 --
--- Name: tmp_stockgood; Type: TABLE; Schema: public; Owner: postgres
+-- Name: tmp_stockgood; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.tmp_stockgood (
@@ -6992,10 +6992,10 @@ CREATE TABLE public.tmp_stockgood (
 );
 
 
-ALTER TABLE public.tmp_stockgood OWNER TO postgres;
+ALTER TABLE public.tmp_stockgood OWNER TO prisma;
 
 --
--- Name: tmp_stockgood_detail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.tmp_stockgood_detail (
@@ -7009,10 +7009,10 @@ CREATE TABLE public.tmp_stockgood_detail (
 );
 
 
-ALTER TABLE public.tmp_stockgood_detail OWNER TO postgres;
+ALTER TABLE public.tmp_stockgood_detail OWNER TO prisma;
 
 --
--- Name: tmp_stockgood_detail_d_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail_d_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.tmp_stockgood_detail_d_id_seq
@@ -7023,17 +7023,17 @@ CREATE SEQUENCE public.tmp_stockgood_detail_d_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tmp_stockgood_detail_d_id_seq OWNER TO postgres;
+ALTER TABLE public.tmp_stockgood_detail_d_id_seq OWNER TO prisma;
 
 --
--- Name: tmp_stockgood_detail_d_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail_d_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.tmp_stockgood_detail_d_id_seq OWNED BY public.tmp_stockgood_detail.d_id;
 
 
 --
--- Name: tmp_stockgood_s_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_s_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.tmp_stockgood_s_id_seq
@@ -7044,17 +7044,17 @@ CREATE SEQUENCE public.tmp_stockgood_s_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tmp_stockgood_s_id_seq OWNER TO postgres;
+ALTER TABLE public.tmp_stockgood_s_id_seq OWNER TO prisma;
 
 --
--- Name: tmp_stockgood_s_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_s_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.tmp_stockgood_s_id_seq OWNED BY public.tmp_stockgood.s_id;
 
 
 --
--- Name: todo_list_tl_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: todo_list_tl_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.todo_list_tl_id_seq
@@ -7065,10 +7065,10 @@ CREATE SEQUENCE public.todo_list_tl_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.todo_list_tl_id_seq OWNER TO postgres;
+ALTER TABLE public.todo_list_tl_id_seq OWNER TO prisma;
 
 --
--- Name: todo_list; Type: TABLE; Schema: public; Owner: postgres
+-- Name: todo_list; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.todo_list (
@@ -7082,24 +7082,24 @@ CREATE TABLE public.todo_list (
 );
 
 
-ALTER TABLE public.todo_list OWNER TO postgres;
+ALTER TABLE public.todo_list OWNER TO prisma;
 
 --
--- Name: TABLE todo_list; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE todo_list; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.todo_list IS 'Todo list';
 
 
 --
--- Name: COLUMN todo_list.is_public; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN todo_list.is_public; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.todo_list.is_public IS 'Flag for the public parameter';
 
 
 --
--- Name: todo_list_shared; Type: TABLE; Schema: public; Owner: postgres
+-- Name: todo_list_shared; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.todo_list_shared (
@@ -7109,31 +7109,31 @@ CREATE TABLE public.todo_list_shared (
 );
 
 
-ALTER TABLE public.todo_list_shared OWNER TO postgres;
+ALTER TABLE public.todo_list_shared OWNER TO prisma;
 
 --
--- Name: TABLE todo_list_shared; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE todo_list_shared; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.todo_list_shared IS 'Note of todo list shared with other users';
 
 
 --
--- Name: COLUMN todo_list_shared.todo_list_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN todo_list_shared.todo_list_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.todo_list_shared.todo_list_id IS 'fk to todo_list';
 
 
 --
--- Name: COLUMN todo_list_shared.use_login; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN todo_list_shared.use_login; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.todo_list_shared.use_login IS 'user login';
 
 
 --
--- Name: todo_list_shared_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: todo_list_shared_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.todo_list_shared_id_seq
@@ -7144,17 +7144,17 @@ CREATE SEQUENCE public.todo_list_shared_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.todo_list_shared_id_seq OWNER TO postgres;
+ALTER TABLE public.todo_list_shared_id_seq OWNER TO prisma;
 
 --
--- Name: todo_list_shared_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: todo_list_shared_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.todo_list_shared_id_seq OWNED BY public.todo_list_shared.id;
 
 
 --
--- Name: uos_pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: uos_pk_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.uos_pk_seq
@@ -7165,10 +7165,10 @@ CREATE SEQUENCE public.uos_pk_seq
     CACHE 1;
 
 
-ALTER TABLE public.uos_pk_seq OWNER TO postgres;
+ALTER TABLE public.uos_pk_seq OWNER TO prisma;
 
 --
--- Name: tool_uos; Type: TABLE; Schema: public; Owner: postgres
+-- Name: tool_uos; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.tool_uos (
@@ -7176,12 +7176,12 @@ CREATE TABLE public.tool_uos (
 );
 
 
-ALTER TABLE public.tool_uos OWNER TO postgres;
+ALTER TABLE public.tool_uos OWNER TO prisma;
 
 SET default_with_oids = true;
 
 --
--- Name: tva_rate; Type: TABLE; Schema: public; Owner: postgres
+-- Name: tva_rate; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.tva_rate (
@@ -7194,10 +7194,10 @@ CREATE TABLE public.tva_rate (
 );
 
 
-ALTER TABLE public.tva_rate OWNER TO postgres;
+ALTER TABLE public.tva_rate OWNER TO prisma;
 
 --
--- Name: TABLE tva_rate; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE tva_rate; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.tva_rate IS 'Rate of vat';
@@ -7206,7 +7206,7 @@ COMMENT ON TABLE public.tva_rate IS 'Rate of vat';
 SET default_with_oids = false;
 
 --
--- Name: user_active_security; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_active_security; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_active_security (
@@ -7219,31 +7219,31 @@ CREATE TABLE public.user_active_security (
 );
 
 
-ALTER TABLE public.user_active_security OWNER TO postgres;
+ALTER TABLE public.user_active_security OWNER TO prisma;
 
 --
--- Name: COLUMN user_active_security.us_login; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_active_security.us_login; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_active_security.us_login IS 'user''s login';
 
 
 --
--- Name: COLUMN user_active_security.us_ledger; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_active_security.us_ledger; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_active_security.us_ledger IS 'Flag Security for ledger';
 
 
 --
--- Name: COLUMN user_active_security.us_action; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_active_security.us_action; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_active_security.us_action IS 'Security for action';
 
 
 --
--- Name: user_active_security_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: user_active_security_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.user_active_security_id_seq
@@ -7254,17 +7254,17 @@ CREATE SEQUENCE public.user_active_security_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_active_security_id_seq OWNER TO postgres;
+ALTER TABLE public.user_active_security_id_seq OWNER TO prisma;
 
 --
--- Name: user_active_security_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: user_active_security_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.user_active_security_id_seq OWNED BY public.user_active_security.id;
 
 
 --
--- Name: user_filter; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_filter; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_filter (
@@ -7288,10 +7288,10 @@ CREATE TABLE public.user_filter (
 );
 
 
-ALTER TABLE public.user_filter OWNER TO postgres;
+ALTER TABLE public.user_filter OWNER TO prisma;
 
 --
--- Name: user_filter_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: user_filter_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.user_filter_id_seq
@@ -7302,10 +7302,10 @@ CREATE SEQUENCE public.user_filter_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_filter_id_seq OWNER TO postgres;
+ALTER TABLE public.user_filter_id_seq OWNER TO prisma;
 
 --
--- Name: user_filter_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: user_filter_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.user_filter_id_seq OWNED BY public.user_filter.id;
@@ -7314,7 +7314,7 @@ ALTER SEQUENCE public.user_filter_id_seq OWNED BY public.user_filter.id;
 SET default_with_oids = true;
 
 --
--- Name: user_local_pref; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_local_pref; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_local_pref (
@@ -7324,38 +7324,38 @@ CREATE TABLE public.user_local_pref (
 );
 
 
-ALTER TABLE public.user_local_pref OWNER TO postgres;
+ALTER TABLE public.user_local_pref OWNER TO prisma;
 
 --
--- Name: TABLE user_local_pref; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE user_local_pref; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.user_local_pref IS 'The user''s local parameter ';
 
 
 --
--- Name: COLUMN user_local_pref.user_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_local_pref.user_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_local_pref.user_id IS 'user''s login ';
 
 
 --
--- Name: COLUMN user_local_pref.parameter_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_local_pref.parameter_type; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_local_pref.parameter_type IS 'the type of parameter ';
 
 
 --
--- Name: COLUMN user_local_pref.parameter_value; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_local_pref.parameter_value; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_local_pref.parameter_value IS 'the value of parameter ';
 
 
 --
--- Name: user_sec_act; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_sec_act; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_sec_act (
@@ -7365,12 +7365,12 @@ CREATE TABLE public.user_sec_act (
 );
 
 
-ALTER TABLE public.user_sec_act OWNER TO postgres;
+ALTER TABLE public.user_sec_act OWNER TO prisma;
 
 SET default_with_oids = false;
 
 --
--- Name: user_sec_action_profile; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_sec_action_profile (
@@ -7382,38 +7382,38 @@ CREATE TABLE public.user_sec_action_profile (
 );
 
 
-ALTER TABLE public.user_sec_action_profile OWNER TO postgres;
+ALTER TABLE public.user_sec_action_profile OWNER TO prisma;
 
 --
--- Name: TABLE user_sec_action_profile; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE user_sec_action_profile; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TABLE public.user_sec_action_profile IS 'Available profile for user';
 
 
 --
--- Name: COLUMN user_sec_action_profile.ua_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_sec_action_profile.ua_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_sec_action_profile.ua_id IS 'pk';
 
 
 --
--- Name: COLUMN user_sec_action_profile.p_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_sec_action_profile.p_id; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_sec_action_profile.p_id IS 'fk to profile';
 
 
 --
--- Name: COLUMN user_sec_action_profile.ua_right; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN user_sec_action_profile.ua_right; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.user_sec_action_profile.ua_right IS 'Type of right : R for readonly W for write';
 
 
 --
--- Name: user_sec_action_profile_ua_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile_ua_id_seq; Type: SEQUENCE; Schema: public; Owner: prisma
 --
 
 CREATE SEQUENCE public.user_sec_action_profile_ua_id_seq
@@ -7424,10 +7424,10 @@ CREATE SEQUENCE public.user_sec_action_profile_ua_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_sec_action_profile_ua_id_seq OWNER TO postgres;
+ALTER TABLE public.user_sec_action_profile_ua_id_seq OWNER TO prisma;
 
 --
--- Name: user_sec_action_profile_ua_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile_ua_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prisma
 --
 
 ALTER SEQUENCE public.user_sec_action_profile_ua_id_seq OWNED BY public.user_sec_action_profile.ua_id;
@@ -7436,7 +7436,7 @@ ALTER SEQUENCE public.user_sec_action_profile_ua_id_seq OWNED BY public.user_sec
 SET default_with_oids = true;
 
 --
--- Name: user_sec_jrn; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user_sec_jrn; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.user_sec_jrn (
@@ -7447,10 +7447,10 @@ CREATE TABLE public.user_sec_jrn (
 );
 
 
-ALTER TABLE public.user_sec_jrn OWNER TO postgres;
+ALTER TABLE public.user_sec_jrn OWNER TO prisma;
 
 --
--- Name: v_all_menu; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_all_menu; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_all_menu AS
@@ -7475,10 +7475,10 @@ CREATE VIEW public.v_all_menu AS
   ORDER BY pm.p_order;
 
 
-ALTER TABLE public.v_all_menu OWNER TO postgres;
+ALTER TABLE public.v_all_menu OWNER TO prisma;
 
 --
--- Name: vw_fiche_attr; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_fiche_attr; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_fiche_attr AS
@@ -7549,10 +7549,10 @@ CREATE VIEW public.vw_fiche_attr AS
           WHERE (fiche_detail.ad_id = 5)) l ON ((a.f_id = l.f_id)));
 
 
-ALTER TABLE public.vw_fiche_attr OWNER TO postgres;
+ALTER TABLE public.vw_fiche_attr OWNER TO prisma;
 
 --
--- Name: vw_fiche_name; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_fiche_name; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_fiche_name AS
@@ -7562,10 +7562,10 @@ CREATE VIEW public.vw_fiche_name AS
   WHERE (fiche_detail.ad_id = 1);
 
 
-ALTER TABLE public.vw_fiche_name OWNER TO postgres;
+ALTER TABLE public.vw_fiche_name OWNER TO prisma;
 
 --
--- Name: v_detail_purchase; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_detail_purchase; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_detail_purchase AS
@@ -7620,10 +7620,10 @@ CREATE VIEW public.v_detail_purchase AS
      JOIN m ON ((m.jr_id = jrn.jr_id)));
 
 
-ALTER TABLE public.v_detail_purchase OWNER TO postgres;
+ALTER TABLE public.v_detail_purchase OWNER TO prisma;
 
 --
--- Name: v_detail_sale; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_detail_sale; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_detail_sale AS
@@ -7675,10 +7675,10 @@ CREATE VIEW public.v_detail_sale AS
      JOIN m ON ((m.jr_id = jrn.jr_id)));
 
 
-ALTER TABLE public.v_detail_sale OWNER TO postgres;
+ALTER TABLE public.v_detail_sale OWNER TO prisma;
 
 --
--- Name: v_menu_dependency; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_menu_dependency; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_menu_dependency AS
@@ -7731,10 +7731,10 @@ CREATE VIEW public.v_menu_dependency AS
   ORDER BY v1.pm_id;
 
 
-ALTER TABLE public.v_menu_dependency OWNER TO postgres;
+ALTER TABLE public.v_menu_dependency OWNER TO prisma;
 
 --
--- Name: v_menu_description; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_menu_description; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_menu_description AS
@@ -7784,17 +7784,17 @@ CREATE VIEW public.v_menu_description AS
   WHERE ((v1.p_type_display <> 'P'::text) AND ((COALESCE(v1.me_file, ''::text) <> ''::text) OR (COALESCE(v1.me_javascript, ''::text) <> ''::text)));
 
 
-ALTER TABLE public.v_menu_description OWNER TO postgres;
+ALTER TABLE public.v_menu_description OWNER TO prisma;
 
 --
--- Name: VIEW v_menu_description; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: VIEW v_menu_description; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON VIEW public.v_menu_description IS 'Description des menus';
 
 
 --
--- Name: v_menu_description_favori; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_menu_description_favori; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_menu_description_favori AS
@@ -7838,10 +7838,10 @@ CREATE VIEW public.v_menu_description_favori AS
   WHERE (v1.p_type_display <> 'P'::text);
 
 
-ALTER TABLE public.v_menu_description_favori OWNER TO postgres;
+ALTER TABLE public.v_menu_description_favori OWNER TO prisma;
 
 --
--- Name: v_menu_profile; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_menu_profile; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_menu_profile AS
@@ -7872,17 +7872,17 @@ CREATE VIEW public.v_menu_profile AS
   WHERE (v1.p_type_display <> 'P'::text);
 
 
-ALTER TABLE public.v_menu_profile OWNER TO postgres;
+ALTER TABLE public.v_menu_profile OWNER TO prisma;
 
 --
--- Name: VIEW v_menu_profile; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: VIEW v_menu_profile; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON VIEW public.v_menu_profile IS 'Give the profile and the menu + dependencies';
 
 
 --
--- Name: v_quant_detail; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_quant_detail; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_quant_detail AS
@@ -7938,10 +7938,10 @@ CREATE VIEW public.v_quant_detail AS
   GROUP BY jrn.jr_id, quant.tiers, jrn.jr_comment, jrn.jr_montant, quant.vat_code, quant.vat_sided, vw_fiche_name.name, jrn_def.jrn_def_name, jrn_def.jrn_def_type, tva_rate.tva_label;
 
 
-ALTER TABLE public.v_quant_detail OWNER TO postgres;
+ALTER TABLE public.v_quant_detail OWNER TO prisma;
 
 --
--- Name: v_tva_rate; Type: VIEW; Schema: public; Owner: postgres
+-- Name: v_tva_rate; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.v_tva_rate AS
@@ -7955,38 +7955,38 @@ CREATE VIEW public.v_tva_rate AS
    FROM public.tva_rate;
 
 
-ALTER TABLE public.v_tva_rate OWNER TO postgres;
+ALTER TABLE public.v_tva_rate OWNER TO prisma;
 
 --
--- Name: VIEW v_tva_rate; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: VIEW v_tva_rate; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON VIEW public.v_tva_rate IS 'Show this table to be easily used by  Tva_Rate_MTable';
 
 
 --
--- Name: COLUMN v_tva_rate.tva_purchase; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN v_tva_rate.tva_purchase; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.v_tva_rate.tva_purchase IS ' VAT used for purchase';
 
 
 --
--- Name: COLUMN v_tva_rate.tva_sale; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN v_tva_rate.tva_sale; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.v_tva_rate.tva_sale IS ' VAT used for sale';
 
 
 --
--- Name: COLUMN v_tva_rate.tva_both_side; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN v_tva_rate.tva_both_side; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON COLUMN public.v_tva_rate.tva_both_side IS 'if 1 ,  VAT avoided ';
 
 
 --
--- Name: version; Type: TABLE; Schema: public; Owner: postgres
+-- Name: version; Type: TABLE; Schema: public; Owner: prisma
 --
 
 CREATE TABLE public.version (
@@ -7996,10 +7996,10 @@ CREATE TABLE public.version (
 );
 
 
-ALTER TABLE public.version OWNER TO postgres;
+ALTER TABLE public.version OWNER TO prisma;
 
 --
--- Name: vw_client; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_client; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_client AS
@@ -8073,10 +8073,10 @@ CREATE VIEW public.vw_client AS
   WHERE (fiche_def_ref.frd_id = 9);
 
 
-ALTER TABLE public.vw_client OWNER TO postgres;
+ALTER TABLE public.vw_client OWNER TO prisma;
 
 --
--- Name: vw_fiche_def; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_fiche_def; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_fiche_def AS
@@ -8092,17 +8092,17 @@ CREATE VIEW public.vw_fiche_def AS
      JOIN public.attr_def ON ((attr_def.ad_id = jnt_fic_attr.ad_id)));
 
 
-ALTER TABLE public.vw_fiche_def OWNER TO postgres;
+ALTER TABLE public.vw_fiche_def OWNER TO prisma;
 
 --
--- Name: VIEW vw_fiche_def; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: VIEW vw_fiche_def; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON VIEW public.vw_fiche_def IS 'all the attributs for	card family';
 
 
 --
--- Name: vw_fiche_min; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_fiche_min; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_fiche_min AS
@@ -8116,10 +8116,10 @@ CREATE VIEW public.vw_fiche_min AS
      JOIN public.fiche_def_ref USING (frd_id));
 
 
-ALTER TABLE public.vw_fiche_min OWNER TO postgres;
+ALTER TABLE public.vw_fiche_min OWNER TO prisma;
 
 --
--- Name: vw_poste_qcode; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_poste_qcode; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_poste_qcode AS
@@ -8137,10 +8137,10 @@ CREATE VIEW public.vw_poste_qcode AS
           WHERE (fiche_detail.ad_id = 23)) b USING (f_id));
 
 
-ALTER TABLE public.vw_poste_qcode OWNER TO postgres;
+ALTER TABLE public.vw_poste_qcode OWNER TO prisma;
 
 --
--- Name: vw_supplier; Type: VIEW; Schema: public; Owner: postgres
+-- Name: vw_supplier; Type: VIEW; Schema: public; Owner: prisma
 --
 
 CREATE VIEW public.vw_supplier AS
@@ -8214,290 +8214,290 @@ CREATE VIEW public.vw_supplier AS
   WHERE (fiche_def_ref.frd_id = 8);
 
 
-ALTER TABLE public.vw_supplier OWNER TO postgres;
+ALTER TABLE public.vw_supplier OWNER TO prisma;
 
 --
--- Name: action_detail ad_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: action_detail ad_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_detail ALTER COLUMN ad_id SET DEFAULT nextval('public.action_detail_ad_id_seq'::regclass);
 
 
 --
--- Name: action_gestion_comment agc_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: action_gestion_comment agc_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_comment ALTER COLUMN agc_id SET DEFAULT nextval('public.action_gestion_comment_agc_id_seq'::regclass);
 
 
 --
--- Name: action_gestion_operation ago_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: action_gestion_operation ago_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_operation ALTER COLUMN ago_id SET DEFAULT nextval('public.action_gestion_operation_ago_id_seq'::regclass);
 
 
 --
--- Name: action_gestion_related aga_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: action_gestion_related aga_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_related ALTER COLUMN aga_id SET DEFAULT nextval('public.action_gestion_related_aga_id_seq'::regclass);
 
 
 --
--- Name: action_person ap_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: action_person ap_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_person ALTER COLUMN ap_id SET DEFAULT nextval('public.action_person_ap_id_seq'::regclass);
 
 
 --
--- Name: action_tags at_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: action_tags at_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_tags ALTER COLUMN at_id SET DEFAULT nextval('public.action_tags_at_id_seq'::regclass);
 
 
 --
--- Name: bookmark b_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: bookmark b_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.bookmark ALTER COLUMN b_id SET DEFAULT nextval('public.bookmark_b_id_seq'::regclass);
 
 
 --
--- Name: del_action del_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: del_action del_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.del_action ALTER COLUMN del_id SET DEFAULT nextval('public.del_action_del_id_seq'::regclass);
 
 
 --
--- Name: del_jrn dj_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: del_jrn dj_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.del_jrn ALTER COLUMN dj_id SET DEFAULT nextval('public.del_jrn_dj_id_seq'::regclass);
 
 
 --
--- Name: del_jrnx djx_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: del_jrnx djx_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.del_jrnx ALTER COLUMN djx_id SET DEFAULT nextval('public.del_jrnx_djx_id_seq'::regclass);
 
 
 --
--- Name: extension ex_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: extension ex_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.extension ALTER COLUMN ex_id SET DEFAULT nextval('public.extension_ex_id_seq'::regclass);
 
 
 --
--- Name: forecast f_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: forecast f_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast ALTER COLUMN f_id SET DEFAULT nextval('public.forecast_f_id_seq'::regclass);
 
 
 --
--- Name: forecast_cat fc_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: forecast_cat fc_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_cat ALTER COLUMN fc_id SET DEFAULT nextval('public.forecast_cat_fc_id_seq'::regclass);
 
 
 --
--- Name: forecast_item fi_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: forecast_item fi_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_item ALTER COLUMN fi_id SET DEFAULT nextval('public.forecast_item_fi_id_seq'::regclass);
 
 
 --
--- Name: jnt_letter jl_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: jnt_letter jl_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_letter ALTER COLUMN jl_id SET DEFAULT nextval('public.jnt_letter_jl_id_seq'::regclass);
 
 
 --
--- Name: jrn_info ji_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: jrn_info ji_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_info ALTER COLUMN ji_id SET DEFAULT nextval('public.jrn_info_ji_id_seq'::regclass);
 
 
 --
--- Name: jrn_note n_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: jrn_note n_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_note ALTER COLUMN n_id SET DEFAULT nextval('public.jrn_note_n_id_seq'::regclass);
 
 
 --
--- Name: key_distribution kd_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: key_distribution kd_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution ALTER COLUMN kd_id SET DEFAULT nextval('public.key_distribution_kd_id_seq'::regclass);
 
 
 --
--- Name: key_distribution_activity ka_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: key_distribution_activity ka_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_activity ALTER COLUMN ka_id SET DEFAULT nextval('public.key_distribution_activity_ka_id_seq'::regclass);
 
 
 --
--- Name: key_distribution_detail ke_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: key_distribution_detail ke_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_detail ALTER COLUMN ke_id SET DEFAULT nextval('public.key_distribution_detail_ke_id_seq'::regclass);
 
 
 --
--- Name: key_distribution_ledger kl_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger kl_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_ledger ALTER COLUMN kl_id SET DEFAULT nextval('public.key_distribution_ledger_kl_id_seq'::regclass);
 
 
 --
--- Name: letter_cred lc_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: letter_cred lc_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_cred ALTER COLUMN lc_id SET DEFAULT nextval('public.letter_cred_lc_id_seq'::regclass);
 
 
 --
--- Name: letter_deb ld_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: letter_deb ld_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_deb ALTER COLUMN ld_id SET DEFAULT nextval('public.letter_deb_ld_id_seq'::regclass);
 
 
 --
--- Name: link_action_type l_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: link_action_type l_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.link_action_type ALTER COLUMN l_id SET DEFAULT nextval('public.link_action_type_l_id_seq'::regclass);
 
 
 --
--- Name: menu_default md_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: menu_default md_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.menu_default ALTER COLUMN md_id SET DEFAULT nextval('public.menu_default_md_id_seq'::regclass);
 
 
 --
--- Name: mod_payment mp_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: mod_payment mp_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.mod_payment ALTER COLUMN mp_id SET DEFAULT nextval('public.mod_payment_mp_id_seq'::regclass);
 
 
 --
--- Name: profile p_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: profile p_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile ALTER COLUMN p_id SET DEFAULT nextval('public.profile_p_id_seq'::regclass);
 
 
 --
--- Name: profile_menu pm_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: profile_menu pm_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_menu ALTER COLUMN pm_id SET DEFAULT nextval('public.profile_menu_pm_id_seq'::regclass);
 
 
 --
--- Name: profile_sec_repository ur_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: profile_sec_repository ur_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_sec_repository ALTER COLUMN ur_id SET DEFAULT nextval('public.profile_sec_repository_ur_id_seq'::regclass);
 
 
 --
--- Name: profile_user pu_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: profile_user pu_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_user ALTER COLUMN pu_id SET DEFAULT nextval('public.profile_user_pu_id_seq'::regclass);
 
 
 --
--- Name: quant_fin qf_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: quant_fin qf_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_fin ALTER COLUMN qf_id SET DEFAULT nextval('public.quant_fin_qf_id_seq'::regclass);
 
 
 --
--- Name: stock_change c_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: stock_change c_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_change ALTER COLUMN c_id SET DEFAULT nextval('public.stock_change_c_id_seq'::regclass);
 
 
 --
--- Name: stock_repository r_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: stock_repository r_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_repository ALTER COLUMN r_id SET DEFAULT nextval('public.stock_repository_r_id_seq'::regclass);
 
 
 --
--- Name: tags t_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: tags t_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tags ALTER COLUMN t_id SET DEFAULT nextval('public.tags_t_id_seq'::regclass);
 
 
 --
--- Name: tmp_stockgood s_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: tmp_stockgood s_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_stockgood ALTER COLUMN s_id SET DEFAULT nextval('public.tmp_stockgood_s_id_seq'::regclass);
 
 
 --
--- Name: tmp_stockgood_detail d_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail d_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_stockgood_detail ALTER COLUMN d_id SET DEFAULT nextval('public.tmp_stockgood_detail_d_id_seq'::regclass);
 
 
 --
--- Name: todo_list_shared id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: todo_list_shared id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.todo_list_shared ALTER COLUMN id SET DEFAULT nextval('public.todo_list_shared_id_seq'::regclass);
 
 
 --
--- Name: user_active_security id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: user_active_security id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_active_security ALTER COLUMN id SET DEFAULT nextval('public.user_active_security_id_seq'::regclass);
 
 
 --
--- Name: user_filter id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: user_filter id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_filter ALTER COLUMN id SET DEFAULT nextval('public.user_filter_id_seq'::regclass);
 
 
 --
--- Name: user_sec_action_profile ua_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile ua_id; Type: DEFAULT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_action_profile ALTER COLUMN ua_id SET DEFAULT nextval('public.user_sec_action_profile_ua_id_seq'::regclass);
 
 
 --
--- Name: action_gestion_operation action_comment_operation_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_operation action_comment_operation_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_operation
@@ -8505,7 +8505,7 @@ ALTER TABLE ONLY public.action_gestion_operation
 
 
 --
--- Name: action_detail action_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_detail action_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_detail
@@ -8513,7 +8513,7 @@ ALTER TABLE ONLY public.action_detail
 
 
 --
--- Name: action_gestion_comment action_gestion_comment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_comment action_gestion_comment_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_comment
@@ -8521,7 +8521,7 @@ ALTER TABLE ONLY public.action_gestion_comment
 
 
 --
--- Name: action_gestion action_gestion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion action_gestion_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion
@@ -8529,7 +8529,7 @@ ALTER TABLE ONLY public.action_gestion
 
 
 --
--- Name: action_gestion_related action_gestion_related_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_related action_gestion_related_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_related
@@ -8537,7 +8537,7 @@ ALTER TABLE ONLY public.action_gestion_related
 
 
 --
--- Name: action_person action_person_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_person action_person_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_person
@@ -8545,7 +8545,7 @@ ALTER TABLE ONLY public.action_person
 
 
 --
--- Name: action action_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action action_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action
@@ -8553,7 +8553,7 @@ ALTER TABLE ONLY public.action
 
 
 --
--- Name: action_tags action_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_tags action_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_tags
@@ -8561,7 +8561,7 @@ ALTER TABLE ONLY public.action_tags
 
 
 --
--- Name: attr_def attr_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: attr_def attr_def_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.attr_def
@@ -8569,7 +8569,7 @@ ALTER TABLE ONLY public.attr_def
 
 
 --
--- Name: bilan bilan_b_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: bilan bilan_b_name_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.bilan
@@ -8577,7 +8577,7 @@ ALTER TABLE ONLY public.bilan
 
 
 --
--- Name: bilan bilan_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: bilan bilan_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.bilan
@@ -8585,7 +8585,7 @@ ALTER TABLE ONLY public.bilan
 
 
 --
--- Name: bookmark bookmark_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: bookmark bookmark_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.bookmark
@@ -8593,7 +8593,7 @@ ALTER TABLE ONLY public.bookmark
 
 
 --
--- Name: centralized centralized_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: centralized centralized_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.centralized
@@ -8601,7 +8601,7 @@ ALTER TABLE ONLY public.centralized
 
 
 --
--- Name: del_action del_action_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: del_action del_action_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.del_action
@@ -8609,7 +8609,7 @@ ALTER TABLE ONLY public.del_action
 
 
 --
--- Name: del_jrn dj_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: del_jrn dj_id; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.del_jrn
@@ -8617,7 +8617,7 @@ ALTER TABLE ONLY public.del_jrn
 
 
 --
--- Name: del_jrnx djx_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: del_jrnx djx_id; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.del_jrnx
@@ -8625,7 +8625,7 @@ ALTER TABLE ONLY public.del_jrnx
 
 
 --
--- Name: document_modele document_modele_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: document_modele document_modele_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.document_modele
@@ -8633,7 +8633,7 @@ ALTER TABLE ONLY public.document_modele
 
 
 --
--- Name: document document_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: document document_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.document
@@ -8641,7 +8641,7 @@ ALTER TABLE ONLY public.document
 
 
 --
--- Name: document_state document_state_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: document_state document_state_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.document_state
@@ -8649,7 +8649,7 @@ ALTER TABLE ONLY public.document_state
 
 
 --
--- Name: document_type document_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: document_type document_type_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.document_type
@@ -8657,7 +8657,7 @@ ALTER TABLE ONLY public.document_type
 
 
 --
--- Name: fiche_def fiche_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche_def fiche_def_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche_def
@@ -8665,7 +8665,7 @@ ALTER TABLE ONLY public.fiche_def
 
 
 --
--- Name: fiche_def_ref fiche_def_ref_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche_def_ref fiche_def_ref_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche_def_ref
@@ -8673,7 +8673,7 @@ ALTER TABLE ONLY public.fiche_def_ref
 
 
 --
--- Name: fiche fiche_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche fiche_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche
@@ -8681,7 +8681,7 @@ ALTER TABLE ONLY public.fiche
 
 
 --
--- Name: forecast_cat forecast_cat_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast_cat forecast_cat_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_cat
@@ -8689,7 +8689,7 @@ ALTER TABLE ONLY public.forecast_cat
 
 
 --
--- Name: forecast_item forecast_item_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast_item forecast_item_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_item
@@ -8697,7 +8697,7 @@ ALTER TABLE ONLY public.forecast_item
 
 
 --
--- Name: forecast forecast_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast forecast_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast
@@ -8705,7 +8705,7 @@ ALTER TABLE ONLY public.forecast
 
 
 --
--- Name: form form_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: form form_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.form
@@ -8713,7 +8713,7 @@ ALTER TABLE ONLY public.form
 
 
 --
--- Name: formdef formdef_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: formdef formdef_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.formdef
@@ -8721,7 +8721,7 @@ ALTER TABLE ONLY public.formdef
 
 
 --
--- Name: attr_min frd_ad_attr_min_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: attr_min frd_ad_attr_min_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.attr_min
@@ -8729,7 +8729,7 @@ ALTER TABLE ONLY public.attr_min
 
 
 --
--- Name: operation_analytique historique_analytique_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: operation_analytique historique_analytique_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.operation_analytique
@@ -8737,7 +8737,7 @@ ALTER TABLE ONLY public.operation_analytique
 
 
 --
--- Name: tmp_pcmn id_ux; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tmp_pcmn id_ux; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_pcmn
@@ -8745,7 +8745,7 @@ ALTER TABLE ONLY public.tmp_pcmn
 
 
 --
--- Name: extension idx_ex_code; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: extension idx_ex_code; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.extension
@@ -8753,7 +8753,7 @@ ALTER TABLE ONLY public.extension
 
 
 --
--- Name: info_def info_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: info_def info_def_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.info_def
@@ -8761,7 +8761,7 @@ ALTER TABLE ONLY public.info_def
 
 
 --
--- Name: fiche_detail jnt_fic_att_value_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche_detail jnt_fic_att_value_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche_detail
@@ -8769,7 +8769,7 @@ ALTER TABLE ONLY public.fiche_detail
 
 
 --
--- Name: jnt_letter jnt_letter_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_letter jnt_letter_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_letter
@@ -8777,7 +8777,7 @@ ALTER TABLE ONLY public.jnt_letter
 
 
 --
--- Name: jrn_def jrn_def_jrn_def_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_def jrn_def_jrn_def_name_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_def
@@ -8785,7 +8785,7 @@ ALTER TABLE ONLY public.jrn_def
 
 
 --
--- Name: jrn_def jrn_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_def jrn_def_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_def
@@ -8793,7 +8793,7 @@ ALTER TABLE ONLY public.jrn_def
 
 
 --
--- Name: jrn_info jrn_info_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_info jrn_info_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_info
@@ -8801,7 +8801,7 @@ ALTER TABLE ONLY public.jrn_info
 
 
 --
--- Name: jrn_periode jrn_periode_periode_ledger; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_periode jrn_periode_periode_ledger; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_periode
@@ -8809,7 +8809,7 @@ ALTER TABLE ONLY public.jrn_periode
 
 
 --
--- Name: jrn_periode jrn_periode_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_periode jrn_periode_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_periode
@@ -8817,7 +8817,7 @@ ALTER TABLE ONLY public.jrn_periode
 
 
 --
--- Name: jrn jrn_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn jrn_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn
@@ -8825,7 +8825,7 @@ ALTER TABLE ONLY public.jrn
 
 
 --
--- Name: jrn_rapt jrn_rapt_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_rapt jrn_rapt_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_rapt
@@ -8833,7 +8833,7 @@ ALTER TABLE ONLY public.jrn_rapt
 
 
 --
--- Name: jrn_type jrn_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_type jrn_type_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_type
@@ -8841,7 +8841,7 @@ ALTER TABLE ONLY public.jrn_type
 
 
 --
--- Name: jrn_note jrnx_note_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_note jrnx_note_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_note
@@ -8849,7 +8849,7 @@ ALTER TABLE ONLY public.jrn_note
 
 
 --
--- Name: jrnx jrnx_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrnx jrnx_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrnx
@@ -8857,7 +8857,7 @@ ALTER TABLE ONLY public.jrnx
 
 
 --
--- Name: key_distribution_activity key_distribution_activity_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_activity key_distribution_activity_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_activity
@@ -8865,7 +8865,7 @@ ALTER TABLE ONLY public.key_distribution_activity
 
 
 --
--- Name: key_distribution_detail key_distribution_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_detail key_distribution_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_detail
@@ -8873,7 +8873,7 @@ ALTER TABLE ONLY public.key_distribution_detail
 
 
 --
--- Name: key_distribution_ledger key_distribution_ledger_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger key_distribution_ledger_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_ledger
@@ -8881,7 +8881,7 @@ ALTER TABLE ONLY public.key_distribution_ledger
 
 
 --
--- Name: key_distribution key_distribution_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution key_distribution_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution
@@ -8889,7 +8889,7 @@ ALTER TABLE ONLY public.key_distribution
 
 
 --
--- Name: letter_cred letter_cred_j_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_cred letter_cred_j_id_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_cred
@@ -8897,7 +8897,7 @@ ALTER TABLE ONLY public.letter_cred
 
 
 --
--- Name: letter_cred letter_cred_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_cred letter_cred_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_cred
@@ -8905,7 +8905,7 @@ ALTER TABLE ONLY public.letter_cred
 
 
 --
--- Name: letter_deb letter_deb_j_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_deb letter_deb_j_id_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_deb
@@ -8913,7 +8913,7 @@ ALTER TABLE ONLY public.letter_deb
 
 
 --
--- Name: letter_deb letter_deb_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_deb letter_deb_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_deb
@@ -8921,7 +8921,7 @@ ALTER TABLE ONLY public.letter_deb
 
 
 --
--- Name: link_action_type link_action_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: link_action_type link_action_type_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.link_action_type
@@ -8929,7 +8929,7 @@ ALTER TABLE ONLY public.link_action_type
 
 
 --
--- Name: menu_default menu_default_md_code_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: menu_default menu_default_md_code_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.menu_default
@@ -8937,7 +8937,7 @@ ALTER TABLE ONLY public.menu_default
 
 
 --
--- Name: menu_default menu_default_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: menu_default menu_default_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.menu_default
@@ -8945,7 +8945,7 @@ ALTER TABLE ONLY public.menu_default
 
 
 --
--- Name: menu_ref menu_ref_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: menu_ref menu_ref_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.menu_ref
@@ -8953,7 +8953,7 @@ ALTER TABLE ONLY public.menu_ref
 
 
 --
--- Name: mod_payment mod_payment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: mod_payment mod_payment_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.mod_payment
@@ -8961,7 +8961,7 @@ ALTER TABLE ONLY public.mod_payment
 
 
 --
--- Name: op_predef op_def_op_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: op_predef op_def_op_name_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.op_predef
@@ -8969,7 +8969,7 @@ ALTER TABLE ONLY public.op_predef
 
 
 --
--- Name: op_predef op_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: op_predef op_def_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.op_predef
@@ -8977,7 +8977,7 @@ ALTER TABLE ONLY public.op_predef
 
 
 --
--- Name: op_predef_detail op_predef_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: op_predef_detail op_predef_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.op_predef_detail
@@ -8985,7 +8985,7 @@ ALTER TABLE ONLY public.op_predef_detail
 
 
 --
--- Name: parameter parameter_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: parameter parameter_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.parameter
@@ -8993,7 +8993,7 @@ ALTER TABLE ONLY public.parameter
 
 
 --
--- Name: parm_code parm_code_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: parm_code parm_code_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.parm_code
@@ -9001,7 +9001,7 @@ ALTER TABLE ONLY public.parm_code
 
 
 --
--- Name: parm_money parm_money_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: parm_money parm_money_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.parm_money
@@ -9009,7 +9009,7 @@ ALTER TABLE ONLY public.parm_money
 
 
 --
--- Name: parm_periode parm_periode_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: parm_periode parm_periode_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.parm_periode
@@ -9017,7 +9017,7 @@ ALTER TABLE ONLY public.parm_periode
 
 
 --
--- Name: parm_poste parm_poste_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: parm_poste parm_poste_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.parm_poste
@@ -9025,7 +9025,7 @@ ALTER TABLE ONLY public.parm_poste
 
 
 --
--- Name: extension pk_extension; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: extension pk_extension; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.extension
@@ -9033,7 +9033,7 @@ ALTER TABLE ONLY public.extension
 
 
 --
--- Name: groupe_analytique pk_ga_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: groupe_analytique pk_ga_id; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.groupe_analytique
@@ -9041,7 +9041,7 @@ ALTER TABLE ONLY public.groupe_analytique
 
 
 --
--- Name: jnt_fic_attr pk_jnt_fic_attr; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_fic_attr pk_jnt_fic_attr; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_fic_attr
@@ -9049,7 +9049,7 @@ ALTER TABLE ONLY public.jnt_fic_attr
 
 
 --
--- Name: user_local_pref pk_user_local_pref; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_local_pref pk_user_local_pref; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_local_pref
@@ -9057,7 +9057,7 @@ ALTER TABLE ONLY public.user_local_pref
 
 
 --
--- Name: plan_analytique plan_analytique_pa_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: plan_analytique plan_analytique_pa_name_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.plan_analytique
@@ -9065,7 +9065,7 @@ ALTER TABLE ONLY public.plan_analytique
 
 
 --
--- Name: plan_analytique plan_analytique_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: plan_analytique plan_analytique_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.plan_analytique
@@ -9073,7 +9073,7 @@ ALTER TABLE ONLY public.plan_analytique
 
 
 --
--- Name: poste_analytique poste_analytique_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: poste_analytique poste_analytique_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.poste_analytique
@@ -9081,7 +9081,7 @@ ALTER TABLE ONLY public.poste_analytique
 
 
 --
--- Name: profile_menu profile_menu_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_menu profile_menu_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_menu
@@ -9089,7 +9089,7 @@ ALTER TABLE ONLY public.profile_menu
 
 
 --
--- Name: profile_menu_type profile_menu_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_menu_type profile_menu_type_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_menu_type
@@ -9097,7 +9097,7 @@ ALTER TABLE ONLY public.profile_menu_type
 
 
 --
--- Name: profile profile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile profile_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile
@@ -9105,7 +9105,7 @@ ALTER TABLE ONLY public.profile
 
 
 --
--- Name: profile_sec_repository profile_sec_repository_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_sec_repository profile_sec_repository_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_sec_repository
@@ -9113,7 +9113,7 @@ ALTER TABLE ONLY public.profile_sec_repository
 
 
 --
--- Name: profile_sec_repository profile_sec_repository_r_id_p_id_u; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_sec_repository profile_sec_repository_r_id_p_id_u; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_sec_repository
@@ -9121,7 +9121,7 @@ ALTER TABLE ONLY public.profile_sec_repository
 
 
 --
--- Name: profile_user profile_user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_user profile_user_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_user
@@ -9129,7 +9129,7 @@ ALTER TABLE ONLY public.profile_user
 
 
 --
--- Name: profile_user profile_user_user_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_user profile_user_user_name_key; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_user
@@ -9137,7 +9137,7 @@ ALTER TABLE ONLY public.profile_user
 
 
 --
--- Name: quant_purchase qp_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_purchase qp_id_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_purchase
@@ -9145,7 +9145,7 @@ ALTER TABLE ONLY public.quant_purchase
 
 
 --
--- Name: quant_sold qs_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_sold qs_id_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_sold
@@ -9153,7 +9153,7 @@ ALTER TABLE ONLY public.quant_sold
 
 
 --
--- Name: quant_fin quant_fin_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_fin quant_fin_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_fin
@@ -9161,7 +9161,7 @@ ALTER TABLE ONLY public.quant_fin
 
 
 --
--- Name: stock_change stock_change_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_change stock_change_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_change
@@ -9169,7 +9169,7 @@ ALTER TABLE ONLY public.stock_change
 
 
 --
--- Name: stock_goods stock_goods_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_goods stock_goods_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_goods
@@ -9177,7 +9177,7 @@ ALTER TABLE ONLY public.stock_goods
 
 
 --
--- Name: stock_repository stock_repository_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_repository stock_repository_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_repository
@@ -9185,7 +9185,7 @@ ALTER TABLE ONLY public.stock_repository
 
 
 --
--- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tags
@@ -9193,7 +9193,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- Name: tmp_pcmn tmp_pcmn_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tmp_pcmn tmp_pcmn_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_pcmn
@@ -9201,7 +9201,7 @@ ALTER TABLE ONLY public.tmp_pcmn
 
 
 --
--- Name: tmp_stockgood_detail tmp_stockgood_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail tmp_stockgood_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_stockgood_detail
@@ -9209,7 +9209,7 @@ ALTER TABLE ONLY public.tmp_stockgood_detail
 
 
 --
--- Name: tmp_stockgood tmp_stockgood_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tmp_stockgood tmp_stockgood_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_stockgood
@@ -9217,7 +9217,7 @@ ALTER TABLE ONLY public.tmp_stockgood
 
 
 --
--- Name: todo_list todo_list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: todo_list todo_list_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.todo_list
@@ -9225,7 +9225,7 @@ ALTER TABLE ONLY public.todo_list
 
 
 --
--- Name: todo_list_shared todo_list_shared_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: todo_list_shared todo_list_shared_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.todo_list_shared
@@ -9233,7 +9233,7 @@ ALTER TABLE ONLY public.todo_list_shared
 
 
 --
--- Name: tool_uos tool_uos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tool_uos tool_uos_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tool_uos
@@ -9241,7 +9241,7 @@ ALTER TABLE ONLY public.tool_uos
 
 
 --
--- Name: tva_rate tva_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tva_rate tva_id_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tva_rate
@@ -9249,7 +9249,7 @@ ALTER TABLE ONLY public.tva_rate
 
 
 --
--- Name: user_sec_jrn uniq_user_ledger; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_jrn uniq_user_ledger; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_jrn
@@ -9257,14 +9257,14 @@ ALTER TABLE ONLY public.user_sec_jrn
 
 
 --
--- Name: CONSTRAINT uniq_user_ledger ON user_sec_jrn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: CONSTRAINT uniq_user_ledger ON user_sec_jrn; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON CONSTRAINT uniq_user_ledger ON public.user_sec_jrn IS 'Create an unique combination user / ledger';
 
 
 --
--- Name: todo_list_shared unique_todo_list_id_login; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: todo_list_shared unique_todo_list_id_login; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.todo_list_shared
@@ -9272,7 +9272,7 @@ ALTER TABLE ONLY public.todo_list_shared
 
 
 --
--- Name: user_active_security user_active_security_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_active_security user_active_security_pk; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_active_security
@@ -9280,7 +9280,7 @@ ALTER TABLE ONLY public.user_active_security
 
 
 --
--- Name: user_filter user_filter_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_filter user_filter_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_filter
@@ -9288,7 +9288,7 @@ ALTER TABLE ONLY public.user_filter
 
 
 --
--- Name: user_sec_act user_sec_act_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_act user_sec_act_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_act
@@ -9296,7 +9296,7 @@ ALTER TABLE ONLY public.user_sec_act
 
 
 --
--- Name: user_sec_action_profile user_sec_action_profile_p_id_p_granted_u; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile user_sec_action_profile_p_id_p_granted_u; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_action_profile
@@ -9304,7 +9304,7 @@ ALTER TABLE ONLY public.user_sec_action_profile
 
 
 --
--- Name: user_sec_action_profile user_sec_action_profile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile user_sec_action_profile_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_action_profile
@@ -9312,7 +9312,7 @@ ALTER TABLE ONLY public.user_sec_action_profile
 
 
 --
--- Name: user_sec_jrn user_sec_jrn_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_jrn user_sec_jrn_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_jrn
@@ -9320,7 +9320,7 @@ ALTER TABLE ONLY public.user_sec_jrn
 
 
 --
--- Name: action_gestion_related ux_aga_least_aga_greatest; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_related ux_aga_least_aga_greatest; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_related
@@ -9328,7 +9328,7 @@ ALTER TABLE ONLY public.action_gestion_related
 
 
 --
--- Name: jrn ux_internal; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn ux_internal; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn
@@ -9336,7 +9336,7 @@ ALTER TABLE ONLY public.jrn
 
 
 --
--- Name: version version_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: version version_pkey; Type: CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.version
@@ -9344,560 +9344,560 @@ ALTER TABLE ONLY public.version
 
 
 --
--- Name: fd_id_ad_id_x; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fd_id_ad_id_x; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX fd_id_ad_id_x ON public.jnt_fic_attr USING btree (fd_id, ad_id);
 
 
 --
--- Name: fiche_detail_f_id_ad_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fiche_detail_f_id_ad_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX fiche_detail_f_id_ad_id ON public.fiche_detail USING btree (f_id, ad_id);
 
 
 --
--- Name: fk_action_person_action_gestion; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_action_person_action_gestion; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_action_person_action_gestion ON public.action_person USING btree (ag_id);
 
 
 --
--- Name: fk_action_person_fiche; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_action_person_fiche; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_action_person_fiche ON public.action_person USING btree (f_id);
 
 
 --
--- Name: fk_stock_good_repository_r_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_stock_good_repository_r_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_stock_good_repository_r_id ON public.stock_goods USING btree (r_id);
 
 
 --
--- Name: fk_stock_goods_f_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_stock_goods_f_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_stock_goods_f_id ON public.stock_goods USING btree (f_id);
 
 
 --
--- Name: fk_stock_goods_j_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fk_stock_goods_j_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fk_stock_goods_j_id ON public.stock_goods USING btree (j_id);
 
 
 --
--- Name: fki_f_end_date; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_f_end_date; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_f_end_date ON public.forecast USING btree (f_end_date);
 
 
 --
--- Name: fki_f_start_date; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_f_start_date; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_f_start_date ON public.forecast USING btree (f_start_date);
 
 
 --
--- Name: fki_jrn_jr_grpt_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_jrn_jr_grpt_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_jrn_jr_grpt_id ON public.jrn USING btree (jr_grpt_id);
 
 
 --
--- Name: fki_jrnx_f_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_jrnx_f_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_jrnx_f_id ON public.jrnx USING btree (f_id);
 
 
 --
--- Name: fki_jrnx_j_grpt; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_jrnx_j_grpt; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_jrnx_j_grpt ON public.jrnx USING btree (j_grpt);
 
 
 --
--- Name: fki_profile_menu_me_code; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_profile_menu_me_code; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_profile_menu_me_code ON public.profile_menu USING btree (me_code);
 
 
 --
--- Name: fki_profile_menu_profile; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_profile_menu_profile; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_profile_menu_profile ON public.profile_menu USING btree (p_id);
 
 
 --
--- Name: fki_profile_menu_type_fkey; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fki_profile_menu_type_fkey; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX fki_profile_menu_type_fkey ON public.profile_menu USING btree (p_type_display);
 
 
 --
--- Name: idx_qs_internal; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_qs_internal; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX idx_qs_internal ON public.quant_sold USING btree (qs_internal);
 
 
 --
--- Name: jnt_fic_att_value_fd_id_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: jnt_fic_att_value_fd_id_idx; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX jnt_fic_att_value_fd_id_idx ON public.fiche_detail USING btree (f_id);
 
 
 --
--- Name: jnt_fic_attr_fd_id_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: jnt_fic_attr_fd_id_idx; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX jnt_fic_attr_fd_id_idx ON public.jnt_fic_attr USING btree (fd_id);
 
 
 --
--- Name: jrnx_j_qcode_ix; Type: INDEX; Schema: public; Owner: postgres
+-- Name: jrnx_j_qcode_ix; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX jrnx_j_qcode_ix ON public.jrnx USING btree (j_qcode);
 
 
 --
--- Name: k_ag_ref; Type: INDEX; Schema: public; Owner: postgres
+-- Name: k_ag_ref; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX k_ag_ref ON public.action_gestion USING btree (ag_ref);
 
 
 --
--- Name: link_action_type_fki; Type: INDEX; Schema: public; Owner: postgres
+-- Name: link_action_type_fki; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX link_action_type_fki ON public.action_gestion_related USING btree (aga_type);
 
 
 --
--- Name: qcode_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: qcode_idx; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX qcode_idx ON public.fiche_detail USING btree (ad_value) WHERE (ad_id = 23);
 
 
 --
--- Name: qf_jr_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: qf_jr_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX qf_jr_id ON public.quant_fin USING btree (jr_id);
 
 
 --
--- Name: qp_j_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: qp_j_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX qp_j_id ON public.quant_purchase USING btree (j_id);
 
 
 --
--- Name: qs_j_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: qs_j_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX qs_j_id ON public.quant_sold USING btree (j_id);
 
 
 --
--- Name: quant_purchase_jrn_fki; Type: INDEX; Schema: public; Owner: postgres
+-- Name: quant_purchase_jrn_fki; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX quant_purchase_jrn_fki ON public.quant_purchase USING btree (qp_internal);
 
 
 --
--- Name: quant_sold_jrn_fki; Type: INDEX; Schema: public; Owner: postgres
+-- Name: quant_sold_jrn_fki; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX quant_sold_jrn_fki ON public.quant_sold USING btree (qs_internal);
 
 
 --
--- Name: uj_login_uj_jrn_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: uj_login_uj_jrn_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX uj_login_uj_jrn_id ON public.user_sec_jrn USING btree (uj_login, uj_jrn_id);
 
 
 --
--- Name: ux_po_name; Type: INDEX; Schema: public; Owner: postgres
+-- Name: ux_po_name; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX ux_po_name ON public.poste_analytique USING btree (po_name);
 
 
 --
--- Name: x_jrn_jr_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: x_jrn_jr_id; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX x_jrn_jr_id ON public.jrn USING btree (jr_id);
 
 
 --
--- Name: x_mt; Type: INDEX; Schema: public; Owner: postgres
+-- Name: x_mt; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX x_mt ON public.jrn USING btree (jr_mt);
 
 
 --
--- Name: x_periode; Type: INDEX; Schema: public; Owner: postgres
+-- Name: x_periode; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE UNIQUE INDEX x_periode ON public.parm_periode USING btree (p_start, p_end);
 
 
 --
--- Name: x_poste; Type: INDEX; Schema: public; Owner: postgres
+-- Name: x_poste; Type: INDEX; Schema: public; Owner: prisma
 --
 
 CREATE INDEX x_poste ON public.jrnx USING btree (j_poste);
 
 
 --
--- Name: action_gestion action_gestion_t_insert_update; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: action_gestion action_gestion_t_insert_update; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER action_gestion_t_insert_update BEFORE INSERT OR UPDATE ON public.action_gestion FOR EACH ROW EXECUTE PROCEDURE comptaproc.action_gestion_ins_upd();
 
 
 --
--- Name: TRIGGER action_gestion_t_insert_update ON action_gestion; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER action_gestion_t_insert_update ON action_gestion; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER action_gestion_t_insert_update ON public.action_gestion IS 'Truncate the column ag_title to 70 char';
 
 
 --
--- Name: document_modele document_modele_validate; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: document_modele document_modele_validate; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER document_modele_validate BEFORE INSERT OR UPDATE ON public.document_modele FOR EACH ROW EXECUTE PROCEDURE comptaproc.t_document_modele_validate();
 
 
 --
--- Name: document document_validate; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: document document_validate; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER document_validate BEFORE INSERT OR UPDATE ON public.document FOR EACH ROW EXECUTE PROCEDURE comptaproc.t_document_validate();
 
 
 --
--- Name: fiche_def fiche_def_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: fiche_def fiche_def_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER fiche_def_ins_upd BEFORE INSERT OR UPDATE ON public.fiche_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.fiche_def_ins_upd();
 
 
 --
--- Name: fiche_detail fiche_detail_upd_trg; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: fiche_detail fiche_detail_upd_trg; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER fiche_detail_upd_trg AFTER UPDATE ON public.fiche_detail FOR EACH ROW EXECUTE PROCEDURE comptaproc.fiche_detail_qcode_upd();
 
 
 --
--- Name: info_def info_def_ins_upd_t; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: info_def info_def_ins_upd_t; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER info_def_ins_upd_t BEFORE INSERT OR UPDATE ON public.info_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.info_def_ins_upd();
 
 
 --
--- Name: jrn_def jrn_def_description_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn_def jrn_def_description_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER jrn_def_description_ins_upd BEFORE INSERT OR UPDATE ON public.jrn_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.t_jrn_def_description();
 
 
 --
--- Name: op_predef opd_limit_description; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: op_predef opd_limit_description; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER opd_limit_description BEFORE INSERT OR UPDATE ON public.op_predef FOR EACH ROW EXECUTE PROCEDURE comptaproc.opd_limit_description();
 
 
 --
--- Name: parm_periode parm_periode_check_periode_trg; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: parm_periode parm_periode_check_periode_trg; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER parm_periode_check_periode_trg BEFORE INSERT OR UPDATE ON public.parm_periode FOR EACH ROW EXECUTE PROCEDURE comptaproc.check_periode();
 
 
 --
--- Name: profile_user profile_user_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: profile_user profile_user_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER profile_user_ins_upd BEFORE INSERT OR UPDATE ON public.profile_user FOR EACH ROW EXECUTE PROCEDURE comptaproc.trg_profile_user_ins_upd();
 
 
 --
--- Name: TRIGGER profile_user_ins_upd ON profile_user; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER profile_user_ins_upd ON profile_user; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER profile_user_ins_upd ON public.profile_user IS 'Force the column user_name to lowercase';
 
 
 --
--- Name: quant_purchase quant_sold_ins_upd_tr; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: quant_purchase quant_sold_ins_upd_tr; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER quant_sold_ins_upd_tr AFTER INSERT OR UPDATE ON public.quant_purchase FOR EACH ROW EXECUTE PROCEDURE comptaproc.quant_purchase_ins_upd();
 
 
 --
--- Name: quant_sold quant_sold_ins_upd_tr; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: quant_sold quant_sold_ins_upd_tr; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER quant_sold_ins_upd_tr AFTER INSERT OR UPDATE ON public.quant_sold FOR EACH ROW EXECUTE PROCEDURE comptaproc.quant_sold_ins_upd();
 
 
 --
--- Name: fiche remove_action_gestion; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: fiche remove_action_gestion; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER remove_action_gestion AFTER DELETE ON public.fiche FOR EACH ROW EXECUTE PROCEDURE comptaproc.card_after_delete();
 
 
 --
--- Name: jrn t_check_balance; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn t_check_balance; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_check_balance AFTER INSERT OR UPDATE ON public.jrn FOR EACH ROW EXECUTE PROCEDURE comptaproc.proc_check_balance();
 
 
 --
--- Name: jrn t_check_jrn; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn t_check_jrn; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_check_jrn BEFORE INSERT OR DELETE OR UPDATE ON public.jrn FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrn_check_periode();
 
 
 --
--- Name: groupe_analytique t_group_analytic_del; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: groupe_analytique t_group_analytic_del; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_group_analytic_del BEFORE DELETE ON public.groupe_analytique FOR EACH ROW EXECUTE PROCEDURE comptaproc.group_analytique_del();
 
 
 --
--- Name: groupe_analytique t_group_analytic_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: groupe_analytique t_group_analytic_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_group_analytic_ins_upd BEFORE INSERT OR UPDATE ON public.groupe_analytique FOR EACH ROW EXECUTE PROCEDURE comptaproc.group_analytic_ins_upd();
 
 
 --
--- Name: jnt_fic_attr t_jnt_fic_attr_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jnt_fic_attr t_jnt_fic_attr_ins; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jnt_fic_attr_ins AFTER INSERT ON public.jnt_fic_attr FOR EACH ROW EXECUTE PROCEDURE comptaproc.jnt_fic_attr_ins();
 
 
 --
--- Name: jrn_def t_jrn_def_add_periode; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn_def t_jrn_def_add_periode; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jrn_def_add_periode AFTER INSERT ON public.jrn_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrn_def_add();
 
 
 --
--- Name: jrn_def t_jrn_def_delete; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn_def t_jrn_def_delete; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jrn_def_delete BEFORE DELETE ON public.jrn_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrn_def_delete();
 
 
 --
--- Name: jrn t_jrn_del; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn t_jrn_del; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jrn_del BEFORE DELETE ON public.jrn FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrn_del();
 
 
 --
--- Name: jrnx t_jrnx_del; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrnx t_jrnx_del; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jrnx_del BEFORE DELETE ON public.jrnx FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrnx_del();
 
 
 --
--- Name: jrnx t_jrnx_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrnx t_jrnx_ins; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jrnx_ins BEFORE INSERT ON public.jrnx FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrnx_ins();
 
 
 --
--- Name: TRIGGER t_jrnx_ins ON jrnx; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER t_jrnx_ins ON jrnx; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER t_jrnx_ins ON public.jrnx IS 'check that the qcode used by the card exists and format it : uppercase and trim the space';
 
 
 --
--- Name: jrnx t_jrnx_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrnx t_jrnx_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_jrnx_upd BEFORE UPDATE ON public.jrnx FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrnx_ins();
 
 
 --
--- Name: jrnx t_letter_del; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrnx t_letter_del; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_letter_del AFTER DELETE ON public.jrnx FOR EACH ROW EXECUTE PROCEDURE comptaproc.jrnx_letter_del();
 
 
 --
--- Name: TRIGGER t_letter_del ON jrnx; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER t_letter_del ON jrnx; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER t_letter_del ON public.jrnx IS 'Delete the lettering for this row';
 
 
 --
--- Name: plan_analytique t_plan_analytique_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: plan_analytique t_plan_analytique_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_plan_analytique_ins_upd BEFORE INSERT OR UPDATE ON public.plan_analytique FOR EACH ROW EXECUTE PROCEDURE comptaproc.plan_analytic_ins_upd();
 
 
 --
--- Name: poste_analytique t_poste_analytique_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: poste_analytique t_poste_analytique_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_poste_analytique_ins_upd BEFORE INSERT OR UPDATE ON public.poste_analytique FOR EACH ROW EXECUTE PROCEDURE comptaproc.poste_analytique_ins_upd();
 
 
 --
--- Name: tmp_pcmn t_tmp_pcm_alphanum_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: tmp_pcmn t_tmp_pcm_alphanum_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_tmp_pcm_alphanum_ins_upd BEFORE INSERT OR UPDATE ON public.tmp_pcmn FOR EACH ROW EXECUTE PROCEDURE comptaproc.tmp_pcmn_alphanum_ins_upd();
 
 
 --
--- Name: tmp_pcmn t_tmp_pcmn_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: tmp_pcmn t_tmp_pcmn_ins; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER t_tmp_pcmn_ins BEFORE INSERT ON public.tmp_pcmn FOR EACH ROW EXECUTE PROCEDURE comptaproc.tmp_pcmn_ins();
 
 
 --
--- Name: todo_list todo_list_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: todo_list todo_list_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER todo_list_ins_upd BEFORE INSERT OR UPDATE ON public.todo_list FOR EACH ROW EXECUTE PROCEDURE comptaproc.trg_todo_list_ins_upd();
 
 
 --
--- Name: TRIGGER todo_list_ins_upd ON todo_list; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER todo_list_ins_upd ON todo_list; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER todo_list_ins_upd ON public.todo_list IS 'Force the column use_login to lowercase';
 
 
 --
--- Name: todo_list_shared todo_list_shared_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: todo_list_shared todo_list_shared_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER todo_list_shared_ins_upd BEFORE INSERT OR UPDATE ON public.todo_list_shared FOR EACH ROW EXECUTE PROCEDURE comptaproc.trg_todo_list_shared_ins_upd();
 
 
 --
--- Name: TRIGGER todo_list_shared_ins_upd ON todo_list_shared; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER todo_list_shared_ins_upd ON todo_list_shared; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER todo_list_shared_ins_upd ON public.todo_list_shared IS 'Force the column ua_login to lowercase';
 
 
 --
--- Name: action_gestion_related trg_action_gestion_related; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: action_gestion_related trg_action_gestion_related; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER trg_action_gestion_related BEFORE INSERT OR UPDATE ON public.action_gestion_related FOR EACH ROW EXECUTE PROCEDURE comptaproc.action_gestion_related_ins_up();
 
 
 --
--- Name: fiche_def trg_category_card_before_delete; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: fiche_def trg_category_card_before_delete; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER trg_category_card_before_delete BEFORE DELETE ON public.fiche_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.category_card_before_delete();
 
 
 --
--- Name: extension trg_extension_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: extension trg_extension_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER trg_extension_ins_upd BEFORE INSERT OR UPDATE ON public.extension FOR EACH ROW EXECUTE PROCEDURE comptaproc.extension_ins_upd();
 
 
 --
--- Name: document_type trigger_document_type_i; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: document_type trigger_document_type_i; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER trigger_document_type_i AFTER INSERT ON public.document_type FOR EACH ROW EXECUTE PROCEDURE comptaproc.t_document_type_insert();
 
 
 --
--- Name: jrn_def trigger_jrn_def_sequence_i; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: jrn_def trigger_jrn_def_sequence_i; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER trigger_jrn_def_sequence_i AFTER INSERT ON public.jrn_def FOR EACH ROW EXECUTE PROCEDURE comptaproc.t_jrn_def_sequence();
 
 
 --
--- Name: user_sec_act user_sec_act_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: user_sec_act user_sec_act_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER user_sec_act_ins_upd BEFORE INSERT OR UPDATE ON public.user_sec_act FOR EACH ROW EXECUTE PROCEDURE comptaproc.trg_user_sec_act_ins_upd();
 
 
 --
--- Name: TRIGGER user_sec_act_ins_upd ON user_sec_act; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER user_sec_act_ins_upd ON user_sec_act; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER user_sec_act_ins_upd ON public.user_sec_act IS 'Force the column ua_login to lowercase';
 
 
 --
--- Name: user_sec_jrn user_sec_jrn_after_ins_upd; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: user_sec_jrn user_sec_jrn_after_ins_upd; Type: TRIGGER; Schema: public; Owner: prisma
 --
 
 CREATE TRIGGER user_sec_jrn_after_ins_upd BEFORE INSERT OR UPDATE ON public.user_sec_jrn FOR EACH ROW EXECUTE PROCEDURE comptaproc.trg_user_sec_jrn_ins_upd();
 
 
 --
--- Name: TRIGGER user_sec_jrn_after_ins_upd ON user_sec_jrn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER user_sec_jrn_after_ins_upd ON user_sec_jrn; Type: COMMENT; Schema: public; Owner: prisma
 --
 
 COMMENT ON TRIGGER user_sec_jrn_after_ins_upd ON public.user_sec_jrn IS 'Force the column uj_login to lowercase';
 
 
 --
--- Name: centralized $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: centralized $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.centralized
@@ -9905,7 +9905,7 @@ ALTER TABLE ONLY public.centralized
 
 
 --
--- Name: user_sec_act $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_act $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_act
@@ -9913,7 +9913,7 @@ ALTER TABLE ONLY public.user_sec_act
 
 
 --
--- Name: fiche_def $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche_def $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche_def
@@ -9921,7 +9921,7 @@ ALTER TABLE ONLY public.fiche_def
 
 
 --
--- Name: attr_min $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: attr_min $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.attr_min
@@ -9929,7 +9929,7 @@ ALTER TABLE ONLY public.attr_min
 
 
 --
--- Name: fiche $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche
@@ -9937,7 +9937,7 @@ ALTER TABLE ONLY public.fiche
 
 
 --
--- Name: fiche_detail $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche_detail $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche_detail
@@ -9945,7 +9945,7 @@ ALTER TABLE ONLY public.fiche_detail
 
 
 --
--- Name: jnt_fic_attr $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_fic_attr $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_fic_attr
@@ -9953,7 +9953,7 @@ ALTER TABLE ONLY public.jnt_fic_attr
 
 
 --
--- Name: jrn $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn
@@ -9961,7 +9961,7 @@ ALTER TABLE ONLY public.jrn
 
 
 --
--- Name: jrn_def $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_def $1; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_def
@@ -9969,7 +9969,7 @@ ALTER TABLE ONLY public.jrn_def
 
 
 --
--- Name: jrnx $2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrnx $2; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrnx
@@ -9977,7 +9977,7 @@ ALTER TABLE ONLY public.jrnx
 
 
 --
--- Name: attr_min $2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: attr_min $2; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.attr_min
@@ -9985,7 +9985,7 @@ ALTER TABLE ONLY public.attr_min
 
 
 --
--- Name: action_gestion_operation action_comment_operation_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_operation action_comment_operation_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_operation
@@ -9993,7 +9993,7 @@ ALTER TABLE ONLY public.action_gestion_operation
 
 
 --
--- Name: action_gestion_operation action_comment_operation_jr_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_operation action_comment_operation_jr_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_operation
@@ -10001,7 +10001,7 @@ ALTER TABLE ONLY public.action_gestion_operation
 
 
 --
--- Name: action_detail action_detail_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_detail action_detail_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_detail
@@ -10009,7 +10009,7 @@ ALTER TABLE ONLY public.action_detail
 
 
 --
--- Name: action_person action_gestion_ag_id_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_person action_gestion_ag_id_fk2; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_person
@@ -10017,7 +10017,7 @@ ALTER TABLE ONLY public.action_person
 
 
 --
--- Name: action_gestion_comment action_gestion_comment_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_comment action_gestion_comment_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_comment
@@ -10025,7 +10025,7 @@ ALTER TABLE ONLY public.action_gestion_comment
 
 
 --
--- Name: action_gestion_related action_gestion_related_aga_greatest_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_related action_gestion_related_aga_greatest_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_related
@@ -10033,7 +10033,7 @@ ALTER TABLE ONLY public.action_gestion_related
 
 
 --
--- Name: action_gestion_related action_gestion_related_aga_least_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_related action_gestion_related_aga_least_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_related
@@ -10041,7 +10041,7 @@ ALTER TABLE ONLY public.action_gestion_related
 
 
 --
--- Name: action_gestion_related action_gestion_related_aga_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion_related action_gestion_related_aga_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion_related
@@ -10049,7 +10049,7 @@ ALTER TABLE ONLY public.action_gestion_related
 
 
 --
--- Name: action_person action_person_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_person action_person_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_person
@@ -10057,7 +10057,7 @@ ALTER TABLE ONLY public.action_person
 
 
 --
--- Name: action_person action_person_f_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_person action_person_f_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_person
@@ -10065,7 +10065,7 @@ ALTER TABLE ONLY public.action_person
 
 
 --
--- Name: action_tags action_tags_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_tags action_tags_ag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_tags
@@ -10073,7 +10073,7 @@ ALTER TABLE ONLY public.action_tags
 
 
 --
--- Name: action_tags action_tags_t_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_tags action_tags_t_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_tags
@@ -10081,7 +10081,7 @@ ALTER TABLE ONLY public.action_tags
 
 
 --
--- Name: forecast_item card; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast_item card; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_item
@@ -10089,7 +10089,7 @@ ALTER TABLE ONLY public.forecast_item
 
 
 --
--- Name: fiche_detail fiche_detail_attr_def_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fiche_detail fiche_detail_attr_def_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.fiche_detail
@@ -10097,7 +10097,7 @@ ALTER TABLE ONLY public.fiche_detail
 
 
 --
--- Name: action_person fiche_f_id_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_person fiche_f_id_fk2; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_person
@@ -10105,7 +10105,7 @@ ALTER TABLE ONLY public.action_person
 
 
 --
--- Name: action_gestion fiche_f_id_fk3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion fiche_f_id_fk3; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion
@@ -10113,7 +10113,7 @@ ALTER TABLE ONLY public.action_gestion
 
 
 --
--- Name: action_gestion fk_action_gestion_document_type; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion fk_action_gestion_document_type; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion
@@ -10121,7 +10121,7 @@ ALTER TABLE ONLY public.action_gestion
 
 
 --
--- Name: quant_fin fk_card; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_fin fk_card; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_fin
@@ -10129,7 +10129,7 @@ ALTER TABLE ONLY public.quant_fin
 
 
 --
--- Name: quant_fin fk_card_other; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_fin fk_card_other; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_fin
@@ -10137,7 +10137,7 @@ ALTER TABLE ONLY public.quant_fin
 
 
 --
--- Name: forecast_item fk_forecast; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast_item fk_forecast; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_item
@@ -10145,7 +10145,7 @@ ALTER TABLE ONLY public.forecast_item
 
 
 --
--- Name: jrn_info fk_info_def; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_info fk_info_def; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_info
@@ -10153,7 +10153,7 @@ ALTER TABLE ONLY public.jrn_info
 
 
 --
--- Name: jrn_info fk_jrn; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_info fk_jrn; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_info
@@ -10161,7 +10161,7 @@ ALTER TABLE ONLY public.jrn_info
 
 
 --
--- Name: quant_fin fk_jrn; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_fin fk_jrn; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_fin
@@ -10169,7 +10169,7 @@ ALTER TABLE ONLY public.quant_fin
 
 
 --
--- Name: groupe_analytique fk_pa_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: groupe_analytique fk_pa_id; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.groupe_analytique
@@ -10177,7 +10177,7 @@ ALTER TABLE ONLY public.groupe_analytique
 
 
 --
--- Name: jrnx fk_pcmn_val; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrnx fk_pcmn_val; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrnx
@@ -10185,7 +10185,7 @@ ALTER TABLE ONLY public.jrnx
 
 
 --
--- Name: centralized fk_pcmn_val; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: centralized fk_pcmn_val; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.centralized
@@ -10193,7 +10193,7 @@ ALTER TABLE ONLY public.centralized
 
 
 --
--- Name: stock_goods fk_stock_good_f_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_goods fk_stock_good_f_id; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_goods
@@ -10201,7 +10201,7 @@ ALTER TABLE ONLY public.stock_goods
 
 
 --
--- Name: todo_list_shared fk_todo_list_shared_todo_list; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: todo_list_shared fk_todo_list_shared_todo_list; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.todo_list_shared
@@ -10209,7 +10209,7 @@ ALTER TABLE ONLY public.todo_list_shared
 
 
 --
--- Name: forecast_cat forecast_child; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast_cat forecast_child; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast_cat
@@ -10217,7 +10217,7 @@ ALTER TABLE ONLY public.forecast_cat
 
 
 --
--- Name: forecast forecast_f_end_date_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast forecast_f_end_date_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast
@@ -10225,7 +10225,7 @@ ALTER TABLE ONLY public.forecast
 
 
 --
--- Name: forecast forecast_f_start_date_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: forecast forecast_f_start_date_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.forecast
@@ -10233,7 +10233,7 @@ ALTER TABLE ONLY public.forecast
 
 
 --
--- Name: form formdef_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: form formdef_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.form
@@ -10241,7 +10241,7 @@ ALTER TABLE ONLY public.form
 
 
 --
--- Name: letter_cred jnt_cred_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_cred jnt_cred_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_cred
@@ -10249,7 +10249,7 @@ ALTER TABLE ONLY public.letter_cred
 
 
 --
--- Name: letter_deb jnt_deb_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_deb jnt_deb_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_deb
@@ -10257,7 +10257,7 @@ ALTER TABLE ONLY public.letter_deb
 
 
 --
--- Name: jnt_fic_attr jnt_fic_attr_attr_def_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jnt_fic_attr jnt_fic_attr_attr_def_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jnt_fic_attr
@@ -10265,7 +10265,7 @@ ALTER TABLE ONLY public.jnt_fic_attr
 
 
 --
--- Name: op_predef jrn_def_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: op_predef jrn_def_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.op_predef
@@ -10273,7 +10273,7 @@ ALTER TABLE ONLY public.op_predef
 
 
 --
--- Name: jrn_periode jrn_per_jrn_def_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_periode jrn_per_jrn_def_id; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_periode
@@ -10281,7 +10281,7 @@ ALTER TABLE ONLY public.jrn_periode
 
 
 --
--- Name: jrn_periode jrn_periode_p_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_periode jrn_periode_p_id; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_periode
@@ -10289,7 +10289,7 @@ ALTER TABLE ONLY public.jrn_periode
 
 
 --
--- Name: jrn_rapt jrn_rapt_jr_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_rapt jrn_rapt_jr_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_rapt
@@ -10297,7 +10297,7 @@ ALTER TABLE ONLY public.jrn_rapt
 
 
 --
--- Name: jrn_rapt jrn_rapt_jra_concerned_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_rapt jrn_rapt_jra_concerned_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_rapt
@@ -10305,7 +10305,7 @@ ALTER TABLE ONLY public.jrn_rapt
 
 
 --
--- Name: jrnx jrnx_f_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrnx jrnx_f_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrnx
@@ -10313,7 +10313,7 @@ ALTER TABLE ONLY public.jrnx
 
 
 --
--- Name: jrn_note jrnx_note_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: jrn_note jrnx_note_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.jrn_note
@@ -10321,7 +10321,7 @@ ALTER TABLE ONLY public.jrn_note
 
 
 --
--- Name: key_distribution_activity key_distribution_activity_ke_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_activity key_distribution_activity_ke_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_activity
@@ -10329,7 +10329,7 @@ ALTER TABLE ONLY public.key_distribution_activity
 
 
 --
--- Name: key_distribution_activity key_distribution_activity_pa_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_activity key_distribution_activity_pa_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_activity
@@ -10337,7 +10337,7 @@ ALTER TABLE ONLY public.key_distribution_activity
 
 
 --
--- Name: key_distribution_activity key_distribution_activity_po_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_activity key_distribution_activity_po_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_activity
@@ -10345,7 +10345,7 @@ ALTER TABLE ONLY public.key_distribution_activity
 
 
 --
--- Name: key_distribution_detail key_distribution_detail_kd_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_detail key_distribution_detail_kd_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_detail
@@ -10353,7 +10353,7 @@ ALTER TABLE ONLY public.key_distribution_detail
 
 
 --
--- Name: key_distribution_ledger key_distribution_ledger_jrn_def_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger key_distribution_ledger_jrn_def_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_ledger
@@ -10361,7 +10361,7 @@ ALTER TABLE ONLY public.key_distribution_ledger
 
 
 --
--- Name: key_distribution_ledger key_distribution_ledger_kd_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger key_distribution_ledger_kd_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.key_distribution_ledger
@@ -10369,7 +10369,7 @@ ALTER TABLE ONLY public.key_distribution_ledger
 
 
 --
--- Name: letter_cred letter_cred_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_cred letter_cred_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_cred
@@ -10377,7 +10377,7 @@ ALTER TABLE ONLY public.letter_cred
 
 
 --
--- Name: letter_deb letter_deb_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: letter_deb letter_deb_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.letter_deb
@@ -10385,7 +10385,7 @@ ALTER TABLE ONLY public.letter_deb
 
 
 --
--- Name: document_modele md_type; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: document_modele md_type; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.document_modele
@@ -10393,7 +10393,7 @@ ALTER TABLE ONLY public.document_modele
 
 
 --
--- Name: mod_payment mod_payment_jrn_def_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: mod_payment mod_payment_jrn_def_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.mod_payment
@@ -10401,7 +10401,7 @@ ALTER TABLE ONLY public.mod_payment
 
 
 --
--- Name: mod_payment mod_payment_mp_fd_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: mod_payment mod_payment_mp_fd_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.mod_payment
@@ -10409,7 +10409,7 @@ ALTER TABLE ONLY public.mod_payment
 
 
 --
--- Name: mod_payment mod_payment_mp_jrn_def_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: mod_payment mod_payment_mp_jrn_def_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.mod_payment
@@ -10417,7 +10417,7 @@ ALTER TABLE ONLY public.mod_payment
 
 
 --
--- Name: operation_analytique operation_analytique_fiche_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: operation_analytique operation_analytique_fiche_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.operation_analytique
@@ -10425,7 +10425,7 @@ ALTER TABLE ONLY public.operation_analytique
 
 
 --
--- Name: operation_analytique operation_analytique_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: operation_analytique operation_analytique_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.operation_analytique
@@ -10433,7 +10433,7 @@ ALTER TABLE ONLY public.operation_analytique
 
 
 --
--- Name: operation_analytique operation_analytique_po_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: operation_analytique operation_analytique_po_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.operation_analytique
@@ -10441,7 +10441,7 @@ ALTER TABLE ONLY public.operation_analytique
 
 
 --
--- Name: poste_analytique poste_analytique_pa_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: poste_analytique poste_analytique_pa_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.poste_analytique
@@ -10449,7 +10449,7 @@ ALTER TABLE ONLY public.poste_analytique
 
 
 --
--- Name: action_gestion profile_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: action_gestion profile_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.action_gestion
@@ -10457,7 +10457,7 @@ ALTER TABLE ONLY public.action_gestion
 
 
 --
--- Name: profile_menu profile_menu_me_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_menu profile_menu_me_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_menu
@@ -10465,7 +10465,7 @@ ALTER TABLE ONLY public.profile_menu
 
 
 --
--- Name: profile_menu profile_menu_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_menu profile_menu_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_menu
@@ -10473,7 +10473,7 @@ ALTER TABLE ONLY public.profile_menu
 
 
 --
--- Name: profile_menu profile_menu_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_menu profile_menu_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_menu
@@ -10481,7 +10481,7 @@ ALTER TABLE ONLY public.profile_menu
 
 
 --
--- Name: profile_sec_repository profile_sec_repository_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_sec_repository profile_sec_repository_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_sec_repository
@@ -10489,7 +10489,7 @@ ALTER TABLE ONLY public.profile_sec_repository
 
 
 --
--- Name: profile_sec_repository profile_sec_repository_r_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_sec_repository profile_sec_repository_r_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_sec_repository
@@ -10497,7 +10497,7 @@ ALTER TABLE ONLY public.profile_sec_repository
 
 
 --
--- Name: profile_user profile_user_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: profile_user profile_user_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.profile_user
@@ -10505,7 +10505,7 @@ ALTER TABLE ONLY public.profile_user
 
 
 --
--- Name: quant_purchase qp_vat_code_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_purchase qp_vat_code_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_purchase
@@ -10513,7 +10513,7 @@ ALTER TABLE ONLY public.quant_purchase
 
 
 --
--- Name: quant_sold qs_vat_code_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_sold qs_vat_code_fk; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_sold
@@ -10521,7 +10521,7 @@ ALTER TABLE ONLY public.quant_sold
 
 
 --
--- Name: quant_purchase quant_purchase_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_purchase quant_purchase_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_purchase
@@ -10529,7 +10529,7 @@ ALTER TABLE ONLY public.quant_purchase
 
 
 --
--- Name: quant_purchase quant_purchase_qp_internal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_purchase quant_purchase_qp_internal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_purchase
@@ -10537,7 +10537,7 @@ ALTER TABLE ONLY public.quant_purchase
 
 
 --
--- Name: quant_sold quant_sold_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_sold quant_sold_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_sold
@@ -10545,7 +10545,7 @@ ALTER TABLE ONLY public.quant_sold
 
 
 --
--- Name: quant_sold quant_sold_qs_internal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: quant_sold quant_sold_qs_internal_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.quant_sold
@@ -10553,7 +10553,7 @@ ALTER TABLE ONLY public.quant_sold
 
 
 --
--- Name: stock_change stock_change_r_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_change stock_change_r_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_change
@@ -10561,7 +10561,7 @@ ALTER TABLE ONLY public.stock_change
 
 
 --
--- Name: stock_goods stock_goods_c_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_goods stock_goods_c_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_goods
@@ -10569,7 +10569,7 @@ ALTER TABLE ONLY public.stock_goods
 
 
 --
--- Name: stock_goods stock_goods_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stock_goods stock_goods_j_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.stock_goods
@@ -10577,7 +10577,7 @@ ALTER TABLE ONLY public.stock_goods
 
 
 --
--- Name: tmp_stockgood_detail tmp_stockgood_detail_s_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail tmp_stockgood_detail_s_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.tmp_stockgood_detail
@@ -10585,7 +10585,7 @@ ALTER TABLE ONLY public.tmp_stockgood_detail
 
 
 --
--- Name: user_sec_jrn uj_priv_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_jrn uj_priv_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_jrn
@@ -10593,7 +10593,7 @@ ALTER TABLE ONLY public.user_sec_jrn
 
 
 --
--- Name: user_sec_action_profile user_sec_action_profile_p_granted_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile user_sec_action_profile_p_granted_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_action_profile
@@ -10601,7 +10601,7 @@ ALTER TABLE ONLY public.user_sec_action_profile
 
 
 --
--- Name: user_sec_action_profile user_sec_action_profile_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile user_sec_action_profile_p_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prisma
 --
 
 ALTER TABLE ONLY public.user_sec_action_profile
