@@ -17,7 +17,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Data for Name: addons_kudos; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_kudos; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_kudos (kudos_id, sender_id, receiver_id, is_receiver_user, entity_id, entity_type, message, created_date, parent_entity_id, activity_id) FROM stdin;
@@ -25,7 +25,7 @@ COPY public.addons_kudos (kudos_id, sender_id, receiver_id, is_receiver_user, en
 
 
 --
--- Data for Name: addons_perkstore_product; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_perkstore_product; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_perkstore_product (product_id, title, description, illustration_url, enabled, unlimited, allow_fraction, total_supply, price, receiver_id, periodicity, max_orders_per_user, created_date, last_modified_date, creator, last_modifier) FROM stdin;
@@ -33,7 +33,7 @@ COPY public.addons_perkstore_product (product_id, title, description, illustrati
 
 
 --
--- Data for Name: addons_perkstore_image; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_perkstore_image; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_perkstore_image (image_file_id, product_id) FROM stdin;
@@ -41,7 +41,7 @@ COPY public.addons_perkstore_image (image_file_id, product_id) FROM stdin;
 
 
 --
--- Data for Name: addons_perkstore_product_marchand; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_perkstore_product_marchand; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_perkstore_product_marchand (marchand_identity_id, product_id) FROM stdin;
@@ -49,7 +49,7 @@ COPY public.addons_perkstore_product_marchand (marchand_identity_id, product_id)
 
 
 --
--- Data for Name: addons_perkstore_product_order; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_perkstore_product_order; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_perkstore_product_order (order_id, product_id, transaction_hash, refund_transaction_hash, quantity, delivered_quantity, refunded_quantity, remaining_quantity, amount, refunded_amount, sender_id, receiver_id, status, tx_status, refund_tx_status, created_date, delivered_date, refunded_date, error_code) FROM stdin;
@@ -57,7 +57,7 @@ COPY public.addons_perkstore_product_order (order_id, product_id, transaction_ha
 
 
 --
--- Data for Name: addons_perkstore_product_permission; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_perkstore_product_permission; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_perkstore_product_permission (permission_identity_id, product_id) FROM stdin;
@@ -65,7 +65,7 @@ COPY public.addons_perkstore_product_permission (permission_identity_id, product
 
 
 --
--- Data for Name: addons_wallet_account; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_account; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_account (identity_id, identity_type, address, phrase, enabled, initialization_state, backed_up) FROM stdin;
@@ -73,7 +73,7 @@ COPY public.addons_wallet_account (identity_id, identity_type, address, phrase, 
 
 
 --
--- Data for Name: addons_wallet_blockchain_state; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_blockchain_state; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_blockchain_state (blockchain_state_id, wallet_id, contract_address, ether_balance, token_balance, reward_balance, vesting_balance, admin_level, is_approved, is_initialized) FROM stdin;
@@ -81,7 +81,7 @@ COPY public.addons_wallet_blockchain_state (blockchain_state_id, wallet_id, cont
 
 
 --
--- Data for Name: addons_wallet_gam_team; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_gam_team; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_gam_team (team_id, team_name, team_description, team_reward_type, team_budget, team_member_reward, team_space_id, team_manager_id, team_disabled, team_deleted) FROM stdin;
@@ -89,7 +89,7 @@ COPY public.addons_wallet_gam_team (team_id, team_name, team_description, team_r
 
 
 --
--- Data for Name: addons_wallet_gam_team_member; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_gam_team_member; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_gam_team_member (member_id, member_identity_id, team_id) FROM stdin;
@@ -97,7 +97,7 @@ COPY public.addons_wallet_gam_team_member (member_id, member_identity_id, team_i
 
 
 --
--- Data for Name: addons_wallet_key; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_key; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_key (key_id, wallet_id, content) FROM stdin;
@@ -105,7 +105,7 @@ COPY public.addons_wallet_key (key_id, wallet_id, content) FROM stdin;
 
 
 --
--- Data for Name: addons_wallet_label; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_label; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_label (label_id, identity_id, address, label) FROM stdin;
@@ -113,7 +113,7 @@ COPY public.addons_wallet_label (label_id, identity_id, address, label) FROM std
 
 
 --
--- Data for Name: addons_wallet_reward_period; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_reward_period; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_reward_period (reward_period_id, period_type, start_time, end_time, status) FROM stdin;
@@ -121,7 +121,7 @@ COPY public.addons_wallet_reward_period (reward_period_id, period_type, start_ti
 
 
 --
--- Data for Name: addons_wallet_reward; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_reward; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_reward (reward_id, identity_id, reward_period_id, team_id, transaction_hash, enabled, tokens_to_send, tokens_sent) FROM stdin;
@@ -129,7 +129,7 @@ COPY public.addons_wallet_reward (reward_id, identity_id, reward_period_id, team
 
 
 --
--- Data for Name: addons_wallet_reward_plugin; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_reward_plugin; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_reward_plugin (reward_plugin_id, reward_id, plugin_id, pool_used, points, amount) FROM stdin;
@@ -137,7 +137,7 @@ COPY public.addons_wallet_reward_plugin (reward_plugin_id, reward_id, plugin_id,
 
 
 --
--- Data for Name: addons_wallet_transaction; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: addons_wallet_transaction; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.addons_wallet_transaction (transaction_id, network_id, hash, pending, success, admin_op, from_address, to_address, by_address, label, message, value, contract_address, contract_method, contract_amount, created_date, issuer_id, gas_used, gas_price, token_fee, no_contract_funds, nonce, raw_transaction, sent_date, sending_attempt_count, ether_fee) FROM stdin;
@@ -145,7 +145,7 @@ COPY public.addons_wallet_transaction (transaction_id, network_id, hash, pending
 
 
 --
--- Data for Name: databasechangelog; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: databasechangelog; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.databasechangelog (id, author, filename, dateexecuted, orderexecuted, exectype, md5sum, description, comments, tag, liquibase, contexts, labels) FROM stdin;
@@ -383,7 +383,7 @@ portal	1.0.0-14	db/changelog/portal-rdbms.db.changelog-1.0.0.xml	2020-02-14 15:5
 
 
 --
--- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.databasechangeloglock (id, locked, lockgranted, lockedby) FROM stdin;
@@ -392,7 +392,7 @@ COPY public.databasechangeloglock (id, locked, lockgranted, lockedby) FROM stdin
 
 
 --
--- Data for Name: email_queue; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: email_queue; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.email_queue (email_id, creation_date, type, sender, receiver, subject, body, footer) FROM stdin;
@@ -400,7 +400,7 @@ COPY public.email_queue (email_id, creation_date, type, sender, receiver, subjec
 
 
 --
--- Data for Name: es_indexing_queue; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: es_indexing_queue; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.es_indexing_queue (operation_id, entity_type, entity_id, operation_type, operation_timestamp) FROM stdin;
@@ -534,7 +534,7 @@ COPY public.es_indexing_queue (operation_id, entity_type, entity_id, operation_t
 
 
 --
--- Data for Name: files_binary; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: files_binary; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.files_binary (blob_id, name, data, updated_date) FROM stdin;
@@ -542,7 +542,7 @@ COPY public.files_binary (blob_id, name, data, updated_date) FROM stdin;
 
 
 --
--- Data for Name: files_namespaces; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: files_namespaces; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.files_namespaces (namespace_id, name, description) FROM stdin;
@@ -555,7 +555,7 @@ COPY public.files_namespaces (namespace_id, name, description) FROM stdin;
 
 
 --
--- Data for Name: files_files; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: files_files; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.files_files (file_id, namespace_id, name, mimetype, file_size, updated_date, updater, checksum, deleted) FROM stdin;
@@ -563,7 +563,7 @@ COPY public.files_files (file_id, namespace_id, name, mimetype, file_size, updat
 
 
 --
--- Data for Name: files_orphan_files; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: files_orphan_files; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.files_orphan_files (id, file_id, deleted_date, checksum) FROM stdin;
@@ -571,7 +571,7 @@ COPY public.files_orphan_files (id, file_id, deleted_date, checksum) FROM stdin;
 
 
 --
--- Data for Name: gamification_domain; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: gamification_domain; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.gamification_domain (id, title, description, priority, created_by, created_date, last_modified_by, last_modified_date, enabled, deleted) FROM stdin;
@@ -579,7 +579,7 @@ COPY public.gamification_domain (id, title, description, priority, created_by, c
 
 
 --
--- Data for Name: gamification_actions_history; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: gamification_actions_history; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.gamification_actions_history (id, action_date, user_social_id, global_score, action_title, domain, context, action_score, created_by, created_date, last_modified_by, last_modified_date, receiver, object_id, domain_id) FROM stdin;
@@ -587,7 +587,7 @@ COPY public.gamification_actions_history (id, action_date, user_social_id, globa
 
 
 --
--- Data for Name: gamification_badges; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: gamification_badges; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.gamification_badges (badge_id, title, description, needed_score, icon_file_id, validity_date_start, validity_date_end, enabled, created_by, domain, created_date, last_modified_by, last_modified_date, domain_id, deleted) FROM stdin;
@@ -595,7 +595,7 @@ COPY public.gamification_badges (badge_id, title, description, needed_score, ico
 
 
 --
--- Data for Name: gamification_user_reputation; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: gamification_user_reputation; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.gamification_user_reputation (id, score, username) FROM stdin;
@@ -603,7 +603,7 @@ COPY public.gamification_user_reputation (id, score, username) FROM stdin;
 
 
 --
--- Data for Name: gamification_context_items; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: gamification_context_items; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.gamification_context_items (id, occurrence, operation_type, zone, score, gamification_user_id) FROM stdin;
@@ -611,7 +611,7 @@ COPY public.gamification_context_items (id, occurrence, operation_type, zone, sc
 
 
 --
--- Data for Name: gamification_rule; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: gamification_rule; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.gamification_rule (id, title, description, score, area, enabled, created_by, created_date, last_modified_by, last_modified_date, domain_id, event, deleted) FROM stdin;
@@ -619,7 +619,7 @@ COPY public.gamification_rule (id, title, description, score, area, enabled, cre
 
 
 --
--- Data for Name: idm_queue; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: idm_queue; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.idm_queue (idm_queue_id, entity_id, entity_type, nb_retries, processed, create_date, operation_type) FROM stdin;
@@ -627,7 +627,7 @@ COPY public.idm_queue (idm_queue_id, entity_id, entity_type, nb_retries, process
 
 
 --
--- Data for Name: jbid_attr_bin_value; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_attr_bin_value; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_attr_bin_value (bin_value_id, value) FROM stdin;
@@ -635,7 +635,7 @@ COPY public.jbid_attr_bin_value (bin_value_id, value) FROM stdin;
 
 
 --
--- Data for Name: jbid_creden_bin_value; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_creden_bin_value; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_creden_bin_value (bin_value_id, value) FROM stdin;
@@ -643,7 +643,7 @@ COPY public.jbid_creden_bin_value (bin_value_id, value) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_type; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_type (id, name) FROM stdin;
@@ -653,7 +653,7 @@ COPY public.jbid_io_type (id, name) FROM stdin;
 
 
 --
--- Data for Name: jbid_realm; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_realm; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_realm (id, name) FROM stdin;
@@ -664,7 +664,7 @@ COPY public.jbid_realm (id, name) FROM stdin;
 
 
 --
--- Data for Name: jbid_io; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io (id, identity_type, name, realm) FROM stdin;
@@ -672,7 +672,7 @@ COPY public.jbid_io (id, identity_type, name, realm) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_attr; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_attr; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_attr (attribute_id, identity_object_id, name, attribute_type, bin_value_id) FROM stdin;
@@ -680,7 +680,7 @@ COPY public.jbid_io_attr (attribute_id, identity_object_id, name, attribute_type
 
 
 --
--- Data for Name: jbid_io_attr_text_values; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_attr_text_values; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_attr_text_values (text_attr_value_id, attr_value) FROM stdin;
@@ -688,7 +688,7 @@ COPY public.jbid_io_attr_text_values (text_attr_value_id, attr_value) FROM stdin
 
 
 --
--- Data for Name: jbid_io_creden_type; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_creden_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_creden_type (id, name) FROM stdin;
@@ -698,7 +698,7 @@ COPY public.jbid_io_creden_type (id, name) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_creden; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_creden; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_creden (id, bin_value_id, identity_object_id, text, credential_type) FROM stdin;
@@ -706,7 +706,7 @@ COPY public.jbid_io_creden (id, bin_value_id, identity_object_id, text, credenti
 
 
 --
--- Data for Name: jbid_io_creden_props; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_creden_props; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_creden_props (prop_id, prop_value, prop_name) FROM stdin;
@@ -714,7 +714,7 @@ COPY public.jbid_io_creden_props (prop_id, prop_value, prop_name) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_props; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_props; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_props (prop_id, prop_value, prop_name) FROM stdin;
@@ -722,7 +722,7 @@ COPY public.jbid_io_props (prop_id, prop_value, prop_name) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_rel_name; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_rel_name; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_rel_name (id, name, realm) FROM stdin;
@@ -730,7 +730,7 @@ COPY public.jbid_io_rel_name (id, name, realm) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_rel_type; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_rel_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_rel_type (id, name) FROM stdin;
@@ -740,7 +740,7 @@ COPY public.jbid_io_rel_type (id, name) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_rel; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_rel; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_rel (id, from_identity, name, to_identity, rel_type) FROM stdin;
@@ -748,7 +748,7 @@ COPY public.jbid_io_rel (id, from_identity, name, to_identity, rel_type) FROM st
 
 
 --
--- Data for Name: jbid_io_rel_name_props; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_rel_name_props; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_rel_name_props (prop_id, prop_value, prop_name) FROM stdin;
@@ -756,7 +756,7 @@ COPY public.jbid_io_rel_name_props (prop_id, prop_value, prop_name) FROM stdin;
 
 
 --
--- Data for Name: jbid_io_rel_props; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_io_rel_props; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_io_rel_props (prop_id, prop_value, prop_name) FROM stdin;
@@ -764,7 +764,7 @@ COPY public.jbid_io_rel_props (prop_id, prop_value, prop_name) FROM stdin;
 
 
 --
--- Data for Name: jbid_real_props; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jbid_real_props; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jbid_real_props (prop_id, prop_value, prop_name) FROM stdin;
@@ -772,7 +772,7 @@ COPY public.jbid_real_props (prop_id, prop_value, prop_name) FROM stdin;
 
 
 --
--- Data for Name: jcr_sitem; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jcr_sitem; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jcr_sitem (id, parent_id, name, version, container_name, i_class, i_index, n_order_num, p_type, p_multivalued) FROM stdin;
@@ -781,7 +781,7 @@ COPY public.jcr_sitem (id, parent_id, name, version, container_name, i_class, i_
 
 
 --
--- Data for Name: jcr_sref; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jcr_sref; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jcr_sref (node_id, property_id, order_num) FROM stdin;
@@ -789,7 +789,7 @@ COPY public.jcr_sref (node_id, property_id, order_num) FROM stdin;
 
 
 --
--- Data for Name: jcr_svalue; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: jcr_svalue; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jcr_svalue (id, data, order_num, property_id, storage_desc) FROM stdin;
@@ -797,7 +797,7 @@ COPY public.jcr_svalue (id, data, order_num, property_id, storage_desc) FROM std
 
 
 --
--- Data for Name: msg_devices; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: msg_devices; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.msg_devices (id, token, username, type, registration_date) FROM stdin;
@@ -805,7 +805,7 @@ COPY public.msg_devices (id, token, username, type, registration_date) FROM stdi
 
 
 --
--- Data for Name: ntf_email_notifs; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: ntf_email_notifs; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.ntf_email_notifs (email_notif_id, sender, type, creation_date, sending_order) FROM stdin;
@@ -813,7 +813,7 @@ COPY public.ntf_email_notifs (email_notif_id, sender, type, creation_date, sendi
 
 
 --
--- Data for Name: ntf_email_notifs_digest; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: ntf_email_notifs_digest; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.ntf_email_notifs_digest (email_notif_digest_id, email_notif_id, digest_type) FROM stdin;
@@ -821,7 +821,7 @@ COPY public.ntf_email_notifs_digest (email_notif_digest_id, email_notif_id, dige
 
 
 --
--- Data for Name: ntf_email_notifs_params; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: ntf_email_notifs_params; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.ntf_email_notifs_params (email_notif_params_id, email_notif_id, param_name, param_value) FROM stdin;
@@ -829,7 +829,7 @@ COPY public.ntf_email_notifs_params (email_notif_params_id, email_notif_id, para
 
 
 --
--- Data for Name: ntf_web_notifs; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: ntf_web_notifs; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.ntf_web_notifs (web_notif_id, sender, type, creation_date, text) FROM stdin;
@@ -837,7 +837,7 @@ COPY public.ntf_web_notifs (web_notif_id, sender, type, creation_date, text) FRO
 
 
 --
--- Data for Name: ntf_web_notifs_params; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: ntf_web_notifs_params; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.ntf_web_notifs_params (web_notif_params_id, web_notif_id, param_name, param_value) FROM stdin;
@@ -845,7 +845,7 @@ COPY public.ntf_web_notifs_params (web_notif_params_id, web_notif_id, param_name
 
 
 --
--- Data for Name: ntf_web_notifs_users; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: ntf_web_notifs_users; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.ntf_web_notifs_users (web_notifs_users_id, web_notif_id, receiver, update_date, is_read, show_popover, reset_number_badge) FROM stdin;
@@ -853,7 +853,7 @@ COPY public.ntf_web_notifs_users (web_notifs_users_id, web_notif_id, receiver, u
 
 
 --
--- Data for Name: portal_app_categories; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_app_categories; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_app_categories (id, name, display_name, description, created_date, modified_date) FROM stdin;
@@ -861,7 +861,7 @@ COPY public.portal_app_categories (id, name, display_name, description, created_
 
 
 --
--- Data for Name: portal_applications; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_applications; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_applications (id, display_name, description, created_date, modified_date, app_name, type, content_id, category_id) FROM stdin;
@@ -869,7 +869,7 @@ COPY public.portal_applications (id, display_name, description, created_date, mo
 
 
 --
--- Data for Name: portal_containers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_containers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_containers (id, webui_id, name, icon, template, factory_id, title, description, width, height, properties, container_body) FROM stdin;
@@ -971,7 +971,7 @@ COPY public.portal_containers (id, webui_id, name, icon, template, factory_id, t
 
 
 --
--- Data for Name: portal_descriptions; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_descriptions; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_descriptions (description_id, ref_id, name, description) FROM stdin;
@@ -994,7 +994,7 @@ COPY public.portal_descriptions (description_id, ref_id, name, description) FROM
 
 
 --
--- Data for Name: portal_description_localized; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_description_localized; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_description_localized (description_id, locale, name, description) FROM stdin;
@@ -1011,7 +1011,7 @@ COPY public.portal_description_localized (description_id, locale, name, descript
 
 
 --
--- Data for Name: portal_sites; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_sites; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_sites (id, type, name, locale, skin, label, description, properties, site_body) FROM stdin;
@@ -1028,7 +1028,7 @@ COPY public.portal_sites (id, type, name, locale, skin, label, description, prop
 
 
 --
--- Data for Name: portal_pages; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_pages; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_pages (id, site_id, show_max_window, display_name, name, description, factory_id, page_body) FROM stdin;
@@ -1085,7 +1085,7 @@ COPY public.portal_pages (id, site_id, show_max_window, display_name, name, desc
 
 
 --
--- Data for Name: portal_navigation_nodes; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_navigation_nodes; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_navigation_nodes (node_id, name, label, icon, start_time, end_time, visibility, node_index, page_id, parent_id) FROM stdin;
@@ -1154,7 +1154,7 @@ COPY public.portal_navigation_nodes (node_id, name, label, icon, start_time, end
 
 
 --
--- Data for Name: portal_navigations; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_navigations; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_navigations (navigation_id, site_id, priority, node_id) FROM stdin;
@@ -1169,7 +1169,7 @@ COPY public.portal_navigations (navigation_id, site_id, priority, node_id) FROM 
 
 
 --
--- Data for Name: portal_permissions; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_permissions; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_permissions (permission_id, ref_type, ref_id, permission, type) FROM stdin;
@@ -1729,7 +1729,7 @@ COPY public.portal_permissions (permission_id, ref_type, ref_id, permission, typ
 
 
 --
--- Data for Name: portal_tokens; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_tokens; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_tokens (id, token_id, token_hash, username, password, expiration_time) FROM stdin;
@@ -1737,7 +1737,7 @@ COPY public.portal_tokens (id, token_id, token_hash, username, password, expirat
 
 
 --
--- Data for Name: portal_windows; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: portal_windows; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.portal_windows (id, title, icon, description, show_info_bar, show_app_state, show_app_mode, theme, width, height, properties, app_type, content_id, customization) FROM stdin;
@@ -1812,7 +1812,7 @@ COPY public.portal_windows (id, title, icon, description, show_info_bar, show_ap
 
 
 --
--- Data for Name: qrtz_job_details; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_job_details; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_job_details (sched_name, job_name, job_group, description, job_class_name, is_durable, is_nonconcurrent, is_update_data, requests_recovery, job_data) FROM stdin;
@@ -1833,7 +1833,7 @@ ExoScheduler	RewardCurrentPeriodStatusUpdaterJob	portal:Wallet	\N	org.exoplatfor
 
 
 --
--- Data for Name: qrtz_triggers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_triggers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_triggers (sched_name, trigger_name, trigger_group, job_name, job_group, description, next_fire_time, prev_fire_time, priority, trigger_state, trigger_type, start_time, end_time, calendar_name, misfire_instr, job_data) FROM stdin;
@@ -1854,7 +1854,7 @@ ExoScheduler	RewardCurrentPeriodStatusUpdaterJob	portal:Wallet	RewardCurrentPeri
 
 
 --
--- Data for Name: qrtz_blob_triggers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_blob_triggers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_blob_triggers (sched_name, trigger_name, trigger_group, blob_data) FROM stdin;
@@ -1862,7 +1862,7 @@ COPY public.qrtz_blob_triggers (sched_name, trigger_name, trigger_group, blob_da
 
 
 --
--- Data for Name: qrtz_calendars; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_calendars; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_calendars (sched_name, calendar_name, calendar) FROM stdin;
@@ -1870,7 +1870,7 @@ COPY public.qrtz_calendars (sched_name, calendar_name, calendar) FROM stdin;
 
 
 --
--- Data for Name: qrtz_cron_triggers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_cron_triggers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_cron_triggers (sched_name, trigger_name, trigger_group, cron_expression, time_zone_id) FROM stdin;
@@ -1887,7 +1887,7 @@ ExoScheduler	RewardCurrentPeriodStatusUpdaterJob	portal:Wallet	0 0/15 * ? * * *	
 
 
 --
--- Data for Name: qrtz_fired_triggers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_fired_triggers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_fired_triggers (sched_name, entry_id, trigger_name, trigger_group, instance_name, fired_time, sched_time, priority, state, job_name, job_group, is_nonconcurrent, requests_recovery) FROM stdin;
@@ -1895,7 +1895,7 @@ COPY public.qrtz_fired_triggers (sched_name, entry_id, trigger_name, trigger_gro
 
 
 --
--- Data for Name: qrtz_locks; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_locks; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_locks (sched_name, lock_name) FROM stdin;
@@ -1903,7 +1903,7 @@ COPY public.qrtz_locks (sched_name, lock_name) FROM stdin;
 
 
 --
--- Data for Name: qrtz_paused_trigger_grps; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_paused_trigger_grps; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_paused_trigger_grps (sched_name, trigger_group) FROM stdin;
@@ -1911,7 +1911,7 @@ COPY public.qrtz_paused_trigger_grps (sched_name, trigger_group) FROM stdin;
 
 
 --
--- Data for Name: qrtz_scheduler_state; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_scheduler_state; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_scheduler_state (sched_name, instance_name, last_checkin_time, checkin_interval) FROM stdin;
@@ -1919,7 +1919,7 @@ COPY public.qrtz_scheduler_state (sched_name, instance_name, last_checkin_time, 
 
 
 --
--- Data for Name: qrtz_simple_triggers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_simple_triggers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_simple_triggers (sched_name, trigger_name, trigger_group, repeat_count, repeat_interval, times_triggered) FROM stdin;
@@ -1931,7 +1931,7 @@ ExoScheduler	PopupReminderJob	portal:CollaborationSuite	-1	15000	0
 
 
 --
--- Data for Name: qrtz_simprop_triggers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: qrtz_simprop_triggers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.qrtz_simprop_triggers (sched_name, trigger_name, trigger_group, str_prop_1, str_prop_2, str_prop_3, int_prop_1, int_prop_2, long_prop_1, long_prop_2, dec_prop_1, dec_prop_2, bool_prop_1, bool_prop_2) FROM stdin;
@@ -1939,7 +1939,7 @@ COPY public.qrtz_simprop_triggers (sched_name, trigger_name, trigger_group, str_
 
 
 --
--- Data for Name: soc_activities; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_activities; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_activities (activity_id, app_id, body, external_id, provider_id, hidden, updated_date, locked, owner_id, permalink, posted, poster_id, title, title_id, type, is_comment, parent_id) FROM stdin;
@@ -1947,7 +1947,7 @@ COPY public.soc_activities (activity_id, app_id, body, external_id, provider_id,
 
 
 --
--- Data for Name: soc_activity_likers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_activity_likers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_activity_likers (activity_id, liker_id, created_date) FROM stdin;
@@ -1955,7 +1955,7 @@ COPY public.soc_activity_likers (activity_id, liker_id, created_date) FROM stdin
 
 
 --
--- Data for Name: soc_activity_template_params; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_activity_template_params; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_activity_template_params (activity_id, template_param_value, template_param_key) FROM stdin;
@@ -1963,7 +1963,7 @@ COPY public.soc_activity_template_params (activity_id, template_param_value, tem
 
 
 --
--- Data for Name: soc_spaces; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_spaces; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_spaces (space_id, pretty_name, display_name, registration, description, avatar_last_updated, visibility, priority, group_id, url, created_date, template, banner_last_updated) FROM stdin;
@@ -1971,7 +1971,7 @@ COPY public.soc_spaces (space_id, pretty_name, display_name, registration, descr
 
 
 --
--- Data for Name: soc_apps; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_apps; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_apps (space_id, app_id, app_name, removable, status) FROM stdin;
@@ -1979,7 +1979,7 @@ COPY public.soc_apps (space_id, app_id, app_name, removable, status) FROM stdin;
 
 
 --
--- Data for Name: soc_identities; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_identities; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_identities (identity_id, provider_id, remote_id, enabled, deleted, avatar_file_id, created_date, banner_file_id) FROM stdin;
@@ -1988,7 +1988,7 @@ COPY public.soc_identities (identity_id, provider_id, remote_id, enabled, delete
 
 
 --
--- Data for Name: soc_connections; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_connections; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_connections (connection_id, sender_id, receiver_id, status, updated_date) FROM stdin;
@@ -1996,7 +1996,7 @@ COPY public.soc_connections (connection_id, sender_id, receiver_id, status, upda
 
 
 --
--- Data for Name: soc_identity_experiences; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_identity_experiences; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_identity_experiences (identity_id, company, "position", start_date, end_date, skills, description, experience_id) FROM stdin;
@@ -2004,7 +2004,7 @@ COPY public.soc_identity_experiences (identity_id, company, "position", start_da
 
 
 --
--- Data for Name: soc_identity_properties; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_identity_properties; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_identity_properties (identity_id, name, value) FROM stdin;
@@ -2012,7 +2012,7 @@ COPY public.soc_identity_properties (identity_id, name, value) FROM stdin;
 
 
 --
--- Data for Name: soc_mentions; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_mentions; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_mentions (mention_id, activity_id, mentioner_id) FROM stdin;
@@ -2020,7 +2020,7 @@ COPY public.soc_mentions (mention_id, activity_id, mentioner_id) FROM stdin;
 
 
 --
--- Data for Name: soc_spaces_members; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_spaces_members; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_spaces_members (space_member_id, space_id, user_id, status, last_access, visited) FROM stdin;
@@ -2028,7 +2028,7 @@ COPY public.soc_spaces_members (space_member_id, space_id, user_id, status, last
 
 
 --
--- Data for Name: soc_stream_items; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: soc_stream_items; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.soc_stream_items (stream_item_id, owner_id, stream_type, activity_id, updated_date) FROM stdin;
@@ -2036,7 +2036,7 @@ COPY public.soc_stream_items (stream_item_id, owner_id, stream_type, activity_id
 
 
 --
--- Data for Name: stg_contexts; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: stg_contexts; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.stg_contexts (context_id, type, name) FROM stdin;
@@ -2045,7 +2045,7 @@ COPY public.stg_contexts (context_id, type, name) FROM stdin;
 
 
 --
--- Data for Name: stg_scopes; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: stg_scopes; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.stg_scopes (scope_id, type, name) FROM stdin;
@@ -2055,7 +2055,7 @@ COPY public.stg_scopes (scope_id, type, name) FROM stdin;
 
 
 --
--- Data for Name: stg_settings; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: stg_settings; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.stg_settings (setting_id, name, value, context_id, scope_id) FROM stdin;
@@ -2065,7 +2065,7 @@ COPY public.stg_settings (setting_id, name, value, context_id, scope_id) FROM st
 
 
 --
--- Data for Name: task_projects; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_projects; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_projects (project_id, name, description, color, calendar_integrated, due_date, parent_project_id) FROM stdin;
@@ -2073,7 +2073,7 @@ COPY public.task_projects (project_id, name, description, color, calendar_integr
 
 
 --
--- Data for Name: task_status; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_status; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_status (status_id, name, rank, project_id) FROM stdin;
@@ -2081,7 +2081,7 @@ COPY public.task_status (status_id, name, rank, project_id) FROM stdin;
 
 
 --
--- Data for Name: task_tasks; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_tasks; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_tasks (task_id, title, description, priority, context, assignee, status_id, created_by, created_time, end_date, start_date, due_date, completed, calendar_integrated, rank, activity_id) FROM stdin;
@@ -2089,7 +2089,7 @@ COPY public.task_tasks (task_id, title, description, priority, context, assignee
 
 
 --
--- Data for Name: task_change_logs; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_change_logs; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_change_logs (change_log_id, task_id, author, action_name, target, created_time) FROM stdin;
@@ -2097,7 +2097,7 @@ COPY public.task_change_logs (change_log_id, task_id, author, action_name, targe
 
 
 --
--- Data for Name: task_comments; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_comments; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_comments (comment_id, author, cmt, created_time, task_id, parent_comment_id) FROM stdin;
@@ -2105,7 +2105,7 @@ COPY public.task_comments (comment_id, author, cmt, created_time, task_id, paren
 
 
 --
--- Data for Name: task_comment_mentioned_users; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_comment_mentioned_users; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_comment_mentioned_users (comment_id, mentioned_users) FROM stdin;
@@ -2113,7 +2113,7 @@ COPY public.task_comment_mentioned_users (comment_id, mentioned_users) FROM stdi
 
 
 --
--- Data for Name: task_user_settings; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_user_settings; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_user_settings (username, show_hidden_project, show_hidden_label) FROM stdin;
@@ -2121,7 +2121,7 @@ COPY public.task_user_settings (username, show_hidden_project, show_hidden_label
 
 
 --
--- Data for Name: task_hidden_projects; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_hidden_projects; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_hidden_projects (username, project_id) FROM stdin;
@@ -2129,7 +2129,7 @@ COPY public.task_hidden_projects (username, project_id) FROM stdin;
 
 
 --
--- Data for Name: task_labels; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_labels; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_labels (label_id, name, username, color, hidden, parent_label_id) FROM stdin;
@@ -2137,7 +2137,7 @@ COPY public.task_labels (label_id, name, username, color, hidden, parent_label_i
 
 
 --
--- Data for Name: task_label_task; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_label_task; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_label_task (label_id, task_id) FROM stdin;
@@ -2145,7 +2145,7 @@ COPY public.task_label_task (label_id, task_id) FROM stdin;
 
 
 --
--- Data for Name: task_project_managers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_project_managers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_project_managers (project_id, manager) FROM stdin;
@@ -2153,7 +2153,7 @@ COPY public.task_project_managers (project_id, manager) FROM stdin;
 
 
 --
--- Data for Name: task_project_participators; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_project_participators; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_project_participators (project_id, participator) FROM stdin;
@@ -2161,7 +2161,7 @@ COPY public.task_project_participators (project_id, participator) FROM stdin;
 
 
 --
--- Data for Name: task_task_coworkers; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: task_task_coworkers; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.task_task_coworkers (task_id, coworker) FROM stdin;
@@ -2169,7 +2169,7 @@ COPY public.task_task_coworkers (task_id, coworker) FROM stdin;
 
 
 --
--- Data for Name: wbc_calls; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: wbc_calls; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.wbc_calls (id, provider_type, owner_id, owner_type, state, title, settings, last_date, is_group, is_user) FROM stdin;
@@ -2177,7 +2177,7 @@ COPY public.wbc_calls (id, provider_type, owner_id, owner_type, state, title, se
 
 
 --
--- Data for Name: wbc_participants; Type: TABLE DATA; Schema: public; Owner: odoo
+-- Data for Name: wbc_participants; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.wbc_participants (id, call_id, type, state, client_id) FROM stdin;
@@ -2185,420 +2185,420 @@ COPY public.wbc_participants (id, call_id, type, state, client_id) FROM stdin;
 
 
 --
--- Name: hibernate_sequence; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: hibernate_sequence; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.hibernate_sequence', 9, true);
 
 
 --
--- Name: jcr_svalue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: jcr_svalue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.jcr_svalue_id_seq', 1, false);
 
 
 --
--- Name: seq_addons_kudos_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_addons_kudos_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_addons_kudos_id', 1, false);
 
 
 --
--- Name: seq_addons_perkstore_product_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_addons_perkstore_product_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_addons_perkstore_product_id', 1, false);
 
 
 --
--- Name: seq_addons_perkstore_product_order_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_addons_perkstore_product_order_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_addons_perkstore_product_order_id', 1, false);
 
 
 --
--- Name: seq_container_id_generator; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_container_id_generator; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_container_id_generator', 98, true);
 
 
 --
--- Name: seq_es_indexing_queue_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_es_indexing_queue_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_es_indexing_queue_id', 126, true);
 
 
 --
--- Name: seq_files_binary_blob_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_files_binary_blob_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_files_binary_blob_id', 1, false);
 
 
 --
--- Name: seq_files_files_file_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_files_files_file_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_files_files_file_id', 1, false);
 
 
 --
--- Name: seq_files_ns_namespace_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_files_ns_namespace_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_files_ns_namespace_id', 5, true);
 
 
 --
--- Name: seq_files_orphan_files_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_files_orphan_files_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_files_orphan_files_id', 1, false);
 
 
 --
--- Name: seq_gamification_badge_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gamification_badge_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gamification_badge_id', 1, false);
 
 
 --
--- Name: seq_gamification_domain_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gamification_domain_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gamification_domain_id', 1, false);
 
 
 --
--- Name: seq_gamification_rule_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gamification_rule_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gamification_rule_id', 1, false);
 
 
 --
--- Name: seq_gamification_score_history_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gamification_score_history_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gamification_score_history_id', 1, false);
 
 
 --
--- Name: seq_gatein_token_id_generator; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gatein_token_id_generator; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gatein_token_id_generator', 1, false);
 
 
 --
--- Name: seq_gtn_application_cat_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gtn_application_cat_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gtn_application_cat_id', 1, false);
 
 
 --
--- Name: seq_gtn_application_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gtn_application_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gtn_application_id', 1, false);
 
 
 --
--- Name: seq_gtn_navigation_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gtn_navigation_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gtn_navigation_id', 7, true);
 
 
 --
--- Name: seq_gtn_navigation_node_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_gtn_navigation_node_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_gtn_navigation_node_id', 61, true);
 
 
 --
--- Name: seq_idm_queue_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_idm_queue_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_idm_queue_id', 1, false);
 
 
 --
--- Name: seq_msg_devices_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_msg_devices_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_msg_devices_id', 1, false);
 
 
 --
--- Name: seq_ntf_email_digest; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_email_digest; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_email_digest', 1, false);
 
 
 --
--- Name: seq_ntf_email_notif; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_email_notif; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_email_notif', 1, false);
 
 
 --
--- Name: seq_ntf_email_params; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_email_params; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_email_params', 1, false);
 
 
 --
--- Name: seq_ntf_email_queue; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_email_queue; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_email_queue', 1, false);
 
 
 --
--- Name: seq_ntf_web_notifs; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_web_notifs; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_web_notifs', 1, false);
 
 
 --
--- Name: seq_ntf_web_params; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_web_params; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_web_params', 1, false);
 
 
 --
--- Name: seq_ntf_web_users; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_ntf_web_users; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_ntf_web_users', 1, false);
 
 
 --
--- Name: seq_page_id_generator; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_page_id_generator; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_page_id_generator', 49, true);
 
 
 --
--- Name: seq_portal_descriptions_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_portal_descriptions_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_portal_descriptions_id', 15, true);
 
 
 --
--- Name: seq_portal_permissions_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_portal_permissions_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_portal_permissions_id', 552, true);
 
 
 --
--- Name: seq_site_id_generator; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_site_id_generator; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_site_id_generator', 9, true);
 
 
 --
--- Name: seq_soc_activities_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_activities_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_activities_id', 1, false);
 
 
 --
--- Name: seq_soc_connections_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_connections_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_connections_id', 1, false);
 
 
 --
--- Name: seq_soc_experience_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_experience_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_experience_id', 1, false);
 
 
 --
--- Name: seq_soc_identity_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_identity_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_identity_id', 1, true);
 
 
 --
--- Name: seq_soc_mentions_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_mentions_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_mentions_id', 1, false);
 
 
 --
--- Name: seq_soc_space_member_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_space_member_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_space_member_id', 1, false);
 
 
 --
--- Name: seq_soc_spaces_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_spaces_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_spaces_id', 1, false);
 
 
 --
--- Name: seq_soc_stream_items_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_soc_stream_items_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_soc_stream_items_id', 1, false);
 
 
 --
--- Name: seq_stg_context_common_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_stg_context_common_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_stg_context_common_id', 1, true);
 
 
 --
--- Name: seq_stg_scope_common_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_stg_scope_common_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_stg_scope_common_id', 2, true);
 
 
 --
--- Name: seq_stg_settings_common_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_stg_settings_common_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_stg_settings_common_id', 2, true);
 
 
 --
--- Name: seq_task_change_log_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_task_change_log_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_task_change_log_id', 1, false);
 
 
 --
--- Name: seq_task_comments_comment_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_task_comments_comment_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_task_comments_comment_id', 1, false);
 
 
 --
--- Name: seq_task_labels_label_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_task_labels_label_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_task_labels_label_id', 1, false);
 
 
 --
--- Name: seq_task_projects_project_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_task_projects_project_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_task_projects_project_id', 1, false);
 
 
 --
--- Name: seq_task_status_status_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_task_status_status_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_task_status_status_id', 1, false);
 
 
 --
--- Name: seq_task_tasks_task_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_task_tasks_task_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_task_tasks_task_id', 1, false);
 
 
 --
--- Name: seq_wallet_gam_team_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_gam_team_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_gam_team_id', 1, false);
 
 
 --
--- Name: seq_wallet_gam_team_member_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_gam_team_member_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_gam_team_member_id', 1, false);
 
 
 --
--- Name: seq_wallet_key; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_key; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_key', 1, false);
 
 
 --
--- Name: seq_wallet_label; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_label; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_label', 1, false);
 
 
 --
--- Name: seq_wallet_reward_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_reward_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_reward_id', 1, false);
 
 
 --
--- Name: seq_wallet_reward_period_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_reward_period_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_reward_period_id', 1, false);
 
 
 --
--- Name: seq_wallet_reward_plugin_id; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_reward_plugin_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_reward_plugin_id', 1, false);
 
 
 --
--- Name: seq_wallet_state; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_state; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_state', 1, false);
 
 
 --
--- Name: seq_wallet_transaction; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_wallet_transaction; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_wallet_transaction', 1, false);
 
 
 --
--- Name: seq_window_id_generator; Type: SEQUENCE SET; Schema: public; Owner: odoo
+-- Name: seq_window_id_generator; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_window_id_generator', 75, true);

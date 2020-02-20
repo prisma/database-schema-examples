@@ -64,7 +64,7 @@ CREATE FUNCTION public.delayed_jobs_after_delete_row_tr_fn() RETURNS trigger
       $$;
 
 
-ALTER FUNCTION public.delayed_jobs_after_delete_row_tr_fn() OWNER TO canvas;
+ALTER FUNCTION public.delayed_jobs_after_delete_row_tr_fn() OWNER TO prisma;
 
 --
 -- Name: delayed_jobs_before_insert_row_tr_fn(); Type: FUNCTION; Schema: public; Owner: canvas
@@ -88,7 +88,7 @@ CREATE FUNCTION public.delayed_jobs_before_insert_row_tr_fn() RETURNS trigger
       $$;
 
 
-ALTER FUNCTION public.delayed_jobs_before_insert_row_tr_fn() OWNER TO canvas;
+ALTER FUNCTION public.delayed_jobs_before_insert_row_tr_fn() OWNER TO prisma;
 
 --
 -- Name: half_md5_as_bigint(character varying); Type: FUNCTION; Schema: public; Owner: canvas
@@ -114,7 +114,7 @@ CREATE FUNCTION public.half_md5_as_bigint(strand character varying) RETURNS bigi
       $$;
 
 
-ALTER FUNCTION public.half_md5_as_bigint(strand character varying) OWNER TO canvas;
+ALTER FUNCTION public.half_md5_as_bigint(strand character varying) OWNER TO prisma;
 
 --
 -- Name: submission_comment_after_delete_set_last_comment_at__tr_fn(); Type: FUNCTION; Schema: public; Owner: canvas
@@ -138,7 +138,7 @@ CREATE FUNCTION public.submission_comment_after_delete_set_last_comment_at__tr_f
       $$;
 
 
-ALTER FUNCTION public.submission_comment_after_delete_set_last_comment_at__tr_fn() OWNER TO canvas;
+ALTER FUNCTION public.submission_comment_after_delete_set_last_comment_at__tr_fn() OWNER TO prisma;
 
 --
 -- Name: submission_comment_after_save_set_last_comment_at__tr_fn(); Type: FUNCTION; Schema: public; Owner: canvas
@@ -162,7 +162,7 @@ CREATE FUNCTION public.submission_comment_after_save_set_last_comment_at__tr_fn(
       $$;
 
 
-ALTER FUNCTION public.submission_comment_after_save_set_last_comment_at__tr_fn() OWNER TO canvas;
+ALTER FUNCTION public.submission_comment_after_save_set_last_comment_at__tr_fn() OWNER TO prisma;
 
 SET default_tablespace = '';
 
@@ -188,7 +188,7 @@ CREATE TABLE public.abstract_courses (
 );
 
 
-ALTER TABLE public.abstract_courses OWNER TO canvas;
+ALTER TABLE public.abstract_courses OWNER TO prisma;
 
 --
 -- Name: abstract_courses_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -202,7 +202,7 @@ CREATE SEQUENCE public.abstract_courses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.abstract_courses_id_seq OWNER TO canvas;
+ALTER TABLE public.abstract_courses_id_seq OWNER TO prisma;
 
 --
 -- Name: abstract_courses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -233,7 +233,7 @@ CREATE TABLE public.access_tokens (
 );
 
 
-ALTER TABLE public.access_tokens OWNER TO canvas;
+ALTER TABLE public.access_tokens OWNER TO prisma;
 
 --
 -- Name: access_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -247,7 +247,7 @@ CREATE SEQUENCE public.access_tokens_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.access_tokens_id_seq OWNER TO canvas;
+ALTER TABLE public.access_tokens_id_seq OWNER TO prisma;
 
 --
 -- Name: access_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -267,7 +267,7 @@ CREATE TABLE public.account_notification_roles (
 );
 
 
-ALTER TABLE public.account_notification_roles OWNER TO canvas;
+ALTER TABLE public.account_notification_roles OWNER TO prisma;
 
 --
 -- Name: account_notification_roles_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -281,7 +281,7 @@ CREATE SEQUENCE public.account_notification_roles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_notification_roles_id_seq OWNER TO canvas;
+ALTER TABLE public.account_notification_roles_id_seq OWNER TO prisma;
 
 --
 -- Name: account_notification_roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -313,7 +313,7 @@ CREATE TABLE public.account_notifications (
 );
 
 
-ALTER TABLE public.account_notifications OWNER TO canvas;
+ALTER TABLE public.account_notifications OWNER TO prisma;
 
 --
 -- Name: account_notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -327,7 +327,7 @@ CREATE SEQUENCE public.account_notifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_notifications_id_seq OWNER TO canvas;
+ALTER TABLE public.account_notifications_id_seq OWNER TO prisma;
 
 --
 -- Name: account_notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -351,7 +351,7 @@ CREATE TABLE public.account_report_rows (
 );
 
 
-ALTER TABLE public.account_report_rows OWNER TO canvas;
+ALTER TABLE public.account_report_rows OWNER TO prisma;
 
 --
 -- Name: account_report_rows_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -365,7 +365,7 @@ CREATE SEQUENCE public.account_report_rows_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_report_rows_id_seq OWNER TO canvas;
+ALTER TABLE public.account_report_rows_id_seq OWNER TO prisma;
 
 --
 -- Name: account_report_rows_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -390,7 +390,7 @@ CREATE TABLE public.account_report_runners (
 );
 
 
-ALTER TABLE public.account_report_runners OWNER TO canvas;
+ALTER TABLE public.account_report_runners OWNER TO prisma;
 
 --
 -- Name: account_report_runners_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -404,7 +404,7 @@ CREATE SEQUENCE public.account_report_runners_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_report_runners_id_seq OWNER TO canvas;
+ALTER TABLE public.account_report_runners_id_seq OWNER TO prisma;
 
 --
 -- Name: account_report_runners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -436,7 +436,7 @@ CREATE TABLE public.account_reports (
 );
 
 
-ALTER TABLE public.account_reports OWNER TO canvas;
+ALTER TABLE public.account_reports OWNER TO prisma;
 
 --
 -- Name: account_reports_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -450,7 +450,7 @@ CREATE SEQUENCE public.account_reports_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_reports_id_seq OWNER TO canvas;
+ALTER TABLE public.account_reports_id_seq OWNER TO prisma;
 
 --
 -- Name: account_reports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -475,7 +475,7 @@ CREATE TABLE public.account_users (
 );
 
 
-ALTER TABLE public.account_users OWNER TO canvas;
+ALTER TABLE public.account_users OWNER TO prisma;
 
 --
 -- Name: account_users_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -489,7 +489,7 @@ CREATE SEQUENCE public.account_users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_users_id_seq OWNER TO canvas;
+ALTER TABLE public.account_users_id_seq OWNER TO prisma;
 
 --
 -- Name: account_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -546,7 +546,7 @@ CREATE TABLE public.accounts (
 );
 
 
-ALTER TABLE public.accounts OWNER TO canvas;
+ALTER TABLE public.accounts OWNER TO prisma;
 
 --
 -- Name: accounts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -560,7 +560,7 @@ CREATE SEQUENCE public.accounts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.accounts_id_seq OWNER TO canvas;
+ALTER TABLE public.accounts_id_seq OWNER TO prisma;
 
 --
 -- Name: accounts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -581,7 +581,7 @@ CREATE TABLE public.alert_criteria (
 );
 
 
-ALTER TABLE public.alert_criteria OWNER TO canvas;
+ALTER TABLE public.alert_criteria OWNER TO prisma;
 
 --
 -- Name: alert_criteria_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -595,7 +595,7 @@ CREATE SEQUENCE public.alert_criteria_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.alert_criteria_id_seq OWNER TO canvas;
+ALTER TABLE public.alert_criteria_id_seq OWNER TO prisma;
 
 --
 -- Name: alert_criteria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -619,7 +619,7 @@ CREATE TABLE public.alerts (
 );
 
 
-ALTER TABLE public.alerts OWNER TO canvas;
+ALTER TABLE public.alerts OWNER TO prisma;
 
 --
 -- Name: alerts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -633,7 +633,7 @@ CREATE SEQUENCE public.alerts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.alerts_id_seq OWNER TO canvas;
+ALTER TABLE public.alerts_id_seq OWNER TO prisma;
 
 --
 -- Name: alerts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -661,7 +661,7 @@ CREATE TABLE public.anonymous_or_moderation_events (
 );
 
 
-ALTER TABLE public.anonymous_or_moderation_events OWNER TO canvas;
+ALTER TABLE public.anonymous_or_moderation_events OWNER TO prisma;
 
 --
 -- Name: anonymous_or_moderation_events_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -675,7 +675,7 @@ CREATE SEQUENCE public.anonymous_or_moderation_events_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.anonymous_or_moderation_events_id_seq OWNER TO canvas;
+ALTER TABLE public.anonymous_or_moderation_events_id_seq OWNER TO prisma;
 
 --
 -- Name: anonymous_or_moderation_events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -699,7 +699,7 @@ CREATE TABLE public.appointment_group_contexts (
 );
 
 
-ALTER TABLE public.appointment_group_contexts OWNER TO canvas;
+ALTER TABLE public.appointment_group_contexts OWNER TO prisma;
 
 --
 -- Name: appointment_group_contexts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -713,7 +713,7 @@ CREATE SEQUENCE public.appointment_group_contexts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.appointment_group_contexts_id_seq OWNER TO canvas;
+ALTER TABLE public.appointment_group_contexts_id_seq OWNER TO prisma;
 
 --
 -- Name: appointment_group_contexts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -737,7 +737,7 @@ CREATE TABLE public.appointment_group_sub_contexts (
 );
 
 
-ALTER TABLE public.appointment_group_sub_contexts OWNER TO canvas;
+ALTER TABLE public.appointment_group_sub_contexts OWNER TO prisma;
 
 --
 -- Name: appointment_group_sub_contexts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -751,7 +751,7 @@ CREATE SEQUENCE public.appointment_group_sub_contexts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.appointment_group_sub_contexts_id_seq OWNER TO canvas;
+ALTER TABLE public.appointment_group_sub_contexts_id_seq OWNER TO prisma;
 
 --
 -- Name: appointment_group_sub_contexts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -784,7 +784,7 @@ CREATE TABLE public.appointment_groups (
 );
 
 
-ALTER TABLE public.appointment_groups OWNER TO canvas;
+ALTER TABLE public.appointment_groups OWNER TO prisma;
 
 --
 -- Name: appointment_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -798,7 +798,7 @@ CREATE SEQUENCE public.appointment_groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.appointment_groups_id_seq OWNER TO canvas;
+ALTER TABLE public.appointment_groups_id_seq OWNER TO prisma;
 
 --
 -- Name: appointment_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -819,7 +819,7 @@ CREATE TABLE public.ar_internal_metadata (
 );
 
 
-ALTER TABLE public.ar_internal_metadata OWNER TO canvas;
+ALTER TABLE public.ar_internal_metadata OWNER TO prisma;
 
 --
 -- Name: assessment_question_bank_users; Type: TABLE; Schema: public; Owner: canvas
@@ -834,7 +834,7 @@ CREATE TABLE public.assessment_question_bank_users (
 );
 
 
-ALTER TABLE public.assessment_question_bank_users OWNER TO canvas;
+ALTER TABLE public.assessment_question_bank_users OWNER TO prisma;
 
 --
 -- Name: assessment_question_bank_users_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -848,7 +848,7 @@ CREATE SEQUENCE public.assessment_question_bank_users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assessment_question_bank_users_id_seq OWNER TO canvas;
+ALTER TABLE public.assessment_question_bank_users_id_seq OWNER TO prisma;
 
 --
 -- Name: assessment_question_bank_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -874,7 +874,7 @@ CREATE TABLE public.assessment_question_banks (
 );
 
 
-ALTER TABLE public.assessment_question_banks OWNER TO canvas;
+ALTER TABLE public.assessment_question_banks OWNER TO prisma;
 
 --
 -- Name: assessment_question_banks_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -888,7 +888,7 @@ CREATE SEQUENCE public.assessment_question_banks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assessment_question_banks_id_seq OWNER TO canvas;
+ALTER TABLE public.assessment_question_banks_id_seq OWNER TO prisma;
 
 --
 -- Name: assessment_question_banks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -917,7 +917,7 @@ CREATE TABLE public.assessment_questions (
 );
 
 
-ALTER TABLE public.assessment_questions OWNER TO canvas;
+ALTER TABLE public.assessment_questions OWNER TO prisma;
 
 --
 -- Name: assessment_questions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -931,7 +931,7 @@ CREATE SEQUENCE public.assessment_questions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assessment_questions_id_seq OWNER TO canvas;
+ALTER TABLE public.assessment_questions_id_seq OWNER TO prisma;
 
 --
 -- Name: assessment_questions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -961,7 +961,7 @@ CREATE TABLE public.assessment_requests (
 );
 
 
-ALTER TABLE public.assessment_requests OWNER TO canvas;
+ALTER TABLE public.assessment_requests OWNER TO prisma;
 
 --
 -- Name: assessment_requests_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -975,7 +975,7 @@ CREATE SEQUENCE public.assessment_requests_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assessment_requests_id_seq OWNER TO canvas;
+ALTER TABLE public.assessment_requests_id_seq OWNER TO prisma;
 
 --
 -- Name: assessment_requests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1007,7 +1007,7 @@ CREATE TABLE public.asset_user_accesses (
 );
 
 
-ALTER TABLE public.asset_user_accesses OWNER TO canvas;
+ALTER TABLE public.asset_user_accesses OWNER TO prisma;
 
 --
 -- Name: asset_user_accesses_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1021,7 +1021,7 @@ CREATE SEQUENCE public.asset_user_accesses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.asset_user_accesses_id_seq OWNER TO canvas;
+ALTER TABLE public.asset_user_accesses_id_seq OWNER TO prisma;
 
 --
 -- Name: asset_user_accesses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1047,7 +1047,7 @@ CREATE TABLE public.assignment_configuration_tool_lookups (
 );
 
 
-ALTER TABLE public.assignment_configuration_tool_lookups OWNER TO canvas;
+ALTER TABLE public.assignment_configuration_tool_lookups OWNER TO prisma;
 
 --
 -- Name: assignment_configuration_tool_lookups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1061,7 +1061,7 @@ CREATE SEQUENCE public.assignment_configuration_tool_lookups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignment_configuration_tool_lookups_id_seq OWNER TO canvas;
+ALTER TABLE public.assignment_configuration_tool_lookups_id_seq OWNER TO prisma;
 
 --
 -- Name: assignment_configuration_tool_lookups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1095,7 +1095,7 @@ CREATE TABLE public.assignment_groups (
 );
 
 
-ALTER TABLE public.assignment_groups OWNER TO canvas;
+ALTER TABLE public.assignment_groups OWNER TO prisma;
 
 --
 -- Name: assignment_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1109,7 +1109,7 @@ CREATE SEQUENCE public.assignment_groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignment_groups_id_seq OWNER TO canvas;
+ALTER TABLE public.assignment_groups_id_seq OWNER TO prisma;
 
 --
 -- Name: assignment_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1134,7 +1134,7 @@ CREATE TABLE public.assignment_override_students (
 );
 
 
-ALTER TABLE public.assignment_override_students OWNER TO canvas;
+ALTER TABLE public.assignment_override_students OWNER TO prisma;
 
 --
 -- Name: assignment_override_students_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1148,7 +1148,7 @@ CREATE SEQUENCE public.assignment_override_students_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignment_override_students_id_seq OWNER TO canvas;
+ALTER TABLE public.assignment_override_students_id_seq OWNER TO prisma;
 
 --
 -- Name: assignment_override_students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1185,7 +1185,7 @@ CREATE TABLE public.assignment_overrides (
 );
 
 
-ALTER TABLE public.assignment_overrides OWNER TO canvas;
+ALTER TABLE public.assignment_overrides OWNER TO prisma;
 
 --
 -- Name: assignment_overrides_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1199,7 +1199,7 @@ CREATE SEQUENCE public.assignment_overrides_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignment_overrides_id_seq OWNER TO canvas;
+ALTER TABLE public.assignment_overrides_id_seq OWNER TO prisma;
 
 --
 -- Name: assignment_overrides_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1286,7 +1286,7 @@ CREATE TABLE public.assignments (
 );
 
 
-ALTER TABLE public.assignments OWNER TO canvas;
+ALTER TABLE public.assignments OWNER TO prisma;
 
 --
 -- Name: enrollments; Type: TABLE; Schema: public; Owner: canvas
@@ -1323,7 +1323,7 @@ CREATE TABLE public.enrollments (
 );
 
 
-ALTER TABLE public.enrollments OWNER TO canvas;
+ALTER TABLE public.enrollments OWNER TO prisma;
 
 --
 -- Name: group_memberships; Type: TABLE; Schema: public; Owner: canvas
@@ -1342,7 +1342,7 @@ CREATE TABLE public.group_memberships (
 );
 
 
-ALTER TABLE public.group_memberships OWNER TO canvas;
+ALTER TABLE public.group_memberships OWNER TO prisma;
 
 --
 -- Name: groups; Type: TABLE; Schema: public; Owner: canvas
@@ -1379,7 +1379,7 @@ CREATE TABLE public.groups (
 );
 
 
-ALTER TABLE public.groups OWNER TO canvas;
+ALTER TABLE public.groups OWNER TO prisma;
 
 --
 -- Name: submissions; Type: TABLE; Schema: public; Owner: canvas
@@ -1432,7 +1432,7 @@ CREATE TABLE public.submissions (
 );
 
 
-ALTER TABLE public.submissions OWNER TO canvas;
+ALTER TABLE public.submissions OWNER TO prisma;
 
 --
 -- Name: assignment_student_visibilities; Type: VIEW; Schema: public; Owner: canvas
@@ -1482,7 +1482,7 @@ UNION
   WHERE (((a.workflow_state)::text <> ALL ((ARRAY['deleted'::character varying, 'unpublished'::character varying])::text[])) AND (a.only_visible_to_overrides = true));
 
 
-ALTER TABLE public.assignment_student_visibilities OWNER TO canvas;
+ALTER TABLE public.assignment_student_visibilities OWNER TO prisma;
 
 --
 -- Name: assignments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1496,7 +1496,7 @@ CREATE SEQUENCE public.assignments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignments_id_seq OWNER TO canvas;
+ALTER TABLE public.assignments_id_seq OWNER TO prisma;
 
 --
 -- Name: assignments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1517,7 +1517,7 @@ CREATE TABLE public.attachment_associations (
 );
 
 
-ALTER TABLE public.attachment_associations OWNER TO canvas;
+ALTER TABLE public.attachment_associations OWNER TO prisma;
 
 --
 -- Name: attachment_associations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1531,7 +1531,7 @@ CREATE SEQUENCE public.attachment_associations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.attachment_associations_id_seq OWNER TO canvas;
+ALTER TABLE public.attachment_associations_id_seq OWNER TO prisma;
 
 --
 -- Name: attachment_associations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1552,7 +1552,7 @@ CREATE TABLE public.attachment_upload_statuses (
 );
 
 
-ALTER TABLE public.attachment_upload_statuses OWNER TO canvas;
+ALTER TABLE public.attachment_upload_statuses OWNER TO prisma;
 
 --
 -- Name: attachment_upload_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1566,7 +1566,7 @@ CREATE SEQUENCE public.attachment_upload_statuses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.attachment_upload_statuses_id_seq OWNER TO canvas;
+ALTER TABLE public.attachment_upload_statuses_id_seq OWNER TO prisma;
 
 --
 -- Name: attachment_upload_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1617,7 +1617,7 @@ CREATE TABLE public.attachments (
 );
 
 
-ALTER TABLE public.attachments OWNER TO canvas;
+ALTER TABLE public.attachments OWNER TO prisma;
 
 --
 -- Name: attachments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1631,7 +1631,7 @@ CREATE SEQUENCE public.attachments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.attachments_id_seq OWNER TO canvas;
+ALTER TABLE public.attachments_id_seq OWNER TO prisma;
 
 --
 -- Name: attachments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1676,7 +1676,7 @@ CREATE TABLE public.authentication_providers (
 );
 
 
-ALTER TABLE public.authentication_providers OWNER TO canvas;
+ALTER TABLE public.authentication_providers OWNER TO prisma;
 
 --
 -- Name: authentication_providers_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1690,7 +1690,7 @@ CREATE SEQUENCE public.authentication_providers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.authentication_providers_id_seq OWNER TO canvas;
+ALTER TABLE public.authentication_providers_id_seq OWNER TO prisma;
 
 --
 -- Name: authentication_providers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1713,7 +1713,7 @@ CREATE TABLE public.bookmarks_bookmarks (
 );
 
 
-ALTER TABLE public.bookmarks_bookmarks OWNER TO canvas;
+ALTER TABLE public.bookmarks_bookmarks OWNER TO prisma;
 
 --
 -- Name: bookmarks_bookmarks_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1727,7 +1727,7 @@ CREATE SEQUENCE public.bookmarks_bookmarks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bookmarks_bookmarks_id_seq OWNER TO canvas;
+ALTER TABLE public.bookmarks_bookmarks_id_seq OWNER TO prisma;
 
 --
 -- Name: bookmarks_bookmarks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1754,7 +1754,7 @@ CREATE TABLE public.brand_configs (
 );
 
 
-ALTER TABLE public.brand_configs OWNER TO canvas;
+ALTER TABLE public.brand_configs OWNER TO prisma;
 
 --
 -- Name: calendar_events; Type: TABLE; Schema: public; Owner: canvas
@@ -1790,7 +1790,7 @@ CREATE TABLE public.calendar_events (
 );
 
 
-ALTER TABLE public.calendar_events OWNER TO canvas;
+ALTER TABLE public.calendar_events OWNER TO prisma;
 
 --
 -- Name: calendar_events_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1804,7 +1804,7 @@ CREATE SEQUENCE public.calendar_events_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.calendar_events_id_seq OWNER TO canvas;
+ALTER TABLE public.calendar_events_id_seq OWNER TO prisma;
 
 --
 -- Name: calendar_events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1828,7 +1828,7 @@ CREATE TABLE public.canvadocs (
 );
 
 
-ALTER TABLE public.canvadocs OWNER TO canvas;
+ALTER TABLE public.canvadocs OWNER TO prisma;
 
 --
 -- Name: canvadocs_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1842,7 +1842,7 @@ CREATE SEQUENCE public.canvadocs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.canvadocs_id_seq OWNER TO canvas;
+ALTER TABLE public.canvadocs_id_seq OWNER TO prisma;
 
 --
 -- Name: canvadocs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1863,7 +1863,7 @@ CREATE TABLE public.canvadocs_submissions (
 );
 
 
-ALTER TABLE public.canvadocs_submissions OWNER TO canvas;
+ALTER TABLE public.canvadocs_submissions OWNER TO prisma;
 
 --
 -- Name: canvadocs_submissions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1877,7 +1877,7 @@ CREATE SEQUENCE public.canvadocs_submissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.canvadocs_submissions_id_seq OWNER TO canvas;
+ALTER TABLE public.canvadocs_submissions_id_seq OWNER TO prisma;
 
 --
 -- Name: canvadocs_submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1899,7 +1899,7 @@ CREATE TABLE public.cloned_items (
 );
 
 
-ALTER TABLE public.cloned_items OWNER TO canvas;
+ALTER TABLE public.cloned_items OWNER TO prisma;
 
 --
 -- Name: cloned_items_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1913,7 +1913,7 @@ CREATE SEQUENCE public.cloned_items_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cloned_items_id_seq OWNER TO canvas;
+ALTER TABLE public.cloned_items_id_seq OWNER TO prisma;
 
 --
 -- Name: cloned_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1947,7 +1947,7 @@ CREATE TABLE public.collaborations (
 );
 
 
-ALTER TABLE public.collaborations OWNER TO canvas;
+ALTER TABLE public.collaborations OWNER TO prisma;
 
 --
 -- Name: collaborations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1961,7 +1961,7 @@ CREATE SEQUENCE public.collaborations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.collaborations_id_seq OWNER TO canvas;
+ALTER TABLE public.collaborations_id_seq OWNER TO prisma;
 
 --
 -- Name: collaborations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -1985,7 +1985,7 @@ CREATE TABLE public.collaborators (
 );
 
 
-ALTER TABLE public.collaborators OWNER TO canvas;
+ALTER TABLE public.collaborators OWNER TO prisma;
 
 --
 -- Name: collaborators_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -1999,7 +1999,7 @@ CREATE SEQUENCE public.collaborators_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.collaborators_id_seq OWNER TO canvas;
+ALTER TABLE public.collaborators_id_seq OWNER TO prisma;
 
 --
 -- Name: collaborators_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2035,7 +2035,7 @@ CREATE TABLE public.communication_channels (
 );
 
 
-ALTER TABLE public.communication_channels OWNER TO canvas;
+ALTER TABLE public.communication_channels OWNER TO prisma;
 
 --
 -- Name: communication_channels_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2049,7 +2049,7 @@ CREATE SEQUENCE public.communication_channels_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.communication_channels_id_seq OWNER TO canvas;
+ALTER TABLE public.communication_channels_id_seq OWNER TO prisma;
 
 --
 -- Name: communication_channels_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2079,7 +2079,7 @@ CREATE TABLE public.content_exports (
 );
 
 
-ALTER TABLE public.content_exports OWNER TO canvas;
+ALTER TABLE public.content_exports OWNER TO prisma;
 
 --
 -- Name: content_exports_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2093,7 +2093,7 @@ CREATE SEQUENCE public.content_exports_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.content_exports_id_seq OWNER TO canvas;
+ALTER TABLE public.content_exports_id_seq OWNER TO prisma;
 
 --
 -- Name: content_exports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2127,7 +2127,7 @@ CREATE TABLE public.content_migrations (
 );
 
 
-ALTER TABLE public.content_migrations OWNER TO canvas;
+ALTER TABLE public.content_migrations OWNER TO prisma;
 
 --
 -- Name: content_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2141,7 +2141,7 @@ CREATE SEQUENCE public.content_migrations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.content_migrations_id_seq OWNER TO canvas;
+ALTER TABLE public.content_migrations_id_seq OWNER TO prisma;
 
 --
 -- Name: content_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2166,7 +2166,7 @@ CREATE TABLE public.content_participation_counts (
 );
 
 
-ALTER TABLE public.content_participation_counts OWNER TO canvas;
+ALTER TABLE public.content_participation_counts OWNER TO prisma;
 
 --
 -- Name: content_participation_counts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2180,7 +2180,7 @@ CREATE SEQUENCE public.content_participation_counts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.content_participation_counts_id_seq OWNER TO canvas;
+ALTER TABLE public.content_participation_counts_id_seq OWNER TO prisma;
 
 --
 -- Name: content_participation_counts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2202,7 +2202,7 @@ CREATE TABLE public.content_participations (
 );
 
 
-ALTER TABLE public.content_participations OWNER TO canvas;
+ALTER TABLE public.content_participations OWNER TO prisma;
 
 --
 -- Name: content_participations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2216,7 +2216,7 @@ CREATE SEQUENCE public.content_participations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.content_participations_id_seq OWNER TO canvas;
+ALTER TABLE public.content_participations_id_seq OWNER TO prisma;
 
 --
 -- Name: content_participations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2242,7 +2242,7 @@ CREATE TABLE public.content_shares (
 );
 
 
-ALTER TABLE public.content_shares OWNER TO canvas;
+ALTER TABLE public.content_shares OWNER TO prisma;
 
 --
 -- Name: content_shares_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2256,7 +2256,7 @@ CREATE SEQUENCE public.content_shares_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.content_shares_id_seq OWNER TO canvas;
+ALTER TABLE public.content_shares_id_seq OWNER TO prisma;
 
 --
 -- Name: content_shares_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2298,7 +2298,7 @@ CREATE TABLE public.content_tags (
 );
 
 
-ALTER TABLE public.content_tags OWNER TO canvas;
+ALTER TABLE public.content_tags OWNER TO prisma;
 
 --
 -- Name: content_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2312,7 +2312,7 @@ CREATE SEQUENCE public.content_tags_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.content_tags_id_seq OWNER TO canvas;
+ALTER TABLE public.content_tags_id_seq OWNER TO prisma;
 
 --
 -- Name: content_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2332,7 +2332,7 @@ CREATE TABLE public.context_external_tool_assignment_lookups (
 );
 
 
-ALTER TABLE public.context_external_tool_assignment_lookups OWNER TO canvas;
+ALTER TABLE public.context_external_tool_assignment_lookups OWNER TO prisma;
 
 --
 -- Name: context_external_tool_assignment_lookups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2346,7 +2346,7 @@ CREATE SEQUENCE public.context_external_tool_assignment_lookups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.context_external_tool_assignment_lookups_id_seq OWNER TO canvas;
+ALTER TABLE public.context_external_tool_assignment_lookups_id_seq OWNER TO prisma;
 
 --
 -- Name: context_external_tool_assignment_lookups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2366,7 +2366,7 @@ CREATE TABLE public.context_external_tool_placements (
 );
 
 
-ALTER TABLE public.context_external_tool_placements OWNER TO canvas;
+ALTER TABLE public.context_external_tool_placements OWNER TO prisma;
 
 --
 -- Name: context_external_tool_placements_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2380,7 +2380,7 @@ CREATE SEQUENCE public.context_external_tool_placements_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.context_external_tool_placements_id_seq OWNER TO canvas;
+ALTER TABLE public.context_external_tool_placements_id_seq OWNER TO prisma;
 
 --
 -- Name: context_external_tool_placements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2418,7 +2418,7 @@ CREATE TABLE public.context_external_tools (
 );
 
 
-ALTER TABLE public.context_external_tools OWNER TO canvas;
+ALTER TABLE public.context_external_tools OWNER TO prisma;
 
 --
 -- Name: context_external_tools_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2432,7 +2432,7 @@ CREATE SEQUENCE public.context_external_tools_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.context_external_tools_id_seq OWNER TO canvas;
+ALTER TABLE public.context_external_tools_id_seq OWNER TO prisma;
 
 --
 -- Name: context_external_tools_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2463,7 +2463,7 @@ CREATE TABLE public.context_module_progressions (
 );
 
 
-ALTER TABLE public.context_module_progressions OWNER TO canvas;
+ALTER TABLE public.context_module_progressions OWNER TO prisma;
 
 --
 -- Name: context_module_progressions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2477,7 +2477,7 @@ CREATE SEQUENCE public.context_module_progressions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.context_module_progressions_id_seq OWNER TO canvas;
+ALTER TABLE public.context_module_progressions_id_seq OWNER TO prisma;
 
 --
 -- Name: context_module_progressions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2511,7 +2511,7 @@ CREATE TABLE public.context_modules (
 );
 
 
-ALTER TABLE public.context_modules OWNER TO canvas;
+ALTER TABLE public.context_modules OWNER TO prisma;
 
 --
 -- Name: context_modules_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2525,7 +2525,7 @@ CREATE SEQUENCE public.context_modules_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.context_modules_id_seq OWNER TO canvas;
+ALTER TABLE public.context_modules_id_seq OWNER TO prisma;
 
 --
 -- Name: context_modules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2556,7 +2556,7 @@ CREATE TABLE public.conversation_batches (
 );
 
 
-ALTER TABLE public.conversation_batches OWNER TO canvas;
+ALTER TABLE public.conversation_batches OWNER TO prisma;
 
 --
 -- Name: conversation_batches_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2570,7 +2570,7 @@ CREATE SEQUENCE public.conversation_batches_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.conversation_batches_id_seq OWNER TO canvas;
+ALTER TABLE public.conversation_batches_id_seq OWNER TO prisma;
 
 --
 -- Name: conversation_batches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2594,7 +2594,7 @@ CREATE TABLE public.conversation_message_participants (
 );
 
 
-ALTER TABLE public.conversation_message_participants OWNER TO canvas;
+ALTER TABLE public.conversation_message_participants OWNER TO prisma;
 
 --
 -- Name: conversation_message_participants_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2608,7 +2608,7 @@ CREATE SEQUENCE public.conversation_message_participants_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.conversation_message_participants_id_seq OWNER TO canvas;
+ALTER TABLE public.conversation_message_participants_id_seq OWNER TO prisma;
 
 --
 -- Name: conversation_message_participants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2641,7 +2641,7 @@ CREATE TABLE public.conversation_messages (
 );
 
 
-ALTER TABLE public.conversation_messages OWNER TO canvas;
+ALTER TABLE public.conversation_messages OWNER TO prisma;
 
 --
 -- Name: conversation_messages_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2655,7 +2655,7 @@ CREATE SEQUENCE public.conversation_messages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.conversation_messages_id_seq OWNER TO canvas;
+ALTER TABLE public.conversation_messages_id_seq OWNER TO prisma;
 
 --
 -- Name: conversation_messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2688,7 +2688,7 @@ CREATE TABLE public.conversation_participants (
 );
 
 
-ALTER TABLE public.conversation_participants OWNER TO canvas;
+ALTER TABLE public.conversation_participants OWNER TO prisma;
 
 --
 -- Name: conversation_participants_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2702,7 +2702,7 @@ CREATE SEQUENCE public.conversation_participants_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.conversation_participants_id_seq OWNER TO canvas;
+ALTER TABLE public.conversation_participants_id_seq OWNER TO prisma;
 
 --
 -- Name: conversation_participants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2729,7 +2729,7 @@ CREATE TABLE public.conversations (
 );
 
 
-ALTER TABLE public.conversations OWNER TO canvas;
+ALTER TABLE public.conversations OWNER TO prisma;
 
 --
 -- Name: conversations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2743,7 +2743,7 @@ CREATE SEQUENCE public.conversations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.conversations_id_seq OWNER TO canvas;
+ALTER TABLE public.conversations_id_seq OWNER TO prisma;
 
 --
 -- Name: conversations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2767,7 +2767,7 @@ CREATE TABLE public.course_account_associations (
 );
 
 
-ALTER TABLE public.course_account_associations OWNER TO canvas;
+ALTER TABLE public.course_account_associations OWNER TO prisma;
 
 --
 -- Name: course_account_associations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2781,7 +2781,7 @@ CREATE SEQUENCE public.course_account_associations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.course_account_associations_id_seq OWNER TO canvas;
+ALTER TABLE public.course_account_associations_id_seq OWNER TO prisma;
 
 --
 -- Name: course_account_associations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2817,7 +2817,7 @@ CREATE TABLE public.course_sections (
 );
 
 
-ALTER TABLE public.course_sections OWNER TO canvas;
+ALTER TABLE public.course_sections OWNER TO prisma;
 
 --
 -- Name: course_sections_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2831,7 +2831,7 @@ CREATE SEQUENCE public.course_sections_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.course_sections_id_seq OWNER TO canvas;
+ALTER TABLE public.course_sections_id_seq OWNER TO prisma;
 
 --
 -- Name: course_sections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2899,7 +2899,7 @@ CREATE TABLE public.courses (
 );
 
 
-ALTER TABLE public.courses OWNER TO canvas;
+ALTER TABLE public.courses OWNER TO prisma;
 
 --
 -- Name: courses_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2913,7 +2913,7 @@ CREATE SEQUENCE public.courses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.courses_id_seq OWNER TO canvas;
+ALTER TABLE public.courses_id_seq OWNER TO prisma;
 
 --
 -- Name: courses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2936,7 +2936,7 @@ CREATE TABLE public.crocodoc_documents (
 );
 
 
-ALTER TABLE public.crocodoc_documents OWNER TO canvas;
+ALTER TABLE public.crocodoc_documents OWNER TO prisma;
 
 --
 -- Name: crocodoc_documents_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2950,7 +2950,7 @@ CREATE SEQUENCE public.crocodoc_documents_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.crocodoc_documents_id_seq OWNER TO canvas;
+ALTER TABLE public.crocodoc_documents_id_seq OWNER TO prisma;
 
 --
 -- Name: crocodoc_documents_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -2973,7 +2973,7 @@ CREATE TABLE public.csp_domains (
 );
 
 
-ALTER TABLE public.csp_domains OWNER TO canvas;
+ALTER TABLE public.csp_domains OWNER TO prisma;
 
 --
 -- Name: csp_domains_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -2987,7 +2987,7 @@ CREATE SEQUENCE public.csp_domains_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.csp_domains_id_seq OWNER TO canvas;
+ALTER TABLE public.csp_domains_id_seq OWNER TO prisma;
 
 --
 -- Name: csp_domains_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3010,7 +3010,7 @@ CREATE TABLE public.custom_data (
 );
 
 
-ALTER TABLE public.custom_data OWNER TO canvas;
+ALTER TABLE public.custom_data OWNER TO prisma;
 
 --
 -- Name: custom_data_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3024,7 +3024,7 @@ CREATE SEQUENCE public.custom_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.custom_data_id_seq OWNER TO canvas;
+ALTER TABLE public.custom_data_id_seq OWNER TO prisma;
 
 --
 -- Name: custom_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3045,7 +3045,7 @@ CREATE TABLE public.custom_gradebook_column_data (
 );
 
 
-ALTER TABLE public.custom_gradebook_column_data OWNER TO canvas;
+ALTER TABLE public.custom_gradebook_column_data OWNER TO prisma;
 
 --
 -- Name: custom_gradebook_column_data_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3059,7 +3059,7 @@ CREATE SEQUENCE public.custom_gradebook_column_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.custom_gradebook_column_data_id_seq OWNER TO canvas;
+ALTER TABLE public.custom_gradebook_column_data_id_seq OWNER TO prisma;
 
 --
 -- Name: custom_gradebook_column_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3085,7 +3085,7 @@ CREATE TABLE public.custom_gradebook_columns (
 );
 
 
-ALTER TABLE public.custom_gradebook_columns OWNER TO canvas;
+ALTER TABLE public.custom_gradebook_columns OWNER TO prisma;
 
 --
 -- Name: custom_gradebook_columns_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3099,7 +3099,7 @@ CREATE SEQUENCE public.custom_gradebook_columns_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.custom_gradebook_columns_id_seq OWNER TO canvas;
+ALTER TABLE public.custom_gradebook_columns_id_seq OWNER TO prisma;
 
 --
 -- Name: custom_gradebook_columns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3136,7 +3136,7 @@ CREATE TABLE public.delayed_jobs (
 );
 
 
-ALTER TABLE public.delayed_jobs OWNER TO canvas;
+ALTER TABLE public.delayed_jobs OWNER TO prisma;
 
 --
 -- Name: delayed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3150,7 +3150,7 @@ CREATE SEQUENCE public.delayed_jobs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.delayed_jobs_id_seq OWNER TO canvas;
+ALTER TABLE public.delayed_jobs_id_seq OWNER TO prisma;
 
 --
 -- Name: delayed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3183,7 +3183,7 @@ CREATE TABLE public.delayed_messages (
 );
 
 
-ALTER TABLE public.delayed_messages OWNER TO canvas;
+ALTER TABLE public.delayed_messages OWNER TO prisma;
 
 --
 -- Name: delayed_messages_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3197,7 +3197,7 @@ CREATE SEQUENCE public.delayed_messages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.delayed_messages_id_seq OWNER TO canvas;
+ALTER TABLE public.delayed_messages_id_seq OWNER TO prisma;
 
 --
 -- Name: delayed_messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3222,7 +3222,7 @@ CREATE TABLE public.delayed_notifications (
 );
 
 
-ALTER TABLE public.delayed_notifications OWNER TO canvas;
+ALTER TABLE public.delayed_notifications OWNER TO prisma;
 
 --
 -- Name: delayed_notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3236,7 +3236,7 @@ CREATE SEQUENCE public.delayed_notifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.delayed_notifications_id_seq OWNER TO canvas;
+ALTER TABLE public.delayed_notifications_id_seq OWNER TO prisma;
 
 --
 -- Name: delayed_notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3259,7 +3259,7 @@ CREATE TABLE public.developer_key_account_bindings (
 );
 
 
-ALTER TABLE public.developer_key_account_bindings OWNER TO canvas;
+ALTER TABLE public.developer_key_account_bindings OWNER TO prisma;
 
 --
 -- Name: developer_key_account_bindings_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3273,7 +3273,7 @@ CREATE SEQUENCE public.developer_key_account_bindings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.developer_key_account_bindings_id_seq OWNER TO canvas;
+ALTER TABLE public.developer_key_account_bindings_id_seq OWNER TO prisma;
 
 --
 -- Name: developer_key_account_bindings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3321,7 +3321,7 @@ CREATE TABLE public.developer_keys (
 );
 
 
-ALTER TABLE public.developer_keys OWNER TO canvas;
+ALTER TABLE public.developer_keys OWNER TO prisma;
 
 --
 -- Name: developer_keys_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3335,7 +3335,7 @@ CREATE SEQUENCE public.developer_keys_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.developer_keys_id_seq OWNER TO canvas;
+ALTER TABLE public.developer_keys_id_seq OWNER TO prisma;
 
 --
 -- Name: developer_keys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3368,7 +3368,7 @@ CREATE TABLE public.discussion_entries (
 );
 
 
-ALTER TABLE public.discussion_entries OWNER TO canvas;
+ALTER TABLE public.discussion_entries OWNER TO prisma;
 
 --
 -- Name: discussion_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3382,7 +3382,7 @@ CREATE SEQUENCE public.discussion_entries_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.discussion_entries_id_seq OWNER TO canvas;
+ALTER TABLE public.discussion_entries_id_seq OWNER TO prisma;
 
 --
 -- Name: discussion_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3405,7 +3405,7 @@ CREATE TABLE public.discussion_entry_participants (
 );
 
 
-ALTER TABLE public.discussion_entry_participants OWNER TO canvas;
+ALTER TABLE public.discussion_entry_participants OWNER TO prisma;
 
 --
 -- Name: discussion_entry_participants_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3419,7 +3419,7 @@ CREATE SEQUENCE public.discussion_entry_participants_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.discussion_entry_participants_id_seq OWNER TO canvas;
+ALTER TABLE public.discussion_entry_participants_id_seq OWNER TO prisma;
 
 --
 -- Name: discussion_entry_participants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3443,7 +3443,7 @@ CREATE TABLE public.discussion_topic_materialized_views (
 );
 
 
-ALTER TABLE public.discussion_topic_materialized_views OWNER TO canvas;
+ALTER TABLE public.discussion_topic_materialized_views OWNER TO prisma;
 
 --
 -- Name: discussion_topic_participants; Type: TABLE; Schema: public; Owner: canvas
@@ -3459,7 +3459,7 @@ CREATE TABLE public.discussion_topic_participants (
 );
 
 
-ALTER TABLE public.discussion_topic_participants OWNER TO canvas;
+ALTER TABLE public.discussion_topic_participants OWNER TO prisma;
 
 --
 -- Name: discussion_topic_participants_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3473,7 +3473,7 @@ CREATE SEQUENCE public.discussion_topic_participants_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.discussion_topic_participants_id_seq OWNER TO canvas;
+ALTER TABLE public.discussion_topic_participants_id_seq OWNER TO prisma;
 
 --
 -- Name: discussion_topic_participants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3496,7 +3496,7 @@ CREATE TABLE public.discussion_topic_section_visibilities (
 );
 
 
-ALTER TABLE public.discussion_topic_section_visibilities OWNER TO canvas;
+ALTER TABLE public.discussion_topic_section_visibilities OWNER TO prisma;
 
 --
 -- Name: discussion_topic_section_visibilities_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3510,7 +3510,7 @@ CREATE SEQUENCE public.discussion_topic_section_visibilities_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.discussion_topic_section_visibilities_id_seq OWNER TO canvas;
+ALTER TABLE public.discussion_topic_section_visibilities_id_seq OWNER TO prisma;
 
 --
 -- Name: discussion_topic_section_visibilities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3567,7 +3567,7 @@ CREATE TABLE public.discussion_topics (
 );
 
 
-ALTER TABLE public.discussion_topics OWNER TO canvas;
+ALTER TABLE public.discussion_topics OWNER TO prisma;
 
 --
 -- Name: discussion_topics_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3581,7 +3581,7 @@ CREATE SEQUENCE public.discussion_topics_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.discussion_topics_id_seq OWNER TO canvas;
+ALTER TABLE public.discussion_topics_id_seq OWNER TO prisma;
 
 --
 -- Name: discussion_topics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3607,7 +3607,7 @@ CREATE TABLE public.enrollment_dates_overrides (
 );
 
 
-ALTER TABLE public.enrollment_dates_overrides OWNER TO canvas;
+ALTER TABLE public.enrollment_dates_overrides OWNER TO prisma;
 
 --
 -- Name: enrollment_dates_overrides_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3621,7 +3621,7 @@ CREATE SEQUENCE public.enrollment_dates_overrides_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.enrollment_dates_overrides_id_seq OWNER TO canvas;
+ALTER TABLE public.enrollment_dates_overrides_id_seq OWNER TO prisma;
 
 --
 -- Name: enrollment_dates_overrides_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3647,7 +3647,7 @@ CREATE TABLE public.enrollment_states (
 );
 
 
-ALTER TABLE public.enrollment_states OWNER TO canvas;
+ALTER TABLE public.enrollment_states OWNER TO prisma;
 
 --
 -- Name: enrollment_terms; Type: TABLE; Schema: public; Owner: canvas
@@ -3673,7 +3673,7 @@ CREATE TABLE public.enrollment_terms (
 );
 
 
-ALTER TABLE public.enrollment_terms OWNER TO canvas;
+ALTER TABLE public.enrollment_terms OWNER TO prisma;
 
 --
 -- Name: enrollment_terms_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3687,7 +3687,7 @@ CREATE SEQUENCE public.enrollment_terms_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.enrollment_terms_id_seq OWNER TO canvas;
+ALTER TABLE public.enrollment_terms_id_seq OWNER TO prisma;
 
 --
 -- Name: enrollment_terms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3708,7 +3708,7 @@ CREATE SEQUENCE public.enrollments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.enrollments_id_seq OWNER TO canvas;
+ALTER TABLE public.enrollments_id_seq OWNER TO prisma;
 
 --
 -- Name: enrollments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3732,7 +3732,7 @@ CREATE TABLE public.eportfolio_categories (
 );
 
 
-ALTER TABLE public.eportfolio_categories OWNER TO canvas;
+ALTER TABLE public.eportfolio_categories OWNER TO prisma;
 
 --
 -- Name: eportfolio_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3746,7 +3746,7 @@ CREATE SEQUENCE public.eportfolio_categories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.eportfolio_categories_id_seq OWNER TO canvas;
+ALTER TABLE public.eportfolio_categories_id_seq OWNER TO prisma;
 
 --
 -- Name: eportfolio_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3774,7 +3774,7 @@ CREATE TABLE public.eportfolio_entries (
 );
 
 
-ALTER TABLE public.eportfolio_entries OWNER TO canvas;
+ALTER TABLE public.eportfolio_entries OWNER TO prisma;
 
 --
 -- Name: eportfolio_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3788,7 +3788,7 @@ CREATE SEQUENCE public.eportfolio_entries_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.eportfolio_entries_id_seq OWNER TO canvas;
+ALTER TABLE public.eportfolio_entries_id_seq OWNER TO prisma;
 
 --
 -- Name: eportfolio_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3815,7 +3815,7 @@ CREATE TABLE public.eportfolios (
 );
 
 
-ALTER TABLE public.eportfolios OWNER TO canvas;
+ALTER TABLE public.eportfolios OWNER TO prisma;
 
 --
 -- Name: eportfolios_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3829,7 +3829,7 @@ CREATE SEQUENCE public.eportfolios_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.eportfolios_id_seq OWNER TO canvas;
+ALTER TABLE public.eportfolios_id_seq OWNER TO prisma;
 
 --
 -- Name: eportfolios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3854,7 +3854,7 @@ CREATE TABLE public.epub_exports (
 );
 
 
-ALTER TABLE public.epub_exports OWNER TO canvas;
+ALTER TABLE public.epub_exports OWNER TO prisma;
 
 --
 -- Name: epub_exports_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3868,7 +3868,7 @@ CREATE SEQUENCE public.epub_exports_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epub_exports_id_seq OWNER TO canvas;
+ALTER TABLE public.epub_exports_id_seq OWNER TO prisma;
 
 --
 -- Name: epub_exports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3904,7 +3904,7 @@ CREATE TABLE public.error_reports (
 );
 
 
-ALTER TABLE public.error_reports OWNER TO canvas;
+ALTER TABLE public.error_reports OWNER TO prisma;
 
 --
 -- Name: error_reports_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3918,7 +3918,7 @@ CREATE SEQUENCE public.error_reports_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.error_reports_id_seq OWNER TO canvas;
+ALTER TABLE public.error_reports_id_seq OWNER TO prisma;
 
 --
 -- Name: error_reports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3944,7 +3944,7 @@ CREATE TABLE public.event_stream_failures (
 );
 
 
-ALTER TABLE public.event_stream_failures OWNER TO canvas;
+ALTER TABLE public.event_stream_failures OWNER TO prisma;
 
 --
 -- Name: event_stream_failures_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -3958,7 +3958,7 @@ CREATE SEQUENCE public.event_stream_failures_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.event_stream_failures_id_seq OWNER TO canvas;
+ALTER TABLE public.event_stream_failures_id_seq OWNER TO prisma;
 
 --
 -- Name: event_stream_failures_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -3993,7 +3993,7 @@ CREATE TABLE public.external_feed_entries (
 );
 
 
-ALTER TABLE public.external_feed_entries OWNER TO canvas;
+ALTER TABLE public.external_feed_entries OWNER TO prisma;
 
 --
 -- Name: external_feed_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4007,7 +4007,7 @@ CREATE SEQUENCE public.external_feed_entries_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.external_feed_entries_id_seq OWNER TO canvas;
+ALTER TABLE public.external_feed_entries_id_seq OWNER TO prisma;
 
 --
 -- Name: external_feed_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4038,7 +4038,7 @@ CREATE TABLE public.external_feeds (
 );
 
 
-ALTER TABLE public.external_feeds OWNER TO canvas;
+ALTER TABLE public.external_feeds OWNER TO prisma;
 
 --
 -- Name: external_feeds_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4052,7 +4052,7 @@ CREATE SEQUENCE public.external_feeds_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.external_feeds_id_seq OWNER TO canvas;
+ALTER TABLE public.external_feeds_id_seq OWNER TO prisma;
 
 --
 -- Name: external_feeds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4076,7 +4076,7 @@ CREATE TABLE public.external_integration_keys (
 );
 
 
-ALTER TABLE public.external_integration_keys OWNER TO canvas;
+ALTER TABLE public.external_integration_keys OWNER TO prisma;
 
 --
 -- Name: external_integration_keys_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4090,7 +4090,7 @@ CREATE SEQUENCE public.external_integration_keys_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.external_integration_keys_id_seq OWNER TO canvas;
+ALTER TABLE public.external_integration_keys_id_seq OWNER TO prisma;
 
 --
 -- Name: external_integration_keys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4126,7 +4126,7 @@ CREATE TABLE public.failed_jobs (
 );
 
 
-ALTER TABLE public.failed_jobs OWNER TO canvas;
+ALTER TABLE public.failed_jobs OWNER TO prisma;
 
 --
 -- Name: failed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4140,7 +4140,7 @@ CREATE SEQUENCE public.failed_jobs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.failed_jobs_id_seq OWNER TO canvas;
+ALTER TABLE public.failed_jobs_id_seq OWNER TO prisma;
 
 --
 -- Name: failed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4163,7 +4163,7 @@ CREATE TABLE public.favorites (
 );
 
 
-ALTER TABLE public.favorites OWNER TO canvas;
+ALTER TABLE public.favorites OWNER TO prisma;
 
 --
 -- Name: favorites_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4177,7 +4177,7 @@ CREATE SEQUENCE public.favorites_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.favorites_id_seq OWNER TO canvas;
+ALTER TABLE public.favorites_id_seq OWNER TO prisma;
 
 --
 -- Name: favorites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4203,7 +4203,7 @@ CREATE TABLE public.feature_flags (
 );
 
 
-ALTER TABLE public.feature_flags OWNER TO canvas;
+ALTER TABLE public.feature_flags OWNER TO prisma;
 
 --
 -- Name: feature_flags_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4217,7 +4217,7 @@ CREATE SEQUENCE public.feature_flags_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.feature_flags_id_seq OWNER TO canvas;
+ALTER TABLE public.feature_flags_id_seq OWNER TO prisma;
 
 --
 -- Name: feature_flags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4251,7 +4251,7 @@ CREATE TABLE public.folders (
 );
 
 
-ALTER TABLE public.folders OWNER TO canvas;
+ALTER TABLE public.folders OWNER TO prisma;
 
 --
 -- Name: folders_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4265,7 +4265,7 @@ CREATE SEQUENCE public.folders_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.folders_id_seq OWNER TO canvas;
+ALTER TABLE public.folders_id_seq OWNER TO prisma;
 
 --
 -- Name: folders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4287,7 +4287,7 @@ CREATE TABLE public.gradebook_csvs (
 );
 
 
-ALTER TABLE public.gradebook_csvs OWNER TO canvas;
+ALTER TABLE public.gradebook_csvs OWNER TO prisma;
 
 --
 -- Name: gradebook_csvs_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4301,7 +4301,7 @@ CREATE SEQUENCE public.gradebook_csvs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.gradebook_csvs_id_seq OWNER TO canvas;
+ALTER TABLE public.gradebook_csvs_id_seq OWNER TO prisma;
 
 --
 -- Name: gradebook_csvs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4325,7 +4325,7 @@ CREATE TABLE public.gradebook_uploads (
 );
 
 
-ALTER TABLE public.gradebook_uploads OWNER TO canvas;
+ALTER TABLE public.gradebook_uploads OWNER TO prisma;
 
 --
 -- Name: gradebook_uploads_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4339,7 +4339,7 @@ CREATE SEQUENCE public.gradebook_uploads_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.gradebook_uploads_id_seq OWNER TO canvas;
+ALTER TABLE public.gradebook_uploads_id_seq OWNER TO prisma;
 
 --
 -- Name: gradebook_uploads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4365,7 +4365,7 @@ CREATE TABLE public.grading_period_groups (
 );
 
 
-ALTER TABLE public.grading_period_groups OWNER TO canvas;
+ALTER TABLE public.grading_period_groups OWNER TO prisma;
 
 --
 -- Name: grading_period_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4379,7 +4379,7 @@ CREATE SEQUENCE public.grading_period_groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.grading_period_groups_id_seq OWNER TO canvas;
+ALTER TABLE public.grading_period_groups_id_seq OWNER TO prisma;
 
 --
 -- Name: grading_period_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4406,7 +4406,7 @@ CREATE TABLE public.grading_periods (
 );
 
 
-ALTER TABLE public.grading_periods OWNER TO canvas;
+ALTER TABLE public.grading_periods OWNER TO prisma;
 
 --
 -- Name: grading_periods_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4420,7 +4420,7 @@ CREATE SEQUENCE public.grading_periods_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.grading_periods_id_seq OWNER TO canvas;
+ALTER TABLE public.grading_periods_id_seq OWNER TO prisma;
 
 --
 -- Name: grading_periods_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4450,7 +4450,7 @@ CREATE TABLE public.grading_standards (
 );
 
 
-ALTER TABLE public.grading_standards OWNER TO canvas;
+ALTER TABLE public.grading_standards OWNER TO prisma;
 
 --
 -- Name: grading_standards_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4464,7 +4464,7 @@ CREATE SEQUENCE public.grading_standards_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.grading_standards_id_seq OWNER TO canvas;
+ALTER TABLE public.grading_standards_id_seq OWNER TO prisma;
 
 --
 -- Name: grading_standards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4495,7 +4495,7 @@ CREATE TABLE public.group_categories (
 );
 
 
-ALTER TABLE public.group_categories OWNER TO canvas;
+ALTER TABLE public.group_categories OWNER TO prisma;
 
 --
 -- Name: group_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4509,7 +4509,7 @@ CREATE SEQUENCE public.group_categories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.group_categories_id_seq OWNER TO canvas;
+ALTER TABLE public.group_categories_id_seq OWNER TO prisma;
 
 --
 -- Name: group_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4530,7 +4530,7 @@ CREATE SEQUENCE public.group_memberships_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.group_memberships_id_seq OWNER TO canvas;
+ALTER TABLE public.group_memberships_id_seq OWNER TO prisma;
 
 --
 -- Name: group_memberships_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4551,7 +4551,7 @@ CREATE SEQUENCE public.groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.groups_id_seq OWNER TO canvas;
+ALTER TABLE public.groups_id_seq OWNER TO prisma;
 
 --
 -- Name: groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4576,7 +4576,7 @@ CREATE TABLE public.ignores (
 );
 
 
-ALTER TABLE public.ignores OWNER TO canvas;
+ALTER TABLE public.ignores OWNER TO prisma;
 
 --
 -- Name: ignores_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4590,7 +4590,7 @@ CREATE SEQUENCE public.ignores_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.ignores_id_seq OWNER TO canvas;
+ALTER TABLE public.ignores_id_seq OWNER TO prisma;
 
 --
 -- Name: ignores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4618,7 +4618,7 @@ CREATE TABLE public.late_policies (
 );
 
 
-ALTER TABLE public.late_policies OWNER TO canvas;
+ALTER TABLE public.late_policies OWNER TO prisma;
 
 --
 -- Name: late_policies_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4632,7 +4632,7 @@ CREATE SEQUENCE public.late_policies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.late_policies_id_seq OWNER TO canvas;
+ALTER TABLE public.late_policies_id_seq OWNER TO prisma;
 
 --
 -- Name: late_policies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4666,7 +4666,7 @@ CREATE TABLE public.learning_outcome_groups (
 );
 
 
-ALTER TABLE public.learning_outcome_groups OWNER TO canvas;
+ALTER TABLE public.learning_outcome_groups OWNER TO prisma;
 
 --
 -- Name: learning_outcome_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4680,7 +4680,7 @@ CREATE SEQUENCE public.learning_outcome_groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.learning_outcome_groups_id_seq OWNER TO canvas;
+ALTER TABLE public.learning_outcome_groups_id_seq OWNER TO prisma;
 
 --
 -- Name: learning_outcome_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4715,7 +4715,7 @@ CREATE TABLE public.learning_outcome_question_results (
 );
 
 
-ALTER TABLE public.learning_outcome_question_results OWNER TO canvas;
+ALTER TABLE public.learning_outcome_question_results OWNER TO prisma;
 
 --
 -- Name: learning_outcome_question_results_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4729,7 +4729,7 @@ CREATE SEQUENCE public.learning_outcome_question_results_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.learning_outcome_question_results_id_seq OWNER TO canvas;
+ALTER TABLE public.learning_outcome_question_results_id_seq OWNER TO prisma;
 
 --
 -- Name: learning_outcome_question_results_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4774,7 +4774,7 @@ CREATE TABLE public.learning_outcome_results (
 );
 
 
-ALTER TABLE public.learning_outcome_results OWNER TO canvas;
+ALTER TABLE public.learning_outcome_results OWNER TO prisma;
 
 --
 -- Name: learning_outcome_results_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4788,7 +4788,7 @@ CREATE SEQUENCE public.learning_outcome_results_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.learning_outcome_results_id_seq OWNER TO canvas;
+ALTER TABLE public.learning_outcome_results_id_seq OWNER TO prisma;
 
 --
 -- Name: learning_outcome_results_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4825,7 +4825,7 @@ CREATE TABLE public.learning_outcomes (
 );
 
 
-ALTER TABLE public.learning_outcomes OWNER TO canvas;
+ALTER TABLE public.learning_outcomes OWNER TO prisma;
 
 --
 -- Name: learning_outcomes_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4839,7 +4839,7 @@ CREATE SEQUENCE public.learning_outcomes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.learning_outcomes_id_seq OWNER TO canvas;
+ALTER TABLE public.learning_outcomes_id_seq OWNER TO prisma;
 
 --
 -- Name: learning_outcomes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4863,7 +4863,7 @@ CREATE TABLE public.live_assessments_assessments (
 );
 
 
-ALTER TABLE public.live_assessments_assessments OWNER TO canvas;
+ALTER TABLE public.live_assessments_assessments OWNER TO prisma;
 
 --
 -- Name: live_assessments_assessments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4877,7 +4877,7 @@ CREATE SEQUENCE public.live_assessments_assessments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.live_assessments_assessments_id_seq OWNER TO canvas;
+ALTER TABLE public.live_assessments_assessments_id_seq OWNER TO prisma;
 
 --
 -- Name: live_assessments_assessments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4900,7 +4900,7 @@ CREATE TABLE public.live_assessments_results (
 );
 
 
-ALTER TABLE public.live_assessments_results OWNER TO canvas;
+ALTER TABLE public.live_assessments_results OWNER TO prisma;
 
 --
 -- Name: live_assessments_results_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4914,7 +4914,7 @@ CREATE SEQUENCE public.live_assessments_results_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.live_assessments_results_id_seq OWNER TO canvas;
+ALTER TABLE public.live_assessments_results_id_seq OWNER TO prisma;
 
 --
 -- Name: live_assessments_results_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4939,7 +4939,7 @@ CREATE TABLE public.live_assessments_submissions (
 );
 
 
-ALTER TABLE public.live_assessments_submissions OWNER TO canvas;
+ALTER TABLE public.live_assessments_submissions OWNER TO prisma;
 
 --
 -- Name: live_assessments_submissions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4953,7 +4953,7 @@ CREATE SEQUENCE public.live_assessments_submissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.live_assessments_submissions_id_seq OWNER TO canvas;
+ALTER TABLE public.live_assessments_submissions_id_seq OWNER TO prisma;
 
 --
 -- Name: live_assessments_submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -4982,7 +4982,7 @@ CREATE TABLE public.lti_line_items (
 );
 
 
-ALTER TABLE public.lti_line_items OWNER TO canvas;
+ALTER TABLE public.lti_line_items OWNER TO prisma;
 
 --
 -- Name: lti_line_items_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -4996,7 +4996,7 @@ CREATE SEQUENCE public.lti_line_items_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_line_items_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_line_items_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_line_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5024,7 +5024,7 @@ CREATE TABLE public.lti_links (
 );
 
 
-ALTER TABLE public.lti_links OWNER TO canvas;
+ALTER TABLE public.lti_links OWNER TO prisma;
 
 --
 -- Name: lti_links_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5038,7 +5038,7 @@ CREATE SEQUENCE public.lti_links_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_links_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_links_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5064,7 +5064,7 @@ CREATE TABLE public.lti_message_handlers (
 );
 
 
-ALTER TABLE public.lti_message_handlers OWNER TO canvas;
+ALTER TABLE public.lti_message_handlers OWNER TO prisma;
 
 --
 -- Name: lti_message_handlers_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5078,7 +5078,7 @@ CREATE SEQUENCE public.lti_message_handlers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_message_handlers_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_message_handlers_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_message_handlers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5106,7 +5106,7 @@ CREATE TABLE public.lti_product_families (
 );
 
 
-ALTER TABLE public.lti_product_families OWNER TO canvas;
+ALTER TABLE public.lti_product_families OWNER TO prisma;
 
 --
 -- Name: lti_product_families_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5120,7 +5120,7 @@ CREATE SEQUENCE public.lti_product_families_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_product_families_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_product_families_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_product_families_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5146,7 +5146,7 @@ CREATE TABLE public.lti_resource_handlers (
 );
 
 
-ALTER TABLE public.lti_resource_handlers OWNER TO canvas;
+ALTER TABLE public.lti_resource_handlers OWNER TO prisma;
 
 --
 -- Name: lti_resource_handlers_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5160,7 +5160,7 @@ CREATE SEQUENCE public.lti_resource_handlers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_resource_handlers_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_resource_handlers_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_resource_handlers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5183,7 +5183,7 @@ CREATE TABLE public.lti_resource_links (
 );
 
 
-ALTER TABLE public.lti_resource_links OWNER TO canvas;
+ALTER TABLE public.lti_resource_links OWNER TO prisma;
 
 --
 -- Name: lti_resource_links_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5197,7 +5197,7 @@ CREATE SEQUENCE public.lti_resource_links_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_resource_links_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_resource_links_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_resource_links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5219,7 +5219,7 @@ CREATE TABLE public.lti_resource_placements (
 );
 
 
-ALTER TABLE public.lti_resource_placements OWNER TO canvas;
+ALTER TABLE public.lti_resource_placements OWNER TO prisma;
 
 --
 -- Name: lti_resource_placements_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5233,7 +5233,7 @@ CREATE SEQUENCE public.lti_resource_placements_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_resource_placements_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_resource_placements_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_resource_placements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5263,7 +5263,7 @@ CREATE TABLE public.lti_results (
 );
 
 
-ALTER TABLE public.lti_results OWNER TO canvas;
+ALTER TABLE public.lti_results OWNER TO prisma;
 
 --
 -- Name: lti_results_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5277,7 +5277,7 @@ CREATE SEQUENCE public.lti_results_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_results_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_results_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_results_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5301,7 +5301,7 @@ CREATE TABLE public.lti_tool_configurations (
 );
 
 
-ALTER TABLE public.lti_tool_configurations OWNER TO canvas;
+ALTER TABLE public.lti_tool_configurations OWNER TO prisma;
 
 --
 -- Name: lti_tool_configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5315,7 +5315,7 @@ CREATE SEQUENCE public.lti_tool_configurations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_tool_configurations_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_tool_configurations_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_tool_configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5339,7 +5339,7 @@ CREATE TABLE public.lti_tool_consumer_profiles (
 );
 
 
-ALTER TABLE public.lti_tool_consumer_profiles OWNER TO canvas;
+ALTER TABLE public.lti_tool_consumer_profiles OWNER TO prisma;
 
 --
 -- Name: lti_tool_consumer_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5353,7 +5353,7 @@ CREATE SEQUENCE public.lti_tool_consumer_profiles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_tool_consumer_profiles_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_tool_consumer_profiles_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_tool_consumer_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5386,7 +5386,7 @@ CREATE TABLE public.lti_tool_proxies (
 );
 
 
-ALTER TABLE public.lti_tool_proxies OWNER TO canvas;
+ALTER TABLE public.lti_tool_proxies OWNER TO prisma;
 
 --
 -- Name: lti_tool_proxies_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5400,7 +5400,7 @@ CREATE SEQUENCE public.lti_tool_proxies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_tool_proxies_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_tool_proxies_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_tool_proxies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5424,7 +5424,7 @@ CREATE TABLE public.lti_tool_proxy_bindings (
 );
 
 
-ALTER TABLE public.lti_tool_proxy_bindings OWNER TO canvas;
+ALTER TABLE public.lti_tool_proxy_bindings OWNER TO prisma;
 
 --
 -- Name: lti_tool_proxy_bindings_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5438,7 +5438,7 @@ CREATE SEQUENCE public.lti_tool_proxy_bindings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_tool_proxy_bindings_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_tool_proxy_bindings_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_tool_proxy_bindings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5468,7 +5468,7 @@ CREATE TABLE public.lti_tool_settings (
 );
 
 
-ALTER TABLE public.lti_tool_settings OWNER TO canvas;
+ALTER TABLE public.lti_tool_settings OWNER TO prisma;
 
 --
 -- Name: lti_tool_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5482,7 +5482,7 @@ CREATE SEQUENCE public.lti_tool_settings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lti_tool_settings_id_seq OWNER TO canvas;
+ALTER TABLE public.lti_tool_settings_id_seq OWNER TO prisma;
 
 --
 -- Name: lti_tool_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5505,7 +5505,7 @@ CREATE TABLE public.master_courses_child_content_tags (
 );
 
 
-ALTER TABLE public.master_courses_child_content_tags OWNER TO canvas;
+ALTER TABLE public.master_courses_child_content_tags OWNER TO prisma;
 
 --
 -- Name: master_courses_child_content_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5519,7 +5519,7 @@ CREATE SEQUENCE public.master_courses_child_content_tags_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.master_courses_child_content_tags_id_seq OWNER TO canvas;
+ALTER TABLE public.master_courses_child_content_tags_id_seq OWNER TO prisma;
 
 --
 -- Name: master_courses_child_content_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5543,7 +5543,7 @@ CREATE TABLE public.master_courses_child_subscriptions (
 );
 
 
-ALTER TABLE public.master_courses_child_subscriptions OWNER TO canvas;
+ALTER TABLE public.master_courses_child_subscriptions OWNER TO prisma;
 
 --
 -- Name: master_courses_child_subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5557,7 +5557,7 @@ CREATE SEQUENCE public.master_courses_child_subscriptions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.master_courses_child_subscriptions_id_seq OWNER TO canvas;
+ALTER TABLE public.master_courses_child_subscriptions_id_seq OWNER TO prisma;
 
 --
 -- Name: master_courses_child_subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5582,7 +5582,7 @@ CREATE TABLE public.master_courses_master_content_tags (
 );
 
 
-ALTER TABLE public.master_courses_master_content_tags OWNER TO canvas;
+ALTER TABLE public.master_courses_master_content_tags OWNER TO prisma;
 
 --
 -- Name: master_courses_master_content_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5596,7 +5596,7 @@ CREATE SEQUENCE public.master_courses_master_content_tags_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.master_courses_master_content_tags_id_seq OWNER TO canvas;
+ALTER TABLE public.master_courses_master_content_tags_id_seq OWNER TO prisma;
 
 --
 -- Name: master_courses_master_content_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5626,7 +5626,7 @@ CREATE TABLE public.master_courses_master_migrations (
 );
 
 
-ALTER TABLE public.master_courses_master_migrations OWNER TO canvas;
+ALTER TABLE public.master_courses_master_migrations OWNER TO prisma;
 
 --
 -- Name: master_courses_master_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5640,7 +5640,7 @@ CREATE SEQUENCE public.master_courses_master_migrations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.master_courses_master_migrations_id_seq OWNER TO canvas;
+ALTER TABLE public.master_courses_master_migrations_id_seq OWNER TO prisma;
 
 --
 -- Name: master_courses_master_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5667,7 +5667,7 @@ CREATE TABLE public.master_courses_master_templates (
 );
 
 
-ALTER TABLE public.master_courses_master_templates OWNER TO canvas;
+ALTER TABLE public.master_courses_master_templates OWNER TO prisma;
 
 --
 -- Name: master_courses_master_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5681,7 +5681,7 @@ CREATE SEQUENCE public.master_courses_master_templates_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.master_courses_master_templates_id_seq OWNER TO canvas;
+ALTER TABLE public.master_courses_master_templates_id_seq OWNER TO prisma;
 
 --
 -- Name: master_courses_master_templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5705,7 +5705,7 @@ CREATE TABLE public.master_courses_migration_results (
 );
 
 
-ALTER TABLE public.master_courses_migration_results OWNER TO canvas;
+ALTER TABLE public.master_courses_migration_results OWNER TO prisma;
 
 --
 -- Name: master_courses_migration_results_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5719,7 +5719,7 @@ CREATE SEQUENCE public.master_courses_migration_results_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.master_courses_migration_results_id_seq OWNER TO canvas;
+ALTER TABLE public.master_courses_migration_results_id_seq OWNER TO prisma;
 
 --
 -- Name: master_courses_migration_results_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5755,7 +5755,7 @@ CREATE TABLE public.media_objects (
 );
 
 
-ALTER TABLE public.media_objects OWNER TO canvas;
+ALTER TABLE public.media_objects OWNER TO prisma;
 
 --
 -- Name: media_objects_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5769,7 +5769,7 @@ CREATE SEQUENCE public.media_objects_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.media_objects_id_seq OWNER TO canvas;
+ALTER TABLE public.media_objects_id_seq OWNER TO prisma;
 
 --
 -- Name: media_objects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5795,7 +5795,7 @@ CREATE TABLE public.media_tracks (
 );
 
 
-ALTER TABLE public.media_tracks OWNER TO canvas;
+ALTER TABLE public.media_tracks OWNER TO prisma;
 
 --
 -- Name: media_tracks_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5809,7 +5809,7 @@ CREATE SEQUENCE public.media_tracks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.media_tracks_id_seq OWNER TO canvas;
+ALTER TABLE public.media_tracks_id_seq OWNER TO prisma;
 
 --
 -- Name: media_tracks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5852,7 +5852,7 @@ CREATE TABLE public.messages (
 );
 
 
-ALTER TABLE public.messages OWNER TO canvas;
+ALTER TABLE public.messages OWNER TO prisma;
 
 --
 -- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -5866,7 +5866,7 @@ CREATE SEQUENCE public.messages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.messages_id_seq OWNER TO canvas;
+ALTER TABLE public.messages_id_seq OWNER TO prisma;
 
 --
 -- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -5917,7 +5917,7 @@ CREATE TABLE public.messages_2020_07 (
 INHERITS (public.messages);
 
 
-ALTER TABLE public.messages_2020_07 OWNER TO canvas;
+ALTER TABLE public.messages_2020_07 OWNER TO prisma;
 
 --
 -- Name: messages_2020_08; Type: TABLE; Schema: public; Owner: canvas
@@ -5961,7 +5961,7 @@ CREATE TABLE public.messages_2020_08 (
 INHERITS (public.messages);
 
 
-ALTER TABLE public.messages_2020_08 OWNER TO canvas;
+ALTER TABLE public.messages_2020_08 OWNER TO prisma;
 
 --
 -- Name: messages_2020_09; Type: TABLE; Schema: public; Owner: canvas
@@ -6005,7 +6005,7 @@ CREATE TABLE public.messages_2020_09 (
 INHERITS (public.messages);
 
 
-ALTER TABLE public.messages_2020_09 OWNER TO canvas;
+ALTER TABLE public.messages_2020_09 OWNER TO prisma;
 
 --
 -- Name: migration_issues; Type: TABLE; Schema: public; Owner: canvas
@@ -6025,7 +6025,7 @@ CREATE TABLE public.migration_issues (
 );
 
 
-ALTER TABLE public.migration_issues OWNER TO canvas;
+ALTER TABLE public.migration_issues OWNER TO prisma;
 
 --
 -- Name: migration_issues_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6039,7 +6039,7 @@ CREATE SEQUENCE public.migration_issues_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.migration_issues_id_seq OWNER TO canvas;
+ALTER TABLE public.migration_issues_id_seq OWNER TO prisma;
 
 --
 -- Name: migration_issues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6067,7 +6067,7 @@ CREATE TABLE public.moderated_grading_provisional_grades (
 );
 
 
-ALTER TABLE public.moderated_grading_provisional_grades OWNER TO canvas;
+ALTER TABLE public.moderated_grading_provisional_grades OWNER TO prisma;
 
 --
 -- Name: moderated_grading_provisional_grades_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6081,7 +6081,7 @@ CREATE SEQUENCE public.moderated_grading_provisional_grades_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.moderated_grading_provisional_grades_id_seq OWNER TO canvas;
+ALTER TABLE public.moderated_grading_provisional_grades_id_seq OWNER TO prisma;
 
 --
 -- Name: moderated_grading_provisional_grades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6104,7 +6104,7 @@ CREATE TABLE public.moderated_grading_selections (
 );
 
 
-ALTER TABLE public.moderated_grading_selections OWNER TO canvas;
+ALTER TABLE public.moderated_grading_selections OWNER TO prisma;
 
 --
 -- Name: moderated_grading_selections_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6118,7 +6118,7 @@ CREATE SEQUENCE public.moderated_grading_selections_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.moderated_grading_selections_id_seq OWNER TO canvas;
+ALTER TABLE public.moderated_grading_selections_id_seq OWNER TO prisma;
 
 --
 -- Name: moderated_grading_selections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6142,7 +6142,7 @@ CREATE TABLE public.moderation_graders (
 );
 
 
-ALTER TABLE public.moderation_graders OWNER TO canvas;
+ALTER TABLE public.moderation_graders OWNER TO prisma;
 
 --
 -- Name: moderation_graders_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6156,7 +6156,7 @@ CREATE SEQUENCE public.moderation_graders_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.moderation_graders_id_seq OWNER TO canvas;
+ALTER TABLE public.moderation_graders_id_seq OWNER TO prisma;
 
 --
 -- Name: moderation_graders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6180,7 +6180,7 @@ CREATE TABLE public.notification_endpoints (
 );
 
 
-ALTER TABLE public.notification_endpoints OWNER TO canvas;
+ALTER TABLE public.notification_endpoints OWNER TO prisma;
 
 --
 -- Name: notification_endpoints_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6194,7 +6194,7 @@ CREATE SEQUENCE public.notification_endpoints_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notification_endpoints_id_seq OWNER TO canvas;
+ALTER TABLE public.notification_endpoints_id_seq OWNER TO prisma;
 
 --
 -- Name: notification_endpoints_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6217,7 +6217,7 @@ CREATE TABLE public.notification_policies (
 );
 
 
-ALTER TABLE public.notification_policies OWNER TO canvas;
+ALTER TABLE public.notification_policies OWNER TO prisma;
 
 --
 -- Name: notification_policies_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6231,7 +6231,7 @@ CREATE SEQUENCE public.notification_policies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notification_policies_id_seq OWNER TO canvas;
+ALTER TABLE public.notification_policies_id_seq OWNER TO prisma;
 
 --
 -- Name: notification_policies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6257,7 +6257,7 @@ CREATE TABLE public.notifications (
 );
 
 
-ALTER TABLE public.notifications OWNER TO canvas;
+ALTER TABLE public.notifications OWNER TO prisma;
 
 --
 -- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6271,7 +6271,7 @@ CREATE SEQUENCE public.notifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notifications_id_seq OWNER TO canvas;
+ALTER TABLE public.notifications_id_seq OWNER TO prisma;
 
 --
 -- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6299,7 +6299,7 @@ CREATE TABLE public.oauth_requests (
 );
 
 
-ALTER TABLE public.oauth_requests OWNER TO canvas;
+ALTER TABLE public.oauth_requests OWNER TO prisma;
 
 --
 -- Name: oauth_requests_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6313,7 +6313,7 @@ CREATE SEQUENCE public.oauth_requests_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.oauth_requests_id_seq OWNER TO canvas;
+ALTER TABLE public.oauth_requests_id_seq OWNER TO prisma;
 
 --
 -- Name: oauth_requests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6338,7 +6338,7 @@ CREATE TABLE public.observer_alert_thresholds (
 );
 
 
-ALTER TABLE public.observer_alert_thresholds OWNER TO canvas;
+ALTER TABLE public.observer_alert_thresholds OWNER TO prisma;
 
 --
 -- Name: observer_alert_thresholds_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6352,7 +6352,7 @@ CREATE SEQUENCE public.observer_alert_thresholds_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.observer_alert_thresholds_id_seq OWNER TO canvas;
+ALTER TABLE public.observer_alert_thresholds_id_seq OWNER TO prisma;
 
 --
 -- Name: observer_alert_thresholds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6381,7 +6381,7 @@ CREATE TABLE public.observer_alerts (
 );
 
 
-ALTER TABLE public.observer_alerts OWNER TO canvas;
+ALTER TABLE public.observer_alerts OWNER TO prisma;
 
 --
 -- Name: observer_alerts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6395,7 +6395,7 @@ CREATE SEQUENCE public.observer_alerts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.observer_alerts_id_seq OWNER TO canvas;
+ALTER TABLE public.observer_alerts_id_seq OWNER TO prisma;
 
 --
 -- Name: observer_alerts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6419,7 +6419,7 @@ CREATE TABLE public.observer_pairing_codes (
 );
 
 
-ALTER TABLE public.observer_pairing_codes OWNER TO canvas;
+ALTER TABLE public.observer_pairing_codes OWNER TO prisma;
 
 --
 -- Name: observer_pairing_codes_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6433,7 +6433,7 @@ CREATE SEQUENCE public.observer_pairing_codes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.observer_pairing_codes_id_seq OWNER TO canvas;
+ALTER TABLE public.observer_pairing_codes_id_seq OWNER TO prisma;
 
 --
 -- Name: observer_pairing_codes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6456,7 +6456,7 @@ CREATE TABLE public.one_time_passwords (
 );
 
 
-ALTER TABLE public.one_time_passwords OWNER TO canvas;
+ALTER TABLE public.one_time_passwords OWNER TO prisma;
 
 --
 -- Name: one_time_passwords_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6470,7 +6470,7 @@ CREATE SEQUENCE public.one_time_passwords_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.one_time_passwords_id_seq OWNER TO canvas;
+ALTER TABLE public.one_time_passwords_id_seq OWNER TO prisma;
 
 --
 -- Name: one_time_passwords_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6500,7 +6500,7 @@ CREATE TABLE public.originality_reports (
 );
 
 
-ALTER TABLE public.originality_reports OWNER TO canvas;
+ALTER TABLE public.originality_reports OWNER TO prisma;
 
 --
 -- Name: originality_reports_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6514,7 +6514,7 @@ CREATE SEQUENCE public.originality_reports_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.originality_reports_id_seq OWNER TO canvas;
+ALTER TABLE public.originality_reports_id_seq OWNER TO prisma;
 
 --
 -- Name: originality_reports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6538,7 +6538,7 @@ CREATE TABLE public.outcome_import_errors (
 );
 
 
-ALTER TABLE public.outcome_import_errors OWNER TO canvas;
+ALTER TABLE public.outcome_import_errors OWNER TO prisma;
 
 --
 -- Name: outcome_import_errors_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6552,7 +6552,7 @@ CREATE SEQUENCE public.outcome_import_errors_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.outcome_import_errors_id_seq OWNER TO canvas;
+ALTER TABLE public.outcome_import_errors_id_seq OWNER TO prisma;
 
 --
 -- Name: outcome_import_errors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6580,7 +6580,7 @@ CREATE TABLE public.outcome_imports (
 );
 
 
-ALTER TABLE public.outcome_imports OWNER TO canvas;
+ALTER TABLE public.outcome_imports OWNER TO prisma;
 
 --
 -- Name: outcome_imports_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6594,7 +6594,7 @@ CREATE SEQUENCE public.outcome_imports_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.outcome_imports_id_seq OWNER TO canvas;
+ALTER TABLE public.outcome_imports_id_seq OWNER TO prisma;
 
 --
 -- Name: outcome_imports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6615,7 +6615,7 @@ CREATE TABLE public.outcome_proficiencies (
 );
 
 
-ALTER TABLE public.outcome_proficiencies OWNER TO canvas;
+ALTER TABLE public.outcome_proficiencies OWNER TO prisma;
 
 --
 -- Name: outcome_proficiencies_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6629,7 +6629,7 @@ CREATE SEQUENCE public.outcome_proficiencies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.outcome_proficiencies_id_seq OWNER TO canvas;
+ALTER TABLE public.outcome_proficiencies_id_seq OWNER TO prisma;
 
 --
 -- Name: outcome_proficiencies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6654,7 +6654,7 @@ CREATE TABLE public.outcome_proficiency_ratings (
 );
 
 
-ALTER TABLE public.outcome_proficiency_ratings OWNER TO canvas;
+ALTER TABLE public.outcome_proficiency_ratings OWNER TO prisma;
 
 --
 -- Name: outcome_proficiency_ratings_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6668,7 +6668,7 @@ CREATE SEQUENCE public.outcome_proficiency_ratings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.outcome_proficiency_ratings_id_seq OWNER TO canvas;
+ALTER TABLE public.outcome_proficiency_ratings_id_seq OWNER TO prisma;
 
 --
 -- Name: outcome_proficiency_ratings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6692,7 +6692,7 @@ CREATE TABLE public.page_comments (
 );
 
 
-ALTER TABLE public.page_comments OWNER TO canvas;
+ALTER TABLE public.page_comments OWNER TO prisma;
 
 --
 -- Name: page_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6706,7 +6706,7 @@ CREATE SEQUENCE public.page_comments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.page_comments_id_seq OWNER TO canvas;
+ALTER TABLE public.page_comments_id_seq OWNER TO prisma;
 
 --
 -- Name: page_comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6747,7 +6747,7 @@ CREATE TABLE public.page_views (
 );
 
 
-ALTER TABLE public.page_views OWNER TO canvas;
+ALTER TABLE public.page_views OWNER TO prisma;
 
 --
 -- Name: parallel_importers; Type: TABLE; Schema: public; Owner: canvas
@@ -6769,7 +6769,7 @@ CREATE TABLE public.parallel_importers (
 );
 
 
-ALTER TABLE public.parallel_importers OWNER TO canvas;
+ALTER TABLE public.parallel_importers OWNER TO prisma;
 
 --
 -- Name: parallel_importers_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6783,7 +6783,7 @@ CREATE SEQUENCE public.parallel_importers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.parallel_importers_id_seq OWNER TO canvas;
+ALTER TABLE public.parallel_importers_id_seq OWNER TO prisma;
 
 --
 -- Name: parallel_importers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6811,7 +6811,7 @@ CREATE TABLE public.planner_notes (
 );
 
 
-ALTER TABLE public.planner_notes OWNER TO canvas;
+ALTER TABLE public.planner_notes OWNER TO prisma;
 
 --
 -- Name: planner_notes_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6825,7 +6825,7 @@ CREATE SEQUENCE public.planner_notes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.planner_notes_id_seq OWNER TO canvas;
+ALTER TABLE public.planner_notes_id_seq OWNER TO prisma;
 
 --
 -- Name: planner_notes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6852,7 +6852,7 @@ CREATE TABLE public.planner_overrides (
 );
 
 
-ALTER TABLE public.planner_overrides OWNER TO canvas;
+ALTER TABLE public.planner_overrides OWNER TO prisma;
 
 --
 -- Name: planner_overrides_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6866,7 +6866,7 @@ CREATE SEQUENCE public.planner_overrides_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.planner_overrides_id_seq OWNER TO canvas;
+ALTER TABLE public.planner_overrides_id_seq OWNER TO prisma;
 
 --
 -- Name: planner_overrides_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6889,7 +6889,7 @@ CREATE TABLE public.plugin_settings (
 );
 
 
-ALTER TABLE public.plugin_settings OWNER TO canvas;
+ALTER TABLE public.plugin_settings OWNER TO prisma;
 
 --
 -- Name: plugin_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6903,7 +6903,7 @@ CREATE SEQUENCE public.plugin_settings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.plugin_settings_id_seq OWNER TO canvas;
+ALTER TABLE public.plugin_settings_id_seq OWNER TO prisma;
 
 --
 -- Name: plugin_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6927,7 +6927,7 @@ CREATE TABLE public.polling_poll_choices (
 );
 
 
-ALTER TABLE public.polling_poll_choices OWNER TO canvas;
+ALTER TABLE public.polling_poll_choices OWNER TO prisma;
 
 --
 -- Name: polling_poll_choices_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6941,7 +6941,7 @@ CREATE SEQUENCE public.polling_poll_choices_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.polling_poll_choices_id_seq OWNER TO canvas;
+ALTER TABLE public.polling_poll_choices_id_seq OWNER TO prisma;
 
 --
 -- Name: polling_poll_choices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -6966,7 +6966,7 @@ CREATE TABLE public.polling_poll_sessions (
 );
 
 
-ALTER TABLE public.polling_poll_sessions OWNER TO canvas;
+ALTER TABLE public.polling_poll_sessions OWNER TO prisma;
 
 --
 -- Name: polling_poll_sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -6980,7 +6980,7 @@ CREATE SEQUENCE public.polling_poll_sessions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.polling_poll_sessions_id_seq OWNER TO canvas;
+ALTER TABLE public.polling_poll_sessions_id_seq OWNER TO prisma;
 
 --
 -- Name: polling_poll_sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7004,7 +7004,7 @@ CREATE TABLE public.polling_poll_submissions (
 );
 
 
-ALTER TABLE public.polling_poll_submissions OWNER TO canvas;
+ALTER TABLE public.polling_poll_submissions OWNER TO prisma;
 
 --
 -- Name: polling_poll_submissions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7018,7 +7018,7 @@ CREATE SEQUENCE public.polling_poll_submissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.polling_poll_submissions_id_seq OWNER TO canvas;
+ALTER TABLE public.polling_poll_submissions_id_seq OWNER TO prisma;
 
 --
 -- Name: polling_poll_submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7041,7 +7041,7 @@ CREATE TABLE public.polling_polls (
 );
 
 
-ALTER TABLE public.polling_polls OWNER TO canvas;
+ALTER TABLE public.polling_polls OWNER TO prisma;
 
 --
 -- Name: polling_polls_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7055,7 +7055,7 @@ CREATE SEQUENCE public.polling_polls_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.polling_polls_id_seq OWNER TO canvas;
+ALTER TABLE public.polling_polls_id_seq OWNER TO prisma;
 
 --
 -- Name: polling_polls_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7078,7 +7078,7 @@ CREATE TABLE public.post_policies (
 );
 
 
-ALTER TABLE public.post_policies OWNER TO canvas;
+ALTER TABLE public.post_policies OWNER TO prisma;
 
 --
 -- Name: post_policies_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7092,7 +7092,7 @@ CREATE SEQUENCE public.post_policies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.post_policies_id_seq OWNER TO canvas;
+ALTER TABLE public.post_policies_id_seq OWNER TO prisma;
 
 --
 -- Name: post_policies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7119,7 +7119,7 @@ CREATE TABLE public.profiles (
 );
 
 
-ALTER TABLE public.profiles OWNER TO canvas;
+ALTER TABLE public.profiles OWNER TO prisma;
 
 --
 -- Name: profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7133,7 +7133,7 @@ CREATE SEQUENCE public.profiles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profiles_id_seq OWNER TO canvas;
+ALTER TABLE public.profiles_id_seq OWNER TO prisma;
 
 --
 -- Name: profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7163,7 +7163,7 @@ CREATE TABLE public.progresses (
 );
 
 
-ALTER TABLE public.progresses OWNER TO canvas;
+ALTER TABLE public.progresses OWNER TO prisma;
 
 --
 -- Name: progresses_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7177,7 +7177,7 @@ CREATE SEQUENCE public.progresses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.progresses_id_seq OWNER TO canvas;
+ALTER TABLE public.progresses_id_seq OWNER TO prisma;
 
 --
 -- Name: progresses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7225,7 +7225,7 @@ CREATE TABLE public.pseudonyms (
 );
 
 
-ALTER TABLE public.pseudonyms OWNER TO canvas;
+ALTER TABLE public.pseudonyms OWNER TO prisma;
 
 --
 -- Name: pseudonyms_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7239,7 +7239,7 @@ CREATE SEQUENCE public.pseudonyms_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.pseudonyms_id_seq OWNER TO canvas;
+ALTER TABLE public.pseudonyms_id_seq OWNER TO prisma;
 
 --
 -- Name: pseudonyms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7266,7 +7266,7 @@ CREATE TABLE public.purgatories (
 );
 
 
-ALTER TABLE public.purgatories OWNER TO canvas;
+ALTER TABLE public.purgatories OWNER TO prisma;
 
 --
 -- Name: purgatories_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7280,7 +7280,7 @@ CREATE SEQUENCE public.purgatories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.purgatories_id_seq OWNER TO canvas;
+ALTER TABLE public.purgatories_id_seq OWNER TO prisma;
 
 --
 -- Name: purgatories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7307,7 +7307,7 @@ CREATE TABLE public.quiz_groups (
 );
 
 
-ALTER TABLE public.quiz_groups OWNER TO canvas;
+ALTER TABLE public.quiz_groups OWNER TO prisma;
 
 --
 -- Name: quiz_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7321,7 +7321,7 @@ CREATE SEQUENCE public.quiz_groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_groups_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_groups_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7344,7 +7344,7 @@ CREATE TABLE public.quiz_question_regrades (
 );
 
 
-ALTER TABLE public.quiz_question_regrades OWNER TO canvas;
+ALTER TABLE public.quiz_question_regrades OWNER TO prisma;
 
 --
 -- Name: quiz_question_regrades_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7358,7 +7358,7 @@ CREATE SEQUENCE public.quiz_question_regrades_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_question_regrades_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_question_regrades_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_question_regrades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7387,7 +7387,7 @@ CREATE TABLE public.quiz_questions (
 );
 
 
-ALTER TABLE public.quiz_questions OWNER TO canvas;
+ALTER TABLE public.quiz_questions OWNER TO prisma;
 
 --
 -- Name: quiz_questions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7401,7 +7401,7 @@ CREATE SEQUENCE public.quiz_questions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_questions_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_questions_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_questions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7424,7 +7424,7 @@ CREATE TABLE public.quiz_regrade_runs (
 );
 
 
-ALTER TABLE public.quiz_regrade_runs OWNER TO canvas;
+ALTER TABLE public.quiz_regrade_runs OWNER TO prisma;
 
 --
 -- Name: quiz_regrade_runs_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7438,7 +7438,7 @@ CREATE SEQUENCE public.quiz_regrade_runs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_regrade_runs_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_regrade_runs_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_regrade_runs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7461,7 +7461,7 @@ CREATE TABLE public.quiz_regrades (
 );
 
 
-ALTER TABLE public.quiz_regrades OWNER TO canvas;
+ALTER TABLE public.quiz_regrades OWNER TO prisma;
 
 --
 -- Name: quiz_regrades_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7475,7 +7475,7 @@ CREATE SEQUENCE public.quiz_regrades_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_regrades_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_regrades_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_regrades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7500,7 +7500,7 @@ CREATE TABLE public.quiz_statistics (
 );
 
 
-ALTER TABLE public.quiz_statistics OWNER TO canvas;
+ALTER TABLE public.quiz_statistics OWNER TO prisma;
 
 --
 -- Name: quiz_statistics_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7514,7 +7514,7 @@ CREATE SEQUENCE public.quiz_statistics_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_statistics_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_statistics_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_statistics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7576,7 +7576,7 @@ CREATE TABLE public.quizzes (
 );
 
 
-ALTER TABLE public.quizzes OWNER TO canvas;
+ALTER TABLE public.quizzes OWNER TO prisma;
 
 --
 -- Name: quiz_student_visibilities; Type: VIEW; Schema: public; Owner: canvas
@@ -7617,7 +7617,7 @@ UNION
   WHERE (((a.workflow_state)::text <> ALL ((ARRAY['deleted'::character varying, 'unpublished'::character varying])::text[])) AND ((q.workflow_state)::text <> ALL ((ARRAY['deleted'::character varying, 'unpublished'::character varying])::text[])) AND (q.only_visible_to_overrides = true));
 
 
-ALTER TABLE public.quiz_student_visibilities OWNER TO canvas;
+ALTER TABLE public.quiz_student_visibilities OWNER TO prisma;
 
 --
 -- Name: quiz_submission_events; Type: TABLE; Schema: public; Owner: canvas
@@ -7634,7 +7634,7 @@ CREATE TABLE public.quiz_submission_events (
 );
 
 
-ALTER TABLE public.quiz_submission_events OWNER TO canvas;
+ALTER TABLE public.quiz_submission_events OWNER TO prisma;
 
 --
 -- Name: quiz_submission_events_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7648,7 +7648,7 @@ CREATE SEQUENCE public.quiz_submission_events_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_submission_events_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_submission_events_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_submission_events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7673,7 +7673,7 @@ CREATE TABLE public.quiz_submission_events_2020_2 (
 INHERITS (public.quiz_submission_events);
 
 
-ALTER TABLE public.quiz_submission_events_2020_2 OWNER TO canvas;
+ALTER TABLE public.quiz_submission_events_2020_2 OWNER TO prisma;
 
 --
 -- Name: quiz_submission_events_2020_3; Type: TABLE; Schema: public; Owner: canvas
@@ -7691,7 +7691,7 @@ CREATE TABLE public.quiz_submission_events_2020_3 (
 INHERITS (public.quiz_submission_events);
 
 
-ALTER TABLE public.quiz_submission_events_2020_3 OWNER TO canvas;
+ALTER TABLE public.quiz_submission_events_2020_3 OWNER TO prisma;
 
 --
 -- Name: quiz_submission_events_2020_4; Type: TABLE; Schema: public; Owner: canvas
@@ -7709,7 +7709,7 @@ CREATE TABLE public.quiz_submission_events_2020_4 (
 INHERITS (public.quiz_submission_events);
 
 
-ALTER TABLE public.quiz_submission_events_2020_4 OWNER TO canvas;
+ALTER TABLE public.quiz_submission_events_2020_4 OWNER TO prisma;
 
 --
 -- Name: quiz_submission_snapshots; Type: TABLE; Schema: public; Owner: canvas
@@ -7725,7 +7725,7 @@ CREATE TABLE public.quiz_submission_snapshots (
 );
 
 
-ALTER TABLE public.quiz_submission_snapshots OWNER TO canvas;
+ALTER TABLE public.quiz_submission_snapshots OWNER TO prisma;
 
 --
 -- Name: quiz_submission_snapshots_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7739,7 +7739,7 @@ CREATE SEQUENCE public.quiz_submission_snapshots_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_submission_snapshots_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_submission_snapshots_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_submission_snapshots_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7784,7 +7784,7 @@ CREATE TABLE public.quiz_submissions (
 );
 
 
-ALTER TABLE public.quiz_submissions OWNER TO canvas;
+ALTER TABLE public.quiz_submissions OWNER TO prisma;
 
 --
 -- Name: quiz_submissions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7798,7 +7798,7 @@ CREATE SEQUENCE public.quiz_submissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quiz_submissions_id_seq OWNER TO canvas;
+ALTER TABLE public.quiz_submissions_id_seq OWNER TO prisma;
 
 --
 -- Name: quiz_submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7819,7 +7819,7 @@ CREATE SEQUENCE public.quizzes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quizzes_id_seq OWNER TO canvas;
+ALTER TABLE public.quizzes_id_seq OWNER TO prisma;
 
 --
 -- Name: quizzes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7842,7 +7842,7 @@ CREATE TABLE public.report_snapshots (
 );
 
 
-ALTER TABLE public.report_snapshots OWNER TO canvas;
+ALTER TABLE public.report_snapshots OWNER TO prisma;
 
 --
 -- Name: report_snapshots_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7856,7 +7856,7 @@ CREATE SEQUENCE public.report_snapshots_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.report_snapshots_id_seq OWNER TO canvas;
+ALTER TABLE public.report_snapshots_id_seq OWNER TO prisma;
 
 --
 -- Name: report_snapshots_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7884,7 +7884,7 @@ CREATE TABLE public.role_overrides (
 );
 
 
-ALTER TABLE public.role_overrides OWNER TO canvas;
+ALTER TABLE public.role_overrides OWNER TO prisma;
 
 --
 -- Name: role_overrides_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7898,7 +7898,7 @@ CREATE SEQUENCE public.role_overrides_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.role_overrides_id_seq OWNER TO canvas;
+ALTER TABLE public.role_overrides_id_seq OWNER TO prisma;
 
 --
 -- Name: role_overrides_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7924,7 +7924,7 @@ CREATE TABLE public.roles (
 );
 
 
-ALTER TABLE public.roles OWNER TO canvas;
+ALTER TABLE public.roles OWNER TO prisma;
 
 --
 -- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7938,7 +7938,7 @@ CREATE SEQUENCE public.roles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.roles_id_seq OWNER TO canvas;
+ALTER TABLE public.roles_id_seq OWNER TO prisma;
 
 --
 -- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -7970,7 +7970,7 @@ CREATE TABLE public.rubric_assessments (
 );
 
 
-ALTER TABLE public.rubric_assessments OWNER TO canvas;
+ALTER TABLE public.rubric_assessments OWNER TO prisma;
 
 --
 -- Name: rubric_assessments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -7984,7 +7984,7 @@ CREATE SEQUENCE public.rubric_assessments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rubric_assessments_id_seq OWNER TO canvas;
+ALTER TABLE public.rubric_assessments_id_seq OWNER TO prisma;
 
 --
 -- Name: rubric_assessments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8019,7 +8019,7 @@ CREATE TABLE public.rubric_associations (
 );
 
 
-ALTER TABLE public.rubric_associations OWNER TO canvas;
+ALTER TABLE public.rubric_associations OWNER TO prisma;
 
 --
 -- Name: rubric_associations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8033,7 +8033,7 @@ CREATE SEQUENCE public.rubric_associations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rubric_associations_id_seq OWNER TO canvas;
+ALTER TABLE public.rubric_associations_id_seq OWNER TO prisma;
 
 --
 -- Name: rubric_associations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8070,7 +8070,7 @@ CREATE TABLE public.rubrics (
 );
 
 
-ALTER TABLE public.rubrics OWNER TO canvas;
+ALTER TABLE public.rubrics OWNER TO prisma;
 
 --
 -- Name: rubrics_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8084,7 +8084,7 @@ CREATE SEQUENCE public.rubrics_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rubrics_id_seq OWNER TO canvas;
+ALTER TABLE public.rubrics_id_seq OWNER TO prisma;
 
 --
 -- Name: rubrics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8102,7 +8102,7 @@ CREATE TABLE public.schema_migrations (
 );
 
 
-ALTER TABLE public.schema_migrations OWNER TO canvas;
+ALTER TABLE public.schema_migrations OWNER TO prisma;
 
 --
 -- Name: score_metadata; Type: TABLE; Schema: public; Owner: canvas
@@ -8118,7 +8118,7 @@ CREATE TABLE public.score_metadata (
 );
 
 
-ALTER TABLE public.score_metadata OWNER TO canvas;
+ALTER TABLE public.score_metadata OWNER TO prisma;
 
 --
 -- Name: score_metadata_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8132,7 +8132,7 @@ CREATE SEQUENCE public.score_metadata_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.score_metadata_id_seq OWNER TO canvas;
+ALTER TABLE public.score_metadata_id_seq OWNER TO prisma;
 
 --
 -- Name: score_metadata_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8157,7 +8157,7 @@ CREATE TABLE public.score_statistics (
 );
 
 
-ALTER TABLE public.score_statistics OWNER TO canvas;
+ALTER TABLE public.score_statistics OWNER TO prisma;
 
 --
 -- Name: score_statistics_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8171,7 +8171,7 @@ CREATE SEQUENCE public.score_statistics_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.score_statistics_id_seq OWNER TO canvas;
+ALTER TABLE public.score_statistics_id_seq OWNER TO prisma;
 
 --
 -- Name: score_statistics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8206,7 +8206,7 @@ CREATE TABLE public.scores (
 );
 
 
-ALTER TABLE public.scores OWNER TO canvas;
+ALTER TABLE public.scores OWNER TO prisma;
 
 --
 -- Name: scores_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8220,7 +8220,7 @@ CREATE SEQUENCE public.scores_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.scores_id_seq OWNER TO canvas;
+ALTER TABLE public.scores_id_seq OWNER TO prisma;
 
 --
 -- Name: scores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8243,7 +8243,7 @@ CREATE TABLE public.session_persistence_tokens (
 );
 
 
-ALTER TABLE public.session_persistence_tokens OWNER TO canvas;
+ALTER TABLE public.session_persistence_tokens OWNER TO prisma;
 
 --
 -- Name: session_persistence_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8257,7 +8257,7 @@ CREATE SEQUENCE public.session_persistence_tokens_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.session_persistence_tokens_id_seq OWNER TO canvas;
+ALTER TABLE public.session_persistence_tokens_id_seq OWNER TO prisma;
 
 --
 -- Name: session_persistence_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8279,7 +8279,7 @@ CREATE TABLE public.sessions (
 );
 
 
-ALTER TABLE public.sessions OWNER TO canvas;
+ALTER TABLE public.sessions OWNER TO prisma;
 
 --
 -- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8293,7 +8293,7 @@ CREATE SEQUENCE public.sessions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sessions_id_seq OWNER TO canvas;
+ALTER TABLE public.sessions_id_seq OWNER TO prisma;
 
 --
 -- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8315,7 +8315,7 @@ CREATE TABLE public.settings (
 );
 
 
-ALTER TABLE public.settings OWNER TO canvas;
+ALTER TABLE public.settings OWNER TO prisma;
 
 --
 -- Name: settings_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8329,7 +8329,7 @@ CREATE SEQUENCE public.settings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.settings_id_seq OWNER TO canvas;
+ALTER TABLE public.settings_id_seq OWNER TO prisma;
 
 --
 -- Name: settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8352,7 +8352,7 @@ CREATE TABLE public.shared_brand_configs (
 );
 
 
-ALTER TABLE public.shared_brand_configs OWNER TO canvas;
+ALTER TABLE public.shared_brand_configs OWNER TO prisma;
 
 --
 -- Name: shared_brand_configs_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8366,7 +8366,7 @@ CREATE SEQUENCE public.shared_brand_configs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.shared_brand_configs_id_seq OWNER TO canvas;
+ALTER TABLE public.shared_brand_configs_id_seq OWNER TO prisma;
 
 --
 -- Name: shared_brand_configs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8393,7 +8393,7 @@ CREATE TABLE public.sis_batch_errors (
 );
 
 
-ALTER TABLE public.sis_batch_errors OWNER TO canvas;
+ALTER TABLE public.sis_batch_errors OWNER TO prisma;
 
 --
 -- Name: sis_batch_errors_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8407,7 +8407,7 @@ CREATE SEQUENCE public.sis_batch_errors_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sis_batch_errors_id_seq OWNER TO canvas;
+ALTER TABLE public.sis_batch_errors_id_seq OWNER TO prisma;
 
 --
 -- Name: sis_batch_errors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8434,7 +8434,7 @@ CREATE TABLE public.sis_batch_roll_back_data (
 );
 
 
-ALTER TABLE public.sis_batch_roll_back_data OWNER TO canvas;
+ALTER TABLE public.sis_batch_roll_back_data OWNER TO prisma;
 
 --
 -- Name: sis_batch_roll_back_data_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8448,7 +8448,7 @@ CREATE SEQUENCE public.sis_batch_roll_back_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sis_batch_roll_back_data_id_seq OWNER TO canvas;
+ALTER TABLE public.sis_batch_roll_back_data_id_seq OWNER TO prisma;
 
 --
 -- Name: sis_batch_roll_back_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8486,7 +8486,7 @@ CREATE TABLE public.sis_batches (
 );
 
 
-ALTER TABLE public.sis_batches OWNER TO canvas;
+ALTER TABLE public.sis_batches OWNER TO prisma;
 
 --
 -- Name: sis_batches_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8500,7 +8500,7 @@ CREATE SEQUENCE public.sis_batches_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sis_batches_id_seq OWNER TO canvas;
+ALTER TABLE public.sis_batches_id_seq OWNER TO prisma;
 
 --
 -- Name: sis_batches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8526,7 +8526,7 @@ CREATE TABLE public.sis_post_grades_statuses (
 );
 
 
-ALTER TABLE public.sis_post_grades_statuses OWNER TO canvas;
+ALTER TABLE public.sis_post_grades_statuses OWNER TO prisma;
 
 --
 -- Name: sis_post_grades_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8540,7 +8540,7 @@ CREATE SEQUENCE public.sis_post_grades_statuses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sis_post_grades_statuses_id_seq OWNER TO canvas;
+ALTER TABLE public.sis_post_grades_statuses_id_seq OWNER TO prisma;
 
 --
 -- Name: sis_post_grades_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8564,7 +8564,7 @@ CREATE TABLE public.stream_item_instances (
 );
 
 
-ALTER TABLE public.stream_item_instances OWNER TO canvas;
+ALTER TABLE public.stream_item_instances OWNER TO prisma;
 
 --
 -- Name: stream_item_instances_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8578,7 +8578,7 @@ CREATE SEQUENCE public.stream_item_instances_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stream_item_instances_id_seq OWNER TO canvas;
+ALTER TABLE public.stream_item_instances_id_seq OWNER TO prisma;
 
 --
 -- Name: stream_item_instances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8604,7 +8604,7 @@ CREATE TABLE public.stream_items (
 );
 
 
-ALTER TABLE public.stream_items OWNER TO canvas;
+ALTER TABLE public.stream_items OWNER TO prisma;
 
 --
 -- Name: stream_items_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8618,7 +8618,7 @@ CREATE SEQUENCE public.stream_items_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stream_items_id_seq OWNER TO canvas;
+ALTER TABLE public.stream_items_id_seq OWNER TO prisma;
 
 --
 -- Name: stream_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8657,7 +8657,7 @@ CREATE TABLE public.submission_comments (
 );
 
 
-ALTER TABLE public.submission_comments OWNER TO canvas;
+ALTER TABLE public.submission_comments OWNER TO prisma;
 
 --
 -- Name: submission_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8671,7 +8671,7 @@ CREATE SEQUENCE public.submission_comments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.submission_comments_id_seq OWNER TO canvas;
+ALTER TABLE public.submission_comments_id_seq OWNER TO prisma;
 
 --
 -- Name: submission_comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8691,7 +8691,7 @@ CREATE TABLE public.submission_draft_attachments (
 );
 
 
-ALTER TABLE public.submission_draft_attachments OWNER TO canvas;
+ALTER TABLE public.submission_draft_attachments OWNER TO prisma;
 
 --
 -- Name: submission_draft_attachments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8705,7 +8705,7 @@ CREATE SEQUENCE public.submission_draft_attachments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.submission_draft_attachments_id_seq OWNER TO canvas;
+ALTER TABLE public.submission_draft_attachments_id_seq OWNER TO prisma;
 
 --
 -- Name: submission_draft_attachments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8729,7 +8729,7 @@ CREATE TABLE public.submission_drafts (
 );
 
 
-ALTER TABLE public.submission_drafts OWNER TO canvas;
+ALTER TABLE public.submission_drafts OWNER TO prisma;
 
 --
 -- Name: submission_drafts_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8743,7 +8743,7 @@ CREATE SEQUENCE public.submission_drafts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.submission_drafts_id_seq OWNER TO canvas;
+ALTER TABLE public.submission_drafts_id_seq OWNER TO prisma;
 
 --
 -- Name: submission_drafts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8766,7 +8766,7 @@ CREATE TABLE public.submission_versions (
 );
 
 
-ALTER TABLE public.submission_versions OWNER TO canvas;
+ALTER TABLE public.submission_versions OWNER TO prisma;
 
 --
 -- Name: submission_versions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8780,7 +8780,7 @@ CREATE SEQUENCE public.submission_versions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.submission_versions_id_seq OWNER TO canvas;
+ALTER TABLE public.submission_versions_id_seq OWNER TO prisma;
 
 --
 -- Name: submission_versions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8801,7 +8801,7 @@ CREATE SEQUENCE public.submissions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.submissions_id_seq OWNER TO canvas;
+ALTER TABLE public.submissions_id_seq OWNER TO prisma;
 
 --
 -- Name: submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8826,7 +8826,7 @@ CREATE TABLE public.switchman_shards (
 );
 
 
-ALTER TABLE public.switchman_shards OWNER TO canvas;
+ALTER TABLE public.switchman_shards OWNER TO prisma;
 
 --
 -- Name: switchman_shards_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8840,7 +8840,7 @@ CREATE SEQUENCE public.switchman_shards_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.switchman_shards_id_seq OWNER TO canvas;
+ALTER TABLE public.switchman_shards_id_seq OWNER TO prisma;
 
 --
 -- Name: switchman_shards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8864,7 +8864,7 @@ CREATE TABLE public.terms_of_service_contents (
 );
 
 
-ALTER TABLE public.terms_of_service_contents OWNER TO canvas;
+ALTER TABLE public.terms_of_service_contents OWNER TO prisma;
 
 --
 -- Name: terms_of_service_contents_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8878,7 +8878,7 @@ CREATE SEQUENCE public.terms_of_service_contents_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.terms_of_service_contents_id_seq OWNER TO canvas;
+ALTER TABLE public.terms_of_service_contents_id_seq OWNER TO prisma;
 
 --
 -- Name: terms_of_service_contents_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8903,7 +8903,7 @@ CREATE TABLE public.terms_of_services (
 );
 
 
-ALTER TABLE public.terms_of_services OWNER TO canvas;
+ALTER TABLE public.terms_of_services OWNER TO prisma;
 
 --
 -- Name: terms_of_services_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8917,7 +8917,7 @@ CREATE SEQUENCE public.terms_of_services_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.terms_of_services_id_seq OWNER TO canvas;
+ALTER TABLE public.terms_of_services_id_seq OWNER TO prisma;
 
 --
 -- Name: terms_of_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8946,7 +8946,7 @@ CREATE TABLE public.thumbnails (
 );
 
 
-ALTER TABLE public.thumbnails OWNER TO canvas;
+ALTER TABLE public.thumbnails OWNER TO prisma;
 
 --
 -- Name: thumbnails_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8960,7 +8960,7 @@ CREATE SEQUENCE public.thumbnails_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.thumbnails_id_seq OWNER TO canvas;
+ALTER TABLE public.thumbnails_id_seq OWNER TO prisma;
 
 --
 -- Name: thumbnails_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -8983,7 +8983,7 @@ CREATE TABLE public.usage_rights (
 );
 
 
-ALTER TABLE public.usage_rights OWNER TO canvas;
+ALTER TABLE public.usage_rights OWNER TO prisma;
 
 --
 -- Name: usage_rights_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -8997,7 +8997,7 @@ CREATE SEQUENCE public.usage_rights_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.usage_rights_id_seq OWNER TO canvas;
+ALTER TABLE public.usage_rights_id_seq OWNER TO prisma;
 
 --
 -- Name: usage_rights_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9020,7 +9020,7 @@ CREATE TABLE public.user_account_associations (
 );
 
 
-ALTER TABLE public.user_account_associations OWNER TO canvas;
+ALTER TABLE public.user_account_associations OWNER TO prisma;
 
 --
 -- Name: user_account_associations_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9034,7 +9034,7 @@ CREATE SEQUENCE public.user_account_associations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_account_associations_id_seq OWNER TO canvas;
+ALTER TABLE public.user_account_associations_id_seq OWNER TO prisma;
 
 --
 -- Name: user_account_associations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9057,7 +9057,7 @@ CREATE TABLE public.user_merge_data (
 );
 
 
-ALTER TABLE public.user_merge_data OWNER TO canvas;
+ALTER TABLE public.user_merge_data OWNER TO prisma;
 
 --
 -- Name: user_merge_data_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9071,7 +9071,7 @@ CREATE SEQUENCE public.user_merge_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_merge_data_id_seq OWNER TO canvas;
+ALTER TABLE public.user_merge_data_id_seq OWNER TO prisma;
 
 --
 -- Name: user_merge_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9093,7 +9093,7 @@ CREATE TABLE public.user_merge_data_items (
 );
 
 
-ALTER TABLE public.user_merge_data_items OWNER TO canvas;
+ALTER TABLE public.user_merge_data_items OWNER TO prisma;
 
 --
 -- Name: user_merge_data_items_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9107,7 +9107,7 @@ CREATE SEQUENCE public.user_merge_data_items_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_merge_data_items_id_seq OWNER TO canvas;
+ALTER TABLE public.user_merge_data_items_id_seq OWNER TO prisma;
 
 --
 -- Name: user_merge_data_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9130,7 +9130,7 @@ CREATE TABLE public.user_merge_data_records (
 );
 
 
-ALTER TABLE public.user_merge_data_records OWNER TO canvas;
+ALTER TABLE public.user_merge_data_records OWNER TO prisma;
 
 --
 -- Name: user_merge_data_records_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9144,7 +9144,7 @@ CREATE SEQUENCE public.user_merge_data_records_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_merge_data_records_id_seq OWNER TO canvas;
+ALTER TABLE public.user_merge_data_records_id_seq OWNER TO prisma;
 
 --
 -- Name: user_merge_data_records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9170,7 +9170,7 @@ CREATE TABLE public.user_notes (
 );
 
 
-ALTER TABLE public.user_notes OWNER TO canvas;
+ALTER TABLE public.user_notes OWNER TO prisma;
 
 --
 -- Name: user_notes_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9184,7 +9184,7 @@ CREATE SEQUENCE public.user_notes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_notes_id_seq OWNER TO canvas;
+ALTER TABLE public.user_notes_id_seq OWNER TO prisma;
 
 --
 -- Name: user_notes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9209,7 +9209,7 @@ CREATE TABLE public.user_observers (
 );
 
 
-ALTER TABLE public.user_observers OWNER TO canvas;
+ALTER TABLE public.user_observers OWNER TO prisma;
 
 --
 -- Name: user_observers_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9223,7 +9223,7 @@ CREATE SEQUENCE public.user_observers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_observers_id_seq OWNER TO canvas;
+ALTER TABLE public.user_observers_id_seq OWNER TO prisma;
 
 --
 -- Name: user_observers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9247,7 +9247,7 @@ CREATE TABLE public.user_past_lti_ids (
 );
 
 
-ALTER TABLE public.user_past_lti_ids OWNER TO canvas;
+ALTER TABLE public.user_past_lti_ids OWNER TO prisma;
 
 --
 -- Name: user_past_lti_ids_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9261,7 +9261,7 @@ CREATE SEQUENCE public.user_past_lti_ids_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_past_lti_ids_id_seq OWNER TO canvas;
+ALTER TABLE public.user_past_lti_ids_id_seq OWNER TO prisma;
 
 --
 -- Name: user_past_lti_ids_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9284,7 +9284,7 @@ CREATE TABLE public.user_profile_links (
 );
 
 
-ALTER TABLE public.user_profile_links OWNER TO canvas;
+ALTER TABLE public.user_profile_links OWNER TO prisma;
 
 --
 -- Name: user_profile_links_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9298,7 +9298,7 @@ CREATE SEQUENCE public.user_profile_links_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_profile_links_id_seq OWNER TO canvas;
+ALTER TABLE public.user_profile_links_id_seq OWNER TO prisma;
 
 --
 -- Name: user_profile_links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9319,7 +9319,7 @@ CREATE TABLE public.user_profiles (
 );
 
 
-ALTER TABLE public.user_profiles OWNER TO canvas;
+ALTER TABLE public.user_profiles OWNER TO prisma;
 
 --
 -- Name: user_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9333,7 +9333,7 @@ CREATE SEQUENCE public.user_profiles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_profiles_id_seq OWNER TO canvas;
+ALTER TABLE public.user_profiles_id_seq OWNER TO prisma;
 
 --
 -- Name: user_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9369,7 +9369,7 @@ CREATE TABLE public.user_services (
 );
 
 
-ALTER TABLE public.user_services OWNER TO canvas;
+ALTER TABLE public.user_services OWNER TO prisma;
 
 --
 -- Name: user_services_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9383,7 +9383,7 @@ CREATE SEQUENCE public.user_services_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_services_id_seq OWNER TO canvas;
+ALTER TABLE public.user_services_id_seq OWNER TO prisma;
 
 --
 -- Name: user_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9444,7 +9444,7 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO canvas;
+ALTER TABLE public.users OWNER TO prisma;
 
 --
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9458,7 +9458,7 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO canvas;
+ALTER TABLE public.users_id_seq OWNER TO prisma;
 
 --
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9481,7 +9481,7 @@ CREATE TABLE public.versions (
 );
 
 
-ALTER TABLE public.versions OWNER TO canvas;
+ALTER TABLE public.versions OWNER TO prisma;
 
 --
 -- Name: versions_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9495,7 +9495,7 @@ CREATE SEQUENCE public.versions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.versions_id_seq OWNER TO canvas;
+ALTER TABLE public.versions_id_seq OWNER TO prisma;
 
 --
 -- Name: versions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9520,7 +9520,7 @@ CREATE TABLE public.versions_0 (
 INHERITS (public.versions);
 
 
-ALTER TABLE public.versions_0 OWNER TO canvas;
+ALTER TABLE public.versions_0 OWNER TO prisma;
 
 --
 -- Name: versions_1; Type: TABLE; Schema: public; Owner: canvas
@@ -9538,7 +9538,7 @@ CREATE TABLE public.versions_1 (
 INHERITS (public.versions);
 
 
-ALTER TABLE public.versions_1 OWNER TO canvas;
+ALTER TABLE public.versions_1 OWNER TO prisma;
 
 --
 -- Name: viewed_submission_comments; Type: TABLE; Schema: public; Owner: canvas
@@ -9552,7 +9552,7 @@ CREATE TABLE public.viewed_submission_comments (
 );
 
 
-ALTER TABLE public.viewed_submission_comments OWNER TO canvas;
+ALTER TABLE public.viewed_submission_comments OWNER TO prisma;
 
 --
 -- Name: viewed_submission_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9566,7 +9566,7 @@ CREATE SEQUENCE public.viewed_submission_comments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.viewed_submission_comments_id_seq OWNER TO canvas;
+ALTER TABLE public.viewed_submission_comments_id_seq OWNER TO prisma;
 
 --
 -- Name: viewed_submission_comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9589,7 +9589,7 @@ CREATE TABLE public.web_conference_participants (
 );
 
 
-ALTER TABLE public.web_conference_participants OWNER TO canvas;
+ALTER TABLE public.web_conference_participants OWNER TO prisma;
 
 --
 -- Name: web_conference_participants_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9603,7 +9603,7 @@ CREATE SEQUENCE public.web_conference_participants_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.web_conference_participants_id_seq OWNER TO canvas;
+ALTER TABLE public.web_conference_participants_id_seq OWNER TO prisma;
 
 --
 -- Name: web_conference_participants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9643,7 +9643,7 @@ CREATE TABLE public.web_conferences (
 );
 
 
-ALTER TABLE public.web_conferences OWNER TO canvas;
+ALTER TABLE public.web_conferences OWNER TO prisma;
 
 --
 -- Name: web_conferences_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9657,7 +9657,7 @@ CREATE SEQUENCE public.web_conferences_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.web_conferences_id_seq OWNER TO canvas;
+ALTER TABLE public.web_conferences_id_seq OWNER TO prisma;
 
 --
 -- Name: web_conferences_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9695,7 +9695,7 @@ CREATE TABLE public.wiki_pages (
 );
 
 
-ALTER TABLE public.wiki_pages OWNER TO canvas;
+ALTER TABLE public.wiki_pages OWNER TO prisma;
 
 --
 -- Name: wiki_pages_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9709,7 +9709,7 @@ CREATE SEQUENCE public.wiki_pages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.wiki_pages_id_seq OWNER TO canvas;
+ALTER TABLE public.wiki_pages_id_seq OWNER TO prisma;
 
 --
 -- Name: wiki_pages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas
@@ -9732,7 +9732,7 @@ CREATE TABLE public.wikis (
 );
 
 
-ALTER TABLE public.wikis OWNER TO canvas;
+ALTER TABLE public.wikis OWNER TO prisma;
 
 --
 -- Name: wikis_id_seq; Type: SEQUENCE; Schema: public; Owner: canvas
@@ -9746,7 +9746,7 @@ CREATE SEQUENCE public.wikis_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.wikis_id_seq OWNER TO canvas;
+ALTER TABLE public.wikis_id_seq OWNER TO prisma;
 
 --
 -- Name: wikis_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: canvas

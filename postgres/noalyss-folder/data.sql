@@ -17,7 +17,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Data for Name: action; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action (ac_id, ac_description, ac_module, ac_code) FROM stdin;
@@ -36,7 +36,7 @@ COPY public.action (ac_id, ac_description, ac_module, ac_code) FROM stdin;
 
 
 --
--- Data for Name: document_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: document_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.document_type (dt_id, dt_value, dt_prefix) FROM stdin;
@@ -57,7 +57,7 @@ COPY public.document_type (dt_id, dt_value, dt_prefix) FROM stdin;
 
 
 --
--- Data for Name: fiche_def_ref; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: fiche_def_ref; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.fiche_def_ref (frd_id, frd_text, frd_class_base) FROM stdin;
@@ -83,7 +83,7 @@ COPY public.fiche_def_ref (frd_id, frd_text, frd_class_base) FROM stdin;
 
 
 --
--- Data for Name: fiche_def; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: fiche_def; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.fiche_def (fd_id, fd_class_base, fd_label, fd_create_account, frd_id, fd_description) FROM stdin;
@@ -98,7 +98,7 @@ COPY public.fiche_def (fd_id, fd_class_base, fd_label, fd_create_account, frd_id
 
 
 --
--- Data for Name: fiche; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: fiche; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.fiche (f_id, fd_id) FROM stdin;
@@ -106,7 +106,7 @@ COPY public.fiche (f_id, fd_id) FROM stdin;
 
 
 --
--- Data for Name: profile; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: profile; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.profile (p_name, p_id, p_desc, with_calc, with_direct_form) FROM stdin;
@@ -117,7 +117,7 @@ Public	-1	faux groupe	\N	\N
 
 
 --
--- Data for Name: action_gestion; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_gestion; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_gestion (ag_id, ag_type, f_id_dest, ag_title, ag_timestamp, ag_ref, ag_hour, ag_priority, ag_dest, ag_owner, ag_contact, ag_state, ag_remind_date) FROM stdin;
@@ -125,7 +125,7 @@ COPY public.action_gestion (ag_id, ag_type, f_id_dest, ag_title, ag_timestamp, a
 
 
 --
--- Data for Name: action_detail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_detail; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_detail (ad_id, f_id, ad_text, ad_pu, ad_quant, ad_tva_id, ad_tva_amount, ad_total_amount, ag_id) FROM stdin;
@@ -133,7 +133,7 @@ COPY public.action_detail (ad_id, f_id, ad_text, ad_pu, ad_quant, ad_tva_id, ad_
 
 
 --
--- Data for Name: action_gestion_comment; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_gestion_comment; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_gestion_comment (agc_id, ag_id, agc_date, agc_comment, tech_user) FROM stdin;
@@ -141,7 +141,7 @@ COPY public.action_gestion_comment (agc_id, ag_id, agc_date, agc_comment, tech_u
 
 
 --
--- Data for Name: jrn_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn_type (jrn_type_id, jrn_desc) FROM stdin;
@@ -153,7 +153,7 @@ ODS	Opérations Diverses
 
 
 --
--- Data for Name: jrn_def; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn_def; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn_def (jrn_def_id, jrn_def_name, jrn_def_class_deb, jrn_def_class_cred, jrn_def_fiche_deb, jrn_def_fiche_cred, jrn_deb_max_line, jrn_cred_max_line, jrn_def_ech, jrn_def_ech_lib, jrn_def_type, jrn_def_code, jrn_def_pj_pref, jrn_def_bank, jrn_def_num_op, jrn_def_description, jrn_enable) FROM stdin;
@@ -165,7 +165,7 @@ COPY public.jrn_def (jrn_def_id, jrn_def_name, jrn_def_class_deb, jrn_def_class_
 
 
 --
--- Data for Name: jrn; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn (jr_id, jr_def_id, jr_montant, jr_comment, jr_date, jr_grpt_id, jr_internal, jr_tech_date, jr_tech_per, jrn_ech, jr_ech, jr_rapt, jr_valid, jr_opid, jr_c_opid, jr_pj, jr_pj_name, jr_pj_type, jr_pj_number, jr_mt, jr_date_paid, jr_optype) FROM stdin;
@@ -173,7 +173,7 @@ COPY public.jrn (jr_id, jr_def_id, jr_montant, jr_comment, jr_date, jr_grpt_id, 
 
 
 --
--- Data for Name: action_gestion_operation; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_gestion_operation; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_gestion_operation (ago_id, ag_id, jr_id) FROM stdin;
@@ -181,7 +181,7 @@ COPY public.action_gestion_operation (ago_id, ag_id, jr_id) FROM stdin;
 
 
 --
--- Data for Name: link_action_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: link_action_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.link_action_type (l_id, l_desc) FROM stdin;
@@ -189,7 +189,7 @@ COPY public.link_action_type (l_id, l_desc) FROM stdin;
 
 
 --
--- Data for Name: action_gestion_related; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_gestion_related; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_gestion_related (aga_id, aga_least, aga_greatest, aga_type) FROM stdin;
@@ -197,7 +197,7 @@ COPY public.action_gestion_related (aga_id, aga_least, aga_greatest, aga_type) F
 
 
 --
--- Data for Name: action_person; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_person; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_person (ap_id, ag_id, f_id) FROM stdin;
@@ -205,7 +205,7 @@ COPY public.action_person (ap_id, ag_id, f_id) FROM stdin;
 
 
 --
--- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.tags (t_id, t_tag, t_description, t_actif) FROM stdin;
@@ -213,7 +213,7 @@ COPY public.tags (t_id, t_tag, t_description, t_actif) FROM stdin;
 
 
 --
--- Data for Name: action_tags; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: action_tags; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.action_tags (at_id, t_id, ag_id) FROM stdin;
@@ -221,7 +221,7 @@ COPY public.action_tags (at_id, t_id, ag_id) FROM stdin;
 
 
 --
--- Data for Name: attr_def; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: attr_def; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.attr_def (ad_id, ad_text, ad_type, ad_size, ad_extra) FROM stdin;
@@ -264,7 +264,7 @@ COPY public.attr_def (ad_id, ad_text, ad_type, ad_size, ad_extra) FROM stdin;
 
 
 --
--- Data for Name: attr_min; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: attr_min; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.attr_min (frd_id, ad_id) FROM stdin;
@@ -373,7 +373,7 @@ COPY public.attr_min (frd_id, ad_id) FROM stdin;
 
 
 --
--- Data for Name: bilan; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: bilan; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.bilan (b_id, b_name, b_file_template, b_file_form, b_type) FROM stdin;
@@ -383,7 +383,7 @@ COPY public.bilan (b_id, b_name, b_file_template, b_file_form, b_type) FROM stdi
 
 
 --
--- Data for Name: bookmark; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: bookmark; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.bookmark (b_id, b_order, b_action, login) FROM stdin;
@@ -391,7 +391,7 @@ COPY public.bookmark (b_id, b_order, b_action, login) FROM stdin;
 
 
 --
--- Data for Name: tmp_pcmn; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tmp_pcmn; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.tmp_pcmn (pcm_val, pcm_lib, pcm_val_parent, pcm_type, id, pcm_direct_use) FROM stdin;
@@ -916,7 +916,7 @@ COPY public.tmp_pcmn (pcm_val, pcm_lib, pcm_val_parent, pcm_type, id, pcm_direct
 
 
 --
--- Data for Name: centralized; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: centralized; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.centralized (c_id, c_j_id, c_date, c_internal, c_montant, c_debit, c_jrn_def, c_poste, c_description, c_grp, c_comment, c_rapt, c_periode, c_order) FROM stdin;
@@ -924,7 +924,7 @@ COPY public.centralized (c_id, c_j_id, c_date, c_internal, c_montant, c_debit, c
 
 
 --
--- Data for Name: del_action; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: del_action; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.del_action (del_id, del_name, del_time) FROM stdin;
@@ -932,7 +932,7 @@ COPY public.del_action (del_id, del_name, del_time) FROM stdin;
 
 
 --
--- Data for Name: del_jrn; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: del_jrn; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.del_jrn (jr_id, jr_def_id, jr_montant, jr_comment, jr_date, jr_grpt_id, jr_internal, jr_tech_date, jr_tech_per, jrn_ech, jr_ech, jr_rapt, jr_valid, jr_opid, jr_c_opid, jr_pj, jr_pj_name, jr_pj_type, del_jrn_date, jr_pj_number, dj_id) FROM stdin;
@@ -940,7 +940,7 @@ COPY public.del_jrn (jr_id, jr_def_id, jr_montant, jr_comment, jr_date, jr_grpt_
 
 
 --
--- Data for Name: del_jrnx; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: del_jrnx; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.del_jrnx (j_id, j_date, j_montant, j_poste, j_grpt, j_rapt, j_jrn_def, j_debit, j_text, j_centralized, j_internal, j_tech_user, j_tech_date, j_tech_per, j_qcode, djx_id, f_id) FROM stdin;
@@ -948,7 +948,7 @@ COPY public.del_jrnx (j_id, j_date, j_montant, j_poste, j_grpt, j_rapt, j_jrn_de
 
 
 --
--- Data for Name: document; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: document; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.document (d_id, ag_id, d_lob, d_number, d_filename, d_mimetype, d_description) FROM stdin;
@@ -956,7 +956,7 @@ COPY public.document (d_id, ag_id, d_lob, d_number, d_filename, d_mimetype, d_de
 
 
 --
--- Data for Name: document_modele; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: document_modele; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.document_modele (md_id, md_name, md_lob, md_type, md_filename, md_mimetype, md_affect) FROM stdin;
@@ -964,7 +964,7 @@ COPY public.document_modele (md_id, md_name, md_lob, md_type, md_filename, md_mi
 
 
 --
--- Data for Name: document_state; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: document_state; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.document_state (s_id, s_value, s_status) FROM stdin;
@@ -976,7 +976,7 @@ COPY public.document_state (s_id, s_value, s_status) FROM stdin;
 
 
 --
--- Data for Name: extension; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: extension; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.extension (ex_id, ex_name, ex_code, ex_desc, ex_file, ex_enable) FROM stdin;
@@ -984,7 +984,7 @@ COPY public.extension (ex_id, ex_name, ex_code, ex_desc, ex_file, ex_enable) FRO
 
 
 --
--- Data for Name: fiche_detail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: fiche_detail; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.fiche_detail (jft_id, f_id, ad_id, ad_value) FROM stdin;
@@ -992,7 +992,7 @@ COPY public.fiche_detail (jft_id, f_id, ad_id, ad_value) FROM stdin;
 
 
 --
--- Data for Name: parm_periode; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: parm_periode; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.parm_periode (p_id, p_start, p_end, p_exercice, p_closed, p_central) FROM stdin;
@@ -1013,7 +1013,7 @@ COPY public.parm_periode (p_id, p_start, p_end, p_exercice, p_closed, p_central)
 
 
 --
--- Data for Name: forecast; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: forecast; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.forecast (f_id, f_name, f_start_date, f_end_date) FROM stdin;
@@ -1021,7 +1021,7 @@ COPY public.forecast (f_id, f_name, f_start_date, f_end_date) FROM stdin;
 
 
 --
--- Data for Name: forecast_cat; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: forecast_cat; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.forecast_cat (fc_id, fc_desc, f_id, fc_order) FROM stdin;
@@ -1029,7 +1029,7 @@ COPY public.forecast_cat (fc_id, fc_desc, f_id, fc_order) FROM stdin;
 
 
 --
--- Data for Name: forecast_item; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: forecast_item; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.forecast_item (fi_id, fi_text, fi_account, fi_card, fi_order, fc_id, fi_amount, fi_debit, fi_pid) FROM stdin;
@@ -1037,7 +1037,7 @@ COPY public.forecast_item (fi_id, fi_text, fi_account, fi_card, fi_order, fc_id,
 
 
 --
--- Data for Name: formdef; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: formdef; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.formdef (fr_id, fr_label) FROM stdin;
@@ -1046,7 +1046,7 @@ COPY public.formdef (fr_id, fr_label) FROM stdin;
 
 
 --
--- Data for Name: form; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: form; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.form (fo_id, fo_fr_id, fo_pos, fo_label, fo_formula) FROM stdin;
@@ -1063,7 +1063,7 @@ COPY public.form (fo_id, fo_fr_id, fo_pos, fo_label, fo_formula) FROM stdin;
 
 
 --
--- Data for Name: plan_analytique; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: plan_analytique; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.plan_analytique (pa_id, pa_name, pa_description) FROM stdin;
@@ -1071,7 +1071,7 @@ COPY public.plan_analytique (pa_id, pa_name, pa_description) FROM stdin;
 
 
 --
--- Data for Name: groupe_analytique; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: groupe_analytique; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.groupe_analytique (ga_id, pa_id, ga_description) FROM stdin;
@@ -1079,7 +1079,7 @@ COPY public.groupe_analytique (ga_id, pa_id, ga_description) FROM stdin;
 
 
 --
--- Data for Name: info_def; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: info_def; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.info_def (id_type, id_description) FROM stdin;
@@ -1089,7 +1089,7 @@ OTHER	Info diverses
 
 
 --
--- Data for Name: jnt_fic_attr; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jnt_fic_attr; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jnt_fic_attr (fd_id, ad_id, jnt_id, jnt_order) FROM stdin;
@@ -1152,7 +1152,7 @@ COPY public.jnt_fic_attr (fd_id, ad_id, jnt_id, jnt_order) FROM stdin;
 
 
 --
--- Data for Name: jnt_letter; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jnt_letter; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jnt_letter (jl_id) FROM stdin;
@@ -1160,7 +1160,7 @@ COPY public.jnt_letter (jl_id) FROM stdin;
 
 
 --
--- Data for Name: jrn_info; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn_info; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn_info (ji_id, jr_id, id_type, ji_value) FROM stdin;
@@ -1168,7 +1168,7 @@ COPY public.jrn_info (ji_id, jr_id, id_type, ji_value) FROM stdin;
 
 
 --
--- Data for Name: jrn_note; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn_note; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn_note (n_id, n_text, jr_id) FROM stdin;
@@ -1176,7 +1176,7 @@ COPY public.jrn_note (n_id, n_text, jr_id) FROM stdin;
 
 
 --
--- Data for Name: jrn_periode; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn_periode; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn_periode (jrn_def_id, p_id, status, id) FROM stdin;
@@ -1236,7 +1236,7 @@ COPY public.jrn_periode (jrn_def_id, p_id, status, id) FROM stdin;
 
 
 --
--- Data for Name: jrn_rapt; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrn_rapt; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrn_rapt (jra_id, jr_id, jra_concerned) FROM stdin;
@@ -1244,7 +1244,7 @@ COPY public.jrn_rapt (jra_id, jr_id, jra_concerned) FROM stdin;
 
 
 --
--- Data for Name: jrnx; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: jrnx; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.jrnx (j_id, j_date, j_montant, j_poste, j_grpt, j_rapt, j_jrn_def, j_debit, j_text, j_centralized, j_internal, j_tech_user, j_tech_date, j_tech_per, j_qcode, f_id) FROM stdin;
@@ -1252,7 +1252,7 @@ COPY public.jrnx (j_id, j_date, j_montant, j_poste, j_grpt, j_rapt, j_jrn_def, j
 
 
 --
--- Data for Name: key_distribution; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: key_distribution; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.key_distribution (kd_id, kd_name, kd_description) FROM stdin;
@@ -1260,7 +1260,7 @@ COPY public.key_distribution (kd_id, kd_name, kd_description) FROM stdin;
 
 
 --
--- Data for Name: key_distribution_detail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: key_distribution_detail; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.key_distribution_detail (ke_id, kd_id, ke_row, ke_percent) FROM stdin;
@@ -1268,7 +1268,7 @@ COPY public.key_distribution_detail (ke_id, kd_id, ke_row, ke_percent) FROM stdi
 
 
 --
--- Data for Name: poste_analytique; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: poste_analytique; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.poste_analytique (po_id, po_name, pa_id, po_amount, po_description, ga_id) FROM stdin;
@@ -1276,7 +1276,7 @@ COPY public.poste_analytique (po_id, po_name, pa_id, po_amount, po_description, 
 
 
 --
--- Data for Name: key_distribution_activity; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: key_distribution_activity; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.key_distribution_activity (ka_id, ke_id, po_id, pa_id) FROM stdin;
@@ -1284,7 +1284,7 @@ COPY public.key_distribution_activity (ka_id, ke_id, po_id, pa_id) FROM stdin;
 
 
 --
--- Data for Name: key_distribution_ledger; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: key_distribution_ledger; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.key_distribution_ledger (kl_id, kd_id, jrn_def_id) FROM stdin;
@@ -1292,7 +1292,7 @@ COPY public.key_distribution_ledger (kl_id, kd_id, jrn_def_id) FROM stdin;
 
 
 --
--- Data for Name: letter_cred; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: letter_cred; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.letter_cred (lc_id, j_id, jl_id) FROM stdin;
@@ -1300,7 +1300,7 @@ COPY public.letter_cred (lc_id, j_id, jl_id) FROM stdin;
 
 
 --
--- Data for Name: letter_deb; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: letter_deb; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.letter_deb (ld_id, j_id, jl_id) FROM stdin;
@@ -1308,7 +1308,7 @@ COPY public.letter_deb (ld_id, j_id, jl_id) FROM stdin;
 
 
 --
--- Data for Name: menu_default; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: menu_default; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.menu_default (md_id, md_code, me_code) FROM stdin;
@@ -1318,7 +1318,7 @@ COPY public.menu_default (md_id, md_code, me_code) FROM stdin;
 
 
 --
--- Data for Name: menu_ref; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: menu_ref; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.menu_ref (me_code, me_menu, me_file, me_url, me_description, me_parameter, me_javascript, me_type, me_description_etendue) FROM stdin;
@@ -1460,7 +1460,7 @@ RAW:document_template	Exporte le modèle de document	export_document_template.ph
 
 
 --
--- Data for Name: mod_payment; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: mod_payment; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.mod_payment (mp_id, mp_lib, mp_jrn_def_id, mp_fd_id, mp_qcode, jrn_def_id) FROM stdin;
@@ -1472,7 +1472,7 @@ COPY public.mod_payment (mp_id, mp_lib, mp_jrn_def_id, mp_fd_id, mp_qcode, jrn_d
 
 
 --
--- Data for Name: op_predef; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: op_predef; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.op_predef (od_id, jrn_def_id, od_name, od_item, od_jrn_type, od_direct, od_description) FROM stdin;
@@ -1480,7 +1480,7 @@ COPY public.op_predef (od_id, jrn_def_id, od_name, od_item, od_jrn_type, od_dire
 
 
 --
--- Data for Name: op_predef_detail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: op_predef_detail; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.op_predef_detail (opd_id, od_id, opd_poste, opd_amount, opd_tva_id, opd_quantity, opd_debit, opd_tva_amount, opd_comment, opd_qc) FROM stdin;
@@ -1488,7 +1488,7 @@ COPY public.op_predef_detail (opd_id, od_id, opd_poste, opd_amount, opd_tva_id, 
 
 
 --
--- Data for Name: operation_analytique; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: operation_analytique; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.operation_analytique (oa_id, po_id, oa_amount, oa_description, oa_debit, j_id, oa_group, oa_date, oa_row, oa_jrnx_id_source, oa_positive, f_id) FROM stdin;
@@ -1496,7 +1496,7 @@ COPY public.operation_analytique (oa_id, po_id, oa_amount, oa_description, oa_de
 
 
 --
--- Data for Name: parameter; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: parameter; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.parameter (pr_id, pr_value) FROM stdin;
@@ -1523,7 +1523,7 @@ MY_STOCK	N
 
 
 --
--- Data for Name: parm_code; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: parm_code; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.parm_code (p_code, p_value, p_comment) FROM stdin;
@@ -1543,7 +1543,7 @@ DNA	67	Dépense non déductible
 
 
 --
--- Data for Name: parm_money; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: parm_money; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.parm_money (pm_id, pm_code, pm_rate) FROM stdin;
@@ -1552,7 +1552,7 @@ COPY public.parm_money (pm_id, pm_code, pm_rate) FROM stdin;
 
 
 --
--- Data for Name: parm_poste; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: parm_poste; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.parm_poste (p_value, p_type) FROM stdin;
@@ -1604,7 +1604,7 @@ COPY public.parm_poste (p_value, p_type) FROM stdin;
 
 
 --
--- Data for Name: profile_menu_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: profile_menu_type; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.profile_menu_type (pm_type, pm_desc) FROM stdin;
@@ -1616,7 +1616,7 @@ M	Module
 
 
 --
--- Data for Name: profile_menu; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: profile_menu; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.profile_menu (pm_id, me_code, me_code_dep, p_id, p_order, p_type_display, pm_default, pm_id_dep) FROM stdin;
@@ -1897,7 +1897,7 @@ COPY public.profile_menu (pm_id, me_code, me_code_dep, p_id, p_order, p_type_dis
 
 
 --
--- Data for Name: stock_repository; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: stock_repository; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.stock_repository (r_id, r_name, r_adress, r_country, r_city, r_phone) FROM stdin;
@@ -1906,7 +1906,7 @@ COPY public.stock_repository (r_id, r_name, r_adress, r_country, r_city, r_phone
 
 
 --
--- Data for Name: profile_sec_repository; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: profile_sec_repository; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.profile_sec_repository (ur_id, p_id, r_id, ur_right) FROM stdin;
@@ -1916,7 +1916,7 @@ COPY public.profile_sec_repository (ur_id, p_id, r_id, ur_right) FROM stdin;
 
 
 --
--- Data for Name: profile_user; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: profile_user; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.profile_user (user_name, pu_id, p_id) FROM stdin;
@@ -1925,7 +1925,7 @@ phpcompta	1	1
 
 
 --
--- Data for Name: quant_fin; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: quant_fin; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.quant_fin (qf_id, qf_bank, jr_id, qf_other, qf_amount) FROM stdin;
@@ -1933,7 +1933,7 @@ COPY public.quant_fin (qf_id, qf_bank, jr_id, qf_other, qf_amount) FROM stdin;
 
 
 --
--- Data for Name: tva_rate; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tva_rate; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.tva_rate (tva_id, tva_label, tva_rate, tva_comment, tva_poste, tva_both_side) FROM stdin;
@@ -1949,7 +1949,7 @@ COPY public.tva_rate (tva_id, tva_label, tva_rate, tva_comment, tva_poste, tva_b
 
 
 --
--- Data for Name: quant_purchase; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: quant_purchase; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.quant_purchase (qp_id, qp_internal, j_id, qp_fiche, qp_quantite, qp_price, qp_vat, qp_vat_code, qp_nd_amount, qp_nd_tva, qp_nd_tva_recup, qp_supplier, qp_valid, qp_dep_priv, qp_vat_sided, qp_unit) FROM stdin;
@@ -1957,7 +1957,7 @@ COPY public.quant_purchase (qp_id, qp_internal, j_id, qp_fiche, qp_quantite, qp_
 
 
 --
--- Data for Name: quant_sold; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: quant_sold; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.quant_sold (qs_id, qs_internal, qs_fiche, qs_quantite, qs_price, qs_vat, qs_vat_code, qs_client, qs_valid, j_id, qs_vat_sided, qs_unit) FROM stdin;
@@ -1965,7 +1965,7 @@ COPY public.quant_sold (qs_id, qs_internal, qs_fiche, qs_quantite, qs_price, qs_
 
 
 --
--- Data for Name: stock_change; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: stock_change; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.stock_change (c_id, c_comment, c_date, tech_user, r_id, tech_date) FROM stdin;
@@ -1973,7 +1973,7 @@ COPY public.stock_change (c_id, c_comment, c_date, tech_user, r_id, tech_date) F
 
 
 --
--- Data for Name: stock_goods; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: stock_goods; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.stock_goods (sg_id, j_id, f_id, sg_code, sg_quantity, sg_type, sg_date, sg_tech_date, sg_tech_user, sg_comment, sg_exercice, r_id, c_id) FROM stdin;
@@ -1981,7 +1981,7 @@ COPY public.stock_goods (sg_id, j_id, f_id, sg_code, sg_quantity, sg_type, sg_da
 
 
 --
--- Data for Name: tmp_stockgood; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tmp_stockgood; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.tmp_stockgood (s_id, s_date) FROM stdin;
@@ -1989,7 +1989,7 @@ COPY public.tmp_stockgood (s_id, s_date) FROM stdin;
 
 
 --
--- Data for Name: tmp_stockgood_detail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tmp_stockgood_detail; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.tmp_stockgood_detail (d_id, s_id, sg_code, s_qin, s_qout, r_id, f_id) FROM stdin;
@@ -1997,7 +1997,7 @@ COPY public.tmp_stockgood_detail (d_id, s_id, sg_code, s_qin, s_qout, r_id, f_id
 
 
 --
--- Data for Name: todo_list; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: todo_list; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.todo_list (tl_id, tl_date, tl_title, tl_desc, use_login, is_public) FROM stdin;
@@ -2005,7 +2005,7 @@ COPY public.todo_list (tl_id, tl_date, tl_title, tl_desc, use_login, is_public) 
 
 
 --
--- Data for Name: todo_list_shared; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: todo_list_shared; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.todo_list_shared (id, todo_list_id, use_login) FROM stdin;
@@ -2013,7 +2013,7 @@ COPY public.todo_list_shared (id, todo_list_id, use_login) FROM stdin;
 
 
 --
--- Data for Name: tool_uos; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: tool_uos; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.tool_uos (uos_value) FROM stdin;
@@ -2021,7 +2021,7 @@ COPY public.tool_uos (uos_value) FROM stdin;
 
 
 --
--- Data for Name: user_active_security; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user_active_security; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.user_active_security (id, us_login, us_ledger, us_action) FROM stdin;
@@ -2030,7 +2030,7 @@ COPY public.user_active_security (id, us_login, us_ledger, us_action) FROM stdin
 
 
 --
--- Data for Name: user_filter; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user_filter; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.user_filter (id, login, nb_jrn, date_start, date_end, description, amount_min, amount_max, qcode, accounting, r_jrn, date_paid_start, date_paid_end, ledger_type, all_ledger, filter_name, unpaid) FROM stdin;
@@ -2038,7 +2038,7 @@ COPY public.user_filter (id, login, nb_jrn, date_start, date_end, description, a
 
 
 --
--- Data for Name: user_local_pref; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user_local_pref; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.user_local_pref (user_id, parameter_type, parameter_value) FROM stdin;
@@ -2046,7 +2046,7 @@ COPY public.user_local_pref (user_id, parameter_type, parameter_value) FROM stdi
 
 
 --
--- Data for Name: user_sec_act; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user_sec_act; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.user_sec_act (ua_id, ua_login, ua_act_id) FROM stdin;
@@ -2054,7 +2054,7 @@ COPY public.user_sec_act (ua_id, ua_login, ua_act_id) FROM stdin;
 
 
 --
--- Data for Name: user_sec_action_profile; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user_sec_action_profile; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.user_sec_action_profile (ua_id, p_id, p_granted, ua_right) FROM stdin;
@@ -2068,7 +2068,7 @@ COPY public.user_sec_action_profile (ua_id, p_id, p_granted, ua_right) FROM stdi
 
 
 --
--- Data for Name: user_sec_jrn; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user_sec_jrn; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.user_sec_jrn (uj_id, uj_login, uj_jrn_id, uj_priv) FROM stdin;
@@ -2076,7 +2076,7 @@ COPY public.user_sec_jrn (uj_id, uj_login, uj_jrn_id, uj_priv) FROM stdin;
 
 
 --
--- Data for Name: version; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: version; Type: TABLE DATA; Schema: public; Owner: prisma
 --
 
 COPY public.version (val, v_description, v_date) FROM stdin;
@@ -2087,784 +2087,784 @@ COPY public.version (val, v_description, v_date) FROM stdin;
 
 
 --
--- Name: action_detail_ad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_detail_ad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_detail_ad_id_seq', 1, false);
 
 
 --
--- Name: action_gestion_ag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_gestion_ag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_gestion_ag_id_seq', 1, false);
 
 
 --
--- Name: action_gestion_comment_agc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_gestion_comment_agc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_gestion_comment_agc_id_seq', 1, false);
 
 
 --
--- Name: action_gestion_operation_ago_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_gestion_operation_ago_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_gestion_operation_ago_id_seq', 1, false);
 
 
 --
--- Name: action_gestion_related_aga_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_gestion_related_aga_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_gestion_related_aga_id_seq', 1, false);
 
 
 --
--- Name: action_person_ap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_person_ap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_person_ap_id_seq', 1, false);
 
 
 --
--- Name: action_tags_at_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: action_tags_at_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.action_tags_at_id_seq', 1, false);
 
 
 --
--- Name: bilan_b_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: bilan_b_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.bilan_b_id_seq', 9, true);
 
 
 --
--- Name: bookmark_b_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: bookmark_b_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.bookmark_b_id_seq', 1, false);
 
 
 --
--- Name: bud_card_bc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: bud_card_bc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.bud_card_bc_id_seq', 1, false);
 
 
 --
--- Name: bud_detail_bd_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: bud_detail_bd_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.bud_detail_bd_id_seq', 1, false);
 
 
 --
--- Name: bud_detail_periode_bdp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: bud_detail_periode_bdp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.bud_detail_periode_bdp_id_seq', 1, false);
 
 
 --
--- Name: del_action_del_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: del_action_del_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.del_action_del_id_seq', 1, false);
 
 
 --
--- Name: del_jrn_dj_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: del_jrn_dj_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.del_jrn_dj_id_seq', 1, false);
 
 
 --
--- Name: del_jrnx_djx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: del_jrnx_djx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.del_jrnx_djx_id_seq', 1, false);
 
 
 --
--- Name: document_d_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: document_d_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.document_d_id_seq', 1, false);
 
 
 --
--- Name: document_modele_md_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: document_modele_md_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.document_modele_md_id_seq', 1, false);
 
 
 --
--- Name: document_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: document_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.document_seq', 1, false);
 
 
 --
--- Name: document_state_s_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: document_state_s_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.document_state_s_id_seq', 100, false);
 
 
 --
--- Name: document_type_dt_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: document_type_dt_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.document_type_dt_id_seq', 25, false);
 
 
 --
--- Name: extension_ex_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: extension_ex_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.extension_ex_id_seq', 1, true);
 
 
 --
--- Name: forecast_cat_fc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: forecast_cat_fc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.forecast_cat_fc_id_seq', 1, false);
 
 
 --
--- Name: forecast_f_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: forecast_f_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.forecast_f_id_seq', 1, false);
 
 
 --
--- Name: forecast_item_fi_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: forecast_item_fi_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.forecast_item_fi_id_seq', 1, false);
 
 
 --
--- Name: historique_analytique_ha_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: historique_analytique_ha_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.historique_analytique_ha_id_seq', 1, false);
 
 
 --
--- Name: jnt_letter_jl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: jnt_letter_jl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.jnt_letter_jl_id_seq', 1, false);
 
 
 --
--- Name: jrn_info_ji_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: jrn_info_ji_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.jrn_info_ji_id_seq', 1, false);
 
 
 --
--- Name: jrn_note_n_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: jrn_note_n_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.jrn_note_n_id_seq', 1, false);
 
 
 --
--- Name: jrn_periode_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: jrn_periode_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.jrn_periode_id_seq', 52, true);
 
 
 --
--- Name: key_distribution_activity_ka_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: key_distribution_activity_ka_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.key_distribution_activity_ka_id_seq', 1, false);
 
 
 --
--- Name: key_distribution_detail_ke_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: key_distribution_detail_ke_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.key_distribution_detail_ke_id_seq', 1, false);
 
 
 --
--- Name: key_distribution_kd_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: key_distribution_kd_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.key_distribution_kd_id_seq', 1, false);
 
 
 --
--- Name: key_distribution_ledger_kl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: key_distribution_ledger_kl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.key_distribution_ledger_kl_id_seq', 1, false);
 
 
 --
--- Name: letter_cred_lc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: letter_cred_lc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.letter_cred_lc_id_seq', 1, false);
 
 
 --
--- Name: letter_deb_ld_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: letter_deb_ld_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.letter_deb_ld_id_seq', 1, false);
 
 
 --
--- Name: link_action_type_l_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: link_action_type_l_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.link_action_type_l_id_seq', 1, false);
 
 
 --
--- Name: menu_default_md_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: menu_default_md_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.menu_default_md_id_seq', 2, true);
 
 
 --
--- Name: mod_payment_mp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: mod_payment_mp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.mod_payment_mp_id_seq', 10, true);
 
 
 --
--- Name: op_def_op_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: op_def_op_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.op_def_op_seq', 1, false);
 
 
 --
--- Name: op_predef_detail_opd_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: op_predef_detail_opd_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.op_predef_detail_opd_id_seq', 1, false);
 
 
 --
--- Name: plan_analytique_pa_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: plan_analytique_pa_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.plan_analytique_pa_id_seq', 1, false);
 
 
 --
--- Name: poste_analytique_po_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: poste_analytique_po_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.poste_analytique_po_id_seq', 1, false);
 
 
 --
--- Name: profile_menu_pm_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: profile_menu_pm_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.profile_menu_pm_id_seq', 851, true);
 
 
 --
--- Name: profile_p_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: profile_p_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.profile_p_id_seq', 11, true);
 
 
 --
--- Name: profile_sec_repository_ur_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: profile_sec_repository_ur_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.profile_sec_repository_ur_id_seq', 2, true);
 
 
 --
--- Name: profile_user_pu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: profile_user_pu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.profile_user_pu_id_seq', 6, true);
 
 
 --
--- Name: quant_fin_qf_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: quant_fin_qf_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.quant_fin_qf_id_seq', 1, false);
 
 
 --
--- Name: s_attr_def; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_attr_def; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_attr_def', 9001, false);
 
 
 --
--- Name: s_cbc; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_cbc; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_cbc', 1, false);
 
 
 --
--- Name: s_central; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_central; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_central', 1, false);
 
 
 --
--- Name: s_central_order; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_central_order; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_central_order', 1, false);
 
 
 --
--- Name: s_centralized; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_centralized; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_centralized', 1, false);
 
 
 --
--- Name: s_currency; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_currency; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_currency', 1, true);
 
 
 --
--- Name: s_fdef; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_fdef; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_fdef', 6, true);
 
 
 --
--- Name: s_fiche; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_fiche; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_fiche', 20, true);
 
 
 --
--- Name: s_fiche_def_ref; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_fiche_def_ref; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_fiche_def_ref', 16, true);
 
 
 --
--- Name: s_form; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_form; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_form', 1, false);
 
 
 --
--- Name: s_formdef; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_formdef; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_formdef', 1, false);
 
 
 --
--- Name: s_grpt; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_grpt; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_grpt', 2, true);
 
 
 --
--- Name: s_idef; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_idef; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_idef', 1, false);
 
 
 --
--- Name: s_internal; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_internal; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_internal', 1, false);
 
 
 --
--- Name: s_invoice; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_invoice; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_invoice', 1, false);
 
 
 --
--- Name: s_isup; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_isup; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_isup', 1, false);
 
 
 --
--- Name: s_jnt_fic_att_value; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jnt_fic_att_value; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jnt_fic_att_value', 371, true);
 
 
 --
--- Name: s_jnt_id; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jnt_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jnt_id', 56, true);
 
 
 --
--- Name: s_jrn; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn', 1, false);
 
 
 --
--- Name: s_jrn_1; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_1; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_1', 1, false);
 
 
 --
--- Name: s_jrn_2; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_2; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_2', 1, false);
 
 
 --
--- Name: s_jrn_3; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_3; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_3', 1, false);
 
 
 --
--- Name: s_jrn_4; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_4; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_4', 1, false);
 
 
 --
--- Name: s_jrn_def; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_def; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_def', 5, false);
 
 
 --
--- Name: s_jrn_op; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_op; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_op', 1, false);
 
 
 --
--- Name: s_jrn_pj1; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_pj1; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_pj1', 1, false);
 
 
 --
--- Name: s_jrn_pj2; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_pj2; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_pj2', 1, false);
 
 
 --
--- Name: s_jrn_pj3; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_pj3; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_pj3', 1, false);
 
 
 --
--- Name: s_jrn_pj4; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_pj4; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_pj4', 1, false);
 
 
 --
--- Name: s_jrn_rapt; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrn_rapt; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrn_rapt', 1, false);
 
 
 --
--- Name: s_jrnaction; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrnaction; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrnaction', 5, true);
 
 
 --
--- Name: s_jrnx; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_jrnx; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_jrnx', 1, false);
 
 
 --
--- Name: s_oa_group; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_oa_group; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_oa_group', 1, true);
 
 
 --
--- Name: s_periode; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_periode; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_periode', 91, true);
 
 
 --
--- Name: s_quantity; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_quantity; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_quantity', 7, true);
 
 
 --
--- Name: s_stock_goods; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_stock_goods; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_stock_goods', 1, false);
 
 
 --
--- Name: s_tva; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_tva; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_tva', 1001, true);
 
 
 --
--- Name: s_user_act; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_user_act; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_user_act', 1, false);
 
 
 --
--- Name: s_user_jrn; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: s_user_jrn; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.s_user_jrn', 1, false);
 
 
 --
--- Name: seq_bud_hypothese_bh_id; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_bud_hypothese_bh_id; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_bud_hypothese_bh_id', 1, false);
 
 
 --
--- Name: seq_doc_type_1; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_1; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_1', 1, false);
 
 
 --
--- Name: seq_doc_type_10; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_10; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_10', 1, false);
 
 
 --
--- Name: seq_doc_type_2; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_2; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_2', 1, false);
 
 
 --
--- Name: seq_doc_type_20; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_20; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_20', 1, false);
 
 
 --
--- Name: seq_doc_type_21; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_21; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_21', 1, false);
 
 
 --
--- Name: seq_doc_type_22; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_22; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_22', 1, false);
 
 
 --
--- Name: seq_doc_type_3; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_3; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_3', 1, false);
 
 
 --
--- Name: seq_doc_type_4; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_4; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_4', 1, false);
 
 
 --
--- Name: seq_doc_type_5; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_5; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_5', 1, false);
 
 
 --
--- Name: seq_doc_type_6; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_6; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_6', 1, false);
 
 
 --
--- Name: seq_doc_type_7; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_7; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_7', 1, false);
 
 
 --
--- Name: seq_doc_type_8; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_8; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_8', 1, false);
 
 
 --
--- Name: seq_doc_type_9; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seq_doc_type_9; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.seq_doc_type_9', 1, false);
 
 
 --
--- Name: stock_change_c_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: stock_change_c_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.stock_change_c_id_seq', 1, false);
 
 
 --
--- Name: stock_repository_r_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: stock_repository_r_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.stock_repository_r_id_seq', 1, true);
 
 
 --
--- Name: tags_t_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: tags_t_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.tags_t_id_seq', 1, false);
 
 
 --
--- Name: tmp_pcmn_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: tmp_pcmn_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.tmp_pcmn_id_seq', 1034, true);
 
 
 --
--- Name: tmp_stockgood_detail_d_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_detail_d_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.tmp_stockgood_detail_d_id_seq', 1, false);
 
 
 --
--- Name: tmp_stockgood_s_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: tmp_stockgood_s_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.tmp_stockgood_s_id_seq', 1, false);
 
 
 --
--- Name: todo_list_shared_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: todo_list_shared_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.todo_list_shared_id_seq', 1, false);
 
 
 --
--- Name: todo_list_tl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: todo_list_tl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.todo_list_tl_id_seq', 1, false);
 
 
 --
--- Name: uos_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: uos_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.uos_pk_seq', 1, false);
 
 
 --
--- Name: user_active_security_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: user_active_security_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.user_active_security_id_seq', 1, true);
 
 
 --
--- Name: user_filter_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: user_filter_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.user_filter_id_seq', 1, false);
 
 
 --
--- Name: user_sec_action_profile_ua_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: user_sec_action_profile_ua_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prisma
 --
 
 SELECT pg_catalog.setval('public.user_sec_action_profile_ua_id_seq', 6, true);
