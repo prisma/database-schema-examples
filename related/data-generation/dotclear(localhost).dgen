@@ -1,0 +1,3261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), Data-Generator document file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<DataGenDocument xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="5.0">
+  <Settings>
+    <Provider>59f90733-4d68-4fdf-82a7-f0fcbf5460aa</Provider>
+    <ConnectionString>User Id=root;Host=localhost;Character Set=utf8</ConnectionString>
+    <CategoryId>00000000-0000-0000-0000-000000000000</CategoryId>
+    <AllowNulls>true</AllowNulls>
+    <IncludeNullsPercent>10</IncludeNullsPercent>
+    <AllowEmptyString>true</AllowEmptyString>
+    <IncludeEmptyStringPercent>10</IncludeEmptyStringPercent>
+    <DatabaseName>dotclear</DatabaseName>
+    <PopulationType>RowsCount</PopulationType>
+    <RowsToGenerate>100</RowsToGenerate>
+    <ProportionOfExistingData>10</ProportionOfExistingData>
+    <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+    <GenerateUniqueValues>false</GenerateUniqueValues>
+    <TruncateTables>true</TruncateTables>
+    <DistributionMode>Seed</DistributionMode>
+    <Seed>1</Seed>
+    <LastSeedValue>0</LastSeedValue>
+  </Settings>
+  <Tables>
+    <Table Name="dotc_blog">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>1</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="blog_uid">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>2</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="blog_creadt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>1</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="blog_upddt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>2</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="blog_url">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>3</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="blog_name">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>4</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="blog_desc">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>5</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="blog_status">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>1</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>1</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_session">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="ses_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>58</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>40</Length>
+        </Column>
+        <Column Name="ses_time">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>58</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="ses_start">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>59</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="ses_value">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>59</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_version">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="module">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>79</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>64</Length>
+        </Column>
+        <Column Name="version">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>80</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_category">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="cat_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>6</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>6</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="cat_title">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>6</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="cat_url">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>7</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="cat_desc">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>8</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="cat_position">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>6</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="cat_lft">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>7</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>NULL</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="cat_rgt">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>8</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>NULL</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_user">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="user_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>67</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="user_super">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>67</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>NULL</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="user_status">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>68</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>1</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="user_pwd">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>68</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_change_pwd">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>69</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="user_recover_key">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>69</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="user_name">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>70</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_firstname">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>71</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_displayname">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>72</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_email">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>73</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_url">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>74</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_desc">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>75</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="user_default_blog">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>67</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="user_options">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>76</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="user_lang">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>77</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>5</Length>
+        </Column>
+        <Column Name="user_tz">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>78</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="user_post_status">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>70</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>-2</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="user_creadt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>67</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="user_upddt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>68</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_media">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="media_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="user_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="media_path">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="media_title">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>28</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="media_file">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>29</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="media_dir">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>30</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="media_meta">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>31</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="media_dt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="media_creadt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>28</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="media_upddt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>29</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="media_private">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_post">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="post_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="user_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="cat_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>39</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="post_dt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="post_tz">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="post_creadt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="post_upddt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>39</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="post_password">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="post_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>39</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="post_format">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>40</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="post_url">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>41</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="post_lang">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>42</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>5</Length>
+        </Column>
+        <Column Name="post_title">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>43</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="post_excerpt">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>44</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_excerpt_xhtml">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>45</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_content">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>46</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_content_xhtml">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>47</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_notes">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>48</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_meta">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>49</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_words">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>50</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="post_status">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="post_firstpub">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="post_selected">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>39</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="post_position">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="post_open_comment">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>40</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="post_open_tb">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>41</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="nb_comment">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="nb_trackback">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>39</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_comment">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="comment_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="post_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="comment_dt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="comment_tz">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="comment_upddt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>10</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="comment_author">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>10</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="comment_email">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>11</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="comment_site">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>12</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="comment_content">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>13</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="comment_words">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>14</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="comment_ip">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>15</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>39</Length>
+        </Column>
+        <Column Name="comment_status">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+        <Column Name="comment_spam_status">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>16</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="comment_spam_filter">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>17</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="comment_trackback">
+          <Checked>true</Checked>
+          <DataType>SMALLINT</DataType>
+          <GeneratorOptions xsi:type="SmallIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:short">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>10</SeedValue>
+            <MinValue>-32768</MinValue>
+            <MaxValue>32767</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlSmallIntegerGenerator</GeneratorType>
+          <GeneratorName>smallint</GeneratorName>
+          <GeneratorDescription>fill with 16-bit signed integer values</GeneratorDescription>
+          <Precision>6</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_link">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="link_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>18</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>18</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="link_href">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>18</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="link_title">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>19</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="link_desc">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>20</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="link_lang">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>21</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>5</Length>
+        </Column>
+        <Column Name="link_xfn">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>22</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="link_position">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>18</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_log">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="log_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>23</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="user_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>23</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>23</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="log_table">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>24</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="log_dt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>23</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+        <Column Name="log_ip">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>25</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>39</Length>
+        </Column>
+        <Column Name="log_msg">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>26</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_meta">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="meta_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>32</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="meta_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>33</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>64</Length>
+        </Column>
+        <Column Name="post_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>32</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Precision>20</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_permissions">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="user_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>34</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>35</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="permissions">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>34</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_ping">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="post_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>36</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="ping_url">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>36</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="ping_dt">
+          <Checked>true</Checked>
+          <DataType>DATETIME</DataType>
+          <GeneratorOptions xsi:type="MySqlDateTimeGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>36</SeedValue>
+            <SequentialValueTicks>864000000000</SequentialValueTicks>
+            <OffsetFromColumnMaxTimeTicks>10000000</OffsetFromColumnMaxTimeTicks>
+            <OffsetFromColumnMinTimeTicks>10000000</OffsetFromColumnMinTimeTicks>
+            <DateTimeRange>MinMaxDate</DateTimeRange>
+            <UseOffsetDetails>false</UseOffsetDetails>
+            <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
+            <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
+            <MinDate>1970-01-01T00:00:00</MinDate>
+            <MaxDate>2020-02-26T00:00:00+01:00</MaxDate>
+            <IsRandomizeDate>true</IsRandomizeDate>
+            <MinFraction>0</MinFraction>
+            <MaxFraction>0</MaxFraction>
+            <MaxAllowedFraction>0</MaxAllowedFraction>
+            <IsRandomizeFraction>true</IsRandomizeFraction>
+            <Scale>0</Scale>
+            <Precision>0</Precision>
+            <IsRandomizeTime>true</IsRandomizeTime>
+            <MaxTime>863990000000</MaxTime>
+            <MinTime>10000000</MinTime>
+          </GeneratorOptions>
+          <GeneratorType>MySqlDateTimeGenerator</GeneratorType>
+          <GeneratorName>datetime</GeneratorName>
+          <GeneratorDescription>fill with date and time with fractional seconds values</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_post_media">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="media_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>51</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="post_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>52</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="link_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>51</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_pref">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="pref_ws">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>53</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="pref_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>54</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="user_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>53</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="pref_value">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>55</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="pref_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>56</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>8</Length>
+        </Column>
+        <Column Name="pref_label">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>57</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_setting">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="setting_ns">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>60</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="setting_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>61</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>60</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="setting_value">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>62</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="setting_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>63</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>8</Length>
+        </Column>
+        <Column Name="setting_label">
+          <Checked>true</Checked>
+          <DataType>LONGTEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>64</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>(\h{2})+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="dotc_spamrule">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="rule_id">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="BigIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>65</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>9223372036854775807</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint</GeneratorName>
+          <GeneratorDescription>fill with 64-bit signed integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="blog_id">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>65</SeedValue>
+            <RepeatValues>false</RepeatValues>
+            <FromTimes>1</FromTimes>
+            <ToTimes>10</ToTimes>
+            <ExcludeValues>false</ExcludeValues>
+            <ExclusionValuesPercent>1</ExclusionValuesPercent>
+          </GeneratorOptions>
+          <GeneratorType>ForeignKeyGenerator</GeneratorType>
+          <GeneratorName>Foreign Key (auto assigned)</GeneratorName>
+          <GeneratorDescription>references a column from parent table</GeneratorDescription>
+          <HasForeignKey>true</HasForeignKey>
+          <Length>32</Length>
+        </Column>
+        <Column Name="rule_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>65</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>16</Length>
+        </Column>
+        <Column Name="rule_content">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>66</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <SynchronizationOptions xsi:type="DataSyncOptionGroup">
+    <SynchronizationFileName>C:\Users\Jan\Documents\Devart\DataGeneration_20200226-1845.sql</SynchronizationFileName>
+    <ExecuteCustomScriptTypeBefore>UseEmbeddedScript</ExecuteCustomScriptTypeBefore>
+    <ExecuteCustomScriptTypeAfter>UseEmbeddedScript</ExecuteCustomScriptTypeAfter>
+    <BulkInsert>false</BulkInsert>
+    <DisableForeignKeys>true</DisableForeignKeys>
+  </SynchronizationOptions>
+</DataGenDocument>

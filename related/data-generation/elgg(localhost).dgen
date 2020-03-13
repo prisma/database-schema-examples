@@ -1,0 +1,3199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), Data-Generator document file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<DataGenDocument xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="5.0">
+  <Settings>
+    <Provider>59f90733-4d68-4fdf-82a7-f0fcbf5460aa</Provider>
+    <ConnectionString>User Id=root;Host=localhost;Character Set=utf8</ConnectionString>
+    <CategoryId>00000000-0000-0000-0000-000000000000</CategoryId>
+    <AllowNulls>true</AllowNulls>
+    <IncludeNullsPercent>10</IncludeNullsPercent>
+    <AllowEmptyString>true</AllowEmptyString>
+    <IncludeEmptyStringPercent>10</IncludeEmptyStringPercent>
+    <DatabaseName>elgg</DatabaseName>
+    <PopulationType>RowsCount</PopulationType>
+    <RowsToGenerate>100</RowsToGenerate>
+    <ProportionOfExistingData>10</ProportionOfExistingData>
+    <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+    <GenerateUniqueValues>false</GenerateUniqueValues>
+    <TruncateTables>true</TruncateTables>
+    <DistributionMode>Seed</DistributionMode>
+    <Seed>1</Seed>
+    <LastSeedValue>0</LastSeedValue>
+  </Settings>
+  <Tables>
+    <Table Name="elgg_access_collections">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>2</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>2</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="owner_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>2</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="site_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>3</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_access_collection_membership">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="user_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>1</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="access_collection_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>1</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_annotations">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>4</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="entity_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>4</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="name_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>5</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="value_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>6</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="value_type">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>4</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>integer</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>text</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="owner_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>5</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="access_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>7</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="time_created">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>8</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="enabled">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>5</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_api_users">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="site_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>NULL</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="api_key">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>9</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>40</Length>
+        </Column>
+        <Column Name="secret">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>10</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>40</Length>
+        </Column>
+        <Column Name="active">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>10</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>1</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>1</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_config">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>11</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="site_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>11</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="value">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>12</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_datalists">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>13</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="value">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>14</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_entities">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>15</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="type">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>15</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>object</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>user</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>group</Name>
+                </Value>
+                <Weight>30</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>site</Name>
+                </Value>
+                <Weight>40</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="subtype">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>15</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>NULL</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="owner_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>16</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="site_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>17</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="container_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>18</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="access_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>16</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="time_created">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>17</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="time_updated">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>18</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="last_action">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>19</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="enabled">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>16</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_entity_relationships">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>20</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="guid_one">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>20</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="relationship">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>20</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>50</Length>
+        </Column>
+        <Column Name="guid_two">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>21</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="time_created">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>21</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_entity_subtypes">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>22</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="type">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>22</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>object</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>user</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>group</Name>
+                </Value>
+                <Weight>30</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>site</Name>
+                </Value>
+                <Weight>40</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="subtype">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>22</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>50</Length>
+        </Column>
+        <Column Name="class">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>23</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_geocode_cache">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>24</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="location">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>24</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="lat">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>25</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>20</Length>
+        </Column>
+        <Column Name="long">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>26</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>20</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_groups_entity">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>27</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="description">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>28</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_hmac_cache">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="hmac">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>29</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="ts">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>29</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_metadata">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>30</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="entity_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>30</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="name_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>31</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="value_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>32</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="value_type">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>30</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>integer</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>text</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="owner_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>31</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="access_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>33</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="time_created">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>34</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="enabled">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>31</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_metastrings">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>35</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="string">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>35</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_objects_entity">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>36</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="title">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>36</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="description">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>37</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_private_settings">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="entity_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>38</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="value">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>39</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_queue">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>40</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>40</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="data">
+          <Checked>true</Checked>
+          <DataType>MEDIUMBLOB</DataType>
+          <GeneratorOptions xsi:type="VarbinaryMaxGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>40</SeedValue>
+            <MinLength>1</MinLength>
+            <MaxLength>200</MaxLength>
+            <MaxAllowedLength>65536</MaxAllowedLength>
+          </GeneratorOptions>
+          <GeneratorType>MySqlBlobBinaryGenerator</GeneratorType>
+          <GeneratorName>binary</GeneratorName>
+          <GeneratorDescription>fill with binary values</GeneratorDescription>
+        </Column>
+        <Column Name="timestamp">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>41</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="worker">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>41</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_river">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>42</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>42</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>8</Length>
+        </Column>
+        <Column Name="subtype">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>43</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="action_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>44</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="access_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>43</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="view">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>45</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="subject_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>42</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="object_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>43</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="target_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>44</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="annotation_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>44</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="posted">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>45</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="enabled">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>42</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_sites_entity">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>46</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>46</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="description">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>47</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="url">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>48</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_system_log">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>49</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="object_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>50</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="object_class">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>49</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>50</Length>
+        </Column>
+        <Column Name="object_type">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>50</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>50</Length>
+        </Column>
+        <Column Name="object_subtype">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>51</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>50</Length>
+        </Column>
+        <Column Name="event">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>52</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>50</Length>
+        </Column>
+        <Column Name="performed_by_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>49</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="owner_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>50</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="access_id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>51</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="enabled">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>49</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="time_created">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>52</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="ip_address">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>53</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>46</Length>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_users_apisessions">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="id">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>54</SeedValue>
+            <MinValue>1</MinValue>
+            <MaxValue>9999999</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="user_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>54</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="site_guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>55</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="token">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>54</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>40</Length>
+        </Column>
+        <Column Name="expires">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>55</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_users_entity">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>56</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="name">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>56</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="username">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>57</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>128</Length>
+        </Column>
+        <Column Name="password">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>58</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="salt">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>59</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>8</Length>
+        </Column>
+        <Column Name="password_hash">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>60</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="email">
+          <Checked>true</Checked>
+          <DataType>TEXT</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>61</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+        </Column>
+        <Column Name="language">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>62</SeedValue>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>6</Length>
+        </Column>
+        <Column Name="banned">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>56</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="admin">
+          <Checked>true</Checked>
+          <DataType>ENUM</DataType>
+          <GeneratorOptions xsi:type="MySqlEnumGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>57</SeedValue>
+            <Values>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>yes</Name>
+                </Value>
+                <Weight>10</Weight>
+              </WeightedListItem>
+              <WeightedListItem>
+                <Value xsi:type="EnumItem">
+                  <Checked>true</Checked>
+                  <Name>no</Name>
+                </Value>
+                <Weight>20</Weight>
+              </WeightedListItem>
+            </Values>
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+          </GeneratorOptions>
+          <GeneratorType>MySqlEnumGenerator</GeneratorType>
+          <GeneratorName>enum</GeneratorName>
+          <GeneratorDescription>fill with string values chosen from a list of permitted values that are enumerated</GeneratorDescription>
+        </Column>
+        <Column Name="last_action">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>56</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="prev_last_action">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>57</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="last_login">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>58</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="prev_last_login">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>59</SeedValue>
+            <MinValue>-2147483648</MinValue>
+            <MaxValue>2147483647</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlIntegerGenerator</GeneratorType>
+          <GeneratorName>int</GeneratorName>
+          <GeneratorDescription>fill with 32-bit signed integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_users_remember_me_cookies">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="code">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>63</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>32</Length>
+        </Column>
+        <Column Name="guid">
+          <Checked>true</Checked>
+          <DataType>BIGINT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedBigIntGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>63</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>18446744073709551615</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedBigIntegerGenerator</GeneratorType>
+          <GeneratorName>bigint unsigned</GeneratorName>
+          <GeneratorDescription>fill with 64-bit unsigned integer values</GeneratorDescription>
+          <Precision>20</Precision>
+        </Column>
+        <Column Name="timestamp">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>63</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>4294967295</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedIntegerGenerator</GeneratorType>
+          <GeneratorName>int unsigned</GeneratorName>
+          <GeneratorDescription>fill with 32-bit unsigned integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+      </Columns>
+    </Table>
+    <Table Name="elgg_users_sessions">
+      <Checked>true</Checked>
+      <Settings>
+        <Truncate>true</Truncate>
+        <RowsToGenerate>0</RowsToGenerate>
+        <PopulationDetails>
+          <PopulationType>RowsCount</PopulationType>
+          <RowsCount>100</RowsCount>
+          <LookupProportion>30</LookupProportion>
+          <ProportionOfExistingData>10</ProportionOfExistingData>
+          <TimeTicksToPopulate>100000000</TimeTicksToPopulate>
+        </PopulationDetails>
+      </Settings>
+      <Columns>
+        <Column Name="session">
+          <Checked>true</Checked>
+          <DataType>VARCHAR</DataType>
+          <GeneratorOptions xsi:type="MySqlRegularExpressionGeneratorOptions">
+            <AllowEmptyStrings>true</AllowEmptyStrings>
+            <EmptyStringProportion>10</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>64</SeedValue>
+            <Unique>true</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Expression>[0-9A-Z]+</Expression>
+          </GeneratorOptions>
+          <GeneratorType>MySqlStringRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>Reg Exp</GeneratorName>
+          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <Length>255</Length>
+        </Column>
+        <Column Name="ts">
+          <Checked>true</Checked>
+          <DataType>INT</DataType>
+          <GeneratorOptions xsi:type="MySqlUnsignedIntegerGeneratorOptions">
+            <AllowNulls>false</AllowNulls>
+            <NullProportion>0</NullProportion>
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <Increment xsi:type="xsd:int">1</Increment>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>64</SeedValue>
+            <MinValue>0</MinValue>
+            <MaxValue>4294967295</MaxValue>
+            <UseDefault>false</UseDefault>
+            <DefaultValue>0</DefaultValue>
+          </GeneratorOptions>
+          <GeneratorType>MySqlUnsignedIntegerGenerator</GeneratorType>
+          <GeneratorName>int unsigned</GeneratorName>
+          <GeneratorDescription>fill with 32-bit unsigned integer values</GeneratorDescription>
+          <Precision>11</Precision>
+        </Column>
+        <Column Name="data">
+          <Checked>true</Checked>
+          <DataType>MEDIUMBLOB</DataType>
+          <GeneratorOptions xsi:type="VarbinaryMaxGeneratorOptions">
+            <Unique>false</Unique>
+            <IsAlwaysUnique>false</IsAlwaysUnique>
+            <AllowNulls>true</AllowNulls>
+            <NullProportion>10</NullProportion>
+            <UseDefault>false</UseDefault>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>64</SeedValue>
+            <MinLength>1</MinLength>
+            <MaxLength>200</MaxLength>
+            <MaxAllowedLength>65536</MaxAllowedLength>
+          </GeneratorOptions>
+          <GeneratorType>MySqlBlobBinaryGenerator</GeneratorType>
+          <GeneratorName>binary</GeneratorName>
+          <GeneratorDescription>fill with binary values</GeneratorDescription>
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <SynchronizationOptions xsi:type="DataSyncOptionGroup">
+    <SynchronizationFileName>C:\Users\Jan\Documents\Devart\DataGeneration_20200226-1845.sql</SynchronizationFileName>
+    <ExecuteCustomScriptTypeBefore>UseEmbeddedScript</ExecuteCustomScriptTypeBefore>
+    <ExecuteCustomScriptTypeAfter>UseEmbeddedScript</ExecuteCustomScriptTypeAfter>
+    <BulkInsert>false</BulkInsert>
+    <DisableForeignKeys>true</DisableForeignKeys>
+  </SynchronizationOptions>
+</DataGenDocument>
