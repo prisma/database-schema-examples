@@ -96,3 +96,12 @@
 ## Unknown
 
 - [Allsquare](allsquare)
+
+## ERDCloud.com exported
+
+- [CI-Board 3 Pro](ciboard3pro)
+- [Gnuboard5](gnuboard5)
+- [OKKY](okky)
+- [Rido](rido)
+- [XpressEngine](xpressengine)
+- [Youngcart5](youngcart5)
