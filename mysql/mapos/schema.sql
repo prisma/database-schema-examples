@@ -493,7 +493,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `emitente`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `emitente` (
+CREATE TABLE IF NOT EXISTS `emitente` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `nome` VARCHAR(255) NULL ,
   `cnpj` VARCHAR(45) NULL ,
