@@ -1,0 +1,13 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      dockerTag:
+        description: 'Docker Tag'     
+        required: true
+        default: 'latest'
+
+jobs:
+  publish-to-docker:
+    runs-on: ubuntu-latest
+    steps:
+    - run: sh build.sh ${{ github.event.inputs.dockerTag }}
