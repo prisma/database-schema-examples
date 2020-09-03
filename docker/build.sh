@@ -24,7 +24,7 @@ docker build -t $POSTGRES_IMAGE_NAME ./docker/postgresql
 # TODO: Test before tag and push
 # docker run -p 5432:5432 $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
 docker tag $POSTGRES_IMAGE_NAME $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
-# docker push $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
+docker push $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
 
 docker run --rm -v "$PWD":/app treeder/bump --filename docker/mysql/VERSION patch
 MYSQL_DOCKER_TAG=$(cat docker/mysql/VERSION)
@@ -41,7 +41,7 @@ docker build -t $MYSQL_IMAGE_NAME ./docker/mysql
 # TODO: Test before tag and push
 # docker run -p 3306:3306 $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
 docker tag $MYSQL_IMAGE_NAME $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
-# docker push $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
+docker push $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
 
 (cd docker && docker-compose down)
 
