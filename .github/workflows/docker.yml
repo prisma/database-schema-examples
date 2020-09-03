@@ -1,10 +1,11 @@
 on:
   workflow_dispatch:
 
+env:
+  CI: 1
+  DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
 jobs:
-  env:
-    CI: 1
-    DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
   publish-to-docker:
     runs-on: ubuntu-latest
     steps:
