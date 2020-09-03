@@ -1,13 +1,11 @@
-on: 
+on:
   workflow_dispatch:
-    inputs:
-      dockerTag:
-        description: 'Docker Tag'     
-        required: true
-        default: 'latest'
 
 jobs:
+  env:
+    CI: 1
+    DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
   publish-to-docker:
     runs-on: ubuntu-latest
     steps:
-    - run: sh build.sh ${{ github.event.inputs.dockerTag }}
+      - run: sh build.sh ${{ github.event.inputs.dockerTag }}

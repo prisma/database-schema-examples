@@ -1,28 +1,55 @@
 #!/bin/bash
 
-set -eu
+DOCKER_HUB_USERNAME=divyenduz
 
-DOCKER_TAG=$1
-echo "DOCKER_TAG: $DOCKER_TAG"
+if [ ! -z "$DOCKER_HUB_TOKEN" ]; then
+docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_TOKEN"
+fi
+
+set -eu
 
 (cd docker && docker-compose up -d)
 
-npx db-knife --template clean-load --db postgres://root:prisma@127.0.0.1:5432 --folder ./postgres | sh
-npx db-knife --template before-load --db postgres://root:prisma@127.0.0.1:5432 --folder ./postgres | sh
-npx db-knife --db postgres://root:prisma@127.0.0.1:5432 --folder ./postgres | sh
-docker cp docker_postgres_1:/var/lib/postgresql/data ./docker/postgresql/data 
-# TODO: Uncomment the docker push logic, if we want
-# docker build -t postgres-with-data ./docker/postgresql
-# TODO: Test before tag and push
-# docker tag postgres-with-data divyenduz/postgres-with-data # TODO: tag to a specific version
-# docker push divyenduz/postgres-with-data # TODO: push to a specific version and authenticate in CI
+docker run --rm -v "$PWD":/app treeder/bump --filename docker/postgresql/VERSION patch
+POSTGRES_DOCKER_TAG=$(cat docker/postgresql/VERSION)
+echo "POSTGRES_DOCKER_TAG: $POSTGRES_DOCKER_TAG"
 
-npx db-knife --template clean-load --db mysql://root:prisma@127.0.0.1:3306 --folder ./mysql | sh
-npx db-knife --template before-load --db mysql://root:prisma@127.0.0.1:3306 --folder ./mysql | sh
-npx db-knife --db mysql://root:prisma@127.0.0.1:3306 --folder ./mysql | sh
-docker cp docker_mysql_1:/var/lib/mysql ./docker/mysql/data
-# TODO: Uncomment the docker push logic, if we want
-# docker build -t mysql-with-data ./docker/mysql
+POSTGRES_IMAGE_NAME=postgres-with-data
+npx db-knife --template clean-load --db postgres://root:prisma@127.0.0.1:5432 --folder ./postgres | sh | true
+npx db-knife --template before-load --db postgres://root:prisma@127.0.0.1:5432 --folder ./postgres | sh | true
+npx db-knife --db postgres://root:prisma@127.0.0.1:5432 --folder ./postgres | sh | true
+rm -rf ./docker/postgresql/data
+docker cp docker_postgres_1:/var/lib/postgresql/data ./docker/postgresql/data
+docker build -t $POSTGRES_IMAGE_NAME ./docker/postgresql
 # TODO: Test before tag and push
-# docker tag mysql-with-data divyenduz/mysql-with-data # TODO: tag to a specific version
-# docker push divyenduz/mysql-with-data # TODO: push to a specific version and authenticate in CI
+# docker run -p 5432:5432 $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
+docker tag $POSTGRES_IMAGE_NAME $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
+# docker push $DOCKER_HUB_USERNAME/$POSTGRES_IMAGE_NAME:$POSTGRES_DOCKER_TAG
+
+docker run --rm -v "$PWD":/app treeder/bump --filename docker/mysql/VERSION patch
+MYSQL_DOCKER_TAG=$(cat docker/mysql/VERSION)
+echo "MYSQL_DOCKER_TAG: $MYSQL_DOCKER_TAG"
+
+MYSQL_IMAGE_NAME=mysql-with-data
+npx db-knife --template clean-load --db mysql://root:prisma@127.0.0.1:3306 --folder ./mysql | sh | true
+npx db-knife --template before-load --db mysql://root:prisma@127.0.0.1:3306 --folder ./mysql | sh | true
+npx db-knife --db mysql://root:prisma@127.0.0.1:3306 --folder ./mysql | sh | true
+npx db-knife --db mysql://root:prisma@127.0.0.1:3306 --data-only --folder ./mysql | sh | true
+rm -rf ./docker/mysql/data
+docker cp docker_mysql_1:/var/lib/mysql ./docker/mysql/data
+docker build -t $MYSQL_IMAGE_NAME ./docker/mysql
+# TODO: Test before tag and push
+# docker run -p 3306:3306 $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
+docker tag $MYSQL_IMAGE_NAME $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
+# docker push $DOCKER_HUB_USERNAME/$MYSQL_IMAGE_NAME:$MYSQL_DOCKER_TAG
+
+(cd docker && docker-compose down)
+
+if [ ! -z "$CI" ]; then
+git add -A
+git commit -m "release: docker tag $MYSQL_DOCKER_TAG"
+git tag -a "$MYSQL_DOCKER_TAG" -m "version $MYSQL_DOCKER_TAG"
+git push
+git push --tags
+fi
+
