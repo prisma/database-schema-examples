@@ -9,4 +9,4 @@ jobs:
   publish-to-docker:
     runs-on: ubuntu-latest
     steps:
-      - run: sh build.sh ${{ github.event.inputs.dockerTag }}
+      - run: sh scripts/docker/build.sh ${{ github.event.inputs.dockerTag }}
