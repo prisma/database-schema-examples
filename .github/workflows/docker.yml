@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+
+env:
+  CI: 1
+  DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+jobs:
+  publish-to-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sh scripts/docker/build.sh ${{ github.event.inputs.dockerTag }}
