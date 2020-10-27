@@ -1,83 +1,75 @@
-﻿USE [master]
+﻿USE adventureWorks2019
 GO
-/****** Object:  Database [AdventureWorksLT2019]    Script Date: 9/30/20 11:09:31 AM ******/
-CREATE DATABASE [AdventureWorksLT2019]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'AdventureWorksLT2012_Data', FILENAME = N'/var/opt/mssql/data/AdventureWorksLT2012.mdf' , SIZE = 22464KB , MAXSIZE = UNLIMITED, FILEGROWTH = 16384KB )
- LOG ON 
-( NAME = N'AdventureWorksLT2012_Log', FILENAME = N'/var/opt/mssql/data/AdventureWorksLT2012_log.ldf' , SIZE = 2048KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%)
-GO
-ALTER DATABASE [AdventureWorksLT2019] SET COMPATIBILITY_LEVEL = 110
+ALTER DATABASE [adventureWorks2019] SET COMPATIBILITY_LEVEL = 110
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
-EXEC [AdventureWorksLT2019].[dbo].[sp_fulltext_database] @action = 'enable'
+EXEC [adventureWorks2019].[dbo].[sp_fulltext_database] @action = 'enable'
 end
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET ANSI_NULL_DEFAULT OFF 
+ALTER DATABASE [adventureWorks2019] SET ANSI_NULL_DEFAULT OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET ANSI_NULLS ON 
+ALTER DATABASE [adventureWorks2019] SET ANSI_NULLS ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET ANSI_PADDING ON 
+ALTER DATABASE [adventureWorks2019] SET ANSI_PADDING ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET ANSI_WARNINGS ON 
+ALTER DATABASE [adventureWorks2019] SET ANSI_WARNINGS ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET ARITHABORT ON 
+ALTER DATABASE [adventureWorks2019] SET ARITHABORT ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET AUTO_CLOSE OFF 
+ALTER DATABASE [adventureWorks2019] SET AUTO_CLOSE OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET AUTO_SHRINK OFF 
+ALTER DATABASE [adventureWorks2019] SET AUTO_SHRINK OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET AUTO_UPDATE_STATISTICS ON 
+ALTER DATABASE [adventureWorks2019] SET AUTO_UPDATE_STATISTICS ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET CURSOR_CLOSE_ON_COMMIT OFF 
+ALTER DATABASE [adventureWorks2019] SET CURSOR_CLOSE_ON_COMMIT OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET CURSOR_DEFAULT  GLOBAL 
+ALTER DATABASE [adventureWorks2019] SET CURSOR_DEFAULT  GLOBAL 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET CONCAT_NULL_YIELDS_NULL ON 
+ALTER DATABASE [adventureWorks2019] SET CONCAT_NULL_YIELDS_NULL ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET NUMERIC_ROUNDABORT OFF 
+ALTER DATABASE [adventureWorks2019] SET NUMERIC_ROUNDABORT OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET QUOTED_IDENTIFIER ON 
+ALTER DATABASE [adventureWorks2019] SET QUOTED_IDENTIFIER ON 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET RECURSIVE_TRIGGERS OFF 
+ALTER DATABASE [adventureWorks2019] SET RECURSIVE_TRIGGERS OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET  DISABLE_BROKER 
+ALTER DATABASE [adventureWorks2019] SET  DISABLE_BROKER 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+ALTER DATABASE [adventureWorks2019] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET DATE_CORRELATION_OPTIMIZATION OFF 
+ALTER DATABASE [adventureWorks2019] SET DATE_CORRELATION_OPTIMIZATION OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET TRUSTWORTHY OFF 
+ALTER DATABASE [adventureWorks2019] SET TRUSTWORTHY OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+ALTER DATABASE [adventureWorks2019] SET ALLOW_SNAPSHOT_ISOLATION OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET PARAMETERIZATION SIMPLE 
+ALTER DATABASE [adventureWorks2019] SET PARAMETERIZATION SIMPLE 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET READ_COMMITTED_SNAPSHOT OFF 
+ALTER DATABASE [adventureWorks2019] SET READ_COMMITTED_SNAPSHOT OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET HONOR_BROKER_PRIORITY OFF 
+ALTER DATABASE [adventureWorks2019] SET HONOR_BROKER_PRIORITY OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET RECOVERY SIMPLE 
+ALTER DATABASE [adventureWorks2019] SET RECOVERY SIMPLE 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET  MULTI_USER 
+ALTER DATABASE [adventureWorks2019] SET  MULTI_USER 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET PAGE_VERIFY CHECKSUM  
+ALTER DATABASE [adventureWorks2019] SET PAGE_VERIFY CHECKSUM  
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET DB_CHAINING OFF 
+ALTER DATABASE [adventureWorks2019] SET DB_CHAINING OFF 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+ALTER DATABASE [adventureWorks2019] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+ALTER DATABASE [adventureWorks2019] SET TARGET_RECOVERY_TIME = 0 SECONDS 
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET DELAYED_DURABILITY = DISABLED 
+ALTER DATABASE [adventureWorks2019] SET DELAYED_DURABILITY = DISABLED 
 GO
-EXEC sys.sp_db_vardecimal_storage_format N'AdventureWorksLT2019', N'ON'
+EXEC sys.sp_db_vardecimal_storage_format N'adventureWorks2019', N'ON'
 GO
-ALTER DATABASE [AdventureWorksLT2019] SET QUERY_STORE = OFF
+ALTER DATABASE [adventureWorks2019] SET QUERY_STORE = OFF
 GO
-USE [AdventureWorksLT2019]
+USE [adventureWorks2019]
 GO
 ALTER DATABASE SCOPED CONFIGURATION SET ACCELERATED_PLAN_FORCING = ON;
 GO
@@ -133,7 +125,7 @@ ALTER DATABASE SCOPED CONFIGURATION SET XTP_PROCEDURE_EXECUTION_STATISTICS = OFF
 GO
 ALTER DATABASE SCOPED CONFIGURATION SET XTP_QUERY_EXECUTION_STATISTICS = OFF;
 GO
-USE [AdventureWorksLT2019]
+USE [adventureWorks2019]
 GO
 /****** Object:  Schema [dbo]    Script Date: 9/30/20 11:09:32 AM ******/
 CREATE SCHEMA [dbo]
@@ -1122,7 +1114,7 @@ END;
 GO
 ALTER TABLE [dbo].[SalesOrderHeader] ENABLE TRIGGER [uSalesOrderHeader]
 GO
-EXEC [AdventureWorksLT2019].sys.sp_addextendedproperty @name=N'MS_Description', @value=N'AdventureWorksLT 2012 Sample OLTP Database' 
+EXEC [adventureWorks2019].sys.sp_addextendedproperty @name=N'MS_Description', @value=N'AdventureWorksLT 2012 Sample OLTP Database' 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Logs error information in the ErrorLog table about the error that caused execution to jump to the CATCH block of a TRY...CATCH construct. Should be executed from within the scope of a CATCH block otherwise it will return without inserting error information.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'PROCEDURE',@level1name=N'uspLogError'
 GO
@@ -1543,8 +1535,4 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Product names and descriptions. Product descriptions are provided in multiple languages.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vProductAndDescription'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Displays the content from each element in the xml column CatalogDescription for each product in the Sales.ProductModel table that has catalog data.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'vProductModelCatalogDescription'
-GO
-USE [master]
-GO
-ALTER DATABASE [AdventureWorksLT2019] SET  READ_WRITE 
 GO

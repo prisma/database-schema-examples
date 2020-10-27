@@ -1,3 +1,4 @@
+USE dbkr;
 DROP TABLE IF EXISTS `Untitled`;
 
 CREATE TABLE `Untitled` (
