@@ -1,3 +1,5 @@
+USE stackOverflow2020
+
 create table Badges
 (
 	Id int identity
