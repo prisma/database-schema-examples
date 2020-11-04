@@ -1,5 +1,3 @@
--- SQLINES DEMO *** r DB
-
 CREATE TABLE dbo.tbl_ticket
 (
   id character varying(30) NOT NULL,

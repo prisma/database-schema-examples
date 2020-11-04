@@ -1,4 +1,3 @@
-
 -- CODELIST
 INSERT INTO cdl_label VALUES('bug');
 INSERT INTO cdl_label VALUES('duplicate');
