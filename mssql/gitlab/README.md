@@ -30,3 +30,5 @@ comment out USING btree indexes
 ON DELETE RESTRICT becomes on delete no action
 reduce insert value of migration rows as only 1000 are accepted at once
 jsonb to nvarchar
+may trigger CACHE set to NO CACHE 
+character becomes VARCHAR(255)

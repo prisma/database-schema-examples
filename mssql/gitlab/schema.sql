@@ -67,7 +67,7 @@ CREATE SEQUENCE dbo.abuse_reports_id_seq
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
-    CACHE 1;
+    CACHE 100;
 
 
 --
@@ -83,10 +83,10 @@ CREATE SEQUENCE dbo.abuse_reports_id_seq
 
 CREATE TABLE dbo.appearances (
     id integer NOT NULL,
-    title character varying NOT NULL,
+    title VARCHAR(255) NOT NULL,
     description text NOT NULL,
-    header_logo character varying,
-    logo character varying,
+    header_logo VARCHAR(255),
+    logo VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     description_html text,
@@ -99,7 +99,7 @@ CREATE TABLE dbo.appearances (
     footer_message_html text,
     message_background_color text,
     message_font_color text,
-    favicon character varying,
+    favicon VARCHAR(255),
     email_header_and_footer_enabled bit DEFAULT 0 NOT NULL
 );
 
@@ -168,7 +168,7 @@ CREATE TABLE dbo.application_settings (
     sign_in_text text,
     created_at datetime ,
     updated_at datetime ,
-    home_page_url character varying,
+    home_page_url VARCHAR(255),
     default_branch_protection integer DEFAULT 2,
     restricted_visibility_levels text,
     version_check_enabled bit DEFAULT 1,
@@ -177,44 +177,44 @@ CREATE TABLE dbo.application_settings (
     default_snippet_visibility integer,
     domain_whitelist text,
     user_oauth_applications bit DEFAULT 1,
-    after_sign_out_path character varying,
+    after_sign_out_path VARCHAR(255),
     session_expire_delay integer DEFAULT 10080 NOT NULL,
     import_sources text,
     help_page_text text,
-    admin_notification_email character varying,
+    admin_notification_email VARCHAR(255),
     shared_runners_enabled bit DEFAULT 1 NOT NULL,
     max_artifacts_size integer DEFAULT 100 NOT NULL,
-    runners_registration_token character varying,
+    runners_registration_token VARCHAR(255),
     max_pages_size integer DEFAULT 100 NOT NULL,
     require_two_factor_authentication bit DEFAULT 0,
     two_factor_grace_period integer DEFAULT 48,
     metrics_enabled bit DEFAULT 0,
-    metrics_host character varying DEFAULT 'localhost',
+    metrics_host VARCHAR(255) DEFAULT 'localhost',
     metrics_pool_size integer DEFAULT 16,
     metrics_timeout integer DEFAULT 10,
     metrics_method_call_threshold integer DEFAULT 10,
     recaptcha_enabled bit DEFAULT 0,
-    recaptcha_site_key_base character varying,
-    recaptcha_private_key_base character varying,
+    recaptcha_site_key_base VARCHAR(255),
+    recaptcha_private_key_base VARCHAR(255),
     metrics_port integer DEFAULT 8089,
     akismet_enabled bit DEFAULT 0,
-    akismet_api_key_base character varying,
+    akismet_api_key_base VARCHAR(255),
     metrics_sample_interval integer DEFAULT 15,
     sentry_enabled bit DEFAULT 0,
-    sentry_dsn character varying,
+    sentry_dsn VARCHAR(255),
     email_author_in_body bit DEFAULT 0,
     default_group_visibility integer,
     repository_checks_enabled bit DEFAULT 0,
     shared_runners_text text,
     metrics_packet_size integer DEFAULT 1,
     disabled_oauth_sign_in_sources text,
-    health_check_access_token character varying,
+    health_check_access_token VARCHAR(255),
     send_user_confirmation_email bit DEFAULT 0,
     container_registry_token_expire_delay integer DEFAULT 5,
     after_sign_up_text text,
     user_default_external bit DEFAULT 0 NOT NULL,
-    repository_storages character varying DEFAULT 'default',
-    enabled_git_access_protocol character varying,
+    repository_storages VARCHAR(255) DEFAULT 'default',
+    enabled_git_access_protocol VARCHAR(255),
     domain_blacklist_enabled bit DEFAULT 0,
     domain_blacklist text,
     usage_ping_enabled bit DEFAULT 1 NOT NULL,
@@ -232,21 +232,21 @@ CREATE TABLE dbo.application_settings (
     housekeeping_full_repack_period integer DEFAULT 50 NOT NULL,
     housekeeping_gc_period integer DEFAULT 200 NOT NULL,
     html_emails_enabled bit DEFAULT 1,
-    plantuml_url character varying,
+    plantuml_url VARCHAR(255),
     plantuml_enabled bit,
     terminal_max_session_time integer DEFAULT 0 NOT NULL,
     unique_ips_limit_per_user integer,
     unique_ips_limit_time_window integer,
     unique_ips_limit_enabled bit DEFAULT 0 NOT NULL,
-    default_artifacts_expire_in character varying DEFAULT '0' NOT NULL,
-    uuid character varying,
+    default_artifacts_expire_in VARCHAR(255) DEFAULT '0' NOT NULL,
+    uuid VARCHAR(255),
     polling_interval_multiplier numeric DEFAULT 1.0 NOT NULL,
     cached_markdown_version integer,
     clientside_sentry_enabled bit DEFAULT 0 NOT NULL,
-    clientside_sentry_dsn character varying,
+    clientside_sentry_dsn VARCHAR(255),
     prometheus_metrics_enabled bit DEFAULT 1 NOT NULL,
     help_page_hide_commercial_content bit DEFAULT 0,
-    help_page_support_url character varying,
+    help_page_support_url VARCHAR(255),
     performance_bar_allowed_group_id integer,
     hashed_storage_enabled bit DEFAULT 0 NOT NULL,
     project_export_enabled bit DEFAULT 1 NOT NULL,
@@ -266,9 +266,9 @@ CREATE TABLE dbo.application_settings (
     gitaly_timeout_medium integer DEFAULT 30 NOT NULL,
     gitaly_timeout_fast integer DEFAULT 10 NOT NULL,
     authorized_keys_enabled bit DEFAULT 1 NOT NULL,
-    auto_devops_domain character varying,
+    auto_devops_domain VARCHAR(255),
     pages_domain_verification_enabled bit DEFAULT 1 NOT NULL,
-    user_default_internal_regex character varying,
+    user_default_internal_regex VARCHAR(255),
     allow_local_requests_from_hooks_and_services bit DEFAULT 0 NOT NULL,
     enforce_terms bit DEFAULT 0,
     mirror_available bit DEFAULT 1 NOT NULL,
@@ -280,22 +280,22 @@ CREATE TABLE dbo.application_settings (
     receive_max_input_size integer,
     diff_max_patch_bytes integer DEFAULT 102400 NOT NULL,
     archive_builds_in_seconds integer,
-    commit_email_hostname character varying,
+    commit_email_hostname VARCHAR(255),
     protected_ci_variables bit DEFAULT 0 NOT NULL,
-    runners_registration_token_encrypted character varying,
+    runners_registration_token_encrypted VARCHAR(255),
     local_markdown_version integer DEFAULT 0 NOT NULL,
     first_day_of_week integer DEFAULT 0 NOT NULL,
     default_project_creation integer DEFAULT 2 NOT NULL,
     external_authorization_service_enabled bit DEFAULT 0 NOT NULL,
-    external_authorization_service_url character varying,
-    external_authorization_service_default_label character varying,
+    external_authorization_service_url VARCHAR(255),
+    external_authorization_service_default_label VARCHAR(255),
     external_authorization_service_timeout double precision DEFAULT 0.5,
     external_auth_client_cert text,
     encrypted_external_auth_client_key_base text,
-    encrypted_external_auth_client_key_iv character varying,
-    encrypted_external_auth_client_key_pass character varying,
-    encrypted_external_auth_client_key_pass_iv character varying,
-    lets_encrypt_notification_email character varying,
+    encrypted_external_auth_client_key_iv VARCHAR(255),
+    encrypted_external_auth_client_key_pass VARCHAR(255),
+    encrypted_external_auth_client_key_pass_iv VARCHAR(255),
+    lets_encrypt_notification_email VARCHAR(255),
     lets_encrypt_terms_of_service_accepted bit DEFAULT 0 NOT NULL,
     elasticsearch_shards integer DEFAULT 5 NOT NULL,
     elasticsearch_replicas integer DEFAULT 1 NOT NULL,
@@ -331,8 +331,8 @@ CREATE SEQUENCE dbo.application_settings_id_seq
 --
 
 CREATE TABLE dbo.ar_internal_metadata (
-    key_base character varying NOT NULL,
-    value character varying,
+    key_base VARCHAR(255) NOT NULL,
+    value VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -345,9 +345,9 @@ CREATE TABLE dbo.ar_internal_metadata (
 CREATE TABLE dbo.audit_events (
     id integer NOT NULL,
     author_id integer NOT NULL,
-    type character varying NOT NULL,
+    type VARCHAR(255) NOT NULL,
     entity_id integer NOT NULL,
-    entity_type character varying NOT NULL,
+    entity_type VARCHAR(255) NOT NULL,
     details text,
     created_at datetime ,
     updated_at datetime 
@@ -380,10 +380,10 @@ CREATE SEQUENCE dbo.audit_events_id_seq
 
 CREATE TABLE dbo.award_emoji (
     id integer NOT NULL,
-    name character varying,
+    name VARCHAR(255),
     user_id integer,
     awardable_id integer,
-    awardable_type character varying,
+    awardable_type VARCHAR(255),
     created_at datetime ,
     updated_at datetime 
 );
@@ -415,11 +415,11 @@ CREATE SEQUENCE dbo.award_emoji_id_seq
 
 CREATE TABLE dbo.badges (
     id integer NOT NULL,
-    link_url character varying NOT NULL,
-    image_url character varying NOT NULL,
+    link_url VARCHAR(255) NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
     project_id integer,
     group_id integer,
-    type character varying NOT NULL,
+    type VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -555,8 +555,8 @@ CREATE TABLE dbo.broadcast_messages (
     ends_at datetime  NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
-    color character varying,
-    font character varying,
+    color VARCHAR(255),
+    font VARCHAR(255),
     message_html text NOT NULL,
     cached_markdown_version integer
 );
@@ -590,10 +590,10 @@ CREATE TABLE dbo.chat_names (
     id integer NOT NULL,
     user_id integer NOT NULL,
     service_id integer NOT NULL,
-    team_id character varying NOT NULL,
-    team_domain character varying,
-    chat_id character varying NOT NULL,
-    chat_name character varying,
+    team_id VARCHAR(255) NOT NULL,
+    team_domain VARCHAR(255),
+    chat_id VARCHAR(255) NOT NULL,
+    chat_name VARCHAR(255),
     last_used_at datetime ,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
@@ -627,8 +627,8 @@ CREATE SEQUENCE dbo.chat_names_id_seq
 CREATE TABLE dbo.chat_teams (
     id integer NOT NULL,
     namespace_id integer NOT NULL,
-    team_id character varying,
-    name character varying,
+    team_id VARCHAR(255),
+    name VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -693,7 +693,7 @@ CREATE SEQUENCE dbo.ci_build_trace_chunks_id_seq
 CREATE TABLE dbo.ci_build_trace_section_names (
     id integer NOT NULL,
     project_id integer NOT NULL,
-    name character varying NOT NULL
+    name VARCHAR(255) NOT NULL
 );
 
 
@@ -759,7 +759,7 @@ CREATE SEQUENCE dbo.ci_build_trace_sections_id_seq
 
 CREATE TABLE dbo.ci_builds (
     id integer NOT NULL,
-    status character varying,
+    status VARCHAR(255),
     finished_at datetime ,
     trace text,
     created_at datetime ,
@@ -769,32 +769,32 @@ CREATE TABLE dbo.ci_builds (
     coverage double precision,
     commit_id integer,
     commands text,
-    name character varying,
+    name VARCHAR(255),
     options text,
     allow_failure bit DEFAULT 0 NOT NULL,
-    stage character varying,
+    stage VARCHAR(255),
     trigger_request_id integer,
     stage_idx integer,
     tag bit,
-    ref character varying,
+    ref VARCHAR(255),
     user_id integer,
-    type character varying,
-    target_url character varying,
-    description character varying,
+    type VARCHAR(255),
+    target_url VARCHAR(255),
+    description VARCHAR(255),
     artifacts_file text,
     project_id integer,
     artifacts_metadata text,
     erased_by_id integer,
     erased_at datetime ,
     artifacts_expire_at datetime ,
-    environment character varying,
+    environment VARCHAR(255),
     artifacts_size bigint,
-    "when" character varying,
+    "when" VARCHAR(255),
     yaml_variables text,
     queued_at datetime ,
-    token character varying,
+    token VARCHAR(255),
     lock_version integer,
-    coverage_regex character varying,
+    coverage_regex VARCHAR(255),
     auto_canceled_by_id integer,
     retried bit,
     stage_id integer,
@@ -803,7 +803,7 @@ CREATE TABLE dbo.ci_builds (
     protected bit,
     failure_reason integer,
     scheduled_at datetime ,
-    token_encrypted character varying
+    token_encrypted VARCHAR(255)
 );
 
 
@@ -869,9 +869,9 @@ CREATE SEQUENCE dbo.ci_builds_metadata_id_seq
 CREATE TABLE dbo.ci_builds_runner_session (
     id bigint NOT NULL,
     build_id integer NOT NULL,
-    url character varying NOT NULL,
-    certificate character varying,
-    "authorization" character varying
+    url VARCHAR(255) NOT NULL,
+    certificate VARCHAR(255),
+    "authorization" VARCHAR(255)
 );
 
 
@@ -900,11 +900,11 @@ CREATE SEQUENCE dbo.ci_builds_runner_session_id_seq
 
 CREATE TABLE dbo.ci_group_variables (
     id integer NOT NULL,
-    key_base character varying NOT NULL,
+    key_base VARCHAR(255) NOT NULL,
     value text,
     encrypted_value text,
-    encrypted_value_salt character varying,
-    encrypted_value_iv character varying,
+    encrypted_value_salt VARCHAR(255),
+    encrypted_value_iv VARCHAR(255),
     group_id integer NOT NULL,
     protected bit DEFAULT 0 NOT NULL,
     created_at datetime  NOT NULL,
@@ -948,7 +948,7 @@ CREATE TABLE dbo.ci_job_artifacts (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     expire_at datetime,
-    file_base character varying,
+    file_base VARCHAR(255),
     file_sha256 VARBINARY(100),
     file_format smallint,
     file_location smallint
@@ -1012,11 +1012,11 @@ CREATE SEQUENCE dbo.ci_pipeline_chat_data_id_seq
 
 CREATE TABLE dbo.ci_pipeline_schedule_variables (
     id bigint NOT NULL,
-    key_base character varying NOT NULL,
+    key_base VARCHAR(255) NOT NULL,
     value text,
     encrypted_value text,
-    encrypted_value_salt character varying,
-    encrypted_value_iv character varying,
+    encrypted_value_salt VARCHAR(255),
+    encrypted_value_iv VARCHAR(255),
     pipeline_schedule_id integer NOT NULL,
     created_at datetime ,
     updated_at datetime ,
@@ -1049,10 +1049,10 @@ CREATE SEQUENCE dbo.ci_pipeline_schedule_variables_id_seq
 
 CREATE TABLE dbo.ci_pipeline_schedules (
     id integer NOT NULL,
-    description character varying,
-    ref character varying,
-    cron character varying,
-    cron_timezone character varying,
+    description VARCHAR(255),
+    ref VARCHAR(255),
+    cron VARCHAR(255),
+    cron_timezone VARCHAR(255),
     next_run_at datetime ,
     project_id integer,
     owner_id integer,
@@ -1088,11 +1088,11 @@ CREATE SEQUENCE dbo.ci_pipeline_schedules_id_seq
 
 CREATE TABLE dbo.ci_pipeline_variables (
     id integer NOT NULL,
-    key_base character varying NOT NULL,
+    key_base VARCHAR(255) NOT NULL,
     value text,
     encrypted_value text,
-    encrypted_value_salt character varying,
-    encrypted_value_iv character varying,
+    encrypted_value_salt VARCHAR(255),
+    encrypted_value_iv VARCHAR(255),
     pipeline_id integer NOT NULL,
     variable_type smallint DEFAULT 1 NOT NULL
 );
@@ -1124,16 +1124,16 @@ CREATE SEQUENCE dbo.ci_pipeline_variables_id_seq
 
 CREATE TABLE dbo.ci_pipelines (
     id integer NOT NULL,
-    ref character varying,
-    sha character varying,
-    before_sha character varying,
+    ref VARCHAR(255),
+    sha VARCHAR(255),
+    before_sha VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
     tag bit DEFAULT 0,
     yaml_errors text,
     committed_at datetime ,
     project_id integer,
-    status character varying,
+    status VARCHAR(255),
     started_at datetime ,
     finished_at datetime ,
     duration integer,
@@ -1242,25 +1242,25 @@ CREATE SEQUENCE dbo.ci_runner_projects_id_seq
 
 CREATE TABLE dbo.ci_runners (
     id integer NOT NULL,
-    token character varying,
+    token VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
-    description character varying,
+    description VARCHAR(255),
     contacted_at datetime ,
     active bit DEFAULT 1 NOT NULL,
     is_shared bit DEFAULT 0,
-    name character varying,
-    version character varying,
-    revision character varying,
-    platform character varying,
-    architecture character varying,
+    name VARCHAR(255),
+    version VARCHAR(255),
+    revision VARCHAR(255),
+    platform VARCHAR(255),
+    architecture VARCHAR(255),
     run_untagged bit DEFAULT 1 NOT NULL,
     locked bit DEFAULT 0 NOT NULL,
     access_level integer DEFAULT 0 NOT NULL,
-    ip_address character varying,
+    ip_address VARCHAR(255),
     maximum_timeout integer,
     runner_type smallint NOT NULL,
-    token_encrypted character varying
+    token_encrypted VARCHAR(255)
 );
 
 
@@ -1294,7 +1294,7 @@ CREATE TABLE dbo.ci_stages (
     pipeline_id integer,
     created_at datetime ,
     updated_at datetime ,
-    name character varying,
+    name VARCHAR(255),
     status integer,
     lock_version integer,
     "position" integer
@@ -1361,13 +1361,13 @@ CREATE SEQUENCE dbo.ci_trigger_requests_id_seq
 
 CREATE TABLE dbo.ci_triggers (
     id integer NOT NULL,
-    token character varying,
+    token VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
     project_id integer,
     owner_id integer,
-    description character varying,
-    ref character varying
+    description VARCHAR(255),
+    ref VARCHAR(255)
 );
 
 
@@ -1397,14 +1397,14 @@ CREATE SEQUENCE dbo.ci_triggers_id_seq
 
 CREATE TABLE dbo.ci_variables (
     id integer NOT NULL,
-    key_base character varying NOT NULL,
+    key_base VARCHAR(255) NOT NULL,
     value text,
     encrypted_value text,
-    encrypted_value_salt character varying,
-    encrypted_value_iv character varying,
+    encrypted_value_salt VARCHAR(255),
+    encrypted_value_iv VARCHAR(255),
     project_id integer NOT NULL,
     protected bit DEFAULT 0 NOT NULL,
-    environment_scope character varying DEFAULT '*' NOT NULL,
+    environment_scope VARCHAR(255) DEFAULT '*' NOT NULL,
     masked bit DEFAULT 0 NOT NULL,
     variable_type smallint DEFAULT 1 NOT NULL
 );
@@ -1472,12 +1472,12 @@ CREATE TABLE dbo.cluster_platforms_kubernetes (
     updated_at datetime  NOT NULL,
     api_url text,
     ca_cert text,
-    namespace character varying,
-    username character varying,
+    namespace VARCHAR(255),
+    username VARCHAR(255),
     encrypted_password text,
-    encrypted_password_iv character varying,
+    encrypted_password_iv VARCHAR(255),
     encrypted_token text,
-    encrypted_token_iv character varying,
+    encrypted_token_iv VARCHAR(255),
     authorization_type smallint
 );
 
@@ -1547,13 +1547,13 @@ CREATE TABLE dbo.cluster_providers_gcp (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     status_reason text,
-    gcp_project_id character varying NOT NULL,
-    zone character varying NOT NULL,
-    machine_type character varying,
-    operation_id character varying,
-    endpoint character varying,
+    gcp_project_id VARCHAR(255) NOT NULL,
+    zone VARCHAR(255) NOT NULL,
+    machine_type VARCHAR(255),
+    operation_id VARCHAR(255),
+    endpoint VARCHAR(255),
     encrypted_access_token text,
-    encrypted_access_token_iv character varying,
+    encrypted_access_token_iv VARCHAR(255),
     legacy_abac bit DEFAULT 0 NOT NULL
 );
 
@@ -1590,10 +1590,10 @@ CREATE TABLE dbo.clusters (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     enabled bit DEFAULT 1,
-    name character varying NOT NULL,
-    environment_scope character varying DEFAULT '*' NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    environment_scope VARCHAR(255) DEFAULT '*' NOT NULL,
     cluster_type smallint DEFAULT 3 NOT NULL,
-    domain character varying,
+    domain VARCHAR(255),
     managed bit DEFAULT 1 NOT NULL
 );
 
@@ -1606,8 +1606,8 @@ CREATE TABLE dbo.clusters_applications_cert_managers (
     id integer NOT NULL,
     cluster_id integer NOT NULL,
     status integer NOT NULL,
-    version character varying NOT NULL,
-    email character varying NOT NULL,
+    version VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     status_reason text
@@ -1644,7 +1644,7 @@ CREATE TABLE dbo.clusters_applications_helm (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     status integer NOT NULL,
-    version character varying NOT NULL,
+    version VARCHAR(255) NOT NULL,
     status_reason text,
     encrypted_ca_key_base text,
     encrypted_ca_key_iv text,
@@ -1683,11 +1683,11 @@ CREATE TABLE dbo.clusters_applications_ingress (
     updated_at datetime  NOT NULL,
     status integer NOT NULL,
     ingress_type integer NOT NULL,
-    version character varying NOT NULL,
-    cluster_ip character varying,
+    version VARCHAR(255) NOT NULL,
+    cluster_ip VARCHAR(255),
     status_reason text,
-    external_ip character varying,
-    external_hostname character varying
+    external_ip VARCHAR(255),
+    external_hostname VARCHAR(255)
 );
 
 
@@ -1720,8 +1720,8 @@ CREATE TABLE dbo.clusters_applications_jupyter (
     cluster_id integer NOT NULL,
     oauth_application_id integer,
     status integer NOT NULL,
-    version character varying NOT NULL,
-    hostname character varying,
+    version VARCHAR(255) NOT NULL,
+    hostname VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     status_reason text
@@ -1758,11 +1758,11 @@ CREATE TABLE dbo.clusters_applications_knative (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     status integer NOT NULL,
-    version character varying NOT NULL,
-    hostname character varying,
+    version VARCHAR(255) NOT NULL,
+    hostname VARCHAR(255),
     status_reason text,
-    external_ip character varying,
-    external_hostname character varying
+    external_ip VARCHAR(255),
+    external_hostname VARCHAR(255)
 );
 
 
@@ -1794,7 +1794,7 @@ CREATE TABLE dbo.clusters_applications_prometheus (
     id integer NOT NULL,
     cluster_id integer NOT NULL,
     status integer NOT NULL,
-    version character varying NOT NULL,
+    version VARCHAR(255) NOT NULL,
     status_reason text,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
@@ -1832,7 +1832,7 @@ CREATE TABLE dbo.clusters_applications_runners (
     status integer NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
-    version character varying NOT NULL,
+    version VARCHAR(255) NOT NULL,
     status_reason text,
     privileged bit DEFAULT 1 NOT NULL
 );
@@ -1890,9 +1890,9 @@ CREATE TABLE dbo.clusters_kubernetes_namespaces (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     encrypted_service_account_token text,
-    encrypted_service_account_token_iv character varying,
-    namespace character varying NOT NULL,
-    service_account_name character varying
+    encrypted_service_account_token_iv VARCHAR(255),
+    namespace VARCHAR(255) NOT NULL,
+    service_account_name VARCHAR(255)
 );
 
 
@@ -1922,7 +1922,7 @@ CREATE SEQUENCE dbo.clusters_kubernetes_namespaces_id_seq
 CREATE TABLE dbo.container_repositories (
     id integer NOT NULL,
     project_id integer NOT NULL,
-    name character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -2054,8 +2054,8 @@ CREATE TABLE dbo.deploy_tokens (
     read_registry bit DEFAULT 0 NOT NULL,
     expires_at datetime  NOT NULL,
     created_at datetime  NOT NULL,
-    name character varying NOT NULL,
-    token character varying NOT NULL
+    name VARCHAR(255) NOT NULL,
+    token VARCHAR(255) NOT NULL
 );
 
 
@@ -2088,15 +2088,15 @@ CREATE TABLE dbo.deployments (
     iid integer NOT NULL,
     project_id integer NOT NULL,
     environment_id integer NOT NULL,
-    ref character varying NOT NULL,
+    ref VARCHAR(255) NOT NULL,
     tag bit NOT NULL,
-    sha character varying NOT NULL,
+    sha VARCHAR(255) NOT NULL,
     user_id integer,
     deployable_id integer,
-    deployable_type character varying,
+    deployable_type VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
-    on_stop character varying,
+    on_stop VARCHAR(255),
     status smallint NOT NULL,
     finished_at datetime 
 );
@@ -2129,10 +2129,10 @@ CREATE SEQUENCE dbo.deployments_id_seq
 CREATE TABLE dbo.emails (
     id integer NOT NULL,
     user_id integer NOT NULL,
-    email character varying NOT NULL,
+    email VARCHAR(255) NOT NULL,
     created_at datetime ,
     updated_at datetime ,
-    confirmation_token character varying,
+    confirmation_token VARCHAR(255),
     confirmed_at datetime ,
     confirmation_sent_at datetime 
 );
@@ -2165,13 +2165,13 @@ CREATE SEQUENCE dbo.emails_id_seq
 CREATE TABLE dbo.environments (
     id integer NOT NULL,
     project_id integer NOT NULL,
-    name character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
     created_at datetime ,
     updated_at datetime ,
-    external_url character varying,
-    environment_type character varying,
-    state character varying DEFAULT 'available' NOT NULL,
-    slug character varying NOT NULL
+    external_url VARCHAR(255),
+    environment_type VARCHAR(255),
+    state VARCHAR(255) DEFAULT 'available' NOT NULL,
+    slug VARCHAR(255) NOT NULL
 );
 
 
@@ -2207,7 +2207,7 @@ CREATE TABLE dbo.events (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     action smallint NOT NULL,
-    target_type character varying
+    target_type VARCHAR(255)
 );
 
 
@@ -2237,9 +2237,9 @@ CREATE SEQUENCE dbo.events_id_seq
 
 CREATE TABLE dbo.feature_gates (
     id integer NOT NULL,
-    feature_key_base character varying NOT NULL,
-    key_base character varying NOT NULL,
-    value character varying,
+    feature_key_base VARCHAR(255) NOT NULL,
+    key_base VARCHAR(255) NOT NULL,
+    value VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -2271,7 +2271,7 @@ CREATE SEQUENCE dbo.feature_gates_id_seq
 
 CREATE TABLE dbo.features (
     id integer NOT NULL,
-    key_base character varying NOT NULL,
+    key_base VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -2336,7 +2336,7 @@ CREATE SEQUENCE dbo.fork_network_members_id_seq
 CREATE TABLE dbo.fork_networks (
     id integer NOT NULL,
     root_project_id integer,
-    deleted_root_project_name character varying
+    deleted_root_project_name VARCHAR(255)
 );
 
 
@@ -2508,8 +2508,8 @@ CREATE TABLE dbo.group_custom_attributes (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     group_id integer NOT NULL,
-    key_base character varying NOT NULL,
-    value character varying NOT NULL
+    key_base VARCHAR(255) NOT NULL,
+    value VARCHAR(255) NOT NULL
 );
 
 
@@ -2539,8 +2539,8 @@ CREATE SEQUENCE dbo.group_custom_attributes_id_seq
 
 CREATE TABLE dbo.identities (
     id integer NOT NULL,
-    extern_uid character varying,
-    provider character varying,
+    extern_uid VARCHAR(255),
+    provider VARCHAR(255),
     user_id integer,
     created_at datetime ,
     updated_at datetime 
@@ -2683,14 +2683,14 @@ CREATE SEQUENCE dbo.issue_metrics_id_seq
 
 CREATE TABLE dbo.issues (
     id integer NOT NULL,
-    title character varying,
+    title VARCHAR(255),
     author_id integer,
     project_id integer,
     created_at datetime ,
     updated_at datetime ,
     description text,
     milestone_id integer,
-    state character varying,
+    state VARCHAR(255),
     iid integer,
     updated_by_id integer,
     confidential bit DEFAULT 0 NOT NULL,
@@ -2741,9 +2741,9 @@ CREATE TABLE dbo.keys (
     created_at datetime ,
     updated_at datetime ,
     key_base text,
-    title character varying,
-    type character varying,
-    fingerprint character varying,
+    title VARCHAR(255),
+    type VARCHAR(255),
+    fingerprint VARCHAR(255),
     dbo bit DEFAULT 0 NOT NULL,
     last_used_at datetime 
 );
@@ -2777,7 +2777,7 @@ CREATE TABLE dbo.label_links (
     id integer NOT NULL,
     label_id integer,
     target_id integer,
-    target_type character varying,
+    target_type VARCHAR(255),
     created_at datetime ,
     updated_at datetime 
 );
@@ -2843,15 +2843,15 @@ CREATE SEQUENCE dbo.label_priorities_id_seq
 
 CREATE TABLE dbo.labels (
     id integer NOT NULL,
-    title character varying,
-    color character varying,
+    title VARCHAR(255),
+    color VARCHAR(255),
     project_id integer,
     created_at datetime ,
     updated_at datetime ,
     template bit DEFAULT 0,
-    description character varying,
+    description VARCHAR(255),
     description_html text,
-    type character varying,
+    type VARCHAR(255),
     group_id integer,
     cached_markdown_version integer
 );
@@ -2886,7 +2886,7 @@ CREATE TABLE dbo.lfs_file_locks (
     project_id integer NOT NULL,
     user_id integer NOT NULL,
     created_at datetime  NOT NULL,
-    path character varying(511)
+    path VARCHAR(511)
 );
 
 
@@ -2916,11 +2916,11 @@ CREATE SEQUENCE dbo.lfs_file_locks_id_seq
 
 CREATE TABLE dbo.lfs_objects (
     id integer NOT NULL,
-    oid character varying NOT NULL,
+    oid VARCHAR(255) NOT NULL,
     size bigint NOT NULL,
     created_at datetime ,
     updated_at datetime ,
-    file_base character varying,
+    file_base VARCHAR(255),
     file_store integer
 );
 
@@ -3021,15 +3021,15 @@ CREATE TABLE dbo.members (
     id integer NOT NULL,
     access_level integer NOT NULL,
     source_id integer NOT NULL,
-    source_type character varying NOT NULL,
+    source_type VARCHAR(255) NOT NULL,
     user_id integer,
     notification_level integer NOT NULL,
-    type character varying,
+    type VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
     created_by_id integer,
-    invite_email character varying,
-    invite_token character varying,
+    invite_email VARCHAR(255),
+    invite_token VARCHAR(255),
     invite_accepted_at datetime ,
     requested_at datetime ,
     expires_at date
@@ -3147,8 +3147,8 @@ CREATE TABLE dbo.merge_request_diff_files (
     renamed_file bit NOT NULL,
     deleted_file bit NOT NULL,
     too_large bit NOT NULL,
-    a_mode character varying NOT NULL,
-    b_mode character varying NOT NULL,
+    a_mode VARCHAR(255) NOT NULL,
+    b_mode VARCHAR(255) NOT NULL,
     new_path text NOT NULL,
     old_path text NOT NULL,
     diff text,
@@ -3164,16 +3164,16 @@ CREATE TABLE dbo.merge_request_diff_files (
 
 CREATE TABLE dbo.merge_request_diffs (
     id integer NOT NULL,
-    state character varying,
+    state VARCHAR(255),
     merge_request_id integer NOT NULL,
     created_at datetime ,
     updated_at datetime ,
-    base_commit_sha character varying,
-    real_size character varying,
-    head_commit_sha character varying,
-    start_commit_sha character varying,
+    base_commit_sha VARCHAR(255),
+    real_size VARCHAR(255),
+    head_commit_sha VARCHAR(255),
+    start_commit_sha VARCHAR(255),
     commits_count integer,
-    external_diff character varying,
+    external_diff VARCHAR(255),
     external_diff_store integer,
     stored_externally bit
 );
@@ -3245,17 +3245,17 @@ CREATE SEQUENCE dbo.merge_request_metrics_id_seq
 
 CREATE TABLE dbo.merge_requests (
     id integer NOT NULL,
-    target_branch character varying NOT NULL,
-    source_branch character varying NOT NULL,
+    target_branch VARCHAR(255) NOT NULL,
+    source_branch VARCHAR(255) NOT NULL,
     source_project_id integer,
     author_id integer,
     assignee_id integer,
-    title character varying,
+    title VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
     milestone_id integer,
-    state character varying DEFAULT 'opened' NOT NULL,
-    merge_status character varying DEFAULT 'unchecked' NOT NULL,
+    state VARCHAR(255) DEFAULT 'opened' NOT NULL,
+    merge_status VARCHAR(255) DEFAULT 'unchecked' NOT NULL,
     target_project_id integer NOT NULL,
     iid integer,
     description text,
@@ -3264,8 +3264,8 @@ CREATE TABLE dbo.merge_requests (
     merge_params text,
     merge_when_pipeline_succeeds bit DEFAULT 0 NOT NULL,
     merge_user_id integer,
-    merge_commit_sha character varying,
-    in_progress_merge_commit_sha character varying,
+    merge_commit_sha VARCHAR(255),
+    in_progress_merge_commit_sha VARCHAR(255),
     lock_version integer,
     title_html text,
     description_html text,
@@ -3274,10 +3274,10 @@ CREATE TABLE dbo.merge_requests (
     last_edited_at datetime ,
     last_edited_by_id integer,
     head_pipeline_id integer,
-    merge_jid character varying,
+    merge_jid VARCHAR(255),
     discussion_locked bit,
     latest_merge_request_diff_id integer,
-    rebase_commit_sha character varying,
+    rebase_commit_sha VARCHAR(255),
     squash bit DEFAULT 0 NOT NULL,
     allow_maintainer_to_push bit,
     state_id smallint
@@ -3378,13 +3378,13 @@ CREATE SEQUENCE dbo.merge_trains_id_seq
 
 CREATE TABLE dbo.milestones (
     id integer NOT NULL,
-    title character varying NOT NULL,
+    title VARCHAR(255) NOT NULL,
     project_id integer,
     description text,
     due_date date,
     created_at datetime ,
     updated_at datetime ,
-    state character varying,
+    state VARCHAR(255),
     iid integer,
     title_html text,
     description_html text,
@@ -3420,14 +3420,14 @@ CREATE SEQUENCE dbo.milestones_id_seq
 
 CREATE TABLE dbo.namespaces (
     id integer NOT NULL,
-    name character varying NOT NULL,
-    path character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    path VARCHAR(255) NOT NULL,
     owner_id integer,
     created_at datetime ,
     updated_at datetime ,
-    type character varying,
-    description character varying DEFAULT '' NOT NULL,
-    avatar character varying,
+    type VARCHAR(255),
+    description VARCHAR(255) DEFAULT '' NOT NULL,
+    avatar VARCHAR(255),
     share_with_group_lock bit DEFAULT 0,
     visibility_level integer DEFAULT 20 NOT NULL,
     request_access_enabled bit DEFAULT 0 NOT NULL,
@@ -3437,8 +3437,8 @@ CREATE TABLE dbo.namespaces (
     require_two_factor_authentication bit DEFAULT 0 NOT NULL,
     two_factor_grace_period integer DEFAULT 48 NOT NULL,
     cached_markdown_version integer,
-    runners_token character varying,
-    runners_token_encrypted character varying,
+    runners_token VARCHAR(255),
+    runners_token_encrypted VARCHAR(255),
     project_creation_level integer,
     auto_devops_enabled bit,
     last_ci_minutes_notification_at datetime 
@@ -3476,8 +3476,8 @@ CREATE TABLE dbo.note_diff_files (
     new_file bit NOT NULL,
     renamed_file bit NOT NULL,
     deleted_file bit NOT NULL,
-    a_mode character varying NOT NULL,
-    b_mode character varying NOT NULL,
+    a_mode VARCHAR(255) NOT NULL,
+    b_mode VARCHAR(255) NOT NULL,
     new_path text NOT NULL,
     old_path text NOT NULL
 );
@@ -3510,24 +3510,24 @@ CREATE SEQUENCE dbo.note_diff_files_id_seq
 CREATE TABLE dbo.notes (
     id integer NOT NULL,
     note text,
-    noteable_type character varying,
+    noteable_type VARCHAR(255),
     author_id integer,
     created_at datetime ,
     updated_at datetime ,
     project_id integer,
-    attachment character varying,
-    line_code character varying,
-    commit_id character varying,
+    attachment VARCHAR(255),
+    line_code VARCHAR(255),
+    commit_id VARCHAR(255),
     noteable_id integer,
     system bit DEFAULT 0 NOT NULL,
     st_diff text,
     updated_by_id integer,
-    type character varying,
+    type VARCHAR(255),
     "position" text,
     original_position text,
     resolved_at datetime ,
     resolved_by_id integer,
-    discussion_id character varying,
+    discussion_id VARCHAR(255),
     note_html text,
     cached_markdown_version integer,
     change_position text,
@@ -3563,7 +3563,7 @@ CREATE TABLE dbo.notification_settings (
     id integer NOT NULL,
     user_id integer NOT NULL,
     source_id integer,
-    source_type character varying,
+    source_type VARCHAR(255),
     level integer DEFAULT 0 NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
@@ -3581,7 +3581,7 @@ CREATE TABLE dbo.notification_settings (
     success_pipeline bit,
     push_to_merge_request bit,
     issue_due bit,
-    notification_email character varying
+    notification_email VARCHAR(255)
 );
 
 
@@ -3613,12 +3613,12 @@ CREATE TABLE dbo.oauth_access_grants (
     id integer NOT NULL,
     resource_owner_id integer NOT NULL,
     application_id integer NOT NULL,
-    token character varying NOT NULL,
+    token VARCHAR(255) NOT NULL,
     expires_in integer NOT NULL,
     redirect_uri text NOT NULL,
     created_at datetime  NOT NULL,
     revoked_at datetime ,
-    scopes character varying
+    scopes VARCHAR(255)
 );
 
 
@@ -3650,12 +3650,12 @@ CREATE TABLE dbo.oauth_access_tokens (
     id integer NOT NULL,
     resource_owner_id integer,
     application_id integer,
-    token character varying NOT NULL,
-    refresh_token character varying,
+    token VARCHAR(255) NOT NULL,
+    refresh_token VARCHAR(255),
     expires_in integer,
     revoked_at datetime ,
     created_at datetime  NOT NULL,
-    scopes character varying
+    scopes VARCHAR(255)
 );
 
 
@@ -3685,15 +3685,15 @@ CREATE SEQUENCE dbo.oauth_access_tokens_id_seq
 
 CREATE TABLE dbo.oauth_applications (
     id integer NOT NULL,
-    name character varying NOT NULL,
-    uid character varying NOT NULL,
-    secret character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    uid VARCHAR(255) NOT NULL,
+    secret VARCHAR(255) NOT NULL,
     redirect_uri text NOT NULL,
-    scopes character varying DEFAULT '' NOT NULL,
+    scopes VARCHAR(255) DEFAULT '' NOT NULL,
     created_at datetime ,
     updated_at datetime ,
     owner_id integer,
-    owner_type character varying,
+    owner_type VARCHAR(255),
     trusted bit DEFAULT 0 NOT NULL
 );
 
@@ -3725,7 +3725,7 @@ CREATE SEQUENCE dbo.oauth_applications_id_seq
 CREATE TABLE dbo.oauth_openid_requests (
     id integer NOT NULL,
     access_grant_id integer NOT NULL,
-    nonce character varying NOT NULL
+    nonce VARCHAR(255) NOT NULL
 );
 
 
@@ -3759,8 +3759,8 @@ CREATE TABLE dbo.pages_domain_acme_orders (
     expires_at datetime  NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
-    url character varying NOT NULL,
-    challenge_token character varying NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    challenge_token VARCHAR(255) NOT NULL,
     challenge_file_content text NOT NULL,
     encrypted_private_key_base text NOT NULL,
     encrypted_private_key_iv text NOT NULL
@@ -3795,11 +3795,11 @@ CREATE TABLE dbo.pages_domains (
     project_id integer,
     certificate text,
     encrypted_key_base text,
-    encrypted_key_iv character varying,
-    encrypted_key_salt character varying,
-    domain character varying,
+    encrypted_key_iv VARCHAR(255),
+    encrypted_key_salt VARCHAR(255),
+    domain VARCHAR(255),
     verified_at datetime ,
-    verification_code character varying NOT NULL,
+    verification_code VARCHAR(255) NOT NULL,
     enabled_until datetime ,
     remove_at datetime ,
     auto_ssl_enabled bit DEFAULT 0 NOT NULL,
@@ -3835,15 +3835,15 @@ CREATE SEQUENCE dbo.pages_domains_id_seq
 CREATE TABLE dbo.personal_access_tokens (
     id integer NOT NULL,
     user_id integer NOT NULL,
-    name character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
     revoked bit DEFAULT 0,
     expires_at date,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
-    scopes character varying DEFAULT '--- []
+    scopes VARCHAR(255) DEFAULT '--- []
 ' NOT NULL,
     impersonation bit DEFAULT 0 NOT NULL,
-    token_digest character varying
+    token_digest VARCHAR(255)
 );
 
 
@@ -3874,8 +3874,8 @@ CREATE SEQUENCE dbo.personal_access_tokens_id_seq
 CREATE TABLE dbo.pool_repositories (
     id bigint NOT NULL,
     shard_id integer NOT NULL,
-    disk_path character varying,
-    state character varying,
+    disk_path VARCHAR(255),
+    state VARCHAR(255),
     source_project_id integer
 );
 
@@ -3905,8 +3905,8 @@ CREATE SEQUENCE dbo.pool_repositories_id_seq
 
 CREATE TABLE dbo.programming_languages (
     id integer NOT NULL,
-    name character varying NOT NULL,
-    color character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    color VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL
 );
 
@@ -4019,8 +4019,8 @@ CREATE TABLE dbo.project_custom_attributes (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     project_id integer NOT NULL,
-    key_base character varying NOT NULL,
-    value character varying NOT NULL
+    key_base VARCHAR(255) NOT NULL,
+    value VARCHAR(255) NOT NULL
 );
 
 
@@ -4114,11 +4114,11 @@ CREATE SEQUENCE dbo.project_deploy_tokens_id_seq
 CREATE TABLE dbo.project_error_tracking_settings (
     project_id integer NOT NULL,
     enabled bit DEFAULT 0 NOT NULL,
-    api_url character varying,
-    encrypted_token character varying,
-    encrypted_token_iv character varying,
-    project_name character varying,
-    organization_name character varying
+    api_url VARCHAR(255),
+    encrypted_token VARCHAR(255),
+    encrypted_token_iv VARCHAR(255),
+    project_name VARCHAR(255),
+    organization_name VARCHAR(255)
 );
 
 
@@ -4205,8 +4205,8 @@ CREATE TABLE dbo.project_import_data (
     project_id integer,
     data text,
     encrypted_credentials text,
-    encrypted_credentials_iv character varying,
-    encrypted_credentials_salt character varying
+    encrypted_credentials_iv VARCHAR(255),
+    encrypted_credentials_salt VARCHAR(255)
 );
 
 
@@ -4236,7 +4236,7 @@ CREATE SEQUENCE dbo.project_import_data_id_seq
 
 CREATE TABLE dbo.project_metrics_settings (
     project_id integer NOT NULL,
-    external_dashboard_url character varying NOT NULL
+    external_dashboard_url VARCHAR(255) NOT NULL
 );
 
 
@@ -4247,8 +4247,8 @@ CREATE TABLE dbo.project_metrics_settings (
 CREATE TABLE dbo.project_mirror_data (
     id integer NOT NULL,
     project_id integer NOT NULL,
-    status character varying,
-    jid character varying,
+    status VARCHAR(255),
+    jid VARCHAR(255),
     last_error text
 );
 
@@ -4280,7 +4280,7 @@ CREATE SEQUENCE dbo.project_mirror_data_id_seq
 CREATE TABLE dbo.project_repositories (
     id bigint NOT NULL,
     shard_id integer NOT NULL,
-    disk_path character varying NOT NULL,
+    disk_path VARCHAR(255) NOT NULL,
     project_id integer NOT NULL
 );
 
@@ -4348,26 +4348,26 @@ CREATE SEQUENCE dbo.project_statistics_id_seq
 
 CREATE TABLE dbo.projects (
     id integer NOT NULL,
-    name character varying,
-    path character varying,
+    name VARCHAR(255),
+    path VARCHAR(255),
     description text,
     created_at datetime ,
     updated_at datetime ,
     creator_id integer,
     namespace_id integer NOT NULL,
     last_activity_at datetime ,
-    import_url character varying,
+    import_url VARCHAR(255),
     visibility_level integer DEFAULT 0 NOT NULL,
     archived bit DEFAULT 0 NOT NULL,
-    avatar character varying,
-    import_status character varying,
+    avatar VARCHAR(255),
+    import_status VARCHAR(255),
     star_count integer DEFAULT 0 NOT NULL,
-    import_type character varying,
-    import_source character varying,
+    import_type VARCHAR(255),
+    import_source VARCHAR(255),
     import_error text,
     shared_runners_enabled bit DEFAULT 1 NOT NULL,
-    runners_token character varying,
-    build_coverage_regex character varying,
+    runners_token VARCHAR(255),
+    build_coverage_regex VARCHAR(255),
     build_allow_git_fetch bit DEFAULT 1 NOT NULL,
     build_timeout integer DEFAULT 3600 NOT NULL,
     pending_delete bit DEFAULT 0,
@@ -4377,16 +4377,16 @@ CREATE TABLE dbo.projects (
     container_registry_enabled bit,
     only_allow_merge_if_pipeline_succeeds bit DEFAULT 0 NOT NULL,
     has_external_issue_tracker bit,
-    repository_storage character varying DEFAULT 'default' NOT NULL,
+    repository_storage VARCHAR(255) DEFAULT 'default' NOT NULL,
     request_access_enabled bit DEFAULT 0 NOT NULL,
     has_external_wiki bit,
-    ci_config_path character varying,
+    ci_config_path VARCHAR(255),
     lfs_enabled bit,
     description_html text,
     only_allow_merge_if_all_discussions_are_resolved bit,
     printing_merge_request_link_enabled bit DEFAULT 1 NOT NULL,
     auto_cancel_pending_pipelines integer DEFAULT 1 NOT NULL,
-    import_jid character varying,
+    import_jid VARCHAR(255),
     cached_markdown_version integer,
     delete_error text,
     last_repository_updated_at datetime ,
@@ -4399,10 +4399,10 @@ CREATE TABLE dbo.projects (
     pages_https_only bit DEFAULT 1,
     remote_mirror_available_overridden bit,
     pool_repository_id bigint,
-    runners_token_encrypted character varying,
-    bfg_object_map character varying,
+    runners_token_encrypted VARCHAR(255),
+    bfg_object_map VARCHAR(255),
     detected_repository_languages bit,
-    external_authorization_classification_label character varying
+    external_authorization_classification_label VARCHAR(255)
 );
 
 
@@ -4433,16 +4433,16 @@ CREATE SEQUENCE dbo.projects_id_seq
 CREATE TABLE dbo.prometheus_metrics (
     id integer NOT NULL,
     project_id integer,
-    title character varying NOT NULL,
-    query character varying NOT NULL,
-    y_label character varying,
-    unit character varying,
-    legend character varying,
+    title VARCHAR(255) NOT NULL,
+    query VARCHAR(255) NOT NULL,
+    y_label VARCHAR(255),
+    unit VARCHAR(255),
+    legend VARCHAR(255),
     "group" integer NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     common bit DEFAULT 0 NOT NULL,
-    identifier character varying
+    identifier VARCHAR(255)
 );
 
 
@@ -4539,7 +4539,7 @@ CREATE SEQUENCE dbo.protected_branch_push_access_levels_id_seq
 CREATE TABLE dbo.protected_branches (
     id integer NOT NULL,
     project_id integer NOT NULL,
-    name character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
     created_at datetime ,
     updated_at datetime 
 );
@@ -4607,7 +4607,7 @@ CREATE SEQUENCE dbo.protected_tag_create_access_levels_id_seq
 CREATE TABLE dbo.protected_tags (
     id integer NOT NULL,
     project_id integer NOT NULL,
-    name character varying NOT NULL,
+    name VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -4645,7 +4645,7 @@ CREATE TABLE dbo.push_event_payloads (
     commit_from VARBINARY(100),
     commit_to VARBINARY(100),
     ref text,
-    commit_title character varying(70)
+    commit_title VARCHAR(70)
 );
 
 
@@ -4656,8 +4656,8 @@ CREATE TABLE dbo.push_event_payloads (
 CREATE TABLE dbo.redirect_routes (
     id integer NOT NULL,
     source_id integer NOT NULL,
-    source_type character varying NOT NULL,
-    path character varying NOT NULL,
+    source_type VARCHAR(255) NOT NULL,
+    path VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -4690,8 +4690,8 @@ CREATE SEQUENCE dbo.redirect_routes_id_seq
 CREATE TABLE dbo.release_links (
     id bigint NOT NULL,
     release_id integer NOT NULL,
-    url character varying NOT NULL,
-    name character varying NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -4722,7 +4722,7 @@ CREATE SEQUENCE dbo.release_links_id_seq
 
 CREATE TABLE dbo.releases (
     id integer NOT NULL,
-    tag character varying,
+    tag VARCHAR(255),
     description text,
     project_id integer,
     created_at datetime ,
@@ -4730,8 +4730,8 @@ CREATE TABLE dbo.releases (
     description_html text,
     cached_markdown_version integer,
     author_id integer,
-    name character varying,
-    sha character varying
+    name VARCHAR(255),
+    sha VARCHAR(255)
 );
 
 
@@ -4762,18 +4762,18 @@ CREATE SEQUENCE dbo.releases_id_seq
 CREATE TABLE dbo.remote_mirrors (
     id integer NOT NULL,
     project_id integer,
-    url character varying,
+    url VARCHAR(255),
     enabled bit DEFAULT 0,
-    update_status character varying,
+    update_status VARCHAR(255),
     last_update_at datetime ,
     last_successful_update_at datetime ,
     last_update_started_at datetime ,
-    last_error character varying,
+    last_error VARCHAR(255),
     only_protected_branches bit DEFAULT 0 NOT NULL,
-    remote_name character varying,
+    remote_name VARCHAR(255),
     encrypted_credentials text,
-    encrypted_credentials_iv character varying,
-    encrypted_credentials_salt character varying,
+    encrypted_credentials_iv VARCHAR(255),
+    encrypted_credentials_salt VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     error_notification_sent bit
@@ -4855,11 +4855,11 @@ CREATE SEQUENCE dbo.resource_label_events_id_seq
 CREATE TABLE dbo.routes (
     id integer NOT NULL,
     source_id integer NOT NULL,
-    source_type character varying NOT NULL,
-    path character varying NOT NULL,
+    source_type VARCHAR(255) NOT NULL,
+    path VARCHAR(255) NOT NULL,
     created_at datetime ,
     updated_at datetime ,
-    name character varying
+    name VARCHAR(255)
 );
 
 
@@ -4888,7 +4888,7 @@ CREATE SEQUENCE dbo.routes_id_seq
 --
 
 CREATE TABLE dbo.schema_migrations (
-    version character varying NOT NULL
+    version VARCHAR(255) NOT NULL
 );
 
 
@@ -4900,14 +4900,14 @@ CREATE TABLE dbo.sent_notifications (
     id integer NOT NULL,
     project_id integer,
     noteable_id integer,
-    noteable_type character varying,
+    noteable_type VARCHAR(255),
     recipient_id integer,
-    commit_id character varying,
-    reply_key_base character varying NOT NULL,
-    line_code character varying,
-    note_type character varying,
+    commit_id VARCHAR(255),
+    reply_key_base VARCHAR(255) NOT NULL,
+    line_code VARCHAR(255),
+    note_type VARCHAR(255),
     "position" text,
-    in_reply_to_discussion_id character varying
+    in_reply_to_discussion_id VARCHAR(255)
 );
 
 
@@ -4937,8 +4937,8 @@ CREATE SEQUENCE dbo.sent_notifications_id_seq
 
 CREATE TABLE dbo.services (
     id integer NOT NULL,
-    type character varying,
-    title character varying,
+    type VARCHAR(255),
+    title VARCHAR(255),
     project_id integer,
     created_at datetime ,
     updated_at datetime ,
@@ -4950,7 +4950,7 @@ CREATE TABLE dbo.services (
     merge_requests_events bit DEFAULT 1,
     tag_push_events bit DEFAULT 1,
     note_events bit DEFAULT 1 NOT NULL,
-    category character varying DEFAULT 'common' NOT NULL,
+    category VARCHAR(255) DEFAULT 'common' NOT NULL,
     "default" bit DEFAULT 0,
     wiki_page_events bit DEFAULT 1,
     pipeline_events bit DEFAULT 0 NOT NULL,
@@ -4988,7 +4988,7 @@ CREATE SEQUENCE dbo.services_id_seq
 
 CREATE TABLE dbo.shards (
     id integer NOT NULL,
-    name character varying NOT NULL
+    name VARCHAR(255) NOT NULL
 );
 
 
@@ -5018,14 +5018,14 @@ CREATE SEQUENCE dbo.shards_id_seq
 
 CREATE TABLE dbo.snippets (
     id integer NOT NULL,
-    title character varying,
+    title VARCHAR(255),
     content text,
     author_id integer NOT NULL,
     project_id integer,
     created_at datetime ,
     updated_at datetime ,
-    file_name character varying,
-    type character varying,
+    file_name VARCHAR(255),
+    type VARCHAR(255),
     visibility_level integer DEFAULT 0 NOT NULL,
     title_html text,
     content_html text,
@@ -5062,11 +5062,11 @@ CREATE SEQUENCE dbo.snippets_id_seq
 CREATE TABLE dbo.spam_logs (
     id integer NOT NULL,
     user_id integer,
-    source_ip character varying,
-    user_agent character varying,
+    source_ip VARCHAR(255),
+    user_agent VARCHAR(255),
     via_api bit,
-    noteable_type character varying,
-    title character varying,
+    noteable_type VARCHAR(255),
+    title VARCHAR(255),
     description text,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
@@ -5103,7 +5103,7 @@ CREATE TABLE dbo.subscriptions (
     id integer NOT NULL,
     user_id integer,
     subscribable_id integer,
-    subscribable_type character varying,
+    subscribable_type VARCHAR(255),
     subscribed bit,
     created_at datetime ,
     updated_at datetime ,
@@ -5140,7 +5140,7 @@ CREATE TABLE dbo.suggestions (
     note_id integer NOT NULL,
     relative_order smallint NOT NULL,
     applied bit DEFAULT 0 NOT NULL,
-    commit_id character varying,
+    commit_id VARCHAR(255),
     from_content text NOT NULL,
     to_content text NOT NULL,
     lines_above integer DEFAULT 0 NOT NULL,
@@ -5176,7 +5176,7 @@ CREATE TABLE dbo.system_note_metadata (
     id integer NOT NULL,
     note_id integer NOT NULL,
     commit_count integer,
-    action character varying,
+    action VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -5210,10 +5210,10 @@ CREATE TABLE dbo.taggings (
     id integer NOT NULL,
     tag_id integer,
     taggable_id integer,
-    taggable_type character varying,
+    taggable_type VARCHAR(255),
     tagger_id integer,
-    tagger_type character varying,
-    context character varying,
+    tagger_type VARCHAR(255),
+    context VARCHAR(255),
     created_at datetime 
 );
 
@@ -5244,7 +5244,7 @@ CREATE SEQUENCE dbo.taggings_id_seq
 
 CREATE TABLE dbo.tags (
     id integer NOT NULL,
-    name character varying,
+    name VARCHAR(255),
     taggings_count integer DEFAULT 0
 );
 
@@ -5348,14 +5348,14 @@ CREATE TABLE dbo.todos (
     user_id integer NOT NULL,
     project_id integer,
     target_id integer,
-    target_type character varying NOT NULL,
+    target_type VARCHAR(255) NOT NULL,
     author_id integer NOT NULL,
     action integer NOT NULL,
-    state character varying NOT NULL,
+    state VARCHAR(255) NOT NULL,
     created_at datetime ,
     updated_at datetime ,
     note_id integer,
-    commit_id character varying,
+    commit_id VARCHAR(255),
     group_id integer
 );
 
@@ -5417,13 +5417,13 @@ CREATE SEQUENCE dbo.trending_projects_id_seq
 CREATE TABLE dbo.u2f_registrations (
     id integer NOT NULL,
     certificate text,
-    key_handle character varying,
-    dbo_key_base character varying,
+    key_handle VARCHAR(255),
+    dbo_key_base VARCHAR(255),
     counter integer,
     user_id integer,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
-    name character varying
+    name VARCHAR(255)
 );
 
 
@@ -5454,14 +5454,14 @@ CREATE SEQUENCE dbo.u2f_registrations_id_seq
 CREATE TABLE dbo.uploads (
     id integer NOT NULL,
     size bigint NOT NULL,
-    path character varying(511) NOT NULL,
-    checksum character varying(64),
+    path VARCHAR(511) NOT NULL,
+    checksum VARCHAR(64),
     model_id integer,
-    model_type character varying,
-    uploader character varying NOT NULL,
+    model_type VARCHAR(255),
+    uploader VARCHAR(255) NOT NULL,
     created_at datetime  NOT NULL,
-    mount_point character varying,
-    secret character varying,
+    mount_point VARCHAR(255),
+    secret VARCHAR(255),
     store integer
 );
 
@@ -5492,10 +5492,10 @@ CREATE SEQUENCE dbo.uploads_id_seq
 
 CREATE TABLE dbo.user_agent_details (
     id integer NOT NULL,
-    user_agent character varying NOT NULL,
-    ip_address character varying NOT NULL,
+    user_agent VARCHAR(255) NOT NULL,
+    ip_address VARCHAR(255) NOT NULL,
     subject_id integer NOT NULL,
-    subject_type character varying NOT NULL,
+    subject_type VARCHAR(255) NOT NULL,
     submitted bit DEFAULT 0 NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
@@ -5562,8 +5562,8 @@ CREATE TABLE dbo.user_custom_attributes (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     user_id integer NOT NULL,
-    key_base character varying NOT NULL,
-    value character varying NOT NULL
+    key_base VARCHAR(255) NOT NULL,
+    value VARCHAR(255) NOT NULL
 );
 
 
@@ -5609,9 +5609,9 @@ CREATE TABLE dbo.user_preferences (
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     first_day_of_week integer,
-    issues_sort character varying,
-    merge_requests_sort character varying,
-    timezone character varying,
+    issues_sort VARCHAR(255),
+    merge_requests_sort VARCHAR(255),
+    timezone VARCHAR(255),
     time_display_relative bit,
     time_format_in_24h bit
 );
@@ -5644,9 +5644,9 @@ CREATE SEQUENCE dbo.user_preferences_id_seq
 CREATE TABLE dbo.user_statuses (
     user_id integer NOT NULL,
     cached_markdown_version integer,
-    emoji character varying DEFAULT 'speech_balloon' NOT NULL,
-    message character varying(100),
-    message_html character varying
+    emoji VARCHAR(255) DEFAULT 'speech_balloon' NOT NULL,
+    message VARCHAR(100),
+    message_html VARCHAR(255)
 );
 
 
@@ -5680,7 +5680,7 @@ CREATE TABLE dbo.user_synced_attributes_metadata (
     email_synced bit DEFAULT 0,
     location_synced bit DEFAULT 0,
     user_id integer NOT NULL,
-    provider character varying
+    provider VARCHAR(255)
 );
 
 
@@ -5710,74 +5710,74 @@ CREATE SEQUENCE dbo.user_synced_attributes_metadata_id_seq
 
 CREATE TABLE dbo.users (
     id integer NOT NULL,
-    email character varying DEFAULT '' NOT NULL,
-    encrypted_password character varying DEFAULT '' NOT NULL,
-    reset_password_token character varying,
+    email VARCHAR(255) DEFAULT '' NOT NULL,
+    encrypted_password VARCHAR(255) DEFAULT '' NOT NULL,
+    reset_password_token VARCHAR(255),
     reset_password_sent_at datetime ,
     remember_created_at datetime ,
     sign_in_count integer DEFAULT 0,
     current_sign_in_at datetime ,
     last_sign_in_at datetime ,
-    current_sign_in_ip character varying,
-    last_sign_in_ip character varying,
+    current_sign_in_ip VARCHAR(255),
+    last_sign_in_ip VARCHAR(255),
     created_at datetime ,
     updated_at datetime ,
-    name character varying,
+    name VARCHAR(255),
     admin bit DEFAULT 0 NOT NULL,
     projects_limit integer NOT NULL,
-    skype character varying DEFAULT '' NOT NULL,
-    linkedin character varying DEFAULT '' NOT NULL,
-    twitter character varying DEFAULT '' NOT NULL,
-    bio character varying,
+    skype VARCHAR(255) DEFAULT '' NOT NULL,
+    linkedin VARCHAR(255) DEFAULT '' NOT NULL,
+    twitter VARCHAR(255) DEFAULT '' NOT NULL,
+    bio VARCHAR(255),
     failed_attempts integer DEFAULT 0,
     locked_at datetime ,
-    username character varying,
+    username VARCHAR(255),
     can_create_group bit DEFAULT 1 NOT NULL,
     can_create_team bit DEFAULT 1 NOT NULL,
-    state character varying,
+    state VARCHAR(255),
     color_scheme_id integer DEFAULT 1 NOT NULL,
     password_expires_at datetime ,
     created_by_id integer,
     last_credential_check_at datetime ,
-    avatar character varying,
-    confirmation_token character varying,
+    avatar VARCHAR(255),
+    confirmation_token VARCHAR(255),
     confirmed_at datetime ,
     confirmation_sent_at datetime ,
-    unconfirmed_email character varying,
+    unconfirmed_email VARCHAR(255),
     hide_no_ssh_key_base bit DEFAULT 0,
-    website_url character varying DEFAULT '' NOT NULL,
-    notification_email character varying,
+    website_url VARCHAR(255) DEFAULT '' NOT NULL,
+    notification_email VARCHAR(255),
     hide_no_password bit DEFAULT 0,
     password_automatically_set bit DEFAULT 0,
-    location character varying,
-    encrypted_otp_secret character varying,
-    encrypted_otp_secret_iv character varying,
-    encrypted_otp_secret_salt character varying,
+    location VARCHAR(255),
+    encrypted_otp_secret VARCHAR(255),
+    encrypted_otp_secret_iv VARCHAR(255),
+    encrypted_otp_secret_salt VARCHAR(255),
     otp_required_for_login bit DEFAULT 0 NOT NULL,
     otp_backup_codes text,
-    dbo_email character varying DEFAULT '' NOT NULL,
+    dbo_email VARCHAR(255) DEFAULT '' NOT NULL,
     dashboard integer DEFAULT 0,
     project_view integer DEFAULT 0,
     consumed_timestep integer,
     layout integer DEFAULT 0,
     hide_project_limit bit DEFAULT 0,
-    unlock_token character varying,
+    unlock_token VARCHAR(255),
     otp_grace_period_started_at datetime ,
     external_base bit DEFAULT 0,
-    incoming_email_token character varying,
-    organization character varying,
+    incoming_email_token VARCHAR(255),
+    organization VARCHAR(255),
     require_two_factor_authentication_from_group bit DEFAULT 0 NOT NULL,
     two_factor_grace_period integer DEFAULT 48 NOT NULL,
     ghost bit,
     last_activity_on date,
     notified_of_own_activity bit,
-    preferred_language character varying,
+    preferred_language VARCHAR(255),
     theme_id smallint,
     accepted_term_id integer,
-    feed_token character varying,
+    feed_token VARCHAR(255),
     private_profile bit,
     include_private_contributions bit,
-    commit_email character varying
+    commit_email VARCHAR(255)
 );
 
 
@@ -5841,15 +5841,15 @@ CREATE SEQUENCE dbo.users_star_projects_id_seq
 CREATE TABLE dbo.web_hook_logs (
     id integer NOT NULL,
     web_hook_id integer NOT NULL,
-    trigger_base character varying,
-    url character varying,
+    trigger_base VARCHAR(255),
+    url VARCHAR(255),
     request_headers text,
     request_data text,
     response_headers text,
     response_body text,
-    response_status character varying,
+    response_status VARCHAR(255),
     execution_duration double precision,
-    internal_error_message character varying,
+    internal_error_message VARCHAR(255),
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -5884,7 +5884,7 @@ CREATE TABLE dbo.web_hooks (
     project_id integer,
     created_at datetime ,
     updated_at datetime ,
-    type character varying DEFAULT 'ProjectHook',
+    type VARCHAR(255) DEFAULT 'ProjectHook',
     service_id integer,
     push_events bit DEFAULT 1 NOT NULL,
     issues_events bit DEFAULT 0 NOT NULL,
@@ -5899,10 +5899,10 @@ CREATE TABLE dbo.web_hooks (
     job_events bit DEFAULT 0 NOT NULL,
     confidential_note_events bit,
     push_events_branch_filter text,
-    encrypted_token character varying,
-    encrypted_token_iv character varying,
-    encrypted_url character varying,
-    encrypted_url_iv character varying
+    encrypted_token VARCHAR(255),
+    encrypted_token_iv VARCHAR(255),
+    encrypted_url VARCHAR(255),
+    encrypted_url_iv VARCHAR(255)
 );
 
 
@@ -12923,121 +12923,3 @@ ALTER TABLE dbo.timelogs
     ADD CONSTRAINT fk_timelogs_merge_requests_merge_request_id FOREIGN KEY (merge_request_id) REFERENCES dbo.merge_requests(id) ON DELETE CASCADE;
 
 
---
--- PostgreSQL database dump complete
---
-
-INSERT INTO dbo.schema_migrations (version) VALUES
-('20140313092127'),
-('20140407135544'),
-('20140414131055'),
-('20140415124820'),
-('20140416074002'),
-('20140416185734'),
-('20140428105831'),
-('20140502115131'),
-('20140502125220'),
-('20140611135229'),
-('20140625115202'),
-('20140729134820'),
-('20140729140420'),
-('20140729145339'),
-('20140729152420'),
-('20140730111702'),
-('20140903115954'),
-('20140907220153'),
-('20140914113604'),
-('20140914145549'),
-('20140914173417'),
-('20141006143943'),
-('20141007100818'),
-('20141118150935'),
-('20141121133009'),
-('20141121161704'),
-('20141126120926'),
-('20141205134006'),
-('20141216155758'),
-('20141217125223'),
-('20141223135007'),
-('20141226080412'),
-('20150108073740'),
-('20150116234544'),
-('20150116234545'),
-('20150125163100'),
-('20150205211843'),
-('20150206181414'),
-('20150206222854'),
-('20150209222013'),
-('20150211172122'),
-('20150211174341'),
-('20150213104043'),
-('20150213114800'),
-('20150213121042'),
-('20150217123345'),
-('20150219004514'),
-('20150223022001'),
-('20150225065047'),
-('20150301014758'),
-('20150306023106'),
-('20150306023112'),
-('20150310194358'),
-('20150313012111'),
-('20150320234437'),
-('20150324155957'),
-('20150327122227'),
-('20150327150017'),
-('20150327223628'),
-('20150328132231'),
-('20150331183602'),
-('20150406133311'),
-('20150411000035'),
-('20150411180045'),
-('20150413192223'),
-('20150417121913'),
-('20150417122318'),
-('20150421120000'),
-('20150423033240'),
-('20150425164646'),
-('20150425164647'),
-('20150425164648'),
-('20150425164649'),
-('20150425164650'),
-('20150425164651'),
-('20150425173433'),
-('20150429002313'),
-('20150502064022'),
-('20150509180749'),
-('20150516060434'),
-('20150529111607'),
-('20150529150354'),
-('20150609141121'),
-('20150610065936'),
-('20150620233230'),
-('20150713160110'),
-('20150717130904'),
-('20150730122406'),
-('20150806104937'),
-('20150812080800'),
-('20150814065925'),
-('20150817163600'),
-('20150818213832'),
-('20150824002011'),
-('20150826001931'),
-('20150827121444'),
-('20150902001023'),
-('20150914215247'),
-('20150915001905'),
-('20150916000405'),
-('20150916114643'),
-('20150916145038'),
-('20150918084513'),
-('20150918161719'),
-('20150920010715'),
-('20150920161119'),
-('20150924125150'),
-('20150924125436'),
-('20150930001110'),
-('20150930095736'),
-('20150930110012'),
-('20151002112914'),
-('20151002121400');
