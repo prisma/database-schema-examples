@@ -73,9 +73,7 @@ CREATE TABLE player_matches (
   tower_damage bigint,
   hero_healing bigint,
   level integer,
-  -- SQLINES DEMO *** son,
   additional_units NVARCHAR,
-  --parsed fields below
   stuns real,
   max_hero_hit NVARCHAR,
   times integer,
@@ -151,17 +149,6 @@ CREATE TABLE players (
   fh_unavailable bit,
   loccountrycode varchar(2),
   last_match_time datetimeoffset
-  /* SQLINES DEMO *** ibilitystate" : 3,
-    "lastlogoff" : 1426020853,
-    "loccityid" : 44807,
-    "locstatecode" : "16",
-    "personastate" : 0,
-    "personastateflags" : 0,
-    "primaryclanid" : "103582791433775490",
-    "profilestate" : 1,
-    "realname" : "Alper",
-    "timecreated" : 1332289262,
-  */
 );
 CREATE INDEX players_cheese_idx ON dbo.players(cheese) WHERE cheese IS NOT NULL AND cheese > 0;
 -- CREATE INDEX players_personaname_idx_gin ON dbo.players USING GIN(personaname gin_trgm_ops);
@@ -493,10 +480,9 @@ CREATE TABLE hero_search (
   teamAWin bit,
   start_time int
 );
+
 -- CREATE INDEX hero_search_teamA_idx_gin ON hero_search USING dbo.GIN(teamA);
 -- CREATE INDEX hero_search_teamB_idx_gin ON hero_search USING dbo.GIN(teamB);
-
-
 
 BEGIN
     IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'readonly') BEGIN
