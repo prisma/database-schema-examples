@@ -96,7 +96,6 @@ GO
 USE [katmai]
 GO
 
-/****** Object:  Table [dbo].[ParkBoundaries]    Script Date: 05/26/2009 07:24:49 ******/
 SET ANSI_NULLS ON
 GO
 
