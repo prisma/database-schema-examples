@@ -1,4 +1,3 @@
---DROP TABLE IF EXISTS work CASCADE;
 CREATE TABLE work
   ( workID    VARCHAR(32) PRIMARY KEY,
     title     VARCHAR(32) NOT NULL,
@@ -11,7 +10,6 @@ CREATE TABLE work
     totalParagraphs INTEGER NOT NULL
   );
 
---DROP TABLE IF EXISTS character CASCADE;
 CREATE TABLE character
   ( charID      VARCHAR(32) PRIMARY KEY,
     charName    VARCHAR(64) NOT NULL,
@@ -21,7 +19,6 @@ CREATE TABLE character
     speechCount INTEGER NOT NULL
   );
 
---DROP TABLE IF EXISTS character_work;
 CREATE TABLE character_work
   ( charID     VARCHAR(32) NOT NULL REFERENCES character (charID),
     workID     VARCHAR(32) NOT NULL REFERENCES work (workID),
@@ -30,7 +27,6 @@ CREATE TABLE character_work
 
 ALTER TABLE character DROP COLUMN works;
 
---DROP TABLE IF EXISTS chapter;
 CREATE TABLE chapter
   ( workID         VARCHAR(32) NOT NULL REFERENCES work (workID),
     chapterID      INTEGER PRIMARY KEY,
@@ -39,7 +35,6 @@ CREATE TABLE chapter
     description    VARCHAR(256) NOT NULL
   );
 
---DROP TABLE IF EXISTS paragraph;
 CREATE TABLE paragraph
   ( workID         VARCHAR(32) NOT NULL REFERENCES work (workID), paragraphID    INTEGER PRIMARY KEY NOT NULL,
     paragraphNum   INTEGER NOT NULL,
@@ -54,7 +49,6 @@ CREATE TABLE paragraph
     wordCount      INTEGER NOT NULL
   );
 
---DROP TABLE IF EXISTS wordform;
 CREATE TABLE wordform
   ( wordFormID     INTEGER PRIMARY KEY,
     plainText      VARCHAR(64) NOT NULL,
