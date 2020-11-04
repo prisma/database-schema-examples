@@ -1,34 +1,39 @@
-# Introduction 
+# gitlab
 
-From: gitlab.com
-Please follow: https://gitlab.com/gitlab-org/gitlab/issues/29465
-http://www.sqlines.com/online
+- website: https://gitlab.com/gitlab-org/gitlab/issues/29465
+- source: http://www.sqlines.com/online
 
-boolean with bit
-true becomes 1
-false becomes 0
-public becomes dbo
-timestamp becomes datetime
-without time zone is removed
-comment out extensions and settings
-ALTER SEQUENCE becomes -- ALTER SEQUENCE
-comment out btree indexes with USING keyword
-ALTER TABLE ONLY becomes ALTER TABLE
-::character varying deleted
-key keyword becomes key_base
-bytea becomes VARBINARY(100)
-file become file_base
-external become external_base
-trigger becomes trigger_base
+## Modifications made to source
 
-using DECLARE infront of @variables?
--- ALTER TABLE dbo.abuse_reports ALTER COLUMN [id] SET DEFAULT NEXT VALUE FOR 'dbo.abuse_reports_id_seq'; becomes
-ALTER TABLE dbo.abuse_reports ADD DEFAULT N'Gitlab_' + CAST(NEXT VALUE FOR dbo.abuse_reports_id_seq as NVARCHAR(20)) FOR id;
-https://docs.microsoft.com/en-us/sql/t-sql/functions/next-value-for-transact-sql?view=sql-server-ver15
+- schema from postgres folder in same repo
+- schema initially exported via `pg_dump`
+- converted using http://www.sqlines.com/online
 
-comment out USING btree indexes
-ON DELETE RESTRICT becomes on delete no action
-reduce insert value of migration rows as only 1000 are accepted at once
-jsonb to nvarchar
-may trigger CACHE set to NO CACHE 
-character becomes VARCHAR(255)
+- remove extensions and settings
+- remove statements creating binary trees with word USING because not recognized by sql server
+- remove next value indexes
+- remove migration rows > 10000 in insert statemenet as sql server only accepts 1000 in one batch 
+
+- replace boolean with bit
+- replace false with 0
+- replace true with 1
+- replace bytea with VARBINARY(100)
+- replace oid with character varying(100)
+- replace timestamp with datetime
+- replace ::character with character 
+- replace bytea with VARBINARY(100)
+- replace character with VARCHAR(255)
+- replace jsonb with nvarchar
+- replace ON DELETE RESTRICT with ON DELETE NO ACTION
+- replace key with key_base
+- replace file with file_base
+- replace external with external_base
+- replace trigger with trigger_base
+
+
+
+
+
+
+
+

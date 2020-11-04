@@ -1,27 +1,25 @@
-# Mastodon
+# mastodon
 
-Schema only dump exported via `pg_dump`
-
-- Version: 3.1.1
 - Website: https://joinmastodon.org/
 - Source: https://docs.joinmastodon.org/admin/install/
 
 ## Modifications made to source
 
-- http://www.sqlines.com/online
-- switch to dbo
-- comment out config
-- timestamp to datetime
--comment out datetime_id function
-- comment out declarations
-- armeta data id now bigint
-<!-- - varchar(max) to varchar(255) -->
-database becomes database_base
-USING alters commented out
-schema becomes schema_base
-comment out sequential ids next value
-ONLY removed
-remove ON DELETE CASCADE;
-jsonb and json and inet to NVARCHAR(255)
-sequence may throw warning: The cache size for sequence object 'dbo.status_pins_id_seq' has been set to NO CACHE. but tables are still created
-data not translated as it had a bunch of COPY from STDIN
+- schema from postgres folder in same repo
+- schema initially exported via `pg_dump`
+- converted using http://www.sqlines.com/online
+- data not adapted as it had a bunch of COPY from STDIN 
+
+- remove extensions and settings
+- remove datetime_id function
+- remove unnecessary variable declarations throwing errors
+- remove word ONLY because not recognized by sql server
+- remove statements creating binary trees with word USING because not recognized by sql server
+- remove statements setting sequential ids with next value
+- remove ON DELETE CASCADE;
+
+- replace timestamp with datetime
+- replace armeta_data id with bigint
+- replace database with database_base
+- replace schema with schema_base
+- replace jsonb, json, inet to NVARCHAR(255)

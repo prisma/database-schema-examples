@@ -1,25 +1,26 @@
-# Exo
+# exo
 
-Schema only dump exported via `pg_dump`
-
-- Version: 6.0
-- Website: https://www.exoplatform.com/
-- Source: https://hub.docker.com/r/exoplatform/exo
+- version: 6.0
+- website: https://www.exoplatform.com/
+- source: https://hub.docker.com/r/exoplatform/exo
 
 ## Modifications made to source
 
-- Converted using http://www.sqlines.com/online
-- remove owner
-- boolean false is bit 0
-- boolean true is bit 1
-- REMOVE ONLY KEY WORD IN ALTER TABLE ONLY
-- comment out create indexes using binary trees with USING statement
-- @uNll become null
+- schema from postgres folder in same repo
+- schema initially exported via `pg_dump`
+- converted using http://www.sqlines.com/online
+- data.sql adapted from half of corresponding file in mysql folder in same repo
+
+- remove extensions and settings
+- remove statements containing word OWNER because not recognized by sql server
+- remove word ONLY because not recognized by sql server
+- remove statements creating binary trees with word USING because not recognized by sql server
+- remove lock and unlock table statements
+
+- replace boolean with bit
+- replace false with 0
+- replace true with 1
 - replace bytea with VARBINARY(100)
 - replace oid with character varying(100)
-
--data from mysql version
--replace __binary'\0' with 1 or 0
--removed '\s to ''s
--removed lock unlock
--only about half of data.sql was copied over
+- replace __binary'\0' with 1 or 0
+- replace '\s to ''s
