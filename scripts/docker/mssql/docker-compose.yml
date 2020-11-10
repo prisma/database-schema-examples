@@ -1,0 +1,14 @@
+version: "3"
+services:
+  sql-server-db:
+    container_name: sql-server-db
+    image: mcr.microsoft.com/mssql/server:2019-CU6-ubuntu-16.04
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Prisma1-prisma
+    volumes:
+      - ../../../mssql:/var/lib/mssql/data
+volumes:
+  mssql:
