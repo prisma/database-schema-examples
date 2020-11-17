@@ -1,3 +1,6 @@
+USE [ruma]
+GO
+
 DECLARE @statement_timeout integer;
 SET
   @statement_timeout = 0;
@@ -7,9 +10,9 @@ SET
 DECLARE @idle_in_transaction_session_timeout integer;
 SET
   @idle_in_transaction_session_timeout = 0;
-DECLARE @client_encoding integer;
-SET
-  @client_encoding = 'UTF8';
+-- DECLARE @client_encoding integer;
+-- SET
+--   @client_encoding = 'UTF8';
 
   CREATE TABLE dbo.access_tokens (
     id bigint NOT NULL,

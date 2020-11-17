@@ -40,9 +40,6 @@ CREATE TABLE matches (
   series_type integer
 );
 
-CREATE INDEX matches_leagueid_idx ON dbo.matches([leagueid]) WHERE leagueid > 0;
-CREATE INDEX matches_start_time_idx ON dbo.matches([start_time]);
-
 CREATE TABLE player_matches (
   PRIMARY KEY(match_id, player_slot),
   match_id bigint REFERENCES matches(match_id) ON DELETE CASCADE,
@@ -131,8 +128,6 @@ CREATE TABLE player_matches (
   observers_placed int,
   party_size int
 );
-CREATE INDEX player_matches_account_id_idx ON dbo.player_matches(account_id) WHERE account_id IS NOT NULL;
-CREATE INDEX player_matches_hero_id_idx ON dbo.player_matches(hero_id);
 
 CREATE TABLE players (
   account_id bigint PRIMARY KEY,
@@ -150,8 +145,6 @@ CREATE TABLE players (
   loccountrycode varchar(2),
   last_match_time datetimeoffset
 );
-CREATE INDEX players_cheese_idx ON dbo.players(cheese) WHERE cheese IS NOT NULL AND cheese > 0;
--- CREATE INDEX players_personaname_idx_gin ON dbo.players USING GIN(personaname gin_trgm_ops);
 
 CREATE TABLE player_ratings (
   PRIMARY KEY(account_id, time),
@@ -169,8 +162,6 @@ CREATE TABLE subscriptions (
   amount int,
   active_until date
 );
-CREATE INDEX subscriptions_account_id_idx  ON dbo.subscriptions(account_id);
-CREATE INDEX subscriptions_customer_id_idx  ON dbo.subscriptions(customer_id);
 
 CREATE TABLE webhooks (
   PRIMARY KEY(hook_id),
@@ -179,7 +170,6 @@ CREATE TABLE webhooks (
   url varchar(max) NOT NULL,
   subscriptions NVARCHAR NOT NULL
 );
-CREATE INDEX webhooks_account_id_idx  ON dbo.webhooks(account_id);
 
 CREATE TABLE api_keys (
   PRIMARY KEY(account_id),
@@ -198,8 +188,6 @@ CREATE TABLE api_key_usage (
   ip NVARCHAR,
   datetime datetime default getdate()
 );
-CREATE INDEX api_keys_usage_account_id_idx  ON dbo.api_key_usage(account_id);
-CREATE INDEX api_keys_usage_datetime_idx  ON dbo.api_key_usage(datetime);
 
 CREATE TABLE user_usage (
   account_id bigint,
@@ -207,9 +195,6 @@ CREATE TABLE user_usage (
   usage_count bigint,
   datetime datetime2 default getdate()
 );
-CREATE INDEX user_usage_account_id_idx  ON dbo.user_usage(account_id);
-CREATE INDEX user_usage_datetime_idx  ON dbo.user_usage(datetime);
-CREATE UNIQUE INDEX user_usage_unique_idx  ON dbo.user_usage(account_id, ip, datetime);
 
 CREATE TABLE notable_players (
   account_id bigint PRIMARY KEY,
@@ -275,17 +260,6 @@ CREATE TABLE match_logs (
   camps_stacked int,
   rune_pickups int
 );
-CREATE INDEX match_logs_match_id_idx  ON dbo.match_logs(match_id);
-CREATE INDEX match_logs_match_id_player_slot_idx  ON dbo.match_logs(match_id, player_slot) WHERE player_slot IS NOT NULL;
-CREATE INDEX match_logs_match_id_player1_slot_idx  ON dbo.match_logs(match_id, player1_slot) WHERE player1_slot IS NOT NULL;
-CREATE INDEX match_logs_match_id_attackername_slot_idx  ON dbo.match_logs(match_id, attackername_slot) WHERE attackername_slot IS NOT NULL;
-CREATE INDEX match_logs_match_id_targetname_slot_idx  ON dbo.match_logs(match_id, targetname_slot) WHERE targetname_slot IS NOT NULL;
-CREATE INDEX match_logs_match_id_sourcename_slot_idx  ON dbo.match_logs(match_id, sourcename_slot) WHERE sourcename_slot IS NOT NULL;
-CREATE INDEX match_logs_match_id_targetsourcename_slot_idx  ON dbo.match_logs(match_id, targetsourcename_slot) WHERE targetsourcename_slot IS NOT NULL;
-CREATE INDEX match_logs_match_id_valuename_idx  ON dbo.match_logs(match_id, valuename) WHERE valuename IS NOT NULL;
-CREATE INDEX match_logs_match_id_type_idx  ON dbo.match_logs(match_id, type);
-CREATE INDEX match_logs_valuename_idx  ON dbo.match_logs(valuename) WHERE valuename IS NOT NULL;
-CREATE INDEX match_logs_type_idx  ON dbo.match_logs(type);
 
 CREATE TABLE picks_bans(
   match_id bigint REFERENCES matches(match_id) ON DELETE CASCADE,
@@ -378,9 +352,6 @@ CREATE TABLE public_matches (
   num_rank_tier integer,
   cluster integer
 );
-CREATE INDEX public_matches_start_time_idx  ON dbo.public_matches(start_time);
-CREATE INDEX public_matches_avg_mmr_idx  ON dbo.public_matches(avg_mmr);
-CREATE INDEX public_matches_avg_rank_tier_idx  ON dbo.public_matches(avg_rank_tier) WHERE avg_rank_tier IS NOT NULL;
 
 CREATE TABLE public_player_matches (
   PRIMARY KEY(match_id, player_slot),
@@ -388,8 +359,6 @@ CREATE TABLE public_player_matches (
   player_slot integer,
   hero_id integer
 );
-CREATE INDEX public_player_matches_hero_id_idx  ON dbo.public_player_matches(hero_id);
-CREATE INDEX public_player_matches_match_id_idx  ON dbo.public_player_matches(match_id);
 
 CREATE TABLE team_rating (
   PRIMARY KEY(team_id),
@@ -399,7 +368,6 @@ CREATE TABLE team_rating (
   losses int,
   last_match_time bigint
 );
-CREATE INDEX team_rating_rating_idx  ON dbo.team_rating(rating);
 
 CREATE TABLE hero_ranking (
   PRIMARY key(account_id, hero_id),
@@ -407,7 +375,7 @@ CREATE TABLE hero_ranking (
   hero_id int,
   score float
 );
-CREATE INDEX hero_ranking_hero_id_score_idx  ON dbo.hero_ranking(hero_id, score);
+
 
 CREATE TABLE queue (
   PRIMARY key(id),
@@ -419,7 +387,6 @@ CREATE TABLE queue (
   next_attempt_time datetimeoffset,
   priority int
 );
-CREATE INDEX queue_priority_id_idx  ON dbo.queue(priority, id);
 
 CREATE TABLE mmr_estimates (
   PRIMARY key(account_id),
@@ -484,23 +451,56 @@ CREATE TABLE hero_search (
 -- CREATE INDEX hero_search_teamA_idx_gin ON hero_search USING dbo.GIN(teamA);
 -- CREATE INDEX hero_search_teamB_idx_gin ON hero_search USING dbo.GIN(teamB);
 
-BEGIN
-    IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'readonly') BEGIN
-        GRANT SELECT ON matches TO readonly;
-        GRANT SELECT ON player_matches TO readonly;
-        GRANT SELECT ON heroes TO readonly;
-        GRANT SELECT ON leagues TO readonly;
-        GRANT SELECT ON items TO readonly;
-        GRANT SELECT ON teams TO readonly;
-        GRANT SELECT ON team_match TO readonly;
-        GRANT SELECT ON match_patch TO readonly;
-        GRANT SELECT ON picks_bans TO readonly;
-        GRANT SELECT ON match_logs TO readonly;
-        GRANT SELECT ON notable_players TO readonly;
-        GRANT SELECT ON public_matches TO readonly;
-        GRANT SELECT ON public_player_matches TO readonly;
-        GRANT SELECT ON players TO readonly;
-        GRANT SELECT ON team_rating TO readonly;
-    END 
-END
+-- BEGIN
+--     IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'readonly') BEGIN
+--         GRANT SELECT ON matches TO readonly;
+--         GRANT SELECT ON player_matches TO readonly;
+--         GRANT SELECT ON heroes TO readonly;
+--         GRANT SELECT ON leagues TO readonly;
+--         GRANT SELECT ON items TO readonly;
+--         GRANT SELECT ON teams TO readonly;
+--         GRANT SELECT ON team_match TO readonly;
+--         GRANT SELECT ON match_patch TO readonly;
+--         GRANT SELECT ON picks_bans TO readonly;
+--         GRANT SELECT ON match_logs TO readonly;
+--         GRANT SELECT ON notable_players TO readonly;
+--         GRANT SELECT ON public_matches TO readonly;
+--         GRANT SELECT ON public_player_matches TO readonly;
+--         GRANT SELECT ON players TO readonly;
+--         GRANT SELECT ON team_rating TO readonly;
+--     END 
+-- END
 
+CREATE INDEX matches_leagueid_idx ON dbo.matches([leagueid]) WHERE leagueid > 0;
+CREATE INDEX matches_start_time_idx ON dbo.matches([start_time]);
+CREATE INDEX player_matches_account_id_idx ON dbo.player_matches(account_id) WHERE account_id IS NOT NULL;
+CREATE INDEX player_matches_hero_id_idx ON dbo.player_matches(hero_id);
+CREATE INDEX players_cheese_idx ON dbo.players(cheese) WHERE cheese IS NOT NULL AND cheese > 0;
+-- CREATE INDEX players_personaname_idx_gin ON dbo.players USING GIN(personaname gin_trgm_ops);
+CREATE INDEX subscriptions_account_id_idx  ON dbo.subscriptions(account_id);
+CREATE INDEX subscriptions_customer_id_idx  ON dbo.subscriptions(customer_id);
+CREATE INDEX webhooks_account_id_idx  ON dbo.webhooks(account_id);
+CREATE INDEX api_keys_usage_account_id_idx  ON dbo.api_key_usage(account_id);
+CREATE INDEX api_keys_usage_datetime_idx  ON dbo.api_key_usage(datetime);
+CREATE INDEX user_usage_account_id_idx  ON dbo.user_usage(account_id);
+CREATE INDEX user_usage_datetime_idx  ON dbo.user_usage(datetime);
+CREATE UNIQUE INDEX user_usage_unique_idx  ON dbo.user_usage(account_id, ip, datetime);
+CREATE INDEX match_logs_match_id_idx  ON dbo.match_logs(match_id);
+CREATE INDEX match_logs_match_id_player_slot_idx  ON dbo.match_logs(match_id, player_slot) WHERE player_slot IS NOT NULL;
+CREATE INDEX match_logs_match_id_player1_slot_idx  ON dbo.match_logs(match_id, player1_slot) WHERE player1_slot IS NOT NULL;
+CREATE INDEX match_logs_match_id_attackername_slot_idx  ON dbo.match_logs(match_id, attackername_slot) WHERE attackername_slot IS NOT NULL;
+CREATE INDEX match_logs_match_id_targetname_slot_idx  ON dbo.match_logs(match_id, targetname_slot) WHERE targetname_slot IS NOT NULL;
+CREATE INDEX match_logs_match_id_sourcename_slot_idx  ON dbo.match_logs(match_id, sourcename_slot) WHERE sourcename_slot IS NOT NULL;
+CREATE INDEX match_logs_match_id_targetsourcename_slot_idx  ON dbo.match_logs(match_id, targetsourcename_slot) WHERE targetsourcename_slot IS NOT NULL;
+CREATE INDEX match_logs_match_id_valuename_idx  ON dbo.match_logs(match_id, valuename) WHERE valuename IS NOT NULL;
+CREATE INDEX match_logs_match_id_type_idx  ON dbo.match_logs(match_id, type);
+CREATE INDEX match_logs_valuename_idx  ON dbo.match_logs(valuename) WHERE valuename IS NOT NULL;
+CREATE INDEX match_logs_type_idx  ON dbo.match_logs(type);
+CREATE INDEX public_matches_start_time_idx  ON dbo.public_matches(start_time);
+CREATE INDEX public_matches_avg_mmr_idx  ON dbo.public_matches(avg_mmr);
+CREATE INDEX public_matches_avg_rank_tier_idx  ON dbo.public_matches(avg_rank_tier) WHERE avg_rank_tier IS NOT NULL;
+CREATE INDEX public_player_matches_hero_id_idx  ON dbo.public_player_matches(hero_id);
+CREATE INDEX public_player_matches_match_id_idx  ON dbo.public_player_matches(match_id);
+CREATE INDEX team_rating_rating_idx  ON dbo.team_rating(rating);
+CREATE INDEX hero_ranking_hero_id_score_idx  ON dbo.hero_ranking(hero_id, score);
+CREATE INDEX queue_priority_id_idx  ON dbo.queue(priority, id);

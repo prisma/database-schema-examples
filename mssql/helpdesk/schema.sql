@@ -74,7 +74,7 @@ CREATE TABLE dbo.tbl_user
   firstname character varying(30),
   lastname character varying(30),
   company character varying(50),
-  "position" character varying(50),
+  [position] character varying(50),
   email character varying(200),
   password character varying(60),
   notes character varying(200),
@@ -127,7 +127,7 @@ BEGIN
       a.search,
       a.labels,
       a.minutes,
-      b.name AS "user",
+      b.name AS [user],
       b.email,
       b.language,
       b.photo,
@@ -142,7 +142,7 @@ BEGIN
       a.dateupdated,
       b.minutes AS minutesuser,
       a.idsolution,
-      b."position",
+      b.[position],
       a.countcomments
     FROM tbl_ticket a
       JOIN tbl_user b ON cast(b.id as varchar(max)) = cast(a.iduser as varchar(max))
@@ -157,7 +157,7 @@ BEGIN
         a.idparent,
         a.idticket,
         a.body,
-        b.name AS "user",
+        b.name AS [user],
         b.email,
         b.photo,
         b.language,
@@ -168,7 +168,7 @@ BEGIN
         b.isnotification,
         a.issolution AS issolved,
         a.operation,
-        b."position",
+        b.[position],
         b.iscustomer
       FROM tbl_ticket_comment a
         JOIN tbl_user b ON cast(a.iduser as varchar(max)) = cast(b.id as varchar(max))
@@ -185,7 +185,7 @@ END;
 --         a.company,
 --         a.iscustomer,
 --         a.minutes,
---         a."position",
+--         a.[position],
 --         a.isactivated,
 --         a.isconfirmed,
 --         a.isadmin,

@@ -1,3 +1,5 @@
+USE [gitlab]
+
 CREATE TABLE dbo.abuse_reports (
     id integer NOT NULL,
     reporter_id integer,
@@ -465,7 +467,7 @@ CREATE TABLE dbo.ci_builds (
     artifacts_expire_at datetime ,
     environment VARCHAR(255),
     artifacts_size bigint,
-    "when" VARCHAR(255),
+    [when] VARCHAR(255),
     yaml_variables text,
     queued_at datetime ,
     token VARCHAR(255),
@@ -513,7 +515,7 @@ CREATE TABLE dbo.ci_builds_runner_session (
     build_id integer NOT NULL,
     url VARCHAR(255) NOT NULL,
     certificate VARCHAR(255),
-    "authorization" VARCHAR(255)
+    [authorization] VARCHAR(255)
 );
 
 CREATE SEQUENCE dbo.ci_builds_runner_session_id_seq
@@ -752,7 +754,7 @@ CREATE TABLE dbo.ci_stages (
     name VARCHAR(255),
     status integer,
     lock_version integer,
-    "position" integer
+    [position] integer
 );
 
 CREATE SEQUENCE dbo.ci_stages_id_seq
@@ -1655,7 +1657,7 @@ CREATE TABLE dbo.lists (
     board_id integer NOT NULL,
     label_id integer,
     list_type integer DEFAULT 1 NOT NULL,
-    "position" integer,
+    [position] integer,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL
 );
@@ -1747,7 +1749,7 @@ CREATE TABLE dbo.merge_request_diff_files (
     new_path text NOT NULL,
     old_path text NOT NULL,
     diff text,
-    "binary" bit,
+    [binary] bit,
     external_diff_offset integer,
     external_diff_size integer
 );
@@ -1977,7 +1979,7 @@ CREATE TABLE dbo.notes (
     st_diff text,
     updated_by_id integer,
     type VARCHAR(255),
-    "position" text,
+    [position] text,
     original_position text,
     resolved_at datetime ,
     resolved_by_id integer,
@@ -2485,7 +2487,7 @@ CREATE TABLE dbo.prometheus_metrics (
     y_label VARCHAR(255),
     unit VARCHAR(255),
     legend VARCHAR(255),
-    "group" integer NOT NULL,
+    [group] integer NOT NULL,
     created_at datetime  NOT NULL,
     updated_at datetime  NOT NULL,
     common bit DEFAULT 0 NOT NULL,
@@ -2734,7 +2736,7 @@ CREATE TABLE dbo.sent_notifications (
     reply_key_base VARCHAR(255) NOT NULL,
     line_code VARCHAR(255),
     note_type VARCHAR(255),
-    "position" text,
+    [position] text,
     in_reply_to_discussion_id VARCHAR(255)
 );
 
@@ -2762,7 +2764,7 @@ CREATE TABLE dbo.services (
     tag_push_events bit DEFAULT 1,
     note_events bit DEFAULT 1 NOT NULL,
     category VARCHAR(255) DEFAULT 'common' NOT NULL,
-    "default" bit DEFAULT 0,
+    [default] bit DEFAULT 0,
     wiki_page_events bit DEFAULT 1,
     pipeline_events bit DEFAULT 0 NOT NULL,
     confidential_issues_events bit DEFAULT 1 NOT NULL,

@@ -1,5 +1,8 @@
+USE [standup-slack-bot]
+GO
+
 CREATE TABLE dbo.convos (
-    "user" varchar(max) NOT NULL,
+    [user] varchar(max) NOT NULL,
     intent varchar(max),
     slot varchar(max),
     state NVARCHAR DEFAULT cast('{}' as NVARCHAR) NOT NULL,
@@ -35,7 +38,7 @@ CREATE SEQUENCE dbo.posts_id_seq
 CREATE TABLE dbo.questions (
     id integer NOT NULL,
     standup_id integer NOT NULL,
-    "order" smallint NOT NULL,
+    [order] smallint NOT NULL,
     question varchar(max) NOT NULL,
     created_at datetimeoffset DEFAULT getdate() NOT NULL,
     updated_at datetimeoffset DEFAULT getdate() NOT NULL
@@ -91,7 +94,7 @@ CREATE TABLE dbo.standups (
     id integer NOT NULL,
     team_id integer NOT NULL,
     name NVARCHAR(100) NOT NULL,
-    "time" time NOT NULL,
+    [time] time NOT NULL,
     timezone varchar(max) NOT NULL,
     channel_id varchar(max) NOT NULL,
     created_at datetimeoffset DEFAULT getdate() NOT NULL,
@@ -110,7 +113,7 @@ CREATE SEQUENCE dbo.standups_id_seq
 CREATE TABLE dbo.standups_users (
     standup_id integer NOT NULL,
     user_id integer NOT NULL,
-    "time" time NOT NULL,
+    [time] time NOT NULL,
     --  status_base VARCHAR(10) NOT NULL CHECK(status_base IN ('ACTIVE','INACTIVE','INVITED'))
     is_standup_owner bit DEFAULT 0 NOT NULL,
     created_at datetimeoffset DEFAULT getdate() NOT NULL,
@@ -169,7 +172,7 @@ CREATE SEQUENCE dbo.users_id_seq
 CREATE TABLE dbo.events (
     id integer NOT NULL,
     --  create index varchar on dbo.events(max) NOT NULL,
-    "time" datetimeoffset NOT NULL,
+    [time] datetimeoffset NOT NULL,
     checked_at datetimeoffset,
     -- created_at datetimeoffset DEFAULT dbo.timezone(cast('utc' as varchar(max)), getdate())
 );
@@ -194,7 +197,7 @@ CREATE TABLE dbo.tasks (
 );
 
 ALTER TABLE  dbo.convos
-    ADD CONSTRAINT convos_pkey PRIMARY KEY ("user");
+    ADD CONSTRAINT convos_pkey PRIMARY KEY ([user]);
 
 ALTER TABLE  dbo.eventids
     ADD CONSTRAINT eventids_pkey PRIMARY KEY (event_id);

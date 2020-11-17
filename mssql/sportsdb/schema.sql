@@ -1,7 +1,10 @@
+USE [sportsdb]
+GO
+
 CREATE TABLE addresses (
     id int NOT NULL,
     location_id integer NOT NULL,
-    "language" character varying(100),
+    [language] character varying(100),
     suite character varying(100),
     floor character varying(100),
     building character varying(100),
@@ -18,7 +21,7 @@ CREATE TABLE addresses (
     country character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('addresses', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('addresses', 'id'), 1, 0);
 
 CREATE TABLE affiliation_phases (
     id int NOT NULL,
@@ -30,7 +33,7 @@ CREATE TABLE affiliation_phases (
     end_date_time datetime2
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('affiliation_phases', 'id'), 75, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('affiliation_phases', 'id'), 75, 1);
 
 CREATE TABLE affiliations (
     id int NOT NULL,
@@ -48,7 +51,7 @@ CREATE TABLE affiliations_events (
     event_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('affiliations', 'id'), 29, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('affiliations', 'id'), 29, 1);
 
 CREATE TABLE affiliations_media (
     affiliation_id integer NOT NULL,
@@ -67,7 +70,7 @@ CREATE TABLE american_football_action_participants (
     yards_gained integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_action_participants', 'id'), 293, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_action_participants', 'id'), 293, 1);
 
 CREATE TABLE american_football_action_plays (
     id int NOT NULL,
@@ -76,10 +79,10 @@ CREATE TABLE american_football_action_plays (
     score_attempt_type character varying(100),
     drive_result character varying(100),
     points integer,
-    "comment" character varying(255)
+    [comment] character varying(255)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_action_plays', 'id'), 179, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_action_plays', 'id'), 179, 1);
 
 CREATE TABLE american_football_defensive_stats (
     id int NOT NULL,
@@ -97,7 +100,7 @@ CREATE TABLE american_football_defensive_stats (
     passes_defensed character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_defensive_stats', 'id'), 751, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_defensive_stats', 'id'), 751, 1);
 
 CREATE TABLE american_football_down_progress_stats (
     id int NOT NULL,
@@ -113,7 +116,7 @@ CREATE TABLE american_football_down_progress_stats (
     conversions_fourth_down_percentage character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_down_progress_stats', 'id'), 36, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_down_progress_stats', 'id'), 36, 1);
 
 CREATE TABLE american_football_event_states (
     id int NOT NULL,
@@ -132,7 +135,7 @@ CREATE TABLE american_football_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_event_states', 'id'), 249, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_event_states', 'id'), 249, 1);
 
 CREATE TABLE american_football_fumbles_stats (
     id int NOT NULL,
@@ -151,7 +154,7 @@ CREATE TABLE american_football_fumbles_stats (
     fumbles_opposing_yards_gained character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_fumbles_stats', 'id'), 121, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_fumbles_stats', 'id'), 121, 1);
 
 CREATE TABLE american_football_offensive_stats (
     id int NOT NULL,
@@ -162,7 +165,7 @@ CREATE TABLE american_football_offensive_stats (
     turnovers_giveaway character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_offensive_stats', 'id'), 36, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_offensive_stats', 'id'), 36, 1);
 
 CREATE TABLE american_football_passing_stats (
     id int NOT NULL,
@@ -187,7 +190,7 @@ CREATE TABLE american_football_passing_stats (
     receptions_average_yards_per character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_passing_stats', 'id'), 301, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_passing_stats', 'id'), 301, 1);
 
 CREATE TABLE american_football_penalties_stats (
     id int NOT NULL,
@@ -196,7 +199,7 @@ CREATE TABLE american_football_penalties_stats (
     penalty_first_downs character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_penalties_stats', 'id'), 36, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_penalties_stats', 'id'), 36, 1);
 
 CREATE TABLE american_football_rushing_stats (
     id int NOT NULL,
@@ -208,7 +211,7 @@ CREATE TABLE american_football_rushing_stats (
     rushes_longest character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_rushing_stats', 'id'), 175, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_rushing_stats', 'id'), 175, 1);
 
 CREATE TABLE american_football_sacks_against_stats (
     id int NOT NULL,
@@ -216,7 +219,7 @@ CREATE TABLE american_football_sacks_against_stats (
     sacks_against_total character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_sacks_against_stats', 'id'), 77, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_sacks_against_stats', 'id'), 77, 1);
 
 CREATE TABLE american_football_scoring_stats (
     id int NOT NULL,
@@ -239,7 +242,7 @@ CREATE TABLE american_football_scoring_stats (
     touchbacks_total character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_scoring_stats', 'id'), 842, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_scoring_stats', 'id'), 842, 1);
 
 CREATE TABLE american_football_special_teams_stats (
     id int NOT NULL,
@@ -274,20 +277,20 @@ CREATE TABLE american_football_special_teams_stats (
     fair_catches character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_special_teams_stats', 'id'), 142, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('american_football_special_teams_stats', 'id'), 142, 1);
 
 CREATE TABLE baseball_action_contact_details (
     id int NOT NULL,
     baseball_action_pitch_id integer NOT NULL,
-    "location" character varying(100),
+    [location] character varying(100),
     strength character varying(100),
     velocity integer,
-    "comment" varchar(max),
+    [comment] varchar(max),
     trajectory_coordinates character varying(100),
     trajectory_formula character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_contact_details', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_contact_details', 'id'), 1, 0);
 
 CREATE TABLE baseball_action_pitches (
     id int NOT NULL,
@@ -298,14 +301,14 @@ CREATE TABLE baseball_action_pitches (
     pitch_location character varying(100),
     pitch_type character varying(100),
     pitch_velocity integer,
-    "comment" varchar(max),
+    [comment] varchar(max),
     trajectory_coordinates character varying(100),
     trajectory_formula character varying(100),
     ball_type character varying(40),
     strike_type character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_pitches', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_pitches', 'id'), 1, 0);
 
 CREATE TABLE baseball_action_plays (
     id int NOT NULL,
@@ -314,7 +317,7 @@ CREATE TABLE baseball_action_plays (
     notation character varying(100),
     notation_yaml varchar(max),
     baseball_defensive_group_id integer,
-    "comment" character varying(255),
+    [comment] character varying(255),
     runner_on_first_advance integer,
     runner_on_second_advance integer,
     runner_on_third_advance integer,
@@ -324,7 +327,7 @@ CREATE TABLE baseball_action_plays (
     earned_runs_scored character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_plays', 'id'), 17, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_plays', 'id'), 17, 1);
 
 CREATE TABLE baseball_action_substitutions (
     id int NOT NULL,
@@ -338,16 +341,16 @@ CREATE TABLE baseball_action_substitutions (
     person_replacing_position_id integer,
     person_replacing_lineup_slot integer,
     substitution_reason character varying(100),
-    "comment" character varying(100)
+    [comment] character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_substitutions', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_action_substitutions', 'id'), 1, 0);
 
 CREATE TABLE baseball_defensive_group (
     id int NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_defensive_group', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_defensive_group', 'id'), 1, 0);
 
 CREATE TABLE baseball_defensive_players (
     id int NOT NULL,
@@ -356,7 +359,7 @@ CREATE TABLE baseball_defensive_players (
     position_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_defensive_players', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_defensive_players', 'id'), 1, 0);
 
 CREATE TABLE baseball_defensive_stats (
     id int NOT NULL,
@@ -371,7 +374,7 @@ CREATE TABLE baseball_defensive_stats (
     errors_catchers_interference integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_defensive_stats', 'id'), 1724, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_defensive_stats', 'id'), 1724, 1);
 
 CREATE TABLE baseball_event_states (
     id int NOT NULL,
@@ -397,7 +400,7 @@ CREATE TABLE baseball_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_event_states', 'id'), 17, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_event_states', 'id'), 17, 1);
 
 CREATE TABLE baseball_offensive_stats (
     id int NOT NULL,
@@ -436,7 +439,7 @@ CREATE TABLE baseball_offensive_stats (
     hits_extra_base integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_offensive_stats', 'id'), 1724, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_offensive_stats', 'id'), 1724, 1);
 
 CREATE TABLE baseball_pitching_stats (
     id int NOT NULL,
@@ -471,7 +474,7 @@ CREATE TABLE baseball_pitching_stats (
     save_credit character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_pitching_stats', 'id'), 852, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('baseball_pitching_stats', 'id'), 852, 1);
 
 CREATE TABLE basketball_defensive_stats (
     id int NOT NULL,
@@ -481,7 +484,7 @@ CREATE TABLE basketball_defensive_stats (
     blocks_per_game character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_defensive_stats', 'id'), 164, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_defensive_stats', 'id'), 164, 1);
 
 CREATE TABLE basketball_event_states (
     id int NOT NULL,
@@ -494,7 +497,7 @@ CREATE TABLE basketball_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_event_states', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_event_states', 'id'), 1, 0);
 
 CREATE TABLE basketball_offensive_stats (
     id int NOT NULL,
@@ -526,7 +529,7 @@ CREATE TABLE basketball_offensive_stats (
     points_scored_on_fast_break character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_offensive_stats', 'id'), 164, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_offensive_stats', 'id'), 164, 1);
 
 CREATE TABLE basketball_rebounding_stats (
     id int NOT NULL,
@@ -540,7 +543,7 @@ CREATE TABLE basketball_rebounding_stats (
     team_rebounds_offensive character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_rebounding_stats', 'id'), 164, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_rebounding_stats', 'id'), 164, 1);
 
 CREATE TABLE basketball_team_stats (
     id int NOT NULL,
@@ -550,7 +553,7 @@ CREATE TABLE basketball_team_stats (
     turnover_margin character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_team_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('basketball_team_stats', 'id'), 1, 0);
 CREATE TABLE bookmakers (
     id int NOT NULL,
     bookmaker_key character varying(100),
@@ -558,7 +561,7 @@ CREATE TABLE bookmakers (
     location_id integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('bookmakers', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('bookmakers', 'id'), 1, 0);
 
 CREATE TABLE core_person_stats (
     id int NOT NULL,
@@ -570,7 +573,7 @@ CREATE TABLE core_person_stats (
     position_id integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('core_person_stats', 'id'), 2588, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('core_person_stats', 'id'), 2588, 1);
 CREATE TABLE core_stats (
     id int NOT NULL,
     score character varying(100),
@@ -581,14 +584,14 @@ CREATE TABLE core_stats (
     score_percentage_opposing character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('core_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('core_stats', 'id'), 1, 0);
 CREATE TABLE db_info (
     version character varying(100) DEFAULT 16 NOT NULL
 );
 
 CREATE TABLE display_names (
     id int NOT NULL,
-    "language" character varying(100) NOT NULL,
+    [language] character varying(100) NOT NULL,
     entity_type character varying(100) NOT NULL,
     entity_id integer NOT NULL,
     full_name character varying(100),
@@ -602,14 +605,14 @@ CREATE TABLE display_names (
     suffix character varying(20)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('display_names', 'id'), 3958, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('display_names', 'id'), 3958, 1);
 
 CREATE TABLE document_classes (
     id int NOT NULL,
     name character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_classes', 'id'), 6, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_classes', 'id'), 6, 1);
 
 CREATE TABLE document_contents (
     id int NOT NULL,
@@ -618,7 +621,7 @@ CREATE TABLE document_contents (
     abstract varchar(max)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_contents', 'id'), 414, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_contents', 'id'), 414, 1);
 
 CREATE TABLE document_fixtures (
     id int NOT NULL,
@@ -636,9 +639,9 @@ CREATE TABLE document_fixtures_events (
     last_update datetime2
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_fixtures_events', 'id'), 7915, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_fixtures_events', 'id'), 7915, 1);
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_fixtures', 'id'), 12, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_fixtures', 'id'), 12, 1);
 
 CREATE TABLE document_package_entry (
     id int NOT NULL,
@@ -649,7 +652,7 @@ CREATE TABLE document_package_entry (
     short_headline character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_package_entry', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_package_entry', 'id'), 1, 0);
 
 CREATE TABLE document_packages (
     id int NOT NULL,
@@ -658,14 +661,14 @@ CREATE TABLE document_packages (
     date_time date
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_packages', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('document_packages', 'id'), 1, 0);
 CREATE TABLE documents (
     id int NOT NULL,
     doc_id character varying(75) NOT NULL,
     publisher_id integer NOT NULL,
     date_time datetime2,
     title character varying(255),
-    "language" character varying(100),
+    [language] character varying(100),
     priority character varying(100),
     revision_id character varying(75),
     stats_coverage character varying(100),
@@ -674,7 +677,7 @@ CREATE TABLE documents (
     db_loading_date_time datetime2
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('documents', 'id'), 414, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('documents', 'id'), 414, 1);
 
 CREATE TABLE documents_media (
     id int NOT NULL,
@@ -683,7 +686,7 @@ CREATE TABLE documents_media (
     media_caption_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('documents_media', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('documents_media', 'id'), 1, 0);
 CREATE TABLE events (
     id int NOT NULL,
     event_key character varying(100) NOT NULL,
@@ -702,7 +705,7 @@ CREATE TABLE events_documents (
     document_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('events', 'id'), 4350, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('events', 'id'), 4350, 1);
 
 CREATE TABLE events_media (
     event_id integer NOT NULL,
@@ -722,7 +725,7 @@ CREATE TABLE ice_hockey_action_participants (
     point_credit integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_action_participants', 'id'), 199, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_action_participants', 'id'), 199, 1);
 
 CREATE TABLE ice_hockey_action_plays (
     id int NOT NULL,
@@ -730,10 +733,10 @@ CREATE TABLE ice_hockey_action_plays (
     play_type character varying(100),
     score_attempt_type character varying(100),
     play_result character varying(100),
-    "comment" character varying(255)
+    [comment] character varying(255)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_action_plays', 'id'), 51, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_action_plays', 'id'), 51, 1);
 
 CREATE TABLE ice_hockey_defensive_stats (
     id int NOT NULL,
@@ -757,7 +760,7 @@ CREATE TABLE ice_hockey_defensive_stats (
     shots_shootout_allowed character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_defensive_stats', 'id'), 94, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_defensive_stats', 'id'), 94, 1);
 
 CREATE TABLE ice_hockey_event_states (
     id int NOT NULL,
@@ -770,7 +773,7 @@ CREATE TABLE ice_hockey_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_event_states', 'id'), 51, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_event_states', 'id'), 51, 1);
 
 CREATE TABLE ice_hockey_offensive_stats (
     id int NOT NULL,
@@ -798,14 +801,14 @@ CREATE TABLE ice_hockey_offensive_stats (
     scoring_chances character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_offensive_stats', 'id'), 1112, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_offensive_stats', 'id'), 1112, 1);
 
 CREATE TABLE ice_hockey_player_stats (
     id int NOT NULL,
     plus_minus character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_player_stats', 'id'), 1072, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('ice_hockey_player_stats', 'id'), 1072, 1);
 
 CREATE TABLE injury_phases (
     id int NOT NULL,
@@ -821,7 +824,7 @@ CREATE TABLE injury_phases (
     injury_side character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('injury_phases', 'id'), 771, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('injury_phases', 'id'), 771, 1);
 
 CREATE TABLE key_aliases (
     id int NOT NULL,
@@ -829,13 +832,13 @@ CREATE TABLE key_aliases (
     key_root_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('key_aliases', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('key_aliases', 'id'), 1, 0);
 CREATE TABLE key_roots (
     id int NOT NULL,
     key_type character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('key_roots', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('key_roots', 'id'), 1, 0);
 
 CREATE TABLE latest_revisions (
     id int NOT NULL,
@@ -843,7 +846,7 @@ CREATE TABLE latest_revisions (
     latest_document_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('latest_revisions', 'id'), 295, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('latest_revisions', 'id'), 295, 1);
 CREATE TABLE locations (
     id int NOT NULL,
     timezone character varying(100),
@@ -852,7 +855,7 @@ CREATE TABLE locations (
     country_code character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('locations', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('locations', 'id'), 1, 0);
 
 CREATE TABLE media (
     id int NOT NULL,
@@ -873,16 +876,16 @@ CREATE TABLE media_captions (
     caption_type character varying(100),
     caption character varying(100),
     caption_author_id integer NOT NULL,
-    "language" character varying(100),
+    [language] character varying(100),
     caption_size character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media_captions', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media_captions', 'id'), 1, 0);
 
 CREATE TABLE media_contents (
     id int NOT NULL,
     media_id integer NOT NULL,
-    "object" character varying(100),
+    [object] character varying(100),
     format character varying(100),
     mime_type character varying(100),
     height character varying(100),
@@ -892,9 +895,9 @@ CREATE TABLE media_contents (
     resolution character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media_contents', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media_contents', 'id'), 1, 0);
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media', 'id'), 1, 0);
 
 CREATE TABLE media_keywords (
     id int NOT NULL,
@@ -902,7 +905,7 @@ CREATE TABLE media_keywords (
     media_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media_keywords', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('media_keywords', 'id'), 1, 0);
 
 CREATE TABLE motor_racing_event_states (
     id int NOT NULL,
@@ -916,7 +919,7 @@ CREATE TABLE motor_racing_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('motor_racing_event_states', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('motor_racing_event_states', 'id'), 1, 0);
 
 CREATE TABLE motor_racing_qualifying_stats (
     id int NOT NULL,
@@ -929,7 +932,7 @@ CREATE TABLE motor_racing_qualifying_stats (
     qualifying_position character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('motor_racing_qualifying_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('motor_racing_qualifying_stats', 'id'), 1, 0);
 
 CREATE TABLE motor_racing_race_stats (
     id int NOT NULL,
@@ -937,7 +940,7 @@ CREATE TABLE motor_racing_race_stats (
     laps_behind_leader character varying(100),
     time_ahead_follower character varying(100),
     laps_ahead_follower character varying(100),
-    "time" character varying(100),
+    [time] character varying(100),
     points character varying(100),
     points_rookie character varying(100),
     bonus character varying(100),
@@ -961,7 +964,7 @@ CREATE TABLE motor_racing_race_stats (
     leads_total character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('motor_racing_race_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('motor_racing_race_stats', 'id'), 1, 0);
 
 CREATE TABLE outcome_totals (
     id int NOT NULL,
@@ -985,7 +988,7 @@ CREATE TABLE outcome_totals (
     streak_end date
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('outcome_totals', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('outcome_totals', 'id'), 1, 0);
 
 CREATE TABLE participants_events (
     id int NOT NULL,
@@ -998,7 +1001,7 @@ CREATE TABLE participants_events (
     rank integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('participants_events', 'id'), 8700, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('participants_events', 'id'), 8700, 1);
 CREATE TABLE periods (
     id int NOT NULL,
     participant_event_id integer NOT NULL,
@@ -1006,7 +1009,7 @@ CREATE TABLE periods (
     score character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('periods', 'id'), 548, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('periods', 'id'), 548, 1);
 
 CREATE TABLE person_event_metadata (
     id int NOT NULL,
@@ -1022,7 +1025,7 @@ CREATE TABLE person_event_metadata (
     lineup_slot_sequence integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('person_event_metadata', 'id'), 4002, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('person_event_metadata', 'id'), 4002, 1);
 
 CREATE TABLE person_phases (
     id int NOT NULL,
@@ -1048,7 +1051,7 @@ CREATE TABLE person_phases (
     selection_overall integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('person_phases', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('person_phases', 'id'), 1, 0);
 CREATE TABLE persons (
     id int NOT NULL,
     person_key character varying(100) NOT NULL,
@@ -1067,7 +1070,7 @@ CREATE TABLE persons_documents (
     document_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('persons', 'id'), 3937, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('persons', 'id'), 3937, 1);
 
 CREATE TABLE persons_media (
     person_id integer NOT NULL,
@@ -1079,23 +1082,23 @@ CREATE TABLE positions (
     abbreviation character varying(100) NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('positions', 'id'), 73, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('positions', 'id'), 73, 1);
 CREATE TABLE publishers (
     id int NOT NULL,
     publisher_key character varying(100) NOT NULL,
     publisher_name character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('publishers', 'id'), 1, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('publishers', 'id'), 1, 1);
 
 CREATE TABLE roles (
     id int NOT NULL,
     role_key character varying(100) NOT NULL,
     role_name character varying(100),
-    "comment" character varying(100)
+    [comment] character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('roles', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('roles', 'id'), 1, 0);
 CREATE TABLE seasons (
     id int NOT NULL,
     season_key integer NOT NULL,
@@ -1105,7 +1108,7 @@ CREATE TABLE seasons (
     end_date_time datetime2
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('seasons', 'id'), 4, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('seasons', 'id'), 4, 1);
 
 CREATE TABLE sites (
     id int NOT NULL,
@@ -1114,7 +1117,7 @@ CREATE TABLE sites (
     location_id integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sites', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sites', 'id'), 1, 0);
 
 CREATE TABLE soccer_defensive_stats (
     id int NOT NULL,
@@ -1132,7 +1135,7 @@ CREATE TABLE soccer_defensive_stats (
     shutouts character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_defensive_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_defensive_stats', 'id'), 1, 0);
 
 CREATE TABLE soccer_event_states (
     id int NOT NULL,
@@ -1147,7 +1150,7 @@ CREATE TABLE soccer_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_event_states', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_event_states', 'id'), 1, 0);
 
 CREATE TABLE soccer_foul_stats (
     id int NOT NULL,
@@ -1160,7 +1163,7 @@ CREATE TABLE soccer_foul_stats (
     ejections_total character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_foul_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_foul_stats', 'id'), 1, 0);
 
 CREATE TABLE soccer_offensive_stats (
     id int NOT NULL,
@@ -1191,7 +1194,7 @@ CREATE TABLE soccer_offensive_stats (
     hat_tricks character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_offensive_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('soccer_offensive_stats', 'id'), 1, 0);
 
 CREATE TABLE standing_subgroups (
     id int NOT NULL,
@@ -1199,7 +1202,7 @@ CREATE TABLE standing_subgroups (
     affiliation_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('standing_subgroups', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('standing_subgroups', 'id'), 1, 0);
 CREATE TABLE standings (
     id int NOT NULL,
     affiliation_id integer NOT NULL,
@@ -1216,7 +1219,7 @@ CREATE TABLE standings (
     source character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('standings', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('standings', 'id'), 1, 0);
 
 CREATE TABLE stats (
     id int NOT NULL,
@@ -1229,7 +1232,7 @@ CREATE TABLE stats (
     context character varying(40) NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('stats', 'id'), 12211, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('stats', 'id'), 12211, 1);
 
 CREATE TABLE sub_periods (
     id int NOT NULL,
@@ -1238,7 +1241,7 @@ CREATE TABLE sub_periods (
     score character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sub_periods', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sub_periods', 'id'), 1, 0);
 
 CREATE TABLE sub_seasons (
     id int NOT NULL,
@@ -1249,7 +1252,7 @@ CREATE TABLE sub_seasons (
     end_date_time datetime2
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sub_seasons', 'id'), 4, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sub_seasons', 'id'), 4, 1);
 
 CREATE TABLE team_american_football_stats (
     id int NOT NULL,
@@ -1260,7 +1263,7 @@ CREATE TABLE team_american_football_stats (
     turnover_ratio character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('team_american_football_stats', 'id'), 36, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('team_american_football_stats', 'id'), 36, 1);
 
 CREATE TABLE team_phases (
     id int NOT NULL,
@@ -1274,7 +1277,7 @@ CREATE TABLE team_phases (
     role_id integer
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('team_phases', 'id'), 368, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('team_phases', 'id'), 368, 1);
 
 CREATE TABLE teams (
     id int NOT NULL,
@@ -1288,7 +1291,7 @@ CREATE TABLE teams_documents (
     document_id integer NOT NULL
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('teams', 'id'), 128, 1);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('teams', 'id'), 128, 1);
 
 CREATE TABLE teams_media (
     team_id integer NOT NULL,
@@ -1302,7 +1305,7 @@ CREATE TABLE tennis_action_points (
     win_type character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_action_points', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_action_points', 'id'), 1, 0);
 
 CREATE TABLE tennis_action_volleys (
     id int NOT NULL,
@@ -1315,7 +1318,7 @@ CREATE TABLE tennis_action_volleys (
     trajectory_details character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_action_volleys', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_action_volleys', 'id'), 1, 0);
 
 CREATE TABLE tennis_event_states (
     id int NOT NULL,
@@ -1332,7 +1335,7 @@ CREATE TABLE tennis_event_states (
     context character varying(40)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_event_states', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_event_states', 'id'), 1, 0);
 
 CREATE TABLE tennis_return_stats (
     id int NOT NULL,
@@ -1350,7 +1353,7 @@ CREATE TABLE tennis_return_stats (
     break_points_converted_pct character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_return_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_return_stats', 'id'), 1, 0);
 
 CREATE TABLE tennis_service_stats (
     id int NOT NULL,
@@ -1371,7 +1374,7 @@ CREATE TABLE tennis_service_stats (
     break_points_saved_pct character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_service_stats', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('tennis_service_stats', 'id'), 1, 0);
 
 CREATE TABLE wagering_moneylines (
     id int NOT NULL,
@@ -1381,14 +1384,14 @@ CREATE TABLE wagering_moneylines (
     team_id integer NOT NULL,
     person_id integer,
     rotation_key character varying(100),
-    "comment" character varying(100),
+    [comment] character varying(100),
     vigorish character varying(100),
     line character varying(100),
     line_opening character varying(100),
     prediction character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_moneylines', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_moneylines', 'id'), 1, 0);
 
 CREATE TABLE wagering_odds_lines (
     id int NOT NULL,
@@ -1398,7 +1401,7 @@ CREATE TABLE wagering_odds_lines (
     team_id integer NOT NULL,
     person_id integer,
     rotation_key character varying(100),
-    "comment" character varying(100),
+    [comment] character varying(100),
     numerator character varying(100),
     denominator character varying(100),
     prediction character varying(100),
@@ -1406,7 +1409,7 @@ CREATE TABLE wagering_odds_lines (
     payout_amount character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_odds_lines', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_odds_lines', 'id'), 1, 0);
 
 CREATE TABLE wagering_runlines (
     id int NOT NULL,
@@ -1416,7 +1419,7 @@ CREATE TABLE wagering_runlines (
     team_id integer NOT NULL,
     person_id integer,
     rotation_key character varying(100),
-    "comment" character varying(100),
+    [comment] character varying(100),
     vigorish character varying(100),
     line character varying(100),
     line_opening character varying(100),
@@ -1424,7 +1427,7 @@ CREATE TABLE wagering_runlines (
     prediction character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_runlines', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_runlines', 'id'), 1, 0);
 
 CREATE TABLE wagering_straight_spread_lines (
     id int NOT NULL,
@@ -1434,14 +1437,14 @@ CREATE TABLE wagering_straight_spread_lines (
     team_id integer NOT NULL,
     person_id integer,
     rotation_key character varying(100),
-    "comment" character varying(100),
+    [comment] character varying(100),
     vigorish character varying(100),
     line_value character varying(100),
     line_value_opening character varying(100),
     prediction character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_straight_spread_lines', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_straight_spread_lines', 'id'), 1, 0);
 
 CREATE TABLE wagering_total_score_lines (
     id int NOT NULL,
@@ -1451,7 +1454,7 @@ CREATE TABLE wagering_total_score_lines (
     team_id integer NOT NULL,
     person_id integer,
     rotation_key character varying(100),
-    "comment" character varying(100),
+    [comment] character varying(100),
     vigorish character varying(100),
     line_over character varying(100),
     line_under character varying(100),
@@ -1460,7 +1463,7 @@ CREATE TABLE wagering_total_score_lines (
     prediction character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_total_score_lines', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('wagering_total_score_lines', 'id'), 1, 0);
 
 CREATE TABLE weather_conditions (
     id int NOT NULL,
@@ -1474,7 +1477,7 @@ CREATE TABLE weather_conditions (
     weather_code character varying(100)
 );
 
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('weather_conditions', 'id'), 1, 0);
+-- SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('weather_conditions', 'id'), 1, 0);
 
 ALTER TABLE  addresses
     ADD CONSTRAINT addresses_id_key UNIQUE (id);

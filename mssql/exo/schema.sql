@@ -1,3 +1,5 @@
+USE [exo]
+GO
 
  CREATE TABLE dbo.addons_kudos (
     kudos_id bigint NOT NULL,
@@ -992,7 +994,7 @@
   CREATE TABLE dbo.soc_identity_experiences (
     identity_id bigint NOT NULL,
     company character varying(250),
-    "position" character varying(500),
+    position character varying(500),
     start_date character(10),
     end_date character(10),
     skills character varying(2000),
