@@ -644,10 +644,10 @@ $$;
 ALTER FUNCTION comptaproc.check_balance(p_grpt integer) OWNER TO prisma;
 
 --
--- Name: check_periode(); Type: FUNCTION; Schema: comptaproc; Owner: prisma
+-- Name: check_periode(); Type: FUNCTION; Schema: public; Owner: prisma
 --
 
-CREATE FUNCTION comptaproc.check_periode() RETURNS trigger
+CREATE FUNCTION public.check_periode() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
 declare 
@@ -669,7 +669,7 @@ end;
 $$;
 
 
-ALTER FUNCTION comptaproc.check_periode() OWNER TO prisma;
+ALTER FUNCTION public.check_periode() OWNER TO prisma;
 
 --
 -- Name: correct_sequence(text, text, text); Type: FUNCTION; Schema: comptaproc; Owner: prisma
