@@ -1,0 +1,51 @@
+-- https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+CREATE TABLE `types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `numeric_integer_tinyint` tinyint(4) NOT NULL,
+  `numeric_integer_smallint` smallint(6) NOT NULL,
+  `numeric_integer_int` int(11) NOT NULL,
+  `numeric_integer_bigint` bigint(20) NOT NULL,
+  `numeric_floating_decimal` decimal(10,0) NOT NULL,
+  `numeric_floating_float` float NOT NULL,
+  `numeric_fixed_double` double NOT NULL,
+  `numeric_fixed_real` double NOT NULL,
+  `numeric_bit` bit(64) NOT NULL,
+  `numeric_boolean` tinyint(1) NOT NULL,
+  `date_date` date NOT NULL,
+  `date_datetime` datetime NOT NULL,
+  `date_timestamp` timestamp NOT NULLP,
+  `date_time` time NOT NULL,
+  `date_year` year(4) NOT NULL,
+  `string_char` char(255) NOT NULL,
+  `string_varchar` varchar(255) NOT NULL,
+  `string_text_tinytext` tinytext NOT NULL,
+  `string_text_text` text NOT NULL,
+  `string_text_mediumtext` mediumtext NOT NULL,
+  `string_text_longtext` longtext NOT NULL,
+  `string_binary_binary` binary(255) NOT NULL,
+  `string_binary_varbinary` varbinary(255) NOT NULL,
+  `string_blob_tinyblob` tinyblob NOT NULL,
+  `string_blob_mediumblob` mediumblob NOT NULL,
+  `string_blob_blob` blob NOT NULL,
+  `string_blob_longblob` longblob NOT NULL,
+  `string_enum` enum('0','1','2') NOT NULL,
+  `string_set` set('a','b','c') NOT NULL,
+  `spatial_geometry` geometry NOT NULL,
+  `spatial_point` point NOT NULL,
+  `spatial_linestring` linestring NOT NULL,
+  `spatial_polygon` polygon NOT NULL,
+  `spatial_multipoint` multipoint NOT NULL,
+  `spatial_multilinestring` multilinestring NOT NULL,
+  `spatial_multipolygon` multipolygon NOT NULL,
+  `spatial_geometrycollection` geometrycollection NOT NULL,
+  `json` json NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html
+CREATE TABLE `types_timestamp_initialization` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
