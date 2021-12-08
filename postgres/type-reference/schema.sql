@@ -1,3 +1,4 @@
+-- https://www.postgresql.org/docs/9.5/datatype.html
 create table types (
 	numeric_integer_smallint smallint,
 	numeric_integer_integer integer,
@@ -68,6 +69,7 @@ create table types (
 	other_txid_snapshot txid_snapshot
 )
 
+-- https://www.postgresql.org/docs/9.1/arrays.html
 create table types_array1 (
 	numeric_integer_smallint smallint[],
 	numeric_integer_integer integer[],
