@@ -1,19 +1,20 @@
 -- https://dev.mysql.com/doc/refman/8.0/en/data-types.html
 CREATE TABLE `types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `numeric_integer_tinyint` tinyint(4) NOT NULL,
-  `numeric_integer_smallint` smallint(6) NOT NULL,
-  `numeric_integer_int` int(11) NOT NULL,
-  `numeric_integer_bigint` bigint(20) NOT NULL,
-  `numeric_floating_decimal` decimal(10,0) NOT NULL,
-  `numeric_floating_float` float NOT NULL,
-  `numeric_fixed_double` double NOT NULL,
-  `numeric_fixed_real` double NOT NULL,
-  `numeric_bit` bit(64) NOT NULL,
-  `numeric_boolean` tinyint(1) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `numeric_integer_tinyint` TINYINT NOT NULL,
+  `numeric_integer_smallint` SMALLINT NOT NULL,
+  `numeric_integer_mediumint` MEDIUMINT NOT NULL,
+  `numeric_integer_int` INT NOT NULL,
+  `numeric_integer_bigint` BIGINT NOT NULL,
+  `numeric_fixed_decimal` DECIMAL NOT NULL,
+  `numeric_floating_float` FLOAT NOT NULL,
+  `numeric_floating_double` DOUBLE NOT NULL,
+  `numeric_floating_real` REAL NOT NULL,
+  `numeric_bit` BIT NOT NULL,
+  `numeric_boolean` BOOL NOT NULL,
   `date_date` date NOT NULL,
   `date_datetime` datetime NOT NULL,
-  `date_timestamp` timestamp NOT NULLP,
+  `date_timestamp` timestamp NOT NULL,
   `date_time` time NOT NULL,
   `date_year` year(4) NOT NULL,
   `string_char` char(255) NOT NULL,
@@ -47,5 +48,25 @@ CREATE TABLE `types_timestamp_initialization` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
+
+-- https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html
+CREATE TABLE `types_fixed_point` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `decimal` DECIMAL NOT NULL,
+  `decimal_10` DECIMAL(10) NOT NULL,
+  `decimal_10_0` DECIMAL(10,0) NOT NULL,
+  `decimal_5_2` DECIMAL(5,2) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- https://dev.mysql.com/doc/refman/8.0/en/floating-point-types.html
+TODO
+CREATE TABLE `types_floating_point` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `numeric_floating_float` FLOAT NOT NULL,
+  `numeric_floating_double` DOUBLE NOT NULL,
+  `numeric_floating_real` REAL NOT NULL,
   PRIMARY KEY (`id`)
 );
