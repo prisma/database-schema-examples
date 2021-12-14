@@ -61,10 +61,6 @@ CREATE TABLE `types_numeric_floating` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `numeric_floating_float_10` FLOAT(10) NOT NULL,
   `numeric_floating_float_50` FLOAT(50) NOT NULL,
-  `numeric_floating_double_10` DOUBLE(10) NOT NULL,
-  `numeric_floating_double_50` DOUBLE(50) NOT NULL,
-  `numeric_floating_real_10` REAL(10) NOT NULL,
-  `numeric_floating_real_50` REAL(50) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -91,18 +87,48 @@ CREATE TABLE `types_numeric_attributes` (
   `numeric_integer_mediumint_unsigned` MEDIUMINT UNSIGNED NOT NULL,
   `numeric_integer_int_unsigned` INT UNSIGNED NOT NULL,
   `numeric_integer_bigint_unsigned` BIGINT UNSIGNED NOT NULL,
-  -- auto_increment
-  `numeric_integer_tinyint_auto_increment` TINYINT AUTO_INCREMENT NOT NULL,
-  `numeric_integer_smallint_auto_increment` SMALLINT AUTO_INCREMENT NOT NULL,
-  `numeric_integer_mediumint_auto_increment` MEDIUMINT AUTO_INCREMENT NOT NULL,
-  `numeric_integer_int_auto_increment` INT AUTO_INCREMENT NOT NULL,
-  `numeric_integer_bigint_auto_increment` BIGINT AUTO_INCREMENT NOT NULL,
-  `numeric_fixed_decimal_auto_increment` DECIMAL AUTO_INCREMENT NOT NULL,
-  `numeric_fixed_numeric_auto_increment` NUMERIC AUTO_INCREMENT NOT NULL, -- alias to decimal
-  `numeric_floating_float_auto_increment` FLOAT AUTO_INCREMENT NOT NULL, -- deprecated in MySQL 8
-  `numeric_floating_double_auto_increment` DOUBLE AUTO_INCREMENT NOT NULL, -- deprecated in MySQL 8
-  `numeric_floating_real_auto_increment` REAL AUTO_INCREMENT NOT NULL, -- deprecated in MySQL 8
   PRIMARY KEY (`id`)
+);
+
+-- auto_increment
+CREATE TABLE `types_numeric_attributes_tinyint_auto_increment` (
+  `numeric_integer_tinyint_auto_increment` TINYINT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (`numeric_integer_tinyint_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_smallint_auto_increment` (
+  `numeric_integer_smallint_auto_increment` SMALLINT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (`numeric_integer_smallint_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_mediumint_auto_increment` (
+  `numeric_integer_mediumint_auto_increment` MEDIUMINT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (`numeric_integer_mediumint_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_int_auto_increment` (
+  `numeric_integer_int_auto_increment` INT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (`numeric_integer_int_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_bigint_auto_increment` (
+  `numeric_integer_bigint_auto_increment` BIGINT AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY (`numeric_integer_bigint_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_float_auto_increment` (
+  `numeric_floating_float_auto_increment` FLOAT AUTO_INCREMENT NOT NULL, -- deprecated in MySQL 8
+  PRIMARY KEY (`numeric_floating_float_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_double_auto_increment` (
+  `numeric_floating_double_auto_increment` DOUBLE AUTO_INCREMENT NOT NULL, -- deprecated in MySQL 8
+  PRIMARY KEY (`numeric_floating_double_auto_increment`)
+);
+
+CREATE TABLE `types_numeric_attributes_real_auto_increment` (
+  `numeric_floating_real_auto_increment` REAL AUTO_INCREMENT NOT NULL, -- deprecated in MySQL 8
+  PRIMARY KEY (`numeric_floating_real_auto_increment`)
 );
 
 -- https://dev.mysql.com/doc/refman/8.0/en/date-and-time-type-syntax.html
