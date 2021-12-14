@@ -106,6 +106,7 @@ CREATE TABLE `types_numeric_attributes` (
 );
 
 -- https://dev.mysql.com/doc/refman/8.0/en/date-and-time-type-syntax.html
+-- https://dev.mysql.com/doc/refman/8.0/en/fractional-seconds.html
 CREATE TABLE `types_date_fractional_seconds_precision` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_datetime_0` DATETIME(0) NOT NULL,
@@ -122,11 +123,14 @@ CREATE TABLE `types_date_fractional_seconds_precision` (
 
 -- TODO date defaults with fsp
 
-
 -- https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html
 CREATE TABLE `types_date_timestamp_initialization` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_datetime_default_on_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_timestamp_default_on_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_datetime_default` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_timestamp_default` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_datetime_on_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `date_timestamp_on_update` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
